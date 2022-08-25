@@ -5,8 +5,4 @@ Put in a pull request when done, and your changes will be merged into main.
 
 Also make sure to fetch/pull occassionally to keep local repository up to date. 
 
-<<<<<<< HEAD
-Hello Test
-=======
 Hello
->>>>>>> d99c1d47d49838cf325e320914370e128d700bc7
