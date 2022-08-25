@@ -4,5 +4,3 @@ Please make branches when working/experimenting with code so your edits do not i
 Put in a pull request when done, and your changes will be merged into main. 
 
 Also make sure to fetch/pull occassionally to keep local repository up to date. 
-
-Hello
