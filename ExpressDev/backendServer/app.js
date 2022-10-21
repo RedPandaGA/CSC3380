@@ -13,7 +13,7 @@ app.listen(PORT, () => {
 });
 
 app.get('/getAPIresponse', (req, res) => {
-    Api_helper.callAPI('api url')
+    Api_helper.callAPI('https://api.spoonacular.com/recipes/complexSearch?query=pasta&maxFat=25&number=2')
     .then(response => {
         res.json(response);
     })
