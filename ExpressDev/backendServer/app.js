@@ -1,4 +1,4 @@
-//API Key: ec6b18b84aea41b8b12f6a6b6b4cfb67;
+//API Key: ec6b18b84aea41b8b12f6a6b6b4cfb67
 const { response } = require("express");
 const express = require("express");
 const PORT = process.env.PORT || '3001';
@@ -22,3 +22,11 @@ app.get('/getAPIresponse', (req, res) => {
         res.send(error);
     });
 });
+
+/* 
+- By ingredients
+- By intolerances
+- By religious affiliation
+- By genre
+- By calories
+*/
