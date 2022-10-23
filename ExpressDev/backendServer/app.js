@@ -21,4 +21,13 @@ app.get('/getAPIresponse', (req, res) => {
     .catch(error => {
         res.send(error);
     });
+    
 });
+
+/* 
+- By ingredients
+- By intolerances
+- By religious affiliation
+- By genre
+- By calories
+*/
