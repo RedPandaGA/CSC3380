@@ -21,5 +21,4 @@ app.get('/getAPIresponse', (req, res) => {
     .catch(error => {
         res.send(error);
     });
-    
 });
