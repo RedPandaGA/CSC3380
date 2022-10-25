@@ -1,4 +1,4 @@
-//API Key: ec6b18b84aea41b8b12f6a6b6b4cfb67;
+const APIkey = process.env.APIkey;
 const { response } = require("express");
 const express = require("express");
 const PORT = process.env.PORT || '3001';
@@ -14,7 +14,7 @@ app.listen(PORT, () => {
 });
 
 app.get('/getAPIresponse', (req, res) => {
-    Api_helper.callAPI('https://api.spoonacular.com/recipes/findByIngredients?apiKey=ec6b18b84aea41b8b12f6a6b6b4cfb67&ingredients=beef,+potatoes,+carrots}')
+    Api_helper.callAPI(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${APIkey}&ingredients=beef,+potatoes,+carrots}`)
     .then(response => {
         res.json(response);
     })
