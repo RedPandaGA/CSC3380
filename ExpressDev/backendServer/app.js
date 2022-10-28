@@ -25,6 +25,17 @@ app.get('/getAPIresponse', (req, res) => {
     
 });
 
+app.get('/getIngredientsearch', (req, res) => {
+    Api_helper.callAPI(`https://api.spoonacular.com/food/ingredients/autocomplete?apiKey=${APIkey}&query=appl&number=5&metaInformation=true`)
+    .then(response => {
+        res.json(response);
+    })
+    .catch(error => {
+        res.send(error);
+    });
+
+});
+
 /* 
 - By ingredients
 - By intolerances
