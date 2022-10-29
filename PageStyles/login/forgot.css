@@ -8,7 +8,7 @@ body {
   overflow: hidden;
 }
 .container1 {
-  width: 400px;
+  width: 410px;  /* changed from 400 */
   display: flex;
   min-height: 400px;
   position: relative;
