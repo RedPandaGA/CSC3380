@@ -1,3 +1,4 @@
+require('dotenv').config()
 const APIkey = process.env.APIkey;
 const { response } = require("express");
 const express = require("express");
