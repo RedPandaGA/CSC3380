@@ -6,6 +6,8 @@ const PORT = process.env.PORT || '3001';
 const app = express();
 const Api_helper = require('./API_helper');
 
+app.use(express.json());
+
 app.get('/', (req, res) => {
     res.send("Go to /getAPIresponse to see the API response.");
 });
@@ -34,6 +36,23 @@ app.get('/getIngredientsearch', (req, res) => {
         res.send(error);
     });
 
+});
+
+app.post('/createuser',  (req, res) => {
+    newUV = req.body;
+    sqlres = connection.query(`
+        INSERT INTO users (UID, Username, Password, Email, PID, FID)
+        VALUES (((SELECT MAX(UID) FROM users)+1),?,?,?,?,?)
+    `, [])
+    
+});
+
+app.get('/exampleSQL', (req, res) => {
+    const [sqlres] = connection.query(`
+        SELECT MAX(UID)+1
+        FROM users
+    `)
+    res.send(sqlres[0]);
 });
 
 /* 
