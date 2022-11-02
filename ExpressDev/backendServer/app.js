@@ -21,23 +21,11 @@ app.listen(PORT, () => {
 
 app.get('/getAPIresponse', async (req, res) => {
     const test = await Api_helper.callAPI(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${APIkey}&ingredients=beef,+potatoes,+carrots}`)
-    // .then(response => {
-    //     res.json(response);
-    // })
-    // .catch(error => {
-    //     res.send(error);
-    // });
     res.send(test)
 });
 
 app.get('/getIngredientsearch', async (req, res) => {
     const test = await Api_helper.callAPI(`https://api.spoonacular.com/food/ingredients/autocomplete?apiKey=${APIkey}&query=appl&number=5&metaInformation=true`)
-    // .then(response => {
-    //     res.json(response);
-    // })
-    // .catch(error => {
-    //     res.send(error);
-    // });
     res.send(test)
 });
 
@@ -54,6 +42,7 @@ app.get('/getUsers/:id', async (req, res) => {
     const user = await db.getUser(id)
     res.send(user)
 })
+
 /* 
 - By ingredients
 - By intolerances
