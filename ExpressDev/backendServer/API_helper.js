@@ -1,11 +1,9 @@
-import * as request from 'request'
+import axios from 'axios'
 //const request = require('request');
 
-export function callAPI(url) {
-    return new Promise((resolve, reject) => {
-        request(url, {json: true}, (err, res, body) => {
-            if (err) {reject(err);}
-            resolve(body);
-        });
-    });
+export async function callAPI(urli) {
+    const res = await axios.get(urli)
+    return res.data
 }
+
+// console.log(await callAPI(`https://api.spoonacular.com/food/ingredients/autocomplete?apiKey=${APIkey}&query=appl&number=2&metaInformation=true`))

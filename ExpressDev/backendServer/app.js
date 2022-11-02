@@ -7,7 +7,7 @@ const APIkey = process.env.APIkey;
 const PORT = process.env.PORT || '3001';
 const app = express();
 import * as Api_helper from './API_helper.js'
-//const Api_helper = require('./API_helper');
+//const Api_helper = require('./API_helper.cjs');
 
 app.use(express.json());
 
@@ -19,26 +19,26 @@ app.listen(PORT, () => {
     console.log(`Express listening on Port ${PORT}.`);
 });
 
-app.get('/getAPIresponse', (req, res) => {
-    Api_helper.callAPI(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${APIkey}&ingredients=beef,+potatoes,+carrots}`)
-    .then(response => {
-        res.json(response);
-    })
-    .catch(error => {
-        res.send(error);
-    });
-    
+app.get('/getAPIresponse', async (req, res) => {
+    const test = await Api_helper.callAPI(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${APIkey}&ingredients=beef,+potatoes,+carrots}`)
+    // .then(response => {
+    //     res.json(response);
+    // })
+    // .catch(error => {
+    //     res.send(error);
+    // });
+    res.send(test)
 });
 
-app.get('/getIngredientsearch', (req, res) => {
-    Api_helper.callAPI(`https://api.spoonacular.com/food/ingredients/autocomplete?apiKey=${APIkey}&query=appl&number=5&metaInformation=true`)
-    .then(response => {
-        res.json(response);
-    })
-    .catch(error => {
-        res.send(error);
-    });
-
+app.get('/getIngredientsearch', async (req, res) => {
+    const test = await Api_helper.callAPI(`https://api.spoonacular.com/food/ingredients/autocomplete?apiKey=${APIkey}&query=appl&number=5&metaInformation=true`)
+    // .then(response => {
+    //     res.json(response);
+    // })
+    // .catch(error => {
+    //     res.send(error);
+    // });
+    res.send(test)
 });
 
 // app.post('/createuser',  (req, res) => {
