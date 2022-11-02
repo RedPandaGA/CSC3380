@@ -18,7 +18,7 @@ body {
 }
 
 h1 {
-  color:rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
   font-size: 2.7rem;
   position: absolute;
   left: 50%;
@@ -151,7 +151,7 @@ h1 {
   border-bottom: 3px solid rgb(0, 0, 0);
   background: rgba(255, 255, 255, 0.1); /* filled background for boxes */
   backdrop-filter: blur(5px);
-  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
 }
 
 .form {
@@ -227,12 +227,11 @@ h1 {
 }
 
 .forget {
-  color: rgb(0, 0, 0);
   margin-top: 5px;
 }
 
 .forget a {
-  color: rgb(33, 32, 32);
-  font-weight: 600;
+  color: rgb(255, 255, 255);
+  font-weight: 560;
   text-decoration: none;
 }
