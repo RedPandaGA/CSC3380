@@ -1,7 +1,9 @@
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
+import * as db from './database2.js'
+import express from 'express'
 const APIkey = process.env.APIkey;
-const { response } = require("express");
-const express = require("express");
+// const express = require("express");
 const PORT = process.env.PORT || '3001';
 const app = express();
 const Api_helper = require('./API_helper');
@@ -47,12 +49,9 @@ app.post('/createuser',  (req, res) => {
     
 });
 
-app.get('/exampleSQL', (req, res) => {
-    const [sqlres] = connection.query(`
-        SELECT MAX(UID)+1
-        FROM users
-    `)
-    res.send(sqlres[0]);
+app.get('/getUsers', async (req, res) => {
+    const users = await db.getUsers()
+    res.send(users);
 });
 
 /* 

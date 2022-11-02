@@ -21,7 +21,7 @@ const pool = new Pool({
 })
 
 //Debug functions
-async function getTableNames(){
+export async function getTableNames(){
     const { rows } = await pool.query(`
         SELECT *
         FROM pg_catalog.pg_tables
@@ -31,7 +31,7 @@ async function getTableNames(){
     return rows;
 }
 
-async function getUsers(){
+export async function getUsers(){
     const { rows } = await pool.query(`
         SELECT *
         FROM users
@@ -39,7 +39,7 @@ async function getUsers(){
     return rows
 }
 
-async function getPantries(){
+export async function getPantries(){
     const { rows } = await pool.query(`
         SELECT *
         FROM pantry
@@ -47,22 +47,41 @@ async function getPantries(){
     return rows
 }
 
+export async function getFavorites(){
+    const { rows } = await pool.query(`
+        SELECT *
+        FROM favorites
+    `)
+    return rows
+}
+
 // const tables = await getTableNames()
 // console.log(tables)
 
-const results = await insertUser("test2", "test", "test2@test.com")
-const results2 = await getUsers()
-const results3 = await getPantries()
-console.log(results)
-console.log(results2)
-console.log(results3)
+// const results = await insertUser("test1", "test", "test1@test.com")
+// const results2 = await getUsers()
+// const results3 = await getPantries()
+// const results4 = await getFavorites()
+// console.log(results)
+// console.log(results2)
+// console.log(results3)
+// console.log(results4)
 
 //Actual Functions
 //Insert users
-async function insertUser(username, password, email){
+export async function insertUser(username, password, email){
     const { rows } = await pool.query(`
         INSERT INTO users ("Username", "Password", "Email")
         VALUES ($1,$2,$3)
     `, [username, password, email])
+    return rows
+}
+
+export async function getUser(id){
+    const { rows } = await pool.query(`
+        SELECT *
+        FROM users
+        WHERE "UID" = $1
+    `, [id])
     return rows
 }
