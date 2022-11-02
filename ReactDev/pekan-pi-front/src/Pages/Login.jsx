@@ -6,6 +6,7 @@ import {Link} from "react-router-dom"
 function Login() {
   return (
     <div className="login-page">
+      
       {/*left seciton */}
       
       <div className="left-section">
@@ -14,12 +15,11 @@ function Login() {
            
             <div className="login-form-container">
                   <h2 className="header2">Login to PeKan Pi</h2>
-                  <p className="header2">Recipe generator built to help limit food waste!</p>
+                  <p className="header2left">Recipe generator built to help limit food waste!</p>
                     <form className="login-from">
                         <input type="text" placeholder="Email" />
                         <input type="password" placeholder="Password" />
-                        <input type="submit" value="Login" /> 
-
+                        <input className= "button"type="submit" value="Login" /> 
                      </form>
                    <Link to="/forgot">
                      <p className="forget">Forgot Password? Click Here </p>
@@ -37,20 +37,21 @@ function Login() {
               
                <div className="signup-form-container">
                     <h2 className="header2">Don't have an account?</h2>
-                    <p className="header2">Enter your information below to create an account!</p>
+                    <p className="header2right">Enter your information below to create an account!</p>
                     <form className="signup-from">
-        
-                          <input type="text" placeholder="Full Name" />
-                          <input type="text" placeholder="Email" />
-                          <input type="password" placeholder="Password" />
-                          <input type="submit" value="Submit" />    
+                      <input type="text" placeholder="Full Name" />
+                      <input type="text" placeholder="Email" />
+                      <input type="password" placeholder="Password" />
+                      <input className= "button" type="submit" value="Submit" />    
                      </form>
+                     {/* add picture in top right corner */}
+                     
                </div>
           </div>
        </div>
 </div>
 
-  )
+);
 }
 
 export default Login;

@@ -1,5 +1,6 @@
 .forget-page {
-  background-color: rgb(225, 234, 183);
+  background-color: rgb(211, 219, 173);
+  height: 100vh;
 }
 
 h1 {
@@ -16,9 +17,11 @@ p {
 
 input[type="email"] {
   height: 1.6rem;
+  width: 15rem;
   border: 1.3px solid rgb(0, 0, 0);
   border-radius: 0.5rem;
   font-size: 1rem;
+  font-weight: 200px;
   padding:15px;
 }
 
@@ -27,16 +30,14 @@ button[type="submit"] {
   border: 1.3px solid rgb(0, 0, 0);
   border-radius: 0.5rem;
   font-size: 1rem;
-  background-color: rgb(230, 226, 249);
+  background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
-
   font-size: medium;
   padding-left:10px;
   padding-right:10px;
   display:block;
   margin:auto;
   margin-top:10px;
-
 }
 
 a {
@@ -49,12 +50,13 @@ p{
   color: rgb(0, 0, 0);
   font-size: 1.1rem;
 }
+
 form{
     width:fit-content;
     padding:20px;
-    margin:auto;
-    
+    margin:auto;   
 }
+
 .forget{
     margin:30px;
 }
