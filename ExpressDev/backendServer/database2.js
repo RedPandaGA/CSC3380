@@ -58,7 +58,10 @@ export async function getFavorites(){
 // const tables = await getTableNames()
 // console.log(tables)
 
-// const results = await insertUser("test1", "test", "test1@test.com")
+// await insertUser("test1", "test", "test1@test.com")
+// await insertUser("test2", "test", "test2@test.com")
+// await insertUser("test3", "test", "test3@test.com")
+// const results = await insertUser("test4", "test", "test4@test.com")
 // const results2 = await getUsers()
 // const results3 = await getPantries()
 // const results4 = await getFavorites()

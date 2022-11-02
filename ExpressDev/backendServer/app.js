@@ -6,7 +6,8 @@ const APIkey = process.env.APIkey;
 // const express = require("express");
 const PORT = process.env.PORT || '3001';
 const app = express();
-const Api_helper = require('./API_helper');
+import * as Api_helper from './API_helper.js'
+//const Api_helper = require('./API_helper');
 
 app.use(express.json());
 
@@ -40,20 +41,19 @@ app.get('/getIngredientsearch', (req, res) => {
 
 });
 
-app.post('/createuser',  (req, res) => {
-    newUV = req.body;
-    sqlres = connection.query(`
-        INSERT INTO users (UID, Username, Password, Email, PID, FID)
-        VALUES (((SELECT MAX(UID) FROM users)+1),?,?,?,?,?)
-    `, [])
-    
-});
+// app.post('/createuser',  (req, res) => {
+// });
 
 app.get('/getUsers', async (req, res) => {
     const users = await db.getUsers()
-    res.send(users);
+    res.send(users)
 });
 
+app.get('/getUsers/:id', async (req, res) => {
+    const id = req.params.id
+    const user = await db.getUser(id)
+    res.send(user)
+})
 /* 
 - By ingredients
 - By intolerances
