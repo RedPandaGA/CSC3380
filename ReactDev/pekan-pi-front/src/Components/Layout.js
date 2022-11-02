@@ -3,7 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 function Layout() {
   return (
     <div>
-      <h1>Layout</h1>
+  
       <Link to="/"> Home</Link>
       <Link to="/Login"> Login</Link>
       <Link to="/RecipiesPage"> Recipies</Link>

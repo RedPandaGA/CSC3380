@@ -1,0 +1,134 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/**styles*/
+.login-page{
+  height:100vh;
+  width:100%;
+  display:flex;
+  justify-content: space-around;
+  align-items:center;
+  /* background: var(--container-bg-color);  */
+}
+
+.box  {
+height:530px;
+padding:30px;
+background: rgba(255, 255, 255, 0.1); 
+border: 3px solid rgba(0, 0, 0, 0.5);
+border-right: 3px solid rgb(0, 0, 0);
+border-bottom: 3px solid rgb(0, 0, 0);
+background: rgba(255, 255, 255, 0.1); 
+backdrop-filter: blur(5px);
+box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+border-radius:20px;
+}
+
+.right-section,.left-section{
+  height:100%;
+  width:100%;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition:1s;
+}
+
+.right-section:hover,.left-section:hover{
+  width:160%;
+}
+
+.right-section{
+  background: url("../Images/pekan-dark.jpg") center center no-repeat;
+  background-size: cover;
+}
+
+.left-section{
+  background: url("../Images/food-dark.jpg") center center no-repeat;
+  background-size: cover;
+}
+
+.box form{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1rem;
+  text-decoration: none;
+  color:rgb(255, 255, 255);
+}
+
+.box form input {
+  color: rgb(255, 255, 255);
+  border: none;
+  outline: none;
+  font-size: 17px;
+  width: 20rem;
+  padding: 10px 20px;
+  letter-spacing: 1px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 5px 15px rgba(35, 193, 75, 0.05);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); 
+  margin:15px;
+}
+
+.box form input::placeholder{
+  color:rgb(255, 255, 255);
+}
+
+.box h1, .box p,.box h2{
+  text-align: center;
+  margin:10px;
+  padding:10px;
+  color: rgb(255, 255, 255);
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  margin-bottom: 1rem;
+  color:rgb(255, 255, 255);
+
+}
+
+/* making changes to forgot password */
+p.forget {
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+  color:rgb(255, 255, 255);
+  margin-top: -1rem;
+  font-family: "Poppins", sans-serif; 
+}
+
+h2.header2, p.header2 {
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h2.header2{
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2rem;
+  margin-bottom: 1rem;
+  color:rgb(255, 255, 255);
+}
+
+p.header2{
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0rem;
+  width: 320px; 
+  margin-bottom: 0rem;
+  display: inline-block;
+  
+}
