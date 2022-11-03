@@ -8,7 +8,9 @@ export async function callAPI(urli) {
 
 export async function test(){
     const res = await axios.post('http://localhost:3002/createuser', {
-        answer: 42
+        username: "test6",
+        password: "test",
+        email: "test6@test.com"
       });
-    return res
+      return 0;
 }
