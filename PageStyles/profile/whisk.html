@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="weidth-device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PeKan Pi - Pantry</title>
+    <link rel="icon" <img src="logo.png"> 
+    <link rel="stylesheet" href="home.css" />
+    <link href="<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="header">
+    </div>
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+            <a href="profilePage.html"> <img src= "logo2.png" width="150px"></a>
+        </div>
+        <nav>
+          <ul id="MenuItems">
+            <li><a href="profilePage.html">Home</a></li>
+            <!-- <li><a href="search.html">Pantry</a></li> -->
+            <li><a href="">Account</a></li>
+            <li><a href="">About</a></li>
+          </ul>
+        </nav>
+        <a href="search.html"> <img src="recipes.png" width="50px" height="50px"> </a>
+        <a href="whisk.html"> <img src="whisk2.png" width="50px" height="50px"> </a>
+        <img src="menu.png" class="menu-icon" onclick="menutoggle()">
+      </div>
+
+      <!-- pantry -->
+      <div class="title">
+        <h1>Pantry</h1>
+      </div>
+      <!-- saved recipes -->
+      <div class="title">
+        <h1>Saved Recipes</h1>
+      </div>
+      
+    <!-- js for toggle menu -->
+    <script>
+        var MenuItems=document.getElementById("MenuItems");
+        MenuItems.style.maxHeight= "0px";
+        function menutoggle(){
+            if(MenuItems.style.maxHeight== "0px"){
+                MenuItems.style.maxHeight= "200px"
+            }
+            else{
+                MenuItems.style.maxHeight= "0px"; 
+            }
+        }
+    </script>
+  </body>
+</html>
