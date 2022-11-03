@@ -1,19 +1,24 @@
-//import and initialize dotenv to read environment variables
+// Import and initialize dotenv to read environment variables
 import dotenv from 'dotenv'
 dotenv.config()
-//import our own js libraries
+
+// Import our own js libraries
 import * as Api_helper from './API_helper.js'
 import * as db from './database2.js'
-//environment variables
+
+// Environment variables
 const APIkey = process.env.APIkey
 const PORT = process.env.PORT || '3001'
-//import and start express
+
+// Import and start express
 import express from 'express'
 const app = express()
-//set express to parse html body as json
+
+// Set express to parse html body as json
 app.use(express.json())
 
-//Express utility functions BEGIN
+
+/********************************************************* Express utility functions BEGIN **********************************************************************************/
 
 app.listen(PORT, () => {
     console.log(`Express listening on Port ${PORT}.`)
@@ -23,9 +28,10 @@ app.get('/', (req, res) => {
     res.send("Go to /getAPIresponse to see the API response.")
 });
 
-//Express utility END
+/********************************************************* Express utility functions END ************************************************************************************/
 
-//Spoonacular API call functions BEGIN
+
+/********************************************************* Spoonacular API call functions BEGIN *****************************************************************************/
 
 app.get('/getAPIresponse', async (req, res) => {
     const test = await Api_helper.callAPI(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${APIkey}&ingredients=beef,+potatoes,+carrots}`)
@@ -38,9 +44,10 @@ app.get('/getIngredientsearch/:search', async (req, res) => {
     res.send(test)
 });
 
-//Spoonacular API call functions END
+/********************************************************* Spoonacular API call functions END ******************************************************************************/
 
-//PostgreSQL API call functions BEGIN
+
+/********************************************************* PostgreSQL API call functions BEGIN *****************************************************************************/
 
 app.get('/createuserTest', async (req, res) => {
     Api_helper.test();
@@ -89,7 +96,7 @@ app.get('/getFavorites/:id' , async (req, res) => {
     res.send(favorites)
 })
 
-//PostgreSQL API call functions END
+/********************************************************* PostgreSQL API call functions END *******************************************************************************/
 
 /* 
 - By ingredients
