@@ -15,13 +15,14 @@ app.use(express.json());
 
 //Express utility functions BEGIN
 
+app.listen(PORT, () => {
+    console.log(`Express listening on Port ${PORT}.`);
+});
+
 app.get('/', (req, res) => {
     res.send("Go to /getAPIresponse to see the API response.");
 });
 
-app.listen(PORT, () => {
-    console.log(`Express listening on Port ${PORT}.`);
-});
 
 //Express utility END
 
