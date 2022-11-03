@@ -10,61 +10,65 @@
 }
 
 /**styles*/
-.login-page{
-  height:100vh;
-  width:100%;
-  display:flex;
+.login-page {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+
   justify-content: space-around;
-  align-items:center;
+  align-items: center;
 }
 
-.box  {
-height:530px;
-padding:30px;
-background: rgba(255, 255, 255, 0.1); 
-border: 3px solid rgba(0, 0, 0, 0.5);
-border-right: 3px solid rgb(0, 0, 0);
-border-bottom: 3px solid rgb(0, 0, 0);
-background: rgba(255, 255, 255, 0.1); 
-backdrop-filter: blur(5px);
-box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
-border-radius:20px;
-background: var(--color);
+.box {
+  height: 530px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 3px solid rgba(0, 0, 0, 0.5);
+  border-right: 3px solid rgb(0, 0, 0);
+  border-bottom: 3px solid rgb(0, 0, 0);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  background: var(--color);
 }
 
-.right-section,.left-section{
-  height:100%;
-  width:100%;
-  display:flex;
+.right-section,
+.left-section {
+  height: 100%;
+  width: 100%;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition:1s;
+  transition: 1s;
 }
 
-.right-section:hover,.left-section:hover{
-  width:160%;
+.right-section:hover,
+.left-section:hover {
+  width: 160%;
 }
 
-.right-section{
+.right-section {
   background: url("../Images/pekan-dark.jpg") center center no-repeat;
   background-size: cover;
 }
 
-.left-section{
+.left-section {
   background: url("../Images/food-dark.jpg") center center no-repeat;
   background-size: cover;
 }
 
-.box form{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
+.box form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   text-align: center;
   font-size: 1rem;
   text-decoration: none;
-  color:rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
 }
 
 .box form input {
@@ -80,18 +84,20 @@ background: var(--color);
   border: 1px solid rgba(255, 255, 255, 0.5);
   box-shadow: 0 5px 15px rgba(35, 193, 75, 0.05);
   border-right: 1px solid rgba(255, 255, 255, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2); 
-  margin:15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 15px;
 }
 
-.box form input::placeholder{
-  color:rgb(255, 255, 255);
+.box form input::placeholder {
+  color: rgb(255, 255, 255);
 }
 
-.box h1, .box p,.box h2{
+.box h1,
+.box p,
+.box h2 {
   text-align: center;
-  margin:10px;
-  padding:10px;
+  margin: 10px;
+  padding: 10px;
   color: rgb(255, 255, 255);
 }
 
@@ -101,8 +107,7 @@ background: var(--color);
   text-transform: uppercase;
   letter-spacing: 0.2rem;
   margin-bottom: 1rem;
-  color:rgb(255, 255, 255);
-
+  color: rgb(255, 255, 255);
 }
 
 /* making changes to forgot password */
@@ -110,42 +115,109 @@ p.forget {
   font-size: 1rem;
   font-weight: 400;
   letter-spacing: 0.1rem;
-  color:rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
   margin-top: -1rem;
-  font-family: "Poppins", sans-serif; 
+  font-family: "Poppins", sans-serif;
 }
 
-h2.header2{
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+h2.header2 {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-size: 1.7rem;
   font-weight: 600;
   letter-spacing: 0.2rem;
   margin-bottom: 0rem;
-  color:rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+
+  margin: auto;
+  text-align: center;
 }
 
-p.header2left{
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+.header2left {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-size: 1.1rem;
   font-weight: 700;
   letter-spacing: 0rem;
-  width: 320px; 
+  color: white;
   margin-bottom: 0rem;
-  margin-left: 2rem;
-  display: inline-block;
+  margin: auto !important;
+  text-align: center;
 }
 
-p.header2right{
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+.header2right {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-size: 1.1rem;
   font-weight: 700;
   letter-spacing: 0rem;
-  width: 320px; 
+  color: rgb(255, 255, 255);
   margin-bottom: 0rem;
-  margin-left: 3.2rem;
-  display: inline-block;
+  margin: auto !important;
+  text-align: center;
 }
 
-.box .button{
+.box .button {
   width: 170px;
+}
+
+.box .button:hover {
+  background: #fff;
+  color: #000;
+  border: 1px solid #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* .box input:hover {
+  background: #fff;
+  color: #000;
+  /* make the placeholder text black 
+  border: 1px solid #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+} */
+
+/* making page responsive to moblie phone and tablet*/
+
+@media screen and (max-width: 1000px) {
+  .login-page {
+    flex-direction: column;
+    height: 200vh;
+  }
+  .right-section:hover,
+  .left-section:hover {
+    width: 100%;
+  }
+  .box {
+    width: 60%;
+  }
+  h2.header2 {
+    font-size: 1.1rem;
+  }
+  .box form input {
+    width: 16rem;
+  }
+}
+
+@media screen and (max-width: 748px) {
+  .login-page {
+    flex-direction: column;
+    height: 200vh;
+  }
+  .right-section:hover,
+  .left-section:hover {
+    width: 100%;
+  }
+  .box {
+    width: 90%;
+  }
+  h2.header2 {
+    font-size: 1.1rem;
+  }
+  .box form input {
+    width: 16rem;
+  }
 }
