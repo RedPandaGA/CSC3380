@@ -6,7 +6,7 @@ function Layout() {
   
       <Link to="/"> Home</Link>
       <Link to="/Login"> Login</Link>
-      <Link to="/RecipiesPage"> Recipies</Link>
+      <Link to="/RecipiesPage"> Recipes</Link>
       <Link to="/Profile"> Profile</Link>
       <Link to="/Pantry"> Pantry</Link>
       <hr></hr>

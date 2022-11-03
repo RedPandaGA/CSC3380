@@ -1,5 +1,5 @@
 :root {
-  --color: rgba(152, 149, 149, 0.519);
+  --color: rgba(152, 149, 149, 0.519); /* variable for login and sign up box background */
 }
 
 * {
@@ -26,7 +26,6 @@
   border: 3px solid rgba(0, 0, 0, 0.5);
   border-right: 3px solid rgb(0, 0, 0);
   border-bottom: 3px solid rgb(0, 0, 0);
-  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(5px);
   box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
@@ -170,18 +169,7 @@ h2.header2 {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* .box input:hover {
-  background: #fff;
-  color: #000;
-  /* make the placeholder text black 
-  border: 1px solid #fff;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-} */
-
 /* making page responsive to moblie phone and tablet*/
-
 @media screen and (max-width: 1000px) {
   .login-page {
     flex-direction: column;
@@ -195,7 +183,7 @@ h2.header2 {
     width: 60%;
   }
   h2.header2 {
-    font-size: 1.1rem;
+    font-size: 1.54rem;
   }
   .box form input {
     width: 16rem;
