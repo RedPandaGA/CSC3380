@@ -1,12 +1,16 @@
-const request = require('request');
+import axios from 'axios'
+//const request = require('request');
 
-module.exports = {
-    callAPI : function(url) {
-        return new Promise((resolve, reject) => {
-            request(url, {json: true}, (err, res, body) => {
-                if (err) {reject(err);}
-                resolve(body);
-            });
-        });
-    }
+export async function callAPI(urli) {
+    const res = await axios.get(urli)
+    return res.data
+}
+
+export async function test(){
+    const res = await axios.post('http://localhost:3002/createuser', {
+        username: "test6",
+        password: "test",
+        email: "test6@test.com"
+      });
+      return 0;
 }
