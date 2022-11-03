@@ -29,8 +29,11 @@ app.get('/getIngredientsearch', async (req, res) => {
     res.send(test)
 });
 
-// app.post('/createuser',  (req, res) => {
-// });
+app.post('/createuser',  async (req, res) => {
+    await req.body
+    console.log(req.body)
+    res.send(req.body)
+});
 
 app.get('/getUsers', async (req, res) => {
     const users = await db.getUsers()
@@ -43,6 +46,7 @@ app.get('/getUsers/:id', async (req, res) => {
     res.send(user)
 })
 
+// console.log(await Api_helper.test())
 /* 
 - By ingredients
 - By intolerances

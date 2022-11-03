@@ -6,4 +6,9 @@ export async function callAPI(urli) {
     return res.data
 }
 
-// console.log(await callAPI(`https://api.spoonacular.com/food/ingredients/autocomplete?apiKey=${APIkey}&query=appl&number=2&metaInformation=true`))
+export async function test(){
+    const res = await axios.post('http://localhost:3002/createuser', {
+        answer: 42
+      });
+    return res
+}
