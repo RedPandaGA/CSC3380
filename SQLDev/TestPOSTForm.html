@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>simplePOSTTest</title>
+</head>
+<body>
+    <form onsubmit="sendJSON()" method="post" enctype="">
+        <label>Username: <input name="username" type="text"></label>
+        <br>
+        <label>Password: <input name="password" type="password"></label>
+        <br>
+        <label>Email: <input name="email" type="email"></label>
+        <br>
+        <button type="submit" name="submitbtn">Sign Up!</button>
+    </form>
+    <p class="result" style="color:green">test</p>
+    <script>
+        function sendJSON(){
+            let result = document.querySelector('.result');
+            let name = document.querySelector('#username');
+            let email = document.querySelector('#email');
+            let password = document.querySelector('#password');
+            
+            // Creating a XHR object
+            let xhr = new XMLHttpRequest();
+            let url = "http://localhost:3002/createuser";
+       
+            // open a connection
+            xhr.open("POST", url, true);
+ 
+            // Set the request header i.e. which type of content you are sending
+            xhr.setRequestHeader("Content-Type", "application/json");
+ 
+            // Create a state change callback
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+ 
+                    // Print received data from server
+                    result.innerHTML = this.responseText;
+ 
+                } else {
+                    console.log(this.responseText)
+                    result.innerHTML = this.responseText
+                }
+            };
+ 
+            // Converting JSON data to string
+            var data = JSON.stringify({ "name": name.value, "email": email.value });
+ 
+            // Sending data with the request
+            xhr.send(data);
+        }
+    </script>
+</body>
