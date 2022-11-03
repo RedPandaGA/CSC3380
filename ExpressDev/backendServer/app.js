@@ -23,7 +23,6 @@ app.get('/', (req, res) => {
     res.send("Go to /getAPIresponse to see the API response.");
 });
 
-
 //Express utility END
 
 //Spoonacular API call functions BEGIN
@@ -42,6 +41,7 @@ app.get('/getIngredientsearch/:search', async (req, res) => {
 //Spoonacular API call functions END
 
 //PostgreSQL API call functions BEGIN
+
 app.get('/createuserTest', async (req, res) => {
     Api_helper.test();
     res.send()
