@@ -14,7 +14,9 @@ function Home() {
   // // }
 
   return (
+    
     <>
+    <div className = "Home">
       <div className="header">
         <div className="container">
           <div className="navbar">
@@ -239,6 +241,7 @@ function Home() {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </>
   );

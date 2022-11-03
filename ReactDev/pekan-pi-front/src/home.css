@@ -1,9 +1,12 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  background: #e3eca4;
-}
+  /* only make background color yellow to the home page */
+
+  .Home{
+    background-color: #e3eca4;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
 body {
   font-family: "Playfair Display", serif;
 }
