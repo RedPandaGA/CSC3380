@@ -4,7 +4,7 @@ function Pantry() {
     return ( 
         <div>
             <h2>Pantry</h2>
-            <img src={logo} alt="logo"/>
+            {/* <img src={logo} alt="logo"/> */}
         </div>
     );
 }

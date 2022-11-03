@@ -11,7 +11,6 @@ import './index.css';
 function App() {
   return (
     <div className="react-app">
-      {/* <img class = "logo" src="Images/logo2.jpg" alt = "logo"/> */}
       <Layout />
       
       <Routes className= "NavBar">
