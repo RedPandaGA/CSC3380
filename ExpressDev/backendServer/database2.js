@@ -2,14 +2,14 @@
 import * as pg from 'pg'
 const { Pool } = pg.default
 //import and initialize dotenv to read environment variables 
-import dotenv from 'dotenv';
-dotenv.config();
+import dotenv from 'dotenv'
+dotenv.config()
 //get environment variables
-const DBHOST = process.env.DBHOST;
-const USER = process.env.USER;
-const PASS = process.env.PASS;
-const DBNAME = process.env.DBNAME;
-const DBPORT = process.env.DBPORT;
+const DBHOST = process.env.DBHOST
+const USER = process.env.USER
+const PASS = process.env.PASS
+const DBNAME = process.env.DBNAME
+const DBPORT = process.env.DBPORT
 
 const pool = new Pool({
     host: DBHOST,

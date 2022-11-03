@@ -1,26 +1,26 @@
 //import and initialize dotenv to read environment variables
-import dotenv from 'dotenv';
-dotenv.config();
+import dotenv from 'dotenv'
+dotenv.config()
 //import our own js libraries
 import * as Api_helper from './API_helper.js'
 import * as db from './database2.js'
 //environment variables
-const APIkey = process.env.APIkey;
-const PORT = process.env.PORT || '3001';
+const APIkey = process.env.APIkey
+const PORT = process.env.PORT || '3001'
 //import and start express
 import express from 'express'
-const app = express();
+const app = express()
 //set express to parse html body as json
-app.use(express.json());
+app.use(express.json())
 
 //Express utility functions BEGIN
 
 app.listen(PORT, () => {
-    console.log(`Express listening on Port ${PORT}.`);
+    console.log(`Express listening on Port ${PORT}.`)
 });
 
 app.get('/', (req, res) => {
-    res.send("Go to /getAPIresponse to see the API response.");
+    res.send("Go to /getAPIresponse to see the API response.")
 });
 
 //Express utility END
