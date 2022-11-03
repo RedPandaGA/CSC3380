@@ -5,3 +5,6 @@ Put in a pull request when done, and your changes will be merged into main.
 
 Also make sure to fetch/pull occassionally to keep local repository up to date. 
 You must also push changes to the origin for them to update at the remote end (github.com). 
+
+
+michelle 
