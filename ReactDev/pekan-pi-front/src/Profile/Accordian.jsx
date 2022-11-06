@@ -18,16 +18,16 @@ export default function ControlledAccordions() { //accordian expanding
 
   return (
     <div>
-      <Accordion sx={{mt: 10}} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+      <Accordion sx={{mt: 3}} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1bh-content"
           id="panel1bh-header"
         >
-          <Typography sx={{ width: '33%', flexShrink: 0 }}>
+          <Typography sx={{ width: '55%', flexShrink: 0 }}>
             Change Name
           </Typography>
-          <Typography sx={{color: 'text.secondary' }}>Milan Nguyen</Typography>
+          <Typography align="right" sx={{color: 'text.secondary' }}>Milan Nguyen</Typography>
         </AccordionSummary>
         <AccordionDetails>
             <ChangeNameFields/>
@@ -39,7 +39,7 @@ export default function ControlledAccordions() { //accordian expanding
           aria-controls="panel2bh-content"
           id="panel2bh-header"
         >
-          <Typography sx={{ width: '33%', flexShrink: 0 }}>Change Email</Typography>
+          <Typography sx={{ width: '55%', flexShrink: 0 }}>Change Email</Typography>
           <Typography sx={{ color: 'text.secondary' }}>
             mngu174@lsu.edu
           </Typography>
@@ -54,7 +54,7 @@ export default function ControlledAccordions() { //accordian expanding
           aria-controls="panel3bh-content"
           id="panel3bh-header"
         >
-          <Typography sx={{ width: '33%', flexShrink: 0 }}>
+          <Typography sx={{ width: '55%', flexShrink: 0 }}>
             Change Username
           </Typography>
           <Typography sx={{ color: 'text.secondary' }}>
@@ -71,7 +71,7 @@ export default function ControlledAccordions() { //accordian expanding
           aria-controls="panel4bh-content"
           id="panel4bh-header"
         >
-          <Typography sx={{ width: '33%', flexShrink: 0 }}>Change Password</Typography>
+          <Typography sx={{ width: '55%', flexShrink: 0 }}>Change Password</Typography>
           <Typography sx={{ color: 'text.secondary' }}>
             *********
           </Typography>
