@@ -18,7 +18,7 @@ export default function ControlledAccordions() { //accordian expanding
 
   return (
     <div>
-      <Accordion sx={{mt: 20}} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+      <Accordion sx={{mt: 10}} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1bh-content"
