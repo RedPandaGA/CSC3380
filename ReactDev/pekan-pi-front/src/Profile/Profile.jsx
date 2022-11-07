@@ -4,10 +4,10 @@ import { createTheme, ThemeProvider } from '@mui/material';
 import {Grid} from '@mui/material';
 import Stack from '@mui/material/Stack';
 
-import MenuImage from "../Images/Home-images/menu.png";
-import RecipeImage from "../Images/Home-images/recipes.png";
-import WhiskImage from "../Images/Home-images/whisk2.png";
-import Logo from "../Images/Home-images/logo2.png";
+// import MenuImage from "../Images/Home-images/menu.png";
+// import RecipeImage from "../Images/Home-images/recipes.png";
+// import WhiskImage from "../Images/Home-images/whisk2.png";
+// import Logo from "../Images/Home-images/logo2.png";
 
 
 const theme = createTheme({  // makes the theme for the whole profile
@@ -37,17 +37,12 @@ const boldtheme = createTheme({  // makes the theme for the whole profile
     }
 })
 
-{/* <Link to="/Login"> Login</Link>
-<Link to="/RecipiesPage"> Recipes</Link>
-<Link to="/Profile/Profile"> Profile</Link>
-<Link to="/Pantry"> Pantry</Link> */}
-
 const Profile = () => { //the profile page
     return(
         <ThemeProvider theme={theme}>
             <CssBaseline />
 
-            <div className="navbar">
+            {/* <div className="navbar">
               <div className="logo">
                 <a href="profilePage.html">
                   <img src={Logo} width="150px" />
@@ -59,13 +54,16 @@ const Profile = () => { //the profile page
                     <a href="/">Home</a>
                   </li>
                   <li>
+                    <a href="/Login">Login</a>
+                  </li>
+                  <li>
+                    <a href="/Recipes">Recipes</a>
+                  </li>
+                  <li>
                     <a href="/Pantry">Pantry</a>
                   </li>
                   <li>
-                    <a href="/Profile/Profile">Account</a>
-                  </li>
-                  <li>
-                    <a href="">About</a>
+                    <a href="/Profile/Profile">Profile</a>
                   </li>
                 </ul>
               </nav>
@@ -83,7 +81,7 @@ const Profile = () => { //the profile page
                 //onClick={menuToggle()}
                 alt="Menu Image"
               />
-            </div>
+            </div> */}
 
              <div>
                 <ThemeProvider theme ={boldtheme}>
