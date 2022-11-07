@@ -3,20 +3,20 @@
   height: 100vh;
 }
 
-h1 {
+h1.h1Forgot {
   color: rgb(0, 0, 0);
   font-size: 2.7rem;
   text-align:center;
 }
 
-p {
+p.pForgot {
   color: rgb(0, 0, 0);
   font-size: 1.3rem;
   text-align:center;
 }
 
-input[type="email"] {
-  height: 1.6rem;
+input[type="emailF"] {
+  height: 1rem;
   width: 15rem;
   border: 1.3px solid rgb(0, 0, 0);
   border-radius: 0.5rem;
@@ -42,14 +42,9 @@ button[type="submit"] {
 
 a {
   color: rgb(14, 49, 106);
-  font-size: 1.1rem;
+  font-size: 1.13rem;
 }
 
-p{
-  margin-top: 1.2rem;
-  color: rgb(0, 0, 0);
-  font-size: 1.1rem;
-}
 
 form{
     width:fit-content;
@@ -59,6 +54,7 @@ form{
 
 .forget{
     margin:30px;
+    font-size: 1.13rem;
 }
 
 /* .forget-page .logo {

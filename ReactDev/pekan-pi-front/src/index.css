@@ -12,48 +12,48 @@ code {
     monospace;
 }
 
-.react-app{
+/* .react-app{
   height:100%;
   margin:0;
   padding:0;
   box-sizing:border-box;
   background-color: rgba(163, 161, 161, 0.453);
-}
+} */
 
 /* space out the top nav bar with links */
-.navbar {
+/* .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
   background-color: rgb(166, 48, 48);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+} */
 
 /* style the links in the nav bar */
-.navbar a {
+/* .navbar a {
   color: white;
   text-decoration: none;
   font-size: 1.2rem;
   padding: 0.5rem 1rem;
   border-radius: 5px;
-}
+} */
 
 /* style the active link */
-.navbar a.active {
+/* .navbar a.active {
   background-color: rgba(255, 255, 255, 0.2);
-}
+} */
 
 /* style the links on hover */
-.navbar a:hover {
+/* .navbar a:hover {
   background-color: rgba(255, 255, 255, 0.2);
-}
+} */
 
 /* style the logo */
-.navbar .logo {
+/* .navbar .logo {
   font-size: 1.5rem;
   font-weight: bold;
-}
+} */
 
 /* 
 {
@@ -66,7 +66,7 @@ text-decoration: none
 
  */
 
- /* 
+/* 
  header{
   display:flex;
   justify-content:space-between;
