@@ -1,9 +1,12 @@
-* {
+/* only make background color yellow to the home page */
+
+.Home {
+  background-color: #e3eca4;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background: #e3eca4;
 }
+
 body {
   font-family: "Playfair Display", serif;
 }
@@ -22,7 +25,7 @@ nav ul {
 }
 nav ul li {
   display: inline-block;
-  margin-right: 20px;
+  margin-right: 50px;
 }
 a {
   text-decoration: none;
@@ -49,9 +52,20 @@ p {
 }
 .col-2 img {
   max-width: 100%;
+  border-radius: 10%;
   padding: 50px 0;
 }
 .col-2 h1 {
+  font-size: 50px;
+  line-height: 60px;
+  margin: 30px 0;
+}
+.col-2 p {
+  color: #555;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.col-2 h2 {
   font-size: 50px;
   line-height: 60px;
   margin: 30px 0;
@@ -72,7 +86,7 @@ p {
   margin-top: 70px;
 }
 .categories {
-  margin: 70px 0;
+  margin-top: 70px;
 }
 .col-3 {
   flex-basis: 30%;
@@ -81,6 +95,9 @@ p {
 }
 .col-3 img {
   width: 100%;
+}
+.col-3 h4 {
+  font-size: 20px;
 }
 .small-container {
   max-width: 1080px;
@@ -110,6 +127,7 @@ p {
   color: #555;
 }
 .title {
+  font-size: 3rem;
   text-align: center;
   margin: 0 auto 80px;
   position: relative;
@@ -177,10 +195,6 @@ small {
   }
   nav ul li a {
     color: #ff523b;
-  }
-  .menu-icon {
-    display: blocl;
-    cursor: pointer;
   }
   .menu-icon {
     display: block;
