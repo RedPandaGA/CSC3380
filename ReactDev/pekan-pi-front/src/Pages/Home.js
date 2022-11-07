@@ -39,9 +39,7 @@ function Home() {
           <div className="container">
             <div className="navbar">
               <div className="logo">
-                <a href="profilePage.html">
-                  <img src={Logo} width="150px" />
-                </a>
+                <img src={Logo} width="150px" />
               </div>
               <nav>
                 <ul id="MenuItems">
