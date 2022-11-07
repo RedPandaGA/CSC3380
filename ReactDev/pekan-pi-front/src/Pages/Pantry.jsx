@@ -1,12 +1,13 @@
 import React from "react";
+import "./Pantry.css";
 import PantrySearch from "./pantrySearch";
+import Data from "./ingredientsData.json";
 
 function Pantry() {
     return ( 
         <div className="Pantry">
-            <h2>Your Pantry</h2>
-            {/* <img src={logo} alt="logo"/> */}
-            <PantrySearch/>
+            <font size="20">Add to your Pantry!</font>
+            <PantrySearch placeholder="Enter Item Name..." data={Data}/>
         </div>
     );
 }
