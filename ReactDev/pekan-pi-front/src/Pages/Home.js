@@ -1,8 +1,8 @@
 import "../home.css";
-import MenuImage from "../Images/Home-images/menu.png";
-import RecipeImage from "../Images/Home-images/recipes.png";
-import WhiskImage from "../Images/Home-images/whisk2.png";
-import Logo from "../Images/Home-images/logo2.png";
+// import MenuImage from "../Images/Home-images/menu.png";
+// import RecipeImage from "../Images/Home-images/recipes.png";
+// import WhiskImage from "../Images/Home-images/whisk2.png";
+// import Logo from "../Images/Home-images/logo2.png";
 import TableImage from "../Images/Home-images/table 2.jpeg";
 import AfricaImage from "../Images/Home-images/africa.jpeg";
 import AmericanImage from "../Images/Home-images/american.jpeg";
@@ -33,11 +33,10 @@ function Home() {
   // const [maxHeight, setMaxHeight] = useState("200px")
 
   return (
-    <>
       <div className="Home">
         <div className="header">
           <div className="container">
-            <div className="navbar">
+            {/* <div className="navbar">
               <div className="logo">
                 <img src={Logo} width="150px" />
               </div>
@@ -71,7 +70,7 @@ function Home() {
                 //onClick={menuToggle()}
                 alt="Menu Image"
               />
-            </div>
+            </div> */}
             <div className="row">
               <div className="col-2">
                 <h1>
@@ -213,7 +212,6 @@ function Home() {
           </div>
         </div>
       </div>
-    </>
   );
 }
 

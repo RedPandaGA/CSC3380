@@ -11,7 +11,7 @@ import "./index.css";
 function App() {
   return (
     <div className="react-app">
-      <Layout />
+      <Layout /> 
 
       <Routes className="NavBar">
         <Route index element={<Home />} />
