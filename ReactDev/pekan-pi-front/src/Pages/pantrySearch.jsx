@@ -45,7 +45,7 @@ function PantrySearch({placeholder, data}) {
             </div>
             {filteredData.length !== 0 && (
                 <div className="dataResult">
-                    {filteredData.slice(0, 15).map((item, key) => {
+                    {filteredData.slice(0, 15).map((item, index) => {
                         return (
                             <a className="dataItem" href={item.ingredientID} target="_blank">
                                 <p>{item.ingredient} </p>

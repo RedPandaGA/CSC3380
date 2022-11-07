@@ -18,14 +18,18 @@
   .searchIcon {
     height: 30px;
     width: 50px;
-    background-color: rgba(249, 76, 23, 0.94);
     display: grid;
     place-items: center;
+    background-size: auto; 
+    background-position: relative;
+    background: url("../Images/searchIcon.png") center center no-repeat;
+    background-color: rgba(249, 76, 23, 0.94);
   }
   
   input:focus {
     outline: none;
   }
+  
   .searchIcon svg {
     font-size: 35px;
   }
