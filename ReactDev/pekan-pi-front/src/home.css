@@ -225,7 +225,6 @@ table {
   width: 100%;
   border-collapse: collapse;
 }
-
 .pantry {
   text-align: center;
 }
@@ -235,8 +234,6 @@ table {
 .recipes {
   text-align: center;
 }
-
-
 
 /**darkmode styles**/
 .darkmode-navbar{

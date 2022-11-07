@@ -35,10 +35,6 @@ function App() {
     return <> <Layout darkmode={darkmode}  setDarkMode={setDarkMode} /> <Pantry darkmode={darkmode}  /></>
   }
 
-
-
-
-
   return (
     <div className={`react-app ${darkmode?"darkmode-page":""}`}>
  
@@ -54,8 +50,5 @@ function App() {
     </div>
   );
 }
-
-
-
 
 export default App;
