@@ -19,17 +19,23 @@ const theme = createTheme({  // makes the theme for the whole profile
 }
 })
 
-function Layout() {
+function Layout(props) {
+
+  function handleChange(e){
+
+    props.setDarkMode(e.target.checked)
+
+  }
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-    <div className="navbar">
+    <div className={`navbar ${props.darkmode?"darkmode-navbar":""}` }>
     <div className="logo">
       <a href="/">
         <img src={Logo} width="150px" />
       </a>
     </div>
-    <nav>
+    <nav className={`${props.darkmode?"darkmode-nav":""}`}>
       <ul id="MenuItems">
         <li>
           <a href="/">Home</a>
@@ -49,11 +55,21 @@ function Layout() {
         <li>
           <a href="/About">About</a>
         </li>
+        <li>
+          
+<label class="switch">
+  <input type="checkbox" checked={props.darkmode}  onChange={handleChange}/>
+  <span class="slider round"></span>
+</label>
+        </li>
+
       </ul>
     </nav>
     <a href="search.html">
       {" "}
-      <img src={RecipeImage} width="50px" height="50px" />{" "}
+      {props.darkmode?<img src={RecipeImage} width="50px" height="50px" />: <img src={RecipeImage} width="50px" height="50px" />}
+
+ {" "}
     </a>
     <a href="whisk.html">
       {" "}
