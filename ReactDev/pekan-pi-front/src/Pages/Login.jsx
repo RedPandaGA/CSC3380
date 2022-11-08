@@ -30,12 +30,12 @@ async function Logincall(username, password){
 
 //leaving temporarily: seems to be a weird behavior where I can only call each end point once before it is cached and will no longer actaully get the response
 async function tempTest(){
-  //const token = JSON.parse(localStorage.getItem('udata')).token
+  const token = JSON.parse(localStorage.getItem('udata')).token
   console.log("begin?")
   axios({
     method: 'GET',
     url: 'http://localhost:3002/getFavorites',
-    headers: { Authorization : `token invalidtoken` }
+    headers: { Authorization : `token ${token}` }
   })
   .then(res => {
     console.log("PLEASE")

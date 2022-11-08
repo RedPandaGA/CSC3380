@@ -89,15 +89,11 @@ export async function getUser(id){
 }
 
 export async function getUserByName(username){
-    try {
     const { rows } = await pool.query(`
         SELECT *
         FROM users
         WHERE "Username" = $1
     `, [username])
-    } catch (err) {
-        return null
-    }
     return rows
 }
 
