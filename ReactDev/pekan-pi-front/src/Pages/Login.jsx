@@ -56,8 +56,13 @@ async function signupCall(username, email, password){
     data: data
   })
   .then(res => {
-    console.log("User successfully added!")
-    console.log(res)
+    if(!res.data){
+      console.log(res)
+      alert("User already in use")
+    } else {
+      console.log(res)
+      alert("User creation successful, please sign in!")
+    }
   })
   .catch(err => {
     console.error(err);
@@ -86,7 +91,7 @@ function Login() {
                     <form className="login-from">
                         <input type="text" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)}/>
                         <input type="password" placeholder="Password" value={password} onChange={p => setPassword(p.target.value)}/>
-                        <input className= "buttonL"type="submit" value="Login" onClick={() => Logincall(email, password)}/> 
+                        <input className= "buttonL"type="button" value="Login" onClick={() => {Logincall(email, password)}}/> 
                      </form>
                    <Link to="/forgot">
                      <p className="forget">Forgot Password? Click Here </p>
@@ -110,7 +115,7 @@ function Login() {
                       <input type="text" placeholder="Username" value={username} onChange={u => setUsername(u.target.value)}/>
                       <input type="text" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)}/>
                       <input type="password" placeholder="Password" value={password} onChange={p => setPassword(p.target.value)}/>
-                      <input className= "buttonL" type="submit" value="Submit" onClick={() => signupCall(username, email, password)}/>    
+                      <input className= "buttonL" type="button" value="Submit" onClick={() => {signupCall(username, email, password)}}/>    
                      </form>
                      {/* add picture in top right corner */}
                      

@@ -78,11 +78,10 @@ export async function insertUser(username, password, email){
         VALUES ($1,$2,$3)
     `, [username, password, email])
     .then(dbres => {
-        console.log("good res: " + res)
-        return dbres
+        console.log("good res: " + JSON.stringify(dbres))
+        return JSON.stringify(dbres)
     })
     .catch(err => {
-        err = new Error("Could not insert user")
         console.log("error: " + err.stack)
         return err
     })

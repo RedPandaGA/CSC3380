@@ -13,6 +13,7 @@ userAuth.post('/createuser',  async (req, res) => {
     console.log(email)
     console.log(password)
     const dbres = await db.insertUser(username, password, email)
+    console.log("dbres: " + dbres)
     res.send(dbres)
 })
 
