@@ -97,6 +97,15 @@ export async function getUserByName(username){
     return rows
 }
 
+export async function getUserByEmail(email){
+    const { rows } = await pool.query(`
+        SELECT *
+        FROM users
+        WHERE "Email" = $1
+    `, [email])
+    return rows
+}
+
 export async function getPantry(id){ 
     const { rows } = await pool.query(`
         SELECT *

@@ -8,11 +8,11 @@ const ssecret = process.env.SSECRET
 var userAuth = express.Router()
 
 userAuth.post('/login', async (req, res) => {
-    let { username, password } = req.body
+    let { email, password } = req.body
 
     let existingUser;
     try{
-        const temp = await db.getUserByName(username)
+        const temp = await db.getUserByEmail(email)
         existingUser = temp[0]
         console.log(existingUser)
     } catch {
