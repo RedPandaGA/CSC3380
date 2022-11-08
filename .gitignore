@@ -2,6 +2,7 @@
 
 # dependencies
 /ReactDev/pekan-pi-front/node_modules
+/ReactDev/pekan-pi-front/node_modules/.cache
 /ExpressDev/backendServer/node_modules
 /.pnp
 .pnp.js
