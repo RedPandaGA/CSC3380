@@ -1,9 +1,57 @@
 import React from "react";
-import { useEffect } from "react";
+import { useState } from "react";
 import './split.css';
 import {Link} from "react-router-dom"
+import axios from 'axios'
+
+async function Logincall(username, password){
+  const data = { username: username, password: password }
+  axios({
+    method: 'post',
+    url: 'http://localhost:3002/auth/login',
+    data: data
+  })
+  .then(res => {
+    if(res.status == 200) {
+      console.log("recieved")
+      console.log(res)
+      console.log(res.data.data)
+      localStorage.setItem('udata', JSON.stringify(res.data.data))
+    } else {
+      const error = new Error(res.error);
+      throw error;
+    }
+  })
+  .catch(err => {
+    console.error(err);
+    alert('Error logging in please try again')
+  })
+}
+
+//leaving temporarily: seems to be a weird behavior where I can only call each end point once before it is cached and will no longer actaully get the response
+async function tempTest(){
+  //const token = JSON.parse(localStorage.getItem('udata')).token
+  console.log("begin?")
+  axios({
+    method: 'GET',
+    url: 'http://localhost:3002/getFavorites',
+    headers: { Authorization : `token invalidtoken` }
+  })
+  .then(res => {
+    console.log("PLEASE")
+    console.log(res)
+  })
+  .catch(err => {
+    console.error(err);
+    alert('Error in GET')
+  })
+  console.log("fin?")
+}
 
 function Login() {
+  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+
   return (
     <div className="login-page">
       
@@ -18,9 +66,9 @@ function Login() {
                   <h4 className="header2left">Recipe generator built to help </h4>
                   <h4 className="header2left" >limit food waste!</h4>
                     <form className="login-from">
-                        <input type="text" placeholder="Email" />
-                        <input type="password" placeholder="Password" />
-                        <input className= "buttonL"type="submit" value="Login" /> 
+                        <input type="text" placeholder="Email" value={username} onChange={u => setUsername(u.target.value)}/>
+                        <input type="password" placeholder="Password" value={password} onChange={p => setPassword(p.target.value)}/>
+                        <input className= "buttonL"type="submit" value="Login" onClick={() => Logincall(username, password)}/> 
                      </form>
                    <Link to="/forgot">
                      <p className="forget">Forgot Password? Click Here </p>
@@ -44,7 +92,7 @@ function Login() {
                       <input type="text" placeholder="Full Name" />
                       <input type="text" placeholder="Email" />
                       <input type="password" placeholder="Password" />
-                      <input className= "buttonL" type="submit" value="Submit" />    
+                      <input className= "buttonL" type="submit" value="Submit" onClick={() => tempTest()}/>    
                      </form>
                      {/* add picture in top right corner */}
                      
