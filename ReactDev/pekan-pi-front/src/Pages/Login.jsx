@@ -57,6 +57,7 @@ async function signupCall(username, email, password){
   })
   .then(res => {
     console.log("User successfully added!")
+    console.log(res)
   })
   .catch(err => {
     console.error(err);
