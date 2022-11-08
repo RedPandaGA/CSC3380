@@ -18,7 +18,7 @@ import MexicanImage from "../Images/Home-images/mexican.jpeg";
 import VietnameseImage from "../Images/Home-images/vietname.jpeg";
 import Table5Image from "../Images/Home-images/table5.jpeg";
 
-function Home() {
+function Home(props) {
   // var MenuItems = document.getElementById("MenuItems");
   // MenuItems.style.maxHeight = "0px";
   // function menuToggle() {
@@ -33,7 +33,7 @@ function Home() {
   // const [maxHeight, setMaxHeight] = useState("200px")
 
   return (
-      <div className="Home">
+      <div className={`Home ${props.darkmode?"darkmode-page":""}`} >
         <div className="header">
           <div className="container">
             {/* <div className="navbar">
