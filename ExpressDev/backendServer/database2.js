@@ -54,6 +54,7 @@ export async function getFavorites(){
     return rows
 }
 
+
 // const tables = await getTableNames()
 // console.log(tables)
 
@@ -71,6 +72,16 @@ export async function getFavorites(){
 
 //Actual Functions
 //Insert users
+
+export async function getUserByName(username){
+    const { rows } = await pool.query(`
+        SELECT *
+        FROM users
+        WHERE "Username" = $1
+    `, [username])
+    return rows
+}
+
 export async function insertUser(username, password, email){
     const { rows } = await pool.query(`
         INSERT INTO users ("Username", "Password", "Email")
