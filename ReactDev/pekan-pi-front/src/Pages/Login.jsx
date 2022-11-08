@@ -49,7 +49,19 @@ async function Logincall(email, password){
 // }
 
 async function signupCall(username, email, password){
-
+  const data = { username: username, email: email, password: password }
+  axios({
+    method: 'POST',
+    url: 'http://localhost:3002/auth/createuser',
+    data: data
+  })
+  .then(res => {
+    console.log("User successfully added!")
+  })
+  .catch(err => {
+    console.error(err);
+    alert('Error signing up please try again')
+  })
 }
 
 function Login() {

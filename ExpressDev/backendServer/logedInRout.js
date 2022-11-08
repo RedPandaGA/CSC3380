@@ -43,15 +43,6 @@ logedInRout.get('/createuserTest', async (req, res) => {
     res.send()
 })
 
-logedInRout.post('/createuser',  async (req, res) => {
-    await req.body
-    console.log(req.body.username)
-    console.log(req.body.password)
-    console.log(req.body.email)
-    const dbres = await db.insertUser(req.body.username, req.body.password, req.body.email)
-    res.send(dbres)
-})
-
 logedInRout.get('/getUsers', async (req, res) => {
     const users = await db.getUsers()
     console.log(users)

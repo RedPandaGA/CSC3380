@@ -7,6 +7,15 @@ const ssecret = process.env.SSECRET
 
 var userAuth = express.Router()
 
+userAuth.post('/createuser',  async (req, res) => {
+    let { username, email, password } = req.body
+    console.log(username)
+    console.log(email)
+    console.log(password)
+    const dbres = await db.insertUser(username, password, email)
+    res.send(dbres)
+})
+
 userAuth.post('/login', async (req, res) => {
     let { email, password } = req.body
 
