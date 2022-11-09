@@ -47,7 +47,7 @@ logedInRout.get('/getAPIresponse', async (req, res) => {
     res.send(test)
 })
 
-logedInRout.get('/getIngredientsearch/:search', async (req, res) => {
+logedInRout.get('/getIngredientsearch', async (req, res) => {
     const search = req.params.search
     const test = await Api_helper.callAPI(`https://api.spoonacular.com/food/ingredients/autocomplete?apiKey=${APIkey}&query=${search}&number=5&metaInformation=true`)
     res.send(test)
@@ -109,6 +109,18 @@ logedInRout.post('/updatePassword', async (req, res) => {
     }
 })
 
+logedInRout.post('/updatePantry', async (req, res) => {
+    const update = await db.updatePantry(req.body.UID, req.body.pantryInfo)
+    if(!update){
+        res.status(500).send({ success: false, message: "Update failed try again"})
+        return
+    } else {
+        res.status(200).send({ success: true, message: "Successfully Updated Password"})
+        return
+    }  
+})
+
+
 logedInRout.get('/createuserTest', async (req, res) => {
     Api_helper.test();
     res.send()
@@ -132,7 +144,7 @@ logedInRout.get('/getPantries' , async (req, res) => {
 })
 
 logedInRout.get('/getPantry' , async (req, res) => {
-    const id = req.params.id
+    const id = req.params.UID
     const pantry = await db.getPantry(id)
     res.send(pantry)
 })

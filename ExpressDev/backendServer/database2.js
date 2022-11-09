@@ -144,6 +144,20 @@ export async function getPassword(UID){
     return ret
 }
 
+export async function updatePantry(UID, pantryInfo){
+    let ret = null
+    await pool.query(`
+        UPDATE pantry SET "pantryInfo" = $1 WHERE "PID" = $2
+    `, [pantryInfo, UID])
+    .then(dbres => {
+        ret = true
+    })
+    .catch(err => {
+        ret = false
+    })
+    return ret
+}
+
 export async function getUser(id){
     const { rows } = await pool.query(`
         SELECT *
