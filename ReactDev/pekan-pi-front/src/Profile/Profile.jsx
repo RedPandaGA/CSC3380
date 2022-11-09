@@ -97,7 +97,7 @@ const Profile = () => { //the profile page
             noValidate
             autoComplete="off"
           >
-            <TextField size = "small" id="outlined-basic" label="Username" variant="outlined" />
+            <TextField size = "small" id="username-input" label="Username" variant="outlined" />
               </Box>
         </AccordionDetails>
       </Accordion>
@@ -121,7 +121,7 @@ const Profile = () => { //the profile page
             noValidate
             autoComplete="off"
           >
-            <TextField size = "small" id="outlined-basic" label="New Email" variant="outlined" />
+            <TextField size = "small" id="new-email-input" label="New Email" variant="outlined" />
       </Box>
         </AccordionDetails>
       </Accordion>
@@ -146,17 +146,17 @@ const Profile = () => { //the profile page
               noValidate
               autoComplete="off"
             >
-              <TextField size = "small" id="outlined-password-input " label="New Password" type="password" />
-              <TextField size = "small" id="outlined-password-input " label="Confirm New Password" type="password" />
+              <TextField size = "small" id="new-password-input" label="New Password" type="password" />
+              <TextField size = "small" id="confirm-new-password-input" label="Confirm New Password" type="password" />
                   </Box>
           </Typography>
         </AccordionDetails>
       </Accordion>
     </div>
 
-    
+
                             <Stack justifyContent="center" spacing={2} direction="row" sx={{mt: 5}}>
-                            <TextField size = "small" id="outlined-password-input " label="Old Password" type="password" />
+                            <TextField size = "small" id="old-password-input" label="Old Password" type="password" />
                                 <a justifyContent="center" className="btn">
                                 Submit &#8594;{" "}
                                 </a>
