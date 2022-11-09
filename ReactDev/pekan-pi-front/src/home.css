@@ -38,6 +38,10 @@ nav ul li a {
   font-family: 'Scope One';
   font-weight: 'bold';
 }
+/* hovering over images turn different color */
+img:hover {
+  filter: invert(100%);
+}
 
 p {
   color: #555;
@@ -223,6 +227,9 @@ small {
   .navbar.active .menu-icon::before {
     color: #ff523b;
   }
+  .navbar.active nav {
+    right: 0;
+  }
 
 
   .col-2 {
@@ -280,6 +287,8 @@ table {
 .darkmode-navbar img {  
   filter: invert(100%);
 }
-
+.darkmode-navbar img:hover {
+  filter: invert(0%);
+}
 
 

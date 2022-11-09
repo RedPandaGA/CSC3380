@@ -11,7 +11,7 @@ function ForgotPassword(props) {
           <input type="emailF"  placeholder="example@gmail.com" name="email" id="email" required />
       
       </label>
-        <button type="submit">Reset Password</button>
+        <button type="submit" className="submitF">Reset Password</button>
         <div className="forget">
         Back to Login Page? <Link to="/Login">Click Here</Link></div>
     

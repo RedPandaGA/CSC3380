@@ -41,7 +41,7 @@ button[type="submit"] {
 }
 
 a {
-  color: rgb(14, 49, 106);
+  color: rgb(1, 50, 129);
   font-size: 1.13rem;
 }
 
@@ -69,10 +69,7 @@ form{
 .darkmode-page p {
   color: #ffffff;
 }
-.darkmode-page a {
-  color: #3dc6d3;
-}
-.darkmode-page button {
+.darkmode-page .submitF {
   color: #000000;
-  background-color: #f2baba;
+  background-color: #3dc6d3;
 }

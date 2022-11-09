@@ -54,6 +54,9 @@ function Layout(props) {
           <a href="/Profile/Profile">Profile</a>
         </li>
         <li>
+          <a href="">About</a>
+        </li>
+        <li>
           <label class="switch">
             <input type="checkbox" checked={props.darkmode}  onChange={handleChange}/>
             <span class="slider round"></span>
