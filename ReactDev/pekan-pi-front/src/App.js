@@ -3,7 +3,7 @@ import Layout from "./Components/Layout";
 import Home from "./Pages/Home";
 import Pantry from "./Pages/Pantry";
 import Profile from "./Profile/Profile";
-import RecipesPage from "./Pages/RecipiesPage";
+import RecipePage from "./Pages/RecipiesPage";
 import Login from "./Pages/Login";
 import Forgot from "./Pages/Forgot/Forgot";
 import "./index.css";
@@ -27,8 +27,8 @@ function App() {
     return <> <Layout darkmode={darkmode}   setDarkMode={setDarkMode}/> <Forgot darkmode={darkmode}  /></>
   }
   
-  function RecipePage() {
-    return <> <Layout darkmode={darkmode}  setDarkMode={setDarkMode} /> <RecipesPage darkmode={darkmode}  /></>
+  function RecipesPage() {
+    return <> <Layout darkmode={darkmode}  setDarkMode={setDarkMode} /> <RecipePage darkmode={darkmode}  /></>
   }
   
   function PantryPage() {
