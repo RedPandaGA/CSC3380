@@ -88,6 +88,61 @@ export async function insertUser(username, password, email){
     return ret
 }
 
+export async function updatePassword(UID, newPassword){
+    let ret = null
+    await pool.query(`
+        UPDATE users SET "Password" = $1 WHERE "UID" = $2
+    `, [newPassword, UID])
+    .then(dbres => {
+        ret = true
+    })
+    .catch(err => {
+        ret = false
+    })
+    return ret
+}
+
+export async function updateUsername(UID, newUsername){
+    let ret = null
+    await pool.query(`
+        UPDATE users SET "Username" = $1 WHERE "UID" = $2
+    `, [newUsername, UID])
+    .then(dbres => {
+        ret = true
+    })
+    .catch(err => {
+        ret = false
+    })
+    return ret
+}
+
+export async function updateEmail(UID, newEmail){
+    let ret = null
+    await pool.query(`
+        UPDATE users SET "Email" = $1 WHERE "UID" = $2
+    `, [newEmail, UID])
+    .then(dbres => {
+        ret = true
+    })
+    .catch(err => {
+        ret = false
+    })
+    return ret
+}
+
+export async function getPassword(UID){
+    let ret = null
+    await pool.query(`
+        SELECT "Password" FROM users WHERE "UID" = $1
+    `, [UID])
+    .then(dbres => {
+        ret = dbres.rows[0]
+    })
+    .catch(err => {
+        ret = false
+    })
+    return ret
+}
 
 export async function getUser(id){
     const { rows } = await pool.query(`

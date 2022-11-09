@@ -3,6 +3,15 @@ import { createTheme, ThemeProvider } from '@mui/material';
 import {Grid} from '@mui/material';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
+import axios from 'axios'
+import * as React from 'react';
+import Accordion from '@mui/material/Accordion';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
+import Box from '@mui/material/Box';
 
 import * as React from 'react';
 import Accordion from '@mui/material/Accordion';
@@ -61,6 +70,33 @@ const maintheme = createTheme({  // makes the theme for the whole profile
 //         return maintheme;
 //     }
 // }
+async function updateCall(oldPassword, newPassword1, newPassword2, newEmail, newUsername){
+    const LUID = JSON.parse(localStorage.getItem('udata')).userId
+    const token = JSON.parse(localStorage.getItem('udata')).token
+    if(newUsername != ""){
+        await axios({
+            method: 'POST',
+            url: 'http://localhost:3002/updateUsername',
+            headers: { Authorization : `token ${token}` },
+            data: { UID: LUID, newUsername: newUsername, oldPassword: oldPassword }
+        })
+        .then(res => {
+            if(!res.data.success){
+                console.log(res)
+                alert("Failed to update username!")
+            } else {
+                console.log(res)
+                alert("Username updated successfully!")
+            }
+        })
+        .catch(err => {
+            console.error(err);
+            alert('Error updating username!')
+        })
+        //end for tonight-need to add updating local-storage
+    }
+
+}
 
 const Profile = () => { //the profile page
     const [expanded, setExpanded] = React.useState(false);
@@ -68,6 +104,13 @@ const Profile = () => { //the profile page
     const handleChange = (panel) => (event, isExpanded) => {
       setExpanded(isExpanded ? panel : false);
     };
+
+    const [oldPassword, setOldPassword] = React.useState("")
+    const [newPassword1, setNewPassword1] = React.useState("")
+    const [newPassword2, setNewPassword2] = React.useState("")
+    const [newEmail, setNewEmail] = React.useState("")
+    const [newUsername, setNewUsername] = React.useState("")
+
     return(
         <ThemeProvider theme={maintheme}>        
             <CssBaseline />
@@ -97,7 +140,7 @@ const Profile = () => { //the profile page
             noValidate
             autoComplete="off"
           >
-            <TextField size = "small" id="username-input" label="Username" variant="outlined" />
+            <TextField size = "small" id="username-input" label="Username" variant="outlined" value={newUsername} onChange={nu => setNewUsername(nu.target.value)}/>
               </Box>
         </AccordionDetails>
       </Accordion>
@@ -121,7 +164,7 @@ const Profile = () => { //the profile page
             noValidate
             autoComplete="off"
           >
-            <TextField size = "small" id="new-email-input" label="New Email" variant="outlined" />
+            <TextField size = "small" id="new-email-input" label="New Email" variant="outlined" value={newEmail} onChange={ne => setNewEmail(ne.target.value)} />
       </Box>
         </AccordionDetails>
       </Accordion>
@@ -146,18 +189,18 @@ const Profile = () => { //the profile page
               noValidate
               autoComplete="off"
             >
-              <TextField size = "small" id="new-password-input" label="New Password" type="password" />
-              <TextField size = "small" id="confirm-new-password-input" label="Confirm New Password" type="password" />
+              <TextField size = "small" id="new-password-input " label="New Password" type="password" value={newPassword1} onChange={np1 => setNewPassword1(np1.target.value)}/>
+              <TextField size = "small" id="confirm-password-input " label="Confirm New Password" type="password" value={newPassword2} onChange={np2 => setNewPassword2(np2.target.value)}/>
                   </Box>
           </Typography>
         </AccordionDetails>
       </Accordion>
     </div>
 
-
+    
                             <Stack justifyContent="center" spacing={2} direction="row" sx={{mt: 5}}>
-                            <TextField size = "small" id="old-password-input" label="Old Password" type="password" />
-                                <a justifyContent="center" className="btn">
+                            <TextField size = "small" id="old-password-input " label="Old Password" type="password" value={oldPassword} onChange={op => setOldPassword(op.target.value)}/>
+                                <a justifyContent="center" className="btn" onClick={() => updateCall(oldPassword, newPassword1, newPassword2, newEmail, newUsername)}>
                                 Submit &#8594;{" "}
                                 </a>
             
