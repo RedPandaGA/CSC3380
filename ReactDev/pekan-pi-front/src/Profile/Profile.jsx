@@ -30,37 +30,6 @@ const maintheme = createTheme({  // makes the theme for the whole profile
     }
 })
 
-// const darktheme = createTheme({  // dark theme for profile
-//     palette: {
-//         primary: {
-//             main: '#FFFFFF', //white
-//             contrastText: '#FFFFFF'
-//         },
-//         background:{
-//             paper: '#555', //component background gray
-//             default: '#555' //page's background gray
-//         },
-//         text:{
-//             primary: '#FFFFFF',
-//             secondary: '#FFFFFF',
-//         }
-//     },
-//     typography: {
-//         fontFamily: 'Playfair Display',
-//         fontSize: 20, 
-//         fontWeightRegular: 700, //bold
-//     }
-// })
-
-// function getTheme() {
-//     const switched = document.getElementById('darkmodeswitch');
-//     if (switched === true){
-//         return darktheme;
-//     }
-//     else {
-//         return maintheme;
-//     }
-// }
 async function updateCall(oldPassword, newPassword1, newPassword2, newEmail, newUsername){
     const LUID = JSON.parse(localStorage.getItem('udata')).userId
     const token = JSON.parse(localStorage.getItem('udata')).token
