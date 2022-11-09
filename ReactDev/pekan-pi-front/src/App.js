@@ -3,7 +3,7 @@ import Layout from "./Components/Layout";
 import Home from "./Pages/Home";
 import Pantry from "./Pages/Pantry";
 import Profile from "./Profile/Profile";
-import RecipePage from "./Pages/RecipiesPage";
+import RecipesPage from "./Pages/RecipiesPage";
 import Login from "./Pages/Login";
 import Forgot from "./Pages/Forgot/Forgot";
 import "./index.css";
@@ -28,7 +28,7 @@ function App() {
   }
   
   function RecipePage() {
-    return <> <Layout darkmode={darkmode}  setDarkMode={setDarkMode} /> <RecipiesPage darkmode={darkmode}  /></>
+    return <> <Layout darkmode={darkmode}  setDarkMode={setDarkMode} /> <RecipesPage darkmode={darkmode}  /></>
   }
   
   function PantryPage() {
@@ -42,7 +42,7 @@ function App() {
       <Routes className="NavBar">
         <Route index element={ <HomeElement /> } />
         <Route path="/Login" element={<Login darkmode={darkmode}  />} />
-        <Route path="/Recipes" element={<RecipePage/> } />
+        <Route path="/Recipes" element={<RecipesPage/> } />
         <Route path="/Profile/Profile" element={ <ProfileElement/> } />
         <Route path="/Pantry" element={<PantryPage/> } />
         <Route path="/forgot" element={<ForgotElement /> } />
