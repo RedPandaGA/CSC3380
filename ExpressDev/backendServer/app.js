@@ -1,16 +1,10 @@
 // Import and initialize dotenv to read environment variables
 import dotenv from 'dotenv'
 dotenv.config()
-
-// Import our own js libraries
-import * as Api_helper from './API_helper.js'
-import * as db from './database2.js'
-
-// Environment variables
-const APIkey = process.env.APIkey
-const PORT = process.env.PORT || '3002'
-
-// Import and start express
+//import our own js libraries
+//environment variables
+const PORT = process.env.PORT || '3001'
+//import and start express
 import express from 'express'
 import userAuth from './auth.js'
 import logedInRout from './logedInRout.js'

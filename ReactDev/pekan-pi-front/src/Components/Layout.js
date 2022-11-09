@@ -28,74 +28,61 @@ function Layout(props) {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <div className={`navbar ${props.darkmode ? "darkmode-navbar" : ""}`}>
-        <div className="logo">
-          <a href="/">
-            <img src={Logo} width="150px" />
-          </a>
-        </div>
-        <nav className={`${props.darkmode ? "darkmode-nav" : ""}`}>
-          <ul id="MenuItems">
-            <li>
-              <a href="/">Home</a>
-            </li>
-            <li>
-              <a href="/Login">Login</a>
-            </li>
-            <li>
-              <a href="/Recipes">Recipes</a>
-            </li>
-            <li>
-              <a href="/Pantry">Pantry</a>
-            </li>
-            <li>
-              <a href="/Profile/Profile">Profile</a>
-            </li>
-            <li>
-              <a href="/About">About</a>
-            </li>
-            <li>
-              <label class="switch">
-                <input
-                  type="checkbox"
-                  checked={props.darkmode}
-                  onChange={handleChange}
-                />
-                <span class="slider round"></span>
-              </label>
-            </li>
-          </ul>
-        </nav>
-        <a href="search.html">
-          {" "}
-          {props.darkmode ? (
-            <img src={RecipeImage} width="50px" height="50px" />
-          ) : (
-            <img src={RecipeImage} width="50px" height="50px" />
-          )}{" "}
-        </a>
-        <a href="whisk.html">
-          {" "}
-          <img src={WhiskImage} width="50px" height="50px" />{" "}
-        </a>
-        <img
-          src={MenuImage}
-          className="menu-icon"
-          //onClick={menuToggle()}
-          alt="Menu Image"
-        />
-      </div>
-    </ThemeProvider>
+    <div className={`navbar ${props.darkmode?"darkmode-navbar":""}` }>
+    <div className="logo">
+      <a href="/">
+        <img src={Logo} width="150px" />
+      </a>
+    </div>
+    <nav className={`${props.darkmode?"darkmode-nav":""}`}>
+      <ul id="MenuItems">
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/Login">Login</a>
+        </li>
+        <li>
+          <a href="/Recipes">Recipes</a>
+        </li>
+        <li>
+          <a href="/Pantry">Pantry</a>
+        </li>
+        <li>
+          <a href="/Profile/Profile">Profile</a>
+        </li>
+        <li>
+          <label class="switch">
+            <input type="checkbox" checked={props.darkmode}  onChange={handleChange}/>
+            <span class="slider round"></span>
+          </label>
+        </li>
+        <li>
+          <a justifyContent="center" className="btn"> Logout{" "} </a>
+        </li>
 
-    // <div>
-    //   <Link to="/"> Home</Link>
-    //   <Link to="/Login"> Login</Link>
-    //   <Link to="/RecipiesPage"> Recipes</Link>
-    //   <Link to="/Profile/Profile"> Profile</Link>
-    //   <Link to="/Pantry"> Pantry</Link>
-    //   <hr></hr>
-    //   <Outlet />
-    // </div>
+      </ul>
+    </nav>
+    <a href="search.html">
+      {" "}
+      {props.darkmode?<img src={RecipeImage} width="50px" height="50px" />: <img src={RecipeImage} width="50px" height="50px" />}
+
+ {" "}
+    </a>
+    <a href="whisk.html" className="whisk">
+      {" "}
+      <Link to="/forgot">
+      <img src={WhiskImage} width="50px" height="50px" />{" "}
+      </Link>
+    </a>
+    <img
+      src={MenuImage}
+      className="menu-icon"
+      //onClick={menuToggle()}
+      alt="Menu Image"
+    />
+  </div>
+  </ThemeProvider>
   );
 }
 
