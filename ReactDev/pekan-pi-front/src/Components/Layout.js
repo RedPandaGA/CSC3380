@@ -54,14 +54,13 @@ function Layout(props) {
           <a href="/Profile/Profile">Profile</a>
         </li>
         <li>
-          <a href="/About">About</a>
+          <label class="switch">
+            <input type="checkbox" checked={props.darkmode}  onChange={handleChange}/>
+            <span class="slider round"></span>
+          </label>
         </li>
         <li>
-
-<label class="switch">
-  <input type="checkbox" checked={props.darkmode}  onChange={handleChange}/>
-  <span class="slider round"></span>
-</label>
+          <a justifyContent="center" className="btn"> Logout{" "} </a>
         </li>
 
       </ul>
