@@ -6,8 +6,8 @@ import dotenv from 'dotenv'
 dotenv.config()
 //get environment variables
 const DBHOST = process.env.DBHOST
-const USER = process.env.USER
-const PASS = process.env.PASS
+const USER = process.env.DBUSER
+const PASS = process.env.DBPASS
 const DBNAME = process.env.DBNAME
 const DBPORT = process.env.DBPORT
 
@@ -78,7 +78,7 @@ export async function insertUser(username, password, email){
         VALUES ($1,$2,$3)
     `, [username, password, email])
     .then(dbres => {
-        console.log("good res: " + JSON.stringify(dbres))
+        // console.log("good res: " + JSON.stringify(dbres))
         ret = true
     })
     .catch(err => {
