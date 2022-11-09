@@ -81,9 +81,11 @@ function Home(props) {
                   Enter the ingredients that are in your pantry, <br />
                   and we'll find the perfect recipe for YOU!
                 </p>
-                <a href="search.html" className="btn">
-                  Explore Now
+                
+                <a href="/Pantry" className="btn">
+                Explore Now 
                 </a>
+               
               </div>
               <div className="col-2">
                 <img src={TableImage} />
@@ -95,84 +97,84 @@ function Home(props) {
                 <h2 className="title">Cuisines</h2>
                 <div className="row img-size">
                   <div className="col-3">
-                    <a href="search.html">
+                    <a href="/Recipes" >
                       {" "}
                       <img src={AfricaImage} width="150px" />
                     </a>
                     <h4 className="culture">African</h4>
                   </div>
                   <div className="col-3">
-                    <a href="search.html">
+                    <a href="/Recipes" >
                       {" "}
                       <img src={AmericanImage} width="150px" />
                     </a>
                     <h4 className="culture">American</h4>
                   </div>
                   <div className="col-3">
-                    <a href="search.html">
+                    <a href="/Recipes" >
                       {" "}
                       <img src={ChineseImage} width="150px" />
                     </a>
                     <h4 className="culture">Chinese</h4>
                   </div>
                   <div className="col-3">
-                    <a href="search.html">
+                    <a href="/Recipes" >
                       {" "}
                       <img src={FrenchImage} width="150px" />
                     </a>
                     <h4 className="culture">French</h4>
                   </div>
                   <div className="col-3">
-                    <a href="search.html">
+                    <a href="/Recipes" >
                       {" "}
                       <img src={GreekImage} width="150px" />
                     </a>
                     <h4 className="culture">Mediterranean</h4>
                   </div>
                   <div className="col-3">
-                    <a href="search.html">
+                    <a href="/Recipes" >
                       {" "}
                       <img src={IndianImage} width="150px" />
                     </a>
                     <h4 className="culture">Indian</h4>
                   </div>
                   <div className="col-3">
-                    <a href="search.html">
+                    <a href="/Recipes" >
                       {" "}
                       <img src={ItalianImage} width="150px" />
                     </a>
                     <h4 className="culture">Italian</h4>
                   </div>
                   <div className="col-3">
-                    <a href="search.html">
+                    <a href="/Recipes" >
                       {" "}
                       <img src={JapaneseImage} width="150px" />
                     </a>
                     <h4 className="culture">Japanese</h4>
                   </div>
                   <div className="col-3">
-                    <a href="search.html">
+                    <a href="/Recipes" >
                       {" "}
                       <img src={KoreanImage} width="150px" />
                     </a>
                     <h4 className="culture">Korean</h4>
                   </div>
                   <div className="col-3">
-                    <a href="search.html">
+                    <a href="/Recipes" >
                       {" "}
                       <img src={BrazilianImage} width="150px" />
                     </a>
                     <h4 className="culture">Brazilian</h4>
                   </div>
                   <div className="col-3">
-                    <a href="search.html">
+                    <a href="/Recipes" >
                       {" "}
                       <img src={MexicanImage} width="150px" />
                     </a>
                     <h4 className="culture">Spanish</h4>
                   </div>
                   <div className="col-3">
-                    <a href="search.html">
+                    <a href="/Recipes" >
                       {" "}
                       <img src={VietnameseImage} width="150px" />
                     </a>
@@ -201,7 +203,7 @@ function Home(props) {
                         Click Here to View PeKan Pi's Most Popular Recipe This
                         Month!
                       </h2>
-                      <a href="search.html" className="btn">
+                      <a href="/Recipes" className="btn">
                         View Recipe Now &#8594;{" "}
                       </a>
                     </div>

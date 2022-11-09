@@ -1,57 +1,57 @@
 //import node-postgre to allow node to connect to postgre db
-import * as pg from 'pg'
-const { Pool } = pg.default
-//import and initialize dotenv to read environment variables 
-import dotenv from 'dotenv'
-dotenv.config()
+import * as pg from "pg";
+const { Pool } = pg.default;
+//import and initialize dotenv to read environment variables
+import dotenv from "dotenv";
+dotenv.config();
 //get environment variables
-const DBHOST = process.env.DBHOST
-const USER = process.env.DBUSER
-const PASS = process.env.DBPASS
-const DBNAME = process.env.DBNAME
-const DBPORT = process.env.DBPORT
+const DBHOST = process.env.DBHOST;
+const USER = process.env.DBUSER;
+const PASS = process.env.DBPASS;
+const DBNAME = process.env.DBNAME;
+const DBPORT = process.env.DBPORT;
 
 const pool = new Pool({
-    host: DBHOST,
-    user: USER,
-    password: PASS,
-    database: DBNAME,
-    port: DBPORT
-})
+  host: DBHOST,
+  user: USER,
+  password: PASS,
+  database: DBNAME,
+  port: DBPORT,
+});
 
 //Debug functions
-export async function getTableNames(){
-    const { rows } = await pool.query(`
+export async function getTableNames() {
+  const { rows } = await pool.query(`
         SELECT *
         FROM pg_catalog.pg_tables
         WHERE schemaname != 'pg_catalog' AND 
             schemaname != 'information_schema';
-    `)
-    return rows;
+    `);
+  return rows;
 }
 
-export async function getUsers(){
-    const { rows } = await pool.query(`
+export async function getUsers() {
+  const { rows } = await pool.query(`
         SELECT *
         FROM users
-    `)
-    return rows
+    `);
+  return rows;
 }
 
-export async function getPantries(){
-    const { rows } = await pool.query(`
+export async function getPantries() {
+  const { rows } = await pool.query(`
         SELECT *
         FROM pantry
-    `)
-    return rows
+    `);
+  return rows;
 }
 
-export async function getFavorites(){
-    const { rows } = await pool.query(`
+export async function getFavorites() {
+  const { rows } = await pool.query(`
         SELECT *
         FROM favorites
-    `)
-    return rows
+    `);
+  return rows;
 }
 
 
@@ -87,16 +87,18 @@ export async function insertUser(username, password, email){
     await pool.query(`
         INSERT INTO users ("Username", "Password", "Email")
         VALUES ($1,$2,$3)
-    `, [username, password, email])
-    .then(dbres => {
-        // console.log("good res: " + JSON.stringify(dbres))
-        ret = true
+    `,
+      [username, password, email]
+    )
+    .then((dbres) => {
+      console.log("good res: " + JSON.stringify(dbres));
+      ret = true;
     })
-    .catch(err => {
-        console.log("error: " + err.stack)
-        ret = false
-    })
-    return ret
+    .catch((err) => {
+      console.log("error: " + err.stack);
+      ret = false;
+    });
+  return ret;
 }
 
 export async function updatePassword(UID, newPassword){
@@ -174,8 +176,10 @@ export async function getUser(id){
         SELECT *
         FROM users
         WHERE "UID" = $1
-    `, [id])
-    return rows
+    `,
+    [id]
+  );
+  return rows;
 }
 
 export async function getUserByEmail(email){
@@ -183,24 +187,32 @@ export async function getUserByEmail(email){
         SELECT *
         FROM users
         WHERE "Email" = $1
-    `, [email])
-    return rows
+    `,
+    [email]
+  );
+  return rows;
 }
 
-export async function getPantry(id){ 
-    const { rows } = await pool.query(`
+export async function getPantry(id) {
+  const { rows } = await pool.query(
+    `
         SELECT *
         FROM pantry
         WHERE "PID" = $1
-    `, [id])
-    return rows
+    `,
+    [id]
+  );
+  return rows;
 }
 
-export async function getFavorite(id){ 
-    const { rows } = await pool.query(`
+export async function getFavorite(id) {
+  const { rows } = await pool.query(
+    `
         SELECT *
         FROM favorites
         WHERE "FID" = $1
-    `, [id])
-    return rows
+    `,
+    [id]
+  );
+  return rows;
 }
