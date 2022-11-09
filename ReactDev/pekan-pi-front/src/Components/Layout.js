@@ -44,13 +44,15 @@ function Layout(props) {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <div className={`navbar ${props.darkmode ? "darkmode-navbar" : ""}`}>
-        <div className="logo">
-          <a href="/">
-            <img src={Logo} width="150px" />
-          </a>
-        </div>
         <nav style={{right:navOpen?"0%":"-100%"}} className={`${props.darkmode ? "darkmode-nav" : ""}`}>
           <ul className="ul-menu" id="MenuItems">
+            <li>
+                  <div className="logo">
+                <a href="/">
+                  <img src={Logo} width="150px" />
+                </a>
+              </div>
+            </li>
             <li>
               <a href="/">Home</a>
             </li>
@@ -85,7 +87,7 @@ function Layout(props) {
                 Logout{" "}
               </a>
             </li>
-            <li>
+            {/* <li>
                     <a href="search.html" className="pot">
                   {" "}
                   {props.darkmode ? (
@@ -102,7 +104,7 @@ function Layout(props) {
                     <img src={WhiskImage} width="50px" height="50px" />{" "}
                   </Link>
                 </span>
-            </li>
+            </li> */}
           </ul>
         </nav>
   
