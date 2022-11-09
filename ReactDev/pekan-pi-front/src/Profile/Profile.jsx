@@ -115,7 +115,7 @@ const Profile = (props) => { //the profile page
             noValidate
             autoComplete="off"
           >
-            <TextField size = "small" id="username-input" label="Username" variant="outlined" value={newUsername} onChange={nu => setNewUsername(nu.target.value)}/>
+            <TextField size = "small" id="username-input" label="New Username" variant="outlined" value={newUsername} onChange={nu => setNewUsername(nu.target.value)}/>
               </Box>
         </AccordionDetails>
       </Accordion>
