@@ -30,7 +30,7 @@ const maintheme = createTheme({  // makes the theme for the whole profile
     },
     typography: {
         fontFamily: 'Playfair Display',
-        fontSize: 20, 
+        fontSize: 17, 
         fontWeightRegular: 700, //bold
     }
 })
@@ -90,9 +90,8 @@ const Profile = (props) => { //the profile page
              <div>
                     <Grid container justifyContent="center">
                         <Grid item md={7} direction = "column" >
-                           
-
-                            <div sx={{mt: 5}} >
+                      <h6><br/></h6>
+                            <div>
 
                              {/**Profile table dark mode */}
       <Accordion sx={{mt: 3,backgroundColor:props.darkmode?"rgb(113, 111, 111)":"#e3eca4"}} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
@@ -146,7 +145,7 @@ const Profile = (props) => { //the profile page
       </Accordion>
          {/**Profile table dark mode */}
       <Accordion sx={{backgroundColor:props.darkmode?"rgb(113, 111, 111)":"#e3eca4"}} expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
-        <AccordionSummary
+        <AccordionSummary 
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel3bh-content"
           id="panel4bh-header"
@@ -155,8 +154,8 @@ const Profile = (props) => { //the profile page
           <Typography sx={{ color: 'text.secondary' }}>
             *********
           </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
+        </AccordionSummary >
+        <AccordionDetails >
           <Typography>
             <Box // CHANGE PASSWORD FIELDS
               component="form"
@@ -188,7 +187,7 @@ const Profile = (props) => { //the profile page
     </div>
 
     
-                            <Stack justifyContent="center" spacing={2} direction="row" sx={{mt: 5}}>
+                            <Stack justifyContent="center" spacing={2} direction="row" sx={{mt: 5, mb:10}}>
                             <TextField size = "small" id="old-password-input " label="Old Password"  type={showPassword1 ? "text" : "password"} value={oldPassword} onChange={op => setOldPassword(op.target.value)}
                             InputProps={{ // <-- This is where the toggle button is added.
                               endAdornment: (
@@ -203,8 +202,8 @@ const Profile = (props) => { //the profile page
                                 </InputAdornment>
                               )
                             }}/>
-                                <a justifyContent="center" className="btn" onClick={() => updateCall(oldPassword, newPassword1, newPassword2, newEmail, newUsername)}>
-                                Submit &#8594;{" "}
+                                <a  justifyContent="center" className="btn" onClick={() => updateCall(oldPassword, newPassword1, newPassword2, newEmail, newUsername)}>
+                                Submit{" "}
                                 </a>
             
                             </Stack>

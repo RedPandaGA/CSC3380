@@ -1,10 +1,6 @@
-import { Link, Outlet } from "react-router-dom";
 import { useState } from "react";
-import MenuImage from "../Images/Home-images/menu.png";
 import navOpenImg from "../Images/navbar/bars-solid.svg";
 import navCloseImg from "../Images/navbar/x-solid.svg";
-import RecipeImage from "../Images/Home-images/recipes.png";
-import WhiskImage from "../Images/Home-images/whisk2.png";
 import Logo from "../Images/Home-images/logo2.png";
 
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
