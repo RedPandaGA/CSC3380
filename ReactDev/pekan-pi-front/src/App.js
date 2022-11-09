@@ -47,6 +47,10 @@ function App() {
         <Route path="/Pantry" element={<PantryPage/> } />
         <Route path="/forgot" element={<ForgotElement /> } />
       </Routes>
+
+      {/*add footer */}
+      
+
     </div>
   );
 }

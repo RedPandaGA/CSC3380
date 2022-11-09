@@ -20,18 +20,18 @@ nav {
   flex: 1;
   text-align: right;
 }
-nav ul {
+nav .ul-menu {
   display: flex;
   justify-content: space-around;
   align-items: center;
   width: 100%;
   list-style-type: none;
 }
-nav ul li {
+nav .ul-menu li {
   display: inline-block;
   margin-right: 50px;
 }
-nav ul li a {
+nav .ul-menu li a {
   text-decoration: none;
   color:inherit;
   font-size: 25px;
@@ -39,7 +39,7 @@ nav ul li a {
   font-weight: 'bold';
 }
 /* hovering over images turn different color */
-img:hover {
+.whisk img:hover, .logo img:hover, .pot :hover  {
   filter: invert(100%);
 }
 
@@ -189,31 +189,49 @@ small {
   margin-left: 20px;
   display: none;
 }
+.profile-page{
+  height:100%;
+}
 /*------------ media query for menu*/
 @media only screen and (max-width: 1000px) {
   .menu-icon {
+    z-index:1001;
     display: block;
   }
 
   nav {
+    z-index:1000;
     position: fixed;
     width: 100%;
     background: #fff;
     height: 100vh;
     top: 0;
-    right: -100%;
-    text-align: left;
+    right:0;
+    text-align: center;
     transition: all 0.5s;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    
   }
-  nav ul {
+  nav .ul-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  nav .ul-menu li {
     display: block;
-    margin: 50px 20px;
+    width:90%;
+    padding:20px;
+    border-bottom:1px solid black;
   }
-  nav ul li {
-    display: block;
-    margin: 20px 0;
+  nav .ul-menu li:hover {
+    background-color: #daa2bf;
+    padding:25px;
+    border-bottom:1px solid rgb(80, 80, 80);
   }
-  nav ul li a {
+  nav .ul-menu li a {
     font-size: 20px;
   }
   .menu-icon {
@@ -261,13 +279,13 @@ table {
 .darkmode-navbar{
   background-color: rgb(113, 111, 111);
 }
-.darkmode-nav ul li {
+.darkmode-nav .ul-menu li {
   color:white;
 }
 .darkmode-page{
   background-color:  rgb(113, 111, 111);
 }
-.darkmode-nav ul li a {
+.darkmode-nav .ul-menu li a {
   color: rgb(255, 255, 255);
 }
 /* make headers white when dark-mode*/
