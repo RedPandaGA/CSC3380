@@ -29,16 +29,17 @@ userAuth.post('/login', async (req, res) => {
     try{
         const temp = await db.getUserByEmail(email)
         existingUser = temp[0]
-        console.log(existingUser)
     } catch {
         const err = new Error("Error! Something went wrong.")
         console.log(err)
-        return err
+        res.status(500).send({ success: false, message: "Server encountered an issue try again later" })
+        return
     }
     if(!existingUser || existingUser.Password != password){
         const err = Error("Wrong details please check")
         console.log(err)
-        return err
+        res.status(500).send({ success: false, message: "Incorrect login! Please fix email/password." })
+        return
     }
     let token;
     try {
@@ -49,8 +50,10 @@ userAuth.post('/login', async (req, res) => {
     } catch (err){
         const error = new Error("Error! Something went wrong.")
         console.log(err)
-        return err
+        res.status(500).send({ success: false, message: "Server encountered an issue try again later" })
+        return
     }
+
 
     res.status(200).json({
         success: true,

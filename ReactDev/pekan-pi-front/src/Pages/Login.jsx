@@ -19,13 +19,13 @@ async function Logincall(email, password){
       localStorage.setItem('udata', JSON.stringify(res.data.data))
       window.location.replace("/")
     } else {
-      const error = new Error(res.error);
-      throw error;
+      const error = new Error(res.data.message)
+      throw error
     }
   })
   .catch(err => {
-    console.error(err);
-    alert('Error logging in please try again')
+    console.error(err)
+    alert(err.response.data.message)
   })
 }
 
