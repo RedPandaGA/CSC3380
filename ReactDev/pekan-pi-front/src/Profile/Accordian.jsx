@@ -4,10 +4,9 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ChangeNameFields from './ChangeNameFields';
-import ChangeEmailFields from './ChangeEmailFields';
-import ChangePasswordFields from './ChangePasswordFields';
-import ChangeUsernameFields from './ChangeUsernameFields';
+
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
 export default function ControlledAccordions() { //accordian expanding
   const [expanded, setExpanded] = React.useState(false);
@@ -24,13 +23,22 @@ export default function ControlledAccordions() { //accordian expanding
           aria-controls="panel1bh-content"
           id="panel1bh-header"
         >
-          <Typography sx={{ width: '55%', flexShrink: 0 }}>
-            Change Name
+          <Typography sx={{color: 'text.secondary', width: '55%', flexShrink: 0 }}>
+            Change Username
           </Typography>
-          <Typography align="right" sx={{color: 'text.secondary' }}>Milan Nguyen</Typography>
+          <Typography align="right" sx={{color: 'text.secondary' }}>mimi2035</Typography>
         </AccordionSummary>
         <AccordionDetails>
-            <ChangeNameFields/>
+          <Box //CHANGE USERNAME FIELDS
+            component="form"
+            sx={{
+              '& > :not(style)': { m: 1, width: '25ch' },
+            }}
+            noValidate
+            autoComplete="off"
+          >
+            <TextField size = "small" id="outlined-basic" label="Username" variant="outlined" />
+              </Box>
         </AccordionDetails>
       </Accordion>
       <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
@@ -39,46 +47,48 @@ export default function ControlledAccordions() { //accordian expanding
           aria-controls="panel2bh-content"
           id="panel2bh-header"
         >
-          <Typography sx={{ width: '55%', flexShrink: 0 }}>Change Email</Typography>
+          <Typography sx={{ color: 'text.secondary', width: '55%', flexShrink: 0 }}>Change Email</Typography>
           <Typography sx={{ color: 'text.secondary' }}>
             mngu174@lsu.edu
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-            <ChangeEmailFields/>
+          <Box // CHANGE EMAIL TEXT FIELDS
+            component="form"
+            sx={{
+              '& > :not(style)': { m: 1, width: '25ch' },
+            }}
+            noValidate
+            autoComplete="off"
+          >
+            <TextField size = "small" id="outlined-basic" label="New Email" variant="outlined" />
+      </Box>
         </AccordionDetails>
       </Accordion>
       <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel3bh-content"
-          id="panel3bh-header"
-        >
-          <Typography sx={{ width: '55%', flexShrink: 0 }}>
-            Change Username
-          </Typography>
-          <Typography sx={{ color: 'text.secondary' }}>
-            meateater23
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <ChangeUsernameFields/>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel4bh-content"
           id="panel4bh-header"
         >
-          <Typography sx={{ width: '55%', flexShrink: 0 }}>Change Password</Typography>
+          <Typography sx={{ color: 'text.secondary', width: '55%', flexShrink: 0 }}>Change Password</Typography>
           <Typography sx={{ color: 'text.secondary' }}>
             *********
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            <ChangePasswordFields/>
+            <Box // CHANGE PASSWORD FIELDS
+              component="form"
+              sx={{
+                '& > :not(style)': { m: 1, width: '25ch' },
+              }}
+              noValidate
+              autoComplete="off"
+            >
+              <TextField size = "small" id="outlined-password-input " label="New Password" type="password" />
+              <TextField size = "small" id="outlined-password-input " label="Confirm New Password" type="password" />
+                  </Box>
           </Typography>
         </AccordionDetails>
       </Accordion>
