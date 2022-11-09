@@ -16,7 +16,7 @@ function App() {
       <Routes className="NavBar">
         <Route index element={<Home />} />
         <Route path="/Login" element={<Login />} />
-        <Route path="/Recipes" element={<RecipiesPage />} />
+        <Route path="/Recipes" element={<RecipesPage />} />
         <Route path="/Profile/Profile" element={<Profile />} />
         <Route path="/Pantry" element={<Pantry />} />
         <Route path="/forgot" element={<Forgot />} />
