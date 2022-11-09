@@ -22,7 +22,8 @@ app.use(cors())
 app.use(express.json())
 app.use('/auth', userAuth)
 app.use('/', logedInRout)
-//Express utility functions BEGIN
+
+/********************************************************* Express utility functions BEGIN ************************************************************************************/
 
 app.listen(PORT, () => {
     console.log(`Express listening on Port ${PORT}.`)
