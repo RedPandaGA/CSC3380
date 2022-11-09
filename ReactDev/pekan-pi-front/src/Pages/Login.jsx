@@ -100,7 +100,7 @@ function Login() {
                   <h4 className="header2left" >limit food waste!</h4>
                     <form className="login-from">
                       <div><input type="text" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)}/></div>
-                       <div className="passwordField"><TextField variant="standard" type={showPassword?"text":"password"} placeholder="Password" value={password} onChange={p => setPassword(p.target.value)}
+                       <div className="passwordField"><TextField sx={{ width:390}} variant="standard" type={showPassword?"text":"password"} placeholder="Password" value={password} onChange={p => setPassword(p.target.value)}
                        InputProps={{ // <-- This is where the toggle button is added.
                        disableUnderline: true,
                         endAdornment: (
@@ -140,7 +140,7 @@ function Login() {
                     <form className="signup-from">
                       <input type="text" placeholder="Username" value={username} onChange={u => setUsername(u.target.value)}/>
                       <input type="text" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)}/>
-                      <TextField variant="standard" type={showPassword?"text":"password"} placeholder="Password" value={password} onChange={p => setPassword(p.target.value)}
+                      <TextField sx={{ width:390}} variant="standard" type={showPassword?"text":"password"} placeholder="Password" value={password} onChange={p => setPassword(p.target.value)}
                       InputProps={{ // <-- This is where the toggle button is added.
                         disableUnderline: true,
                          endAdornment: (
