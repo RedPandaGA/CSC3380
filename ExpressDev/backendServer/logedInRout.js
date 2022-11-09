@@ -6,7 +6,11 @@ import jwt from 'jsonwebtoken'
 const ssecret = process.env.SSECRET
 
 var logedInRout = express.Router()
-
+/*
+{
+	aisles: [{aisleName: "aisle1", ingredients: [{..},{..}] }, {aisleName: "aisle2", ingredients: [{..},{..}]}]
+}
+*/
 logedInRout.use((req, res, next) => {
     const token = req.headers.authorization.split(' ')[1]
     if(!token){
@@ -26,13 +30,13 @@ logedInRout.use((req, res, next) => {
 logedInRout.get('/getAPIresponse', async (req, res) => {
     const test = await Api_helper.callAPI(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${APIkey}&ingredients=beef,+potatoes,+carrots}`)
     res.send(test)
-});
+})
 
 logedInRout.get('/getIngredientsearch/:search', async (req, res) => {
     const search = req.params.search
     const test = await Api_helper.callAPI(`https://api.spoonacular.com/food/ingredients/autocomplete?apiKey=${APIkey}&query=${search}&number=5&metaInformation=true`)
     res.send(test)
-});
+})
 
 //Spoonacular API call functions END
 
@@ -60,7 +64,7 @@ logedInRout.get('/getPantries' , async (req, res) => {
     res.send(pantries)
 })
 
-logedInRout.get('/getPantries/:id' , async (req, res) => {
+logedInRout.get('/getPantry' , async (req, res) => {
     const id = req.params.id
     const pantry = await db.getPantry(id)
     res.send(pantry)
