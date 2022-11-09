@@ -136,7 +136,7 @@ export async function getPassword(UID){
         SELECT "Password" FROM users WHERE "UID" = $1
     `, [UID])
     .then(dbres => {
-        ret = dbres
+        ret = dbres.rows[0]
     })
     .catch(err => {
         ret = false

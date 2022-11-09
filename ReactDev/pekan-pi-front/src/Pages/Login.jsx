@@ -7,7 +7,7 @@ import axios from 'axios'
 async function Logincall(email, password){
   const data = { email: email, password: password }
   await axios({
-    method: 'post',
+    method: 'POST',
     url: 'http://localhost:3002/auth/login',
     data: data
   })

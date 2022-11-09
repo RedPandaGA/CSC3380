@@ -26,11 +26,13 @@ logedInRout.use((req, res, next) => {
 })
 // res.status(500).send({ success: false, message: "Invalid User. Try loging out and back in again."})
 async function passwordCheck(UID, confirmPass){
+    console.log("oldPass " + confirmPass)
     const dataPass = await db.getPassword(UID)
+    console.log(dataPass.Password)
     if(!dataPass){
         return false
     } else {
-        if(dataPass == confirmPass){
+        if(dataPass.Password == confirmPass){
             return true
         } else {
             return false
@@ -56,12 +58,13 @@ logedInRout.get('/getIngredientsearch/:search', async (req, res) => {
 //PostgreSQL API call functions BEGIN
 
 logedInRout.post('/updateUsername', async (req, res) => {
-    let check = await passwordCheck(res.data.UID, res.data.oldPassword)
+    // console.log(req.body.oldPassword)
+    let check = await passwordCheck(req.body.UID, req.body.oldPassword)
     if(!check){
         res.status(500).send({ success: false, message: "Incorrect old password"})
         return
     } else {
-        const update = await db.updateUsername(res.data.UID, res.data.newUsername)
+        const update = await db.updateUsername(req.body.UID, req.body.newUsername)
         if(!update){
             res.status(500).send({ success: false, message: "Update failed try again"})
             return
@@ -73,12 +76,12 @@ logedInRout.post('/updateUsername', async (req, res) => {
 })
 
 logedInRout.post('/updateEmail', async (req, res) => {
-    let check = await passwordCheck(res.data.UID, res.data.oldPassword)
+    let check = await passwordCheck(req.body.UID, req.body.oldPassword)
     if(!check){
         res.status(500).send({ success: false, message: "Incorrect old password"})
         return
     } else {
-        const update = await db.updateEmail(res.data.UID, res.data.newEmail)
+        const update = await db.updateEmail(req.body.UID, req.body.newEmail)
         if(!update){
             res.status(500).send({ success: false, message: "Update failed try again"})
             return
@@ -90,12 +93,12 @@ logedInRout.post('/updateEmail', async (req, res) => {
 })
 
 logedInRout.post('/updatePassword', async (req, res) => {
-    let check = await passwordCheck(res.data.UID, res.data.oldPassword)
+    let check = await passwordCheck(req.body.UID, req.body.oldPassword)
     if(!check){
         res.status(500).send({ success: false, message: "Incorrect old password"})
         return
     } else {
-        const update = await db.updateEmail(res.data.UID, res.data.newPassword)
+        const update = await db.updateEmail(req.body.UID, req.body.newPassword)
         if(!update){
             res.status(500).send({ success: false, message: "Update failed try again"})
             return
