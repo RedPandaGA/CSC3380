@@ -57,7 +57,7 @@ function Layout(props) {
           <a href="/About">About</a>
         </li>
         <li>
-          
+
 <label class="switch">
   <input type="checkbox" checked={props.darkmode}  onChange={handleChange}/>
   <span class="slider round"></span>
@@ -84,16 +84,6 @@ function Layout(props) {
     />
   </div>
   </ThemeProvider>
-
-    // <div>
-    //   <Link to="/"> Home</Link>
-    //   <Link to="/Login"> Login</Link>
-    //   <Link to="/RecipiesPage"> Recipes</Link>
-    //   <Link to="/Profile/Profile"> Profile</Link>
-    //   <Link to="/Pantry"> Pantry</Link>
-    //   <hr></hr>
-    //   <Outlet />
-    // </div>
   );
 }
 
