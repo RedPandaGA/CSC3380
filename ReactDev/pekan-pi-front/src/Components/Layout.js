@@ -1,6 +1,8 @@
 import { Link, Outlet } from "react-router-dom";
-
+import { useState } from "react";
 import MenuImage from "../Images/Home-images/menu.png";
+import navOpenImg from "../Images/navbar/bars-solid.svg";
+import navCloseImg from "../Images/navbar/x-solid.svg";
 import RecipeImage from "../Images/Home-images/recipes.png";
 import WhiskImage from "../Images/Home-images/whisk2.png";
 import Logo from "../Images/Home-images/logo2.png";
@@ -21,68 +23,99 @@ const theme = createTheme({
   },
 });
 
+
+
+/**Layout component */
 function Layout(props) {
+  const [navOpen,setNavOpen]=useState(false);
+
+
+
+
+
+
   function handleChange(e) {
     props.setDarkMode(e.target.checked);
   }
+
+
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-    <div className={`navbar ${props.darkmode?"darkmode-navbar":""}` }>
-    <div className="logo">
-      <a href="/">
-        <img src={Logo} width="150px" />
-      </a>
-    </div>
-    <nav className={`${props.darkmode?"darkmode-nav":""}`}>
-      <ul id="MenuItems">
-        <li>
-          <a href="/">Home</a>
-        </li>
-        <li>
-          <a href="/Login">Login</a>
-        </li>
-        <li>
-          <a href="/Recipes">Recipes</a>
-        </li>
-        <li>
-          <a href="/Pantry">Pantry</a>
-        </li>
-        <li>
-          <a href="/Profile/Profile">Profile</a>
-        </li>
-        <li>
-          <label class="switch">
-            <input type="checkbox" checked={props.darkmode}  onChange={handleChange}/>
-            <span class="slider round"></span>
-          </label>
-        </li>
-        <li>
-          <a justifyContent="center" className="btn"> Logout{" "} </a>
-        </li>
-
-      </ul>
-    </nav>
-    <a href="search.html">
-      {" "}
-      {props.darkmode?<img src={RecipeImage} width="50px" height="50px" />: <img src={RecipeImage} width="50px" height="50px" />}
-
- {" "}
-    </a>
-    <a href="whisk.html" className="whisk">
-      {" "}
-      <Link to="/forgot">
-      <img src={WhiskImage} width="50px" height="50px" />{" "}
-      </Link>
-    </a>
-    <img
-      src={MenuImage}
-      className="menu-icon"
-      //onClick={menuToggle()}
-      alt="Menu Image"
-    />
-  </div>
-  </ThemeProvider>
+      <div className={`navbar ${props.darkmode ? "darkmode-navbar" : ""}`}>
+        <nav style={{right:navOpen?"0%":"-100%"}} className={`${props.darkmode ? "darkmode-nav" : ""}`}>
+          <ul className="ul-menu" id="MenuItems">
+            <li>
+                  <div className="logo">
+                <a href="/">
+                  <img src={Logo} width="150px" />
+                </a>
+              </div>
+            </li>
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="/Login">Login</a>
+            </li>
+            <li>
+              <a href="/Recipes">Recipes</a>
+            </li>
+            <li>
+              <a href="/Pantry">Pantry</a>
+            </li>
+            <li>
+              <a href="/Profile/Profile">Profile</a>
+            </li>
+            <li>
+              <a href="">About</a>
+            </li>
+            <li>
+              <label className="switch">
+                <input
+                  type="checkbox"
+                  checked={props.darkmode}
+                  onChange={handleChange}
+                />
+                <span className="slider round"></span>
+              </label>
+            </li>
+            <li>
+              <a styles={{ justifyContent: "center" }} className="btn">
+                {" "}
+                Logout{" "}
+              </a>
+            </li>
+            {/* <li>
+                    <a href="search.html" className="pot">
+                  {" "}
+                  {props.darkmode ? (
+                    <img src={RecipeImage} width="50px" height="50px" />
+                  ) : (
+                    <img src={RecipeImage} width="50px" height="50px" />
+                  )}{" "}
+                </a>
+            </li>
+            <li>
+                    <span className="whisk">
+                  {" "}
+                  <Link to="/forgot">
+                    <img src={WhiskImage} width="50px" height="50px" />{" "}
+                  </Link>
+                </span>
+            </li> */}
+          </ul>
+        </nav>
+  
+        <img
+          src={navOpen?navCloseImg:navOpenImg}
+          className="menu-icon"
+          onClick={()=>{setNavOpen(!navOpen)}}
+          alt="Menu Image"
+        />
+      </div>
+    </ThemeProvider>
   );
 }
 
