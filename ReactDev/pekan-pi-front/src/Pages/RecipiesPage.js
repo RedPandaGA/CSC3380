@@ -2,7 +2,7 @@
 
 function RecipiesPage(props) {
     return ( 
-        <div className={props.darkmode?"darkmode-page":""}>
+        <div className={`Recipie-page${props.darkmode?"darkmode-page":""}`}> 
             <h2>RecipiesPage</h2>
         </div>
     );

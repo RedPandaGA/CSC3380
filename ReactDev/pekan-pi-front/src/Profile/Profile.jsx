@@ -89,7 +89,7 @@ async function updateCall(oldPassword, newPassword1, newPassword2, newEmail, new
 
 }
 
-const Profile = () => { //the profile page
+const Profile = (props) => { //the profile page
     const [expanded, setExpanded] = React.useState(false);
 
     const handleChange = (panel) => (event, isExpanded) => {
@@ -103,7 +103,7 @@ const Profile = () => { //the profile page
     const [newUsername, setNewUsername] = React.useState("")
 
     return(
-        <ThemeProvider theme={maintheme}>        
+        <ThemeProvider theme={maintheme} className="profile-page">        
             <CssBaseline />
              <div>
                     <Grid container justifyContent="center">
@@ -111,7 +111,9 @@ const Profile = () => { //the profile page
                            
 
                             <div sx={{mt: 5}} >
-      <Accordion sx={{mt: 3}} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+
+                             {/**Profile table dark mode */}
+      <Accordion sx={{mt: 3,backgroundColor:props.darkmode?"rgb(113, 111, 111)":"#e3eca4"}} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1bh-content"
@@ -135,7 +137,8 @@ const Profile = () => { //the profile page
               </Box>
         </AccordionDetails>
       </Accordion>
-      <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+        {/**Profile table dark mode */}
+      <Accordion sx={{backgroundColor:props.darkmode?"rgb(113, 111, 111)":"#e3eca4"}} expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2bh-content"
@@ -159,7 +162,8 @@ const Profile = () => { //the profile page
       </Box>
         </AccordionDetails>
       </Accordion>
-      <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+         {/**Profile table dark mode */}
+      <Accordion sx={{backgroundColor:props.darkmode?"rgb(113, 111, 111)":"#e3eca4"}} expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel3bh-content"
