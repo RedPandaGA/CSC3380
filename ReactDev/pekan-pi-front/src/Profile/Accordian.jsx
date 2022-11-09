@@ -24,13 +24,13 @@ export default function ControlledAccordions() { //accordian expanding
           aria-controls="panel1bh-content"
           id="panel1bh-header"
         >
-          <Typography sx={{ width: '55%', flexShrink: 0 }}>
-            Change Name
+          <Typography sx={{color: 'text.secondary', width: '55%', flexShrink: 0 }}>
+            Change Username
           </Typography>
-          <Typography align="right" sx={{color: 'text.secondary' }}>Milan Nguyen</Typography>
+          <Typography align="right" sx={{color: 'text.secondary' }}>mimi2035</Typography>
         </AccordionSummary>
         <AccordionDetails>
-            <ChangeNameFields/>
+            <ChangeUsernameFields/>
         </AccordionDetails>
       </Accordion>
       <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
@@ -39,7 +39,7 @@ export default function ControlledAccordions() { //accordian expanding
           aria-controls="panel2bh-content"
           id="panel2bh-header"
         >
-          <Typography sx={{ width: '55%', flexShrink: 0 }}>Change Email</Typography>
+          <Typography sx={{ color: 'text.secondary', width: '55%', flexShrink: 0 }}>Change Email</Typography>
           <Typography sx={{ color: 'text.secondary' }}>
             mngu174@lsu.edu
           </Typography>
@@ -52,26 +52,9 @@ export default function ControlledAccordions() { //accordian expanding
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel3bh-content"
-          id="panel3bh-header"
-        >
-          <Typography sx={{ width: '55%', flexShrink: 0 }}>
-            Change Username
-          </Typography>
-          <Typography sx={{ color: 'text.secondary' }}>
-            meateater23
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <ChangeUsernameFields/>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel4bh-content"
           id="panel4bh-header"
         >
-          <Typography sx={{ width: '55%', flexShrink: 0 }}>Change Password</Typography>
+          <Typography sx={{ color: 'text.secondary', width: '55%', flexShrink: 0 }}>Change Password</Typography>
           <Typography sx={{ color: 'text.secondary' }}>
             *********
           </Typography>

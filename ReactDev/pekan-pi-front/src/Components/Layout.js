@@ -54,14 +54,13 @@ function Layout(props) {
           <a href="/Profile/Profile">Profile</a>
         </li>
         <li>
-          <a href="/About">About</a>
+          <label class="switch">
+            <input type="checkbox" checked={props.darkmode}  onChange={handleChange}/>
+            <span class="slider round"></span>
+          </label>
         </li>
         <li>
-          
-<label class="switch">
-  <input type="checkbox" checked={props.darkmode}  onChange={handleChange}/>
-  <span class="slider round"></span>
-</label>
+          <a justifyContent="center" className="btn"> Logout{" "} </a>
         </li>
 
       </ul>
@@ -86,16 +85,6 @@ function Layout(props) {
     />
   </div>
   </ThemeProvider>
-
-    // <div>
-    //   <Link to="/"> Home</Link>
-    //   <Link to="/Login"> Login</Link>
-    //   <Link to="/RecipiesPage"> Recipes</Link>
-    //   <Link to="/Profile/Profile"> Profile</Link>
-    //   <Link to="/Pantry"> Pantry</Link>
-    //   <hr></hr>
-    //   <Outlet />
-    // </div>
   );
 }
 
