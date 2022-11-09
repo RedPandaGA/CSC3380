@@ -72,19 +72,20 @@ export async function getFavorites(){
 //Actual Functions
 //Insert users
 export async function insertUser(username, password, email){
-    console.log("HELLO")
+    let ret = null
     await pool.query(`
         INSERT INTO users ("Username", "Password", "Email")
         VALUES ($1,$2,$3)
     `, [username, password, email])
     .then(dbres => {
         console.log("good res: " + JSON.stringify(dbres))
-        return JSON.stringify(dbres)
+        ret = true
     })
     .catch(err => {
         console.log("error: " + err.stack)
-        return err
+        ret = false
     })
+    return ret
 }
 
 

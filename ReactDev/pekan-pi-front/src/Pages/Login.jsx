@@ -56,9 +56,9 @@ async function signupCall(username, email, password){
     data: data
   })
   .then(res => {
-    if(!res.data){
+    if(!res.data.successful){
       console.log(res)
-      alert("User already in use")
+      alert("Username or email is already in use")
     } else {
       console.log(res)
       alert("User creation successful, please sign in!")

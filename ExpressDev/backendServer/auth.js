@@ -13,8 +13,13 @@ userAuth.post('/createuser',  async (req, res) => {
     console.log(email)
     console.log(password)
     const dbres = await db.insertUser(username, password, email)
-    console.log("dbres: " + dbres)
-    res.send(dbres)
+    if(!dbres){
+        let data = { successful: false, message: "Credentials already in use" }
+        res.send(data)
+    } else {
+        let data = { successful: true, message: "User successfully made" }
+        res.send(data)
+    }
 })
 
 userAuth.post('/login', async (req, res) => {
