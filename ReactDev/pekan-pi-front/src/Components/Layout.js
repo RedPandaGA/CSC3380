@@ -80,24 +80,6 @@ function Layout(props) {
                 Logout{" "}
               </a>
             </li>
-            {/* <li>
-                    <a href="search.html" className="pot">
-                  {" "}
-                  {props.darkmode ? (
-                    <img src={RecipeImage} width="50px" height="50px" />
-                  ) : (
-                    <img src={RecipeImage} width="50px" height="50px" />
-                  )}{" "}
-                </a>
-            </li>
-            <li>
-                    <span className="whisk">
-                  {" "}
-                  <Link to="/forgot">
-                    <img src={WhiskImage} width="50px" height="50px" />{" "}
-                  </Link>
-                </span>
-            </li> */}
           </ul>
         </nav>
   
