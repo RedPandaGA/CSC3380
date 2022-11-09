@@ -4,6 +4,11 @@ import './split.css';
 import {Link} from "react-router-dom"
 import axios from 'axios'
 
+import { InputAdornment, IconButton } from '@mui/material';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import TextField from '@mui/material/TextField';
+
 async function Logincall(email, password){
   const data = { email: email, password: password }
   await axios({
@@ -76,10 +81,14 @@ function Login() {
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
 
+  const [showPassword, setShowPassword] = useState(false);
+  const handleClickShowPassword = () => setShowPassword(!showPassword);
+  const handleMouseDownPassword = () => setShowPassword(!showPassword);
+  
   return (
     <div className="login-page">
       
-      {/*left seciton */}
+      {/*Left Seciton: Login Part */}
       
       <div className="left-section">
            <h1 className="titleL">Login Below</h1>
@@ -90,9 +99,25 @@ function Login() {
                   <h4 className="header2left">Recipe generator built to help </h4>
                   <h4 className="header2left" >limit food waste!</h4>
                     <form className="login-from">
-                        <input type="text" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)}/>
-                        <input type="password" placeholder="Password" value={password} onChange={p => setPassword(p.target.value)}/>
-                        <input className= "buttonL"type="button" value="Login" onClick={() => {Logincall(email, password)}}/> 
+                      <div><input type="text" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)}/></div>
+                       <div className="passwordField"><TextField sx={{ width:390}} variant="standard" type={showPassword?"text":"password"} placeholder="Password" value={password} onChange={p => setPassword(p.target.value)}
+                       InputProps={{ // <-- This is where the toggle button is added.
+                       disableUnderline: true,
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <IconButton
+                              aria-label="toggle password visibility"
+                              onClick={handleClickShowPassword}
+                              onMouseDown={handleMouseDownPassword}
+                            >
+                              {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                            </IconButton>
+                          </InputAdornment>
+                        )
+                      }}
+                       />
+                       </div> 
+                       <div><input className= "buttonL"type="button" value="Login" onClick={() => {Logincall(email, password)}}/> </div>
                      </form>
                    <Link to="/forgot">
                      <p className="forget">Forgot Password? Click Here </p>
@@ -102,7 +127,7 @@ function Login() {
 
        </div>
 
-        {/*right seciton */}
+        {/*Right Seciton: Sign Up Part */}
 
         <div className="right-section">
            <h1 className="titleL">Sign Up Today</h1>
@@ -115,10 +140,25 @@ function Login() {
                     <form className="signup-from">
                       <input type="text" placeholder="Username" value={username} onChange={u => setUsername(u.target.value)}/>
                       <input type="text" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)}/>
-                      <input type="password" placeholder="Password" value={password} onChange={p => setPassword(p.target.value)}/>
+                      <TextField sx={{ width:390}} variant="standard" type={showPassword?"text":"password"} placeholder="Password" value={password} onChange={p => setPassword(p.target.value)}
+                      InputProps={{ // <-- This is where the toggle button is added.
+                        disableUnderline: true,
+                         endAdornment: (
+                           <InputAdornment position="end">
+                             <IconButton
+                               aria-label="toggle password visibility"
+                               onClick={handleClickShowPassword}
+                               onMouseDown={handleMouseDownPassword}
+                             >
+                               {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                             </IconButton>
+                           </InputAdornment>
+                         )
+                       }}
+                      />
+                      
                       <input className= "buttonL" type="button" value="Submit" onClick={() => {signupCall(username, email, password)}}/>    
                      </form>
-                     {/* add picture in top right corner */}
                      
                </div>
           </div>

@@ -11,6 +11,11 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
+import { InputAdornment, IconButton } from '@mui/material';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import {useState} from 'react';
+
 import Box from '@mui/material/Box';
 
 const maintheme = createTheme({  // makes the theme for the whole profile
@@ -145,12 +150,20 @@ async function updateCall(oldPassword, newPassword1, newPassword2, newEmail, new
 
 }
 
-const Profile = () => { //the profile page
+const Profile = (props) => { //the profile page
     const [expanded, setExpanded] = React.useState(false);
 
     const handleChange = (panel) => (event, isExpanded) => {
       setExpanded(isExpanded ? panel : false);
     };
+
+    // show password stuff
+    const [showPassword, setShowPassword] = useState(false);
+    const [showPassword1, setShowPassword1] = useState(false);
+    const handleClickShowPassword = () => setShowPassword(!showPassword);
+    const handleMouseDownPassword = () => setShowPassword(!showPassword);
+    const handleClickShowPassword1 = () => setShowPassword1(!showPassword1);
+    const handleMouseDownPassword1 = () => setShowPassword1(!showPassword1);
 
     const [oldPassword, setOldPassword] = React.useState("")
     const [newPassword1, setNewPassword1] = React.useState("")
@@ -159,7 +172,7 @@ const Profile = () => { //the profile page
     const [newUsername, setNewUsername] = React.useState("")
 
     return(
-        <ThemeProvider theme={maintheme}>        
+        <ThemeProvider theme={maintheme} className="profile-page">        
             <CssBaseline />
              <div>
                     <Grid container justifyContent="center">
@@ -167,7 +180,9 @@ const Profile = () => { //the profile page
                            
 
                             <div sx={{mt: 5}} >
-      <Accordion sx={{mt: 3}} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+
+                             {/**Profile table dark mode */}
+      <Accordion sx={{mt: 3,backgroundColor:props.darkmode?"rgb(113, 111, 111)":"#e3eca4"}} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1bh-content"
@@ -187,11 +202,12 @@ const Profile = () => { //the profile page
             noValidate
             autoComplete="off"
           >
-            <TextField size = "small" id="outlined-basic" label="Username" variant="outlined" value={newUsername} onChange={nu => setNewUsername(nu.target.value)}/>
+            <TextField size = "small" id="username-input" label="New Username" variant="outlined" value={newUsername} onChange={nu => setNewUsername(nu.target.value)}/>
               </Box>
         </AccordionDetails>
       </Accordion>
-      <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+        {/**Profile table dark mode */}
+      <Accordion sx={{backgroundColor:props.darkmode?"rgb(113, 111, 111)":"#e3eca4"}} expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2bh-content"
@@ -211,11 +227,12 @@ const Profile = () => { //the profile page
             noValidate
             autoComplete="off"
           >
-            <TextField size = "small" id="outlined-basic" label="New Email" variant="outlined" value={newEmail} onChange={ne => setNewEmail(ne.target.value)} />
+            <TextField size = "small" id="new-email-input" label="New Email" variant="outlined" value={newEmail} onChange={ne => setNewEmail(ne.target.value)} />
       </Box>
         </AccordionDetails>
       </Accordion>
-      <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+         {/**Profile table dark mode */}
+      <Accordion sx={{backgroundColor:props.darkmode?"rgb(113, 111, 111)":"#e3eca4"}} expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel3bh-content"
@@ -236,8 +253,21 @@ const Profile = () => { //the profile page
               noValidate
               autoComplete="off"
             >
-              <TextField size = "small" id="outlined-password-input " label="New Password" type="password" value={newPassword1} onChange={np1 => setNewPassword1(np1.target.value)}/>
-              <TextField size = "small" id="outlined-password-input " label="Confirm New Password" type="password" value={newPassword2} onChange={np2 => setNewPassword2(np2.target.value)}/>
+              <TextField variant="outlined" size = "small" id="new-password-input " label="New Password" type={showPassword ? "text" : "password"} value={newPassword1} onChange={np1 => setNewPassword1(np1.target.value)}
+               InputProps={{ // <-- This is where the toggle button is added.
+    endAdornment: (
+      <InputAdornment position="end">
+        <IconButton
+          aria-label="toggle password visibility"
+          onClick={handleClickShowPassword}
+          onMouseDown={handleMouseDownPassword}
+        >
+          {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+        </IconButton>
+      </InputAdornment>
+    )
+  }}/>
+              <TextField variant="outlined" size = "small" id="confirm-password-input " label="Confirm New Password" type={showPassword ? "text" : "password"} value={newPassword2} onChange={np2 => setNewPassword2(np2.target.value)} />
                   </Box>
           </Typography>
         </AccordionDetails>
@@ -246,7 +276,20 @@ const Profile = () => { //the profile page
 
     
                             <Stack justifyContent="center" spacing={2} direction="row" sx={{mt: 5}}>
-                            <TextField size = "small" id="outlined-password-input " label="Old Password" type="password" value={oldPassword} onChange={op => setOldPassword(op.target.value)}/>
+                            <TextField size = "small" id="old-password-input " label="Old Password"  type={showPassword1 ? "text" : "password"} value={oldPassword} onChange={op => setOldPassword(op.target.value)}
+                            InputProps={{ // <-- This is where the toggle button is added.
+                              endAdornment: (
+                                <InputAdornment position="end">
+                                  <IconButton
+                                    aria-label="toggle pass visibility"
+                                    onClick={handleClickShowPassword1}
+                                    onMouseDown={handleMouseDownPassword1}
+                                  >
+                                    {showPassword1 ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                                  </IconButton>
+                                </InputAdornment>
+                              )
+                            }}/>
                                 <a justifyContent="center" className="btn" onClick={() => updateCall(oldPassword, newPassword1, newPassword2, newEmail, newUsername)}>
                                 Submit &#8594;{" "}
                                 </a>
