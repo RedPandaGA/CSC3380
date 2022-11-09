@@ -4,9 +4,9 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ChangeEmailFields from './ChangeEmailFields';
-import ChangePasswordFields from './ChangePasswordFields';
-import ChangeUsernameFields from './ChangeUsernameFields';
+
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
 export default function ControlledAccordions() { //accordian expanding
   const [expanded, setExpanded] = React.useState(false);
@@ -29,7 +29,16 @@ export default function ControlledAccordions() { //accordian expanding
           <Typography align="right" sx={{color: 'text.secondary' }}>mimi2035</Typography>
         </AccordionSummary>
         <AccordionDetails>
-            <ChangeUsernameFields/>
+          <Box //CHANGE USERNAME FIELDS
+            component="form"
+            sx={{
+              '& > :not(style)': { m: 1, width: '25ch' },
+            }}
+            noValidate
+            autoComplete="off"
+          >
+            <TextField size = "small" id="outlined-basic" label="Username" variant="outlined" />
+              </Box>
         </AccordionDetails>
       </Accordion>
       <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
@@ -44,7 +53,16 @@ export default function ControlledAccordions() { //accordian expanding
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-            <ChangeEmailFields/>
+          <Box // CHANGE EMAIL TEXT FIELDS
+            component="form"
+            sx={{
+              '& > :not(style)': { m: 1, width: '25ch' },
+            }}
+            noValidate
+            autoComplete="off"
+          >
+            <TextField size = "small" id="outlined-basic" label="New Email" variant="outlined" />
+      </Box>
         </AccordionDetails>
       </Accordion>
       <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
@@ -60,7 +78,17 @@ export default function ControlledAccordions() { //accordian expanding
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            <ChangePasswordFields/>
+            <Box // CHANGE PASSWORD FIELDS
+              component="form"
+              sx={{
+                '& > :not(style)': { m: 1, width: '25ch' },
+              }}
+              noValidate
+              autoComplete="off"
+            >
+              <TextField size = "small" id="outlined-password-input " label="New Password" type="password" />
+              <TextField size = "small" id="outlined-password-input " label="Confirm New Password" type="password" />
+                  </Box>
           </Typography>
         </AccordionDetails>
       </Accordion>
