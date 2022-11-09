@@ -1,7 +1,33 @@
 import React, {useState} from "react";
 import "./pantrySearch.css";
-import searchIcon from '@mui/icons-material/Search';
-import closeIcon from '@mui/icons-material/Close';
+import axios from 'axios';
+
+async function insertItem(item){
+    const PUID = JSON.parse(localStorage.getItem('udata')).userId;
+    const token = JSON.parse(localStorage.getItem('udata')).token;
+
+    if (item != ""){
+        await axios({
+            method: 'POST',
+            url: 'http://localhost:3002/updatePantry',
+            headers: { Authorization: `token ${token}` },
+            data: { UID: PUID, pantryInfo: item}
+        })
+        .then(res => {
+            if (!res.data.success){
+                console.log(res);
+                alert("Failed to add item to Pantry!");
+            }else{
+                console.log(res);
+                alert("Item added to Pantry!");
+            }
+        })
+        .catch(err => {
+            console.error(err);
+            alert("Error adding item to Pantry");
+        })
+    }
+}
 
 function PantrySearch({placeholder, data}) {
     const [filteredData, setFilteredData] = useState([]);
@@ -47,7 +73,7 @@ function PantrySearch({placeholder, data}) {
                 <div className="dataResult">
                     {filteredData.slice(0, 15).map((item, index) => {
                         return (
-                            <a className="dataItem" href={item.ingredientID} target="_blank">
+                            <a className="dataItem" href={item.ingredientID} target="_blank" onClick={() => insertItem(item)}>
                                 <p>{item.ingredient} </p>
                             </a>
                         );
