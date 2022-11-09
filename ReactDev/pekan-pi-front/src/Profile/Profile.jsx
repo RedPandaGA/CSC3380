@@ -1,9 +1,17 @@
 import {CssBaseline} from '@mui/material';
-import Accordian from './Accordian';
 import { createTheme, ThemeProvider } from '@mui/material';
 import {Grid} from '@mui/material';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
+
+import * as React from 'react';
+import Accordion from '@mui/material/Accordion';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
+import Box from '@mui/material/Box';
 
 const maintheme = createTheme({  // makes the theme for the whole profile
     palette: {
@@ -55,13 +63,98 @@ const maintheme = createTheme({  // makes the theme for the whole profile
 // }
 
 const Profile = () => { //the profile page
+    const [expanded, setExpanded] = React.useState(false);
+
+    const handleChange = (panel) => (event, isExpanded) => {
+      setExpanded(isExpanded ? panel : false);
+    };
     return(
         <ThemeProvider theme={maintheme}>        
             <CssBaseline />
              <div>
                     <Grid container justifyContent="center">
                         <Grid item md={7} direction = "column" >
-                            <Accordian sx={{mt: 5}}/>
+                           
+
+                            <div sx={{mt: 5}} >
+      <Accordion sx={{mt: 3}} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1bh-content"
+          id="panel1bh-header"
+        >
+          <Typography sx={{color: 'text.secondary', width: '55%', flexShrink: 0 }}>
+            Change Username
+          </Typography>
+          <Typography align="right" sx={{color: 'text.secondary' }}>mimi2035</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Box //CHANGE USERNAME FIELDS
+            component="form"
+            sx={{
+              '& > :not(style)': { m: 1, width: '25ch' },
+            }}
+            noValidate
+            autoComplete="off"
+          >
+            <TextField size = "small" id="outlined-basic" label="Username" variant="outlined" />
+              </Box>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2bh-content"
+          id="panel2bh-header"
+        >
+          <Typography sx={{ color: 'text.secondary', width: '55%', flexShrink: 0 }}>Change Email</Typography>
+          <Typography sx={{ color: 'text.secondary' }}>
+            mngu174@lsu.edu
+          </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Box // CHANGE EMAIL TEXT FIELDS
+            component="form"
+            sx={{
+              '& > :not(style)': { m: 1, width: '25ch' },
+            }}
+            noValidate
+            autoComplete="off"
+          >
+            <TextField size = "small" id="outlined-basic" label="New Email" variant="outlined" />
+      </Box>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel3bh-content"
+          id="panel4bh-header"
+        >
+          <Typography sx={{ color: 'text.secondary', width: '55%', flexShrink: 0 }}>Change Password</Typography>
+          <Typography sx={{ color: 'text.secondary' }}>
+            *********
+          </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <Box // CHANGE PASSWORD FIELDS
+              component="form"
+              sx={{
+                '& > :not(style)': { m: 1, width: '25ch' },
+              }}
+              noValidate
+              autoComplete="off"
+            >
+              <TextField size = "small" id="outlined-password-input " label="New Password" type="password" />
+              <TextField size = "small" id="outlined-password-input " label="Confirm New Password" type="password" />
+                  </Box>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+    </div>
+
+    
                             <Stack justifyContent="center" spacing={2} direction="row" sx={{mt: 5}}>
                             <TextField size = "small" id="outlined-password-input " label="Old Password" type="password" />
                                 <a justifyContent="center" className="btn">
