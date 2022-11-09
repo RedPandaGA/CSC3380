@@ -8,7 +8,7 @@ import * as db from './database2.js'
 
 // Environment variables
 const APIkey = process.env.APIkey
-const PORT = process.env.PORT || '3001'
+const PORT = process.env.PORT || '3002'
 
 // Import and start express
 import express from 'express'
@@ -33,8 +33,9 @@ app.get('/', (req, res) => {
 
 /********************************************************* Spoonacular API call functions BEGIN *****************************************************************************/
 
-app.get('/getAPIresponse', async (req, res) => {
-    const test = await Api_helper.callAPI(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${APIkey}&ingredients=beef,+potatoes,+carrots}`)
+app.get('/Recipes/:ingredients', async (req, res) => {
+    const ingredients = req.params.ingredients
+    const test = await Api_helper.callAPI(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${APIkey}&ingredients=${ingredients}&number=10}`)
     res.send(test)
 });
 

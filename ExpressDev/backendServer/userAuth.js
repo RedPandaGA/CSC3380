@@ -25,6 +25,6 @@ app.post('/Login', function(req, res) {
         res.status("400");
         res.send("Invalid Details!");
     }else{
-        db.getUserByName(req.body.username)
+        db.getUserByName(req.body.username);
     }
 })
