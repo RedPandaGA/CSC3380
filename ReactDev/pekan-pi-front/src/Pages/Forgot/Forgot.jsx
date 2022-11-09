@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom"
 import "./forgot.css"
-function ForgotPassword() {
+function ForgotPassword(props) {
   return(
     <div className="forget-page">
     <section>
