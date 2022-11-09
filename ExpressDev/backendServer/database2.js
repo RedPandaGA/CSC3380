@@ -72,12 +72,22 @@ export async function getFavorites(){
 //Actual Functions
 //Insert users
 export async function insertUser(username, password, email){
-    const { rows } = await pool.query(`
+    let ret = null
+    await pool.query(`
         INSERT INTO users ("Username", "Password", "Email")
         VALUES ($1,$2,$3)
     `, [username, password, email])
-    return rows
+    .then(dbres => {
+        console.log("good res: " + JSON.stringify(dbres))
+        ret = true
+    })
+    .catch(err => {
+        console.log("error: " + err.stack)
+        ret = false
+    })
+    return ret
 }
+
 
 export async function getUser(id){
     const { rows } = await pool.query(`
@@ -85,6 +95,24 @@ export async function getUser(id){
         FROM users
         WHERE "UID" = $1
     `, [id])
+    return rows
+}
+
+export async function getUserByName(username){
+    const { rows } = await pool.query(`
+        SELECT *
+        FROM users
+        WHERE "Username" = $1
+    `, [username])
+    return rows
+}
+
+export async function getUserByEmail(email){
+    const { rows } = await pool.query(`
+        SELECT *
+        FROM users
+        WHERE "Email" = $1
+    `, [email])
     return rows
 }
 
