@@ -72,7 +72,7 @@ function Layout(props) {
 
  {" "}
     </a>
-    <a href="whisk.html">
+    <a href="whisk.html" className="whisk">
       {" "}
       <img src={WhiskImage} width="50px" height="50px" />{" "}
     </a>
