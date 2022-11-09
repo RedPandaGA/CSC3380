@@ -3,7 +3,7 @@ import Accordian from './Accordian';
 import { createTheme, ThemeProvider } from '@mui/material';
 import {Grid} from '@mui/material';
 import Stack from '@mui/material/Stack';
-import { useState } from 'react';
+import TextField from '@mui/material/TextField';
 
 const maintheme = createTheme({  // makes the theme for the whole profile
     palette: {
@@ -62,10 +62,12 @@ const Profile = () => { //the profile page
                     <Grid container justifyContent="center">
                         <Grid item md={7} direction = "column" >
                             <Accordian sx={{mt: 5}}/>
-                            <Stack justifyContent="center" spacing={2} direction="row">
+                            <Stack justifyContent="center" spacing={2} direction="row" sx={{mt: 5}}>
+                            <TextField size = "small" id="outlined-password-input " label="Old Password" type="password" />
                                 <a justifyContent="center" className="btn">
                                 Submit &#8594;{" "}
                                 </a>
+            
                             </Stack>
                         </Grid>
                     </Grid>
