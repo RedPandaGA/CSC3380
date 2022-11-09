@@ -20,17 +20,21 @@ nav {
   text-align: right;
 }
 nav ul {
-  display: inline-block;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
   list-style-type: none;
 }
 nav ul li {
   display: inline-block;
   margin-right: 50px;
 }
-a {
+nav ul li a {
   text-decoration: none;
-  color: #555;
+  color:inherit;
 }
+
 p {
   color: #555;
 }
@@ -221,7 +225,6 @@ table {
   width: 100%;
   border-collapse: collapse;
 }
-
 .pantry {
   text-align: center;
 }
@@ -230,4 +233,15 @@ table {
 }
 .recipes {
   text-align: center;
+}
+
+/**darkmode styles**/
+.darkmode-navbar{
+  background-color: rgb(113, 111, 111);
+}
+.darkmode-nav ul li {
+  color:white;
+}
+.darkmode-page{
+  background-color:  rgb(113, 111, 111);
 }
