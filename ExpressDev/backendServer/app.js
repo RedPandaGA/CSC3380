@@ -2,10 +2,7 @@
 import dotenv from 'dotenv'
 dotenv.config()
 //import our own js libraries
-import * as Api_helper from './API_helper.js'
-import * as db from './database2.js'
 //environment variables
-const APIkey = process.env.APIkey
 const PORT = process.env.PORT || '3001'
 //import and start express
 import express from 'express'

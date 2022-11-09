@@ -3,13 +3,18 @@ import { createTheme, ThemeProvider } from '@mui/material';
 import {Grid} from '@mui/material';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
-
+import axios from 'axios'
 import * as React from 'react';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
+import { InputAdornment, IconButton } from '@mui/material';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import {useState} from 'react';
 
 import Box from '@mui/material/Box';
 
@@ -30,37 +35,33 @@ const maintheme = createTheme({  // makes the theme for the whole profile
     }
 })
 
-// const darktheme = createTheme({  // dark theme for profile
-//     palette: {
-//         primary: {
-//             main: '#FFFFFF', //white
-//             contrastText: '#FFFFFF'
-//         },
-//         background:{
-//             paper: '#555', //component background gray
-//             default: '#555' //page's background gray
-//         },
-//         text:{
-//             primary: '#FFFFFF',
-//             secondary: '#FFFFFF',
-//         }
-//     },
-//     typography: {
-//         fontFamily: 'Playfair Display',
-//         fontSize: 20, 
-//         fontWeightRegular: 700, //bold
-//     }
-// })
+async function updateCall(oldPassword, newPassword1, newPassword2, newEmail, newUsername){
+    const LUID = JSON.parse(localStorage.getItem('udata')).userId
+    const token = JSON.parse(localStorage.getItem('udata')).token
+    if(newUsername != ""){
+        await axios({
+            method: 'POST',
+            url: 'http://localhost:3002/updateUsername',
+            headers: { Authorization : `token ${token}` },
+            data: { UID: LUID, newUsername: newUsername, oldPassword: oldPassword }
+        })
+        .then(res => {
+            if(!res.data.success){
+                console.log(res)
+                alert("Failed to update username!")
+            } else {
+                console.log(res)
+                alert("Username updated successfully!")
+            }
+        })
+        .catch(err => {
+            console.error(err);
+            alert('Error updating username!')
+        })
+        //end for tonight-need to add updating local-storage
+    }
 
-// function getTheme() {
-//     const switched = document.getElementById('darkmodeswitch');
-//     if (switched === true){
-//         return darktheme;
-//     }
-//     else {
-//         return maintheme;
-//     }
-// }
+}
 
 const Profile = (props) => { //the profile page
     const [expanded, setExpanded] = React.useState(false);
@@ -68,6 +69,21 @@ const Profile = (props) => { //the profile page
     const handleChange = (panel) => (event, isExpanded) => {
       setExpanded(isExpanded ? panel : false);
     };
+
+    // show password stuff
+    const [showPassword, setShowPassword] = useState(false);
+    const [showPassword1, setShowPassword1] = useState(false);
+    const handleClickShowPassword = () => setShowPassword(!showPassword);
+    const handleMouseDownPassword = () => setShowPassword(!showPassword);
+    const handleClickShowPassword1 = () => setShowPassword1(!showPassword1);
+    const handleMouseDownPassword1 = () => setShowPassword1(!showPassword1);
+
+    const [oldPassword, setOldPassword] = React.useState("")
+    const [newPassword1, setNewPassword1] = React.useState("")
+    const [newPassword2, setNewPassword2] = React.useState("")
+    const [newEmail, setNewEmail] = React.useState("")
+    const [newUsername, setNewUsername] = React.useState("")
+
     return(
         <ThemeProvider theme={maintheme} className="profile-page">        
             <CssBaseline />
@@ -99,7 +115,7 @@ const Profile = (props) => { //the profile page
             noValidate
             autoComplete="off"
           >
-            <TextField size = "small" id="outlined-basic" label="Username" variant="outlined" />
+            <TextField size = "small" id="username-input" label="New Username" variant="outlined" value={newUsername} onChange={nu => setNewUsername(nu.target.value)}/>
               </Box>
         </AccordionDetails>
       </Accordion>
@@ -124,7 +140,7 @@ const Profile = (props) => { //the profile page
             noValidate
             autoComplete="off"
           >
-            <TextField size = "small" id="outlined-basic" label="New Email" variant="outlined" />
+            <TextField size = "small" id="new-email-input" label="New Email" variant="outlined" value={newEmail} onChange={ne => setNewEmail(ne.target.value)} />
       </Box>
         </AccordionDetails>
       </Accordion>
@@ -150,8 +166,21 @@ const Profile = (props) => { //the profile page
               noValidate
               autoComplete="off"
             >
-              <TextField size = "small" id="outlined-password-input " label="New Password" type="password" />
-              <TextField size = "small" id="outlined-password-input " label="Confirm New Password" type="password" />
+              <TextField variant="outlined" size = "small" id="new-password-input " label="New Password" type={showPassword ? "text" : "password"} value={newPassword1} onChange={np1 => setNewPassword1(np1.target.value)}
+               InputProps={{ // <-- This is where the toggle button is added.
+    endAdornment: (
+      <InputAdornment position="end">
+        <IconButton
+          aria-label="toggle password visibility"
+          onClick={handleClickShowPassword}
+          onMouseDown={handleMouseDownPassword}
+        >
+          {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+        </IconButton>
+      </InputAdornment>
+    )
+  }}/>
+              <TextField variant="outlined" size = "small" id="confirm-password-input " label="Confirm New Password" type={showPassword ? "text" : "password"} value={newPassword2} onChange={np2 => setNewPassword2(np2.target.value)} />
                   </Box>
           </Typography>
         </AccordionDetails>
@@ -160,8 +189,21 @@ const Profile = (props) => { //the profile page
 
     
                             <Stack justifyContent="center" spacing={2} direction="row" sx={{mt: 5}}>
-                            <TextField size = "small" id="outlined-password-input " label="Old Password" type="password" />
-                                <a justifyContent="center" className="btn">
+                            <TextField size = "small" id="old-password-input " label="Old Password"  type={showPassword1 ? "text" : "password"} value={oldPassword} onChange={op => setOldPassword(op.target.value)}
+                            InputProps={{ // <-- This is where the toggle button is added.
+                              endAdornment: (
+                                <InputAdornment position="end">
+                                  <IconButton
+                                    aria-label="toggle pass visibility"
+                                    onClick={handleClickShowPassword1}
+                                    onMouseDown={handleMouseDownPassword1}
+                                  >
+                                    {showPassword1 ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                                  </IconButton>
+                                </InputAdornment>
+                              )
+                            }}/>
+                                <a justifyContent="center" className="btn" onClick={() => updateCall(oldPassword, newPassword1, newPassword2, newEmail, newUsername)}>
                                 Submit &#8594;{" "}
                                 </a>
             

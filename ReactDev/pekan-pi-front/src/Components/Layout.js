@@ -29,28 +29,23 @@ const theme = createTheme({
 function Layout(props) {
   const [navOpen,setNavOpen]=useState(false);
 
-
-
-
-
-
   function handleChange(e) {
     props.setDarkMode(e.target.checked);
   }
-
-
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <div className={`navbar ${props.darkmode ? "darkmode-navbar" : ""}`}>
-        <div className="logo">
-          <a href="/">
-            <img src={Logo} width="150px" />
-          </a>
-        </div>
         <nav style={{right:navOpen?"0%":"-100%"}} className={`${props.darkmode ? "darkmode-nav" : ""}`}>
           <ul className="ul-menu" id="MenuItems">
+            <li>
+                  <div className="logo">
+                <a href="/">
+                  <img src={Logo} width="150px" />
+                </a>
+              </div>
+            </li>
             <li>
               <a href="/">Home</a>
             </li>
@@ -85,23 +80,26 @@ function Layout(props) {
                 Logout{" "}
               </a>
             </li>
+            {/* <li>
+                    <a href="search.html" className="pot">
+                  {" "}
+                  {props.darkmode ? (
+                    <img src={RecipeImage} width="50px" height="50px" />
+                  ) : (
+                    <img src={RecipeImage} width="50px" height="50px" />
+                  )}{" "}
+                </a>
+            </li>
+            <li>
+                    <span className="whisk">
+                  {" "}
+                  <Link to="/forgot">
+                    <img src={WhiskImage} width="50px" height="50px" />{" "}
+                  </Link>
+                </span>
+            </li> */}
           </ul>
         </nav>
-        <a href="search.html" className="pot">
-          {" "}
-          {props.darkmode ? (
-            <img src={RecipeImage} width="50px" height="50px" />
-          ) : (
-            <img src={RecipeImage} width="50px" height="50px" />
-          )}{" "}
-        </a>
-        <span className="whisk">
-          {" "}
-          <Link to="/forgot">
-            <img src={WhiskImage} width="50px" height="50px" />{" "}
-          </Link>
-        </span>
-
   
         <img
           src={navOpen?navCloseImg:navOpenImg}
