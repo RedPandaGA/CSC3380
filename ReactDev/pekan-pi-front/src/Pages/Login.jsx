@@ -6,17 +6,18 @@ import axios from 'axios'
 
 async function Logincall(email, password){
   const data = { email: email, password: password }
-  axios({
+  await axios({
     method: 'post',
     url: 'http://localhost:3002/auth/login',
     data: data
   })
   .then(res => {
     if(res.status == 200) {
-      console.log("recieved")
-      console.log(res)
-      console.log(res.data.data)
+      // console.log("recieved")
+      // console.log(res)
+      // console.log(res.data.data)
       localStorage.setItem('udata', JSON.stringify(res.data.data))
+      window.location.replace("/")
     } else {
       const error = new Error(res.error);
       throw error;
