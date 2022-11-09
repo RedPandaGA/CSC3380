@@ -12,7 +12,6 @@ export default function BasicTextFields() {
       noValidate
       autoComplete="off"
     >
-      <TextField size = "small" id="outlined-basic" label="Old Password" variant="outlined" />
       <TextField size = "small" id="outlined-password-input " label="New Password" type="password" />
       <TextField size = "small" id="outlined-password-input " label="Confirm New Password" type="password" />
     </Box>

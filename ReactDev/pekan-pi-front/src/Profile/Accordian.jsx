@@ -4,7 +4,6 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ChangeNameFields from './ChangeNameFields';
 import ChangeEmailFields from './ChangeEmailFields';
 import ChangePasswordFields from './ChangePasswordFields';
 import ChangeUsernameFields from './ChangeUsernameFields';
