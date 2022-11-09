@@ -57,3 +57,22 @@ form{
     font-size: 1.13rem;
 }
 
+/* add darkmode styles */
+.darkmode-page {
+  background-color: rgb(113, 111, 111);
+  color: #ffffff;
+}
+/* make text white when it darkmode */
+.darkmode-page h1 {
+  color: #3dc6d3;
+}
+.darkmode-page p {
+  color: #ffffff;
+}
+.darkmode-page a {
+  color: #3dc6d3;
+}
+.darkmode-page button {
+  color: #000000;
+  background-color: #f2baba;
+}
