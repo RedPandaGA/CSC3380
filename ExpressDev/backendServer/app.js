@@ -1,4 +1,4 @@
-//import and initialize dotenv to read environment variables
+// Import and initialize dotenv to read environment variables
 import dotenv from 'dotenv'
 dotenv.config()
 //import our own js libraries
@@ -22,7 +22,8 @@ app.use(cors())
 app.use(express.json())
 app.use('/auth', userAuth)
 app.use('/', logedInRout)
-//Express utility functions BEGIN
+
+/********************************************************* Express utility functions BEGIN ************************************************************************************/
 
 app.listen(PORT, () => {
     console.log(`Express listening on Port ${PORT}.`)
@@ -32,7 +33,7 @@ app.get('/', (req, res) => {
     res.send("Go to /getAPIresponse to see the API response.")
 });
 
-//Express utility END
+/********************************************************* Express utility functions END ************************************************************************************/
 
 /* 
 - By ingredients

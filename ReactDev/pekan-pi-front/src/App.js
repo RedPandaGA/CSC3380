@@ -3,7 +3,7 @@ import Layout from "./Components/Layout";
 import Home from "./Pages/Home";
 import Pantry from "./Pages/Pantry";
 import Profile from "./Profile/Profile";
-import RecipesPage from "./Pages/RecipesPage";
+import RecipePage from "./Pages/RecipiesPage";
 import Login from "./Pages/Login";
 import Forgot from "./Pages/Forgot/Forgot";
 import "./index.css";
@@ -40,15 +40,9 @@ function App() {
       </>
     );
   }
-
-  function RecipePage() {
-    return (
-      <>
-        {" "}
-        <Layout darkmode={darkmode} setDarkMode={setDarkMode} />{" "}
-        <RecipesPage darkmode={darkmode} />
-      </>
-    );
+  
+  function RecipesPage() {
+    return <> <Layout darkmode={darkmode}  setDarkMode={setDarkMode} /> <RecipePage darkmode={darkmode}  /></>
   }
 
   function PantryPage() {
@@ -64,12 +58,12 @@ function App() {
   return (
     <div className={`react-app ${darkmode ? "darkmode-page" : ""}`}>
       <Routes className="NavBar">
-        <Route index element={<HomeElement />} />
-        <Route path="/Login" element={<Login darkmode={darkmode} />} />
-        <Route path="/Recipes" element={<RecipePage />} />
-        <Route path="/Profile/Profile" element={<ProfileElement />} />
-        <Route path="/Pantry" element={<PantryPage />} />
-        <Route path="/forgot" element={<ForgotElement />} />
+        <Route index element={ <HomeElement /> } />
+        <Route path="/Login" element={<Login darkmode={darkmode}  />} />
+        <Route path="/Recipes" element={<RecipesPage/> } />
+        <Route path="/Profile/Profile" element={ <ProfileElement/> } />
+        <Route path="/Pantry" element={<PantryPage/> } />
+        <Route path="/forgot" element={<ForgotElement /> } />
       </Routes>
 
       {/*add footer */}

@@ -54,6 +54,7 @@ export async function getFavorites() {
   return rows;
 }
 
+
 // const tables = await getTableNames()
 // console.log(tables)
 
@@ -71,11 +72,19 @@ export async function getFavorites() {
 
 //Actual Functions
 //Insert users
-export async function insertUser(username, password, email) {
-  let ret = null;
-  await pool
-    .query(
-      `
+
+export async function getUserByName(username){
+    const { rows } = await pool.query(`
+        SELECT *
+        FROM users
+        WHERE "Username" = $1
+    `, [username])
+    return rows
+}
+
+export async function insertUser(username, password, email){
+    let ret = null
+    await pool.query(`
         INSERT INTO users ("Username", "Password", "Email")
         VALUES ($1,$2,$3)
     `,
@@ -173,21 +182,8 @@ export async function getUser(id){
   return rows;
 }
 
-export async function getUserByName(username) {
-  const { rows } = await pool.query(
-    `
-        SELECT *
-        FROM users
-        WHERE "Username" = $1
-    `,
-    [username]
-  );
-  return rows;
-}
-
-export async function getUserByEmail(email) {
-  const { rows } = await pool.query(
-    `
+export async function getUserByEmail(email){
+    const { rows } = await pool.query(`
         SELECT *
         FROM users
         WHERE "Email" = $1
