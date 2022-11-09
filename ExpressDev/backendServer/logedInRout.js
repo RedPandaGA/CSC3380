@@ -24,6 +24,19 @@ logedInRout.use((req, res, next) => {
         next()
     }
 })
+// res.status(500).send({ success: false, message: "Invalid User. Try loging out and back in again."})
+async function passwordCheck(UID, confirmPass){
+    const dataPass = await db.getPassword(UID)
+    if(!dataPass){
+        return false
+    } else {
+        if(dataPass == confirmPass){
+            return true
+        } else {
+            return false
+        }
+    }
+}
 
 //Spoonacular API call functions BEGIN
 
@@ -41,6 +54,57 @@ logedInRout.get('/getIngredientsearch/:search', async (req, res) => {
 //Spoonacular API call functions END
 
 //PostgreSQL API call functions BEGIN
+
+logedInRout.post('/updateUsername', async (req, res) => {
+    let check = await passwordCheck(res.data.UID, res.data.oldPassword)
+    if(!check){
+        res.status(500).send({ success: false, message: "Incorrect old password"})
+        return
+    } else {
+        const update = await db.updateUsername(res.data.UID, res.data.newUsername)
+        if(!update){
+            res.status(500).send({ success: false, message: "Update failed try again"})
+            return
+        } else {
+            res.status(200).send({ success: true, message: "Successfully Updated Username"})
+            return
+        }
+    }
+})
+
+logedInRout.post('/updateEmail', async (req, res) => {
+    let check = await passwordCheck(res.data.UID, res.data.oldPassword)
+    if(!check){
+        res.status(500).send({ success: false, message: "Incorrect old password"})
+        return
+    } else {
+        const update = await db.updateEmail(res.data.UID, res.data.newEmail)
+        if(!update){
+            res.status(500).send({ success: false, message: "Update failed try again"})
+            return
+        } else {
+            res.status(200).send({ success: true, message: "Successfully Updated Email"})
+            return
+        }
+    }
+})
+
+logedInRout.post('/updatePassword', async (req, res) => {
+    let check = await passwordCheck(res.data.UID, res.data.oldPassword)
+    if(!check){
+        res.status(500).send({ success: false, message: "Incorrect old password"})
+        return
+    } else {
+        const update = await db.updateEmail(res.data.UID, res.data.newPassword)
+        if(!update){
+            res.status(500).send({ success: false, message: "Update failed try again"})
+            return
+        } else {
+            res.status(200).send({ success: true, message: "Successfully Updated Password"})
+            return
+        }
+    }
+})
 
 logedInRout.get('/createuserTest', async (req, res) => {
     Api_helper.test();

@@ -7,6 +7,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import { useState } from 'react';
 
 export default function ControlledAccordions() { //accordian expanding
   const [expanded, setExpanded] = React.useState(false);
@@ -15,7 +16,14 @@ export default function ControlledAccordions() { //accordian expanding
     setExpanded(isExpanded ? panel : false);
   };
 
+  const [oldPassword, setOldPassword] = React.useState("")
+  const [newPassword1, setNewPassword1] = React.useState("")
+  const [newPassword2, setNewPassword2] = React.useState("")
+  const [newEmail, setNewEmail] = React.useState("")
+  const [newUsername, setNewUsername] = React.useState("")
+
   return (
+
     <div>
       <Accordion sx={{mt: 3}} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
         <AccordionSummary
@@ -37,7 +45,7 @@ export default function ControlledAccordions() { //accordian expanding
             noValidate
             autoComplete="off"
           >
-            <TextField size = "small" id="outlined-basic" label="Username" variant="outlined" />
+            <TextField size = "small" id="outlined-basic" label="Username" variant="outlined" value={newUsername} onChange={nu => setNewUsername(nu.target.value)}/>
               </Box>
         </AccordionDetails>
       </Accordion>
@@ -61,7 +69,7 @@ export default function ControlledAccordions() { //accordian expanding
             noValidate
             autoComplete="off"
           >
-            <TextField size = "small" id="outlined-basic" label="New Email" variant="outlined" />
+            <TextField size = "small" id="outlined-basic" label="New Email" variant="outlined" value={newEmail} onChange={ne => setNewEmail(ne.target.value)}/>
       </Box>
         </AccordionDetails>
       </Accordion>
@@ -86,8 +94,8 @@ export default function ControlledAccordions() { //accordian expanding
               noValidate
               autoComplete="off"
             >
-              <TextField size = "small" id="outlined-password-input " label="New Password" type="password" />
-              <TextField size = "small" id="outlined-password-input " label="Confirm New Password" type="password" />
+              <TextField size = "small" id="outlined-password-input " label="New Password" type="password" value={newPassword1} onChange={np1 => setNewPassword1(np1.target.value)}/>
+              <TextField size = "small" id="outlined-password-input " label="Confirm New Password" type="password" value={newPassword2} onChange={np2 => setNewPassword2(np2.target.value)}/>
                   </Box>
           </Typography>
         </AccordionDetails>
