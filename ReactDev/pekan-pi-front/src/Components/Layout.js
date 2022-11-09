@@ -16,6 +16,7 @@ const theme = createTheme({  // makes the theme for the whole profile
   },
   typography: {
     fontFamily: 'Playfair Display',
+    fontWeightRegular: 700,
 }
 })
 
@@ -71,9 +72,11 @@ function Layout(props) {
 
  {" "}
     </a>
-    <a href="whisk.html">
+    <a href="whisk.html" className="whisk">
       {" "}
+      <Link to="/forgot">
       <img src={WhiskImage} width="50px" height="50px" />{" "}
+      </Link>
     </a>
     <img
       src={MenuImage}
