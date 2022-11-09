@@ -6,7 +6,7 @@ import dotenv from 'dotenv'
 dotenv.config()
 //get environment variables
 const DBHOST = process.env.DBHOST
-const USER = process.env.USER
+const USER = process.env.UUSER
 const PASS = process.env.PASS
 const DBNAME = process.env.DBNAME
 const DBPORT = process.env.DBPORT
