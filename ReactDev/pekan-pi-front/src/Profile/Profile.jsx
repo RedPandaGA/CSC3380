@@ -61,6 +61,7 @@ const maintheme = createTheme({  // makes the theme for the whole profile
 //         return maintheme;
 //     }
 // }
+
 async function updateCall(oldPassword, newPassword1, newPassword2, newEmail, newUsername){
     const LUID = JSON.parse(localStorage.getItem('udata')).userId
     const token = JSON.parse(localStorage.getItem('udata')).token
@@ -84,8 +85,63 @@ async function updateCall(oldPassword, newPassword1, newPassword2, newEmail, new
             console.error(err);
             alert('Error updating username!')
         })
-        //end for tonight-need to add updating local-storage
+        const localData = JSON.parse(localStorage.getItem('udata'))
+        localData.username = newUsername
+        localStorage.setItem('udata', JSON.stringify(localData))
     }
+    if(newEmail != ""){
+        await axios({
+            method: 'POST',
+            url: 'http://localhost:3002/updateEmail',
+            headers: { Authorization : `token ${token}` },
+            data: { UID: LUID, newEmail: newEmail, oldPassword: oldPassword }
+        })
+        .then(res => {
+            if(!res.data.success){
+                console.log(res)
+                alert("Failed to update email!")
+            } else {
+                console.log(res)
+                alert("Email updated successfully!")
+            }
+        })
+        .catch(err => {
+            console.error(err);
+            alert('Error updating email!')
+        })
+        const localData = JSON.parse(localStorage.getItem('udata'))
+        localData.email = newEmail
+        localStorage.setItem('udata', JSON.stringify(localData))
+    }
+    if(newPassword1 != ""){
+        if(newPassword2 == newPassword1){
+            await axios({
+                method: 'POST',
+                url: 'http://localhost:3002/updatePassword',
+                headers: { Authorization : `token ${token}` },
+                data: { UID: LUID, newPassword: newPassword1, oldPassword: oldPassword }
+            })
+            .then(res => {
+                if(!res.data.success){
+                    console.log(res)
+                    alert("Failed to update password!")
+                } else {
+                    console.log(res)
+                    alert("Password updated successfully!")
+                }
+            })
+            .catch(err => {
+                console.error(err);
+                alert('Error updating password!')
+            })
+            localStorage.removeItem('udata')
+            alert("Please Login with your new password!")
+            window.location.replace('/Login')
+        } else {
+            alert("Please make sure new password matches!")
+        }
+    }
+
 
 }
 

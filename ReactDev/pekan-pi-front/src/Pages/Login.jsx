@@ -17,7 +17,7 @@ async function Logincall(email, password){
       // console.log(res)
       // console.log(res.data.data)
       localStorage.setItem('udata', JSON.stringify(res.data.data))
-      window.location.replace("/")
+      window.location.replace('/')
     } else {
       const error = new Error(res.data.message)
       throw error

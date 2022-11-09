@@ -98,7 +98,7 @@ logedInRout.post('/updatePassword', async (req, res) => {
         res.status(500).send({ success: false, message: "Incorrect old password"})
         return
     } else {
-        const update = await db.updateEmail(req.body.UID, req.body.newPassword)
+        const update = await db.updatePassword(req.body.UID, req.body.newPassword)
         if(!update){
             res.status(500).send({ success: false, message: "Update failed try again"})
             return
