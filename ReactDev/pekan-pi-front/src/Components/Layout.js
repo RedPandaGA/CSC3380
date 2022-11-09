@@ -16,6 +16,7 @@ const theme = createTheme({  // makes the theme for the whole profile
   },
   typography: {
     fontFamily: 'Playfair Display',
+    fontWeightRegular: 700,
 }
 })
 
