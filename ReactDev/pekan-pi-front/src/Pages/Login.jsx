@@ -79,7 +79,7 @@ function Login() {
   return (
     <div className="login-page">
       
-      {/*left seciton */}
+      {/*Left Seciton: Login Part */}
       
       <div className="left-section">
            <h1 className="titleL">Login Below</h1>
@@ -102,7 +102,7 @@ function Login() {
 
        </div>
 
-        {/*right seciton */}
+        {/*Right Seciton: Sign Up Part */}
 
         <div className="right-section">
            <h1 className="titleL">Sign Up Today</h1>
@@ -118,7 +118,6 @@ function Login() {
                       <input type="password" placeholder="Password" value={password} onChange={p => setPassword(p.target.value)}/>
                       <input className= "buttonL" type="button" value="Submit" onClick={() => {signupCall(username, email, password)}}/>    
                      </form>
-                     {/* add picture in top right corner */}
                      
                </div>
           </div>

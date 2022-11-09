@@ -63,10 +63,10 @@ form{
   color: #ffffff;
 }
 /* make text white when it darkmode */
-.darkmode-page h1 {
+.darkmode-page .h1Forgot {
   color: #3dc6d3;
 }
-.darkmode-page p {
+.darkmode-page .pForgot {
   color: #ffffff;
 }
 .darkmode-page .submitF {
