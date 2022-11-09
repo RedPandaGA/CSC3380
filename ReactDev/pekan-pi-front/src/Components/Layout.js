@@ -29,16 +29,9 @@ const theme = createTheme({
 function Layout(props) {
   const [navOpen,setNavOpen]=useState(false);
 
-
-
-
-
-
   function handleChange(e) {
     props.setDarkMode(e.target.checked);
   }
-
-
 
   return (
     <ThemeProvider theme={theme}>

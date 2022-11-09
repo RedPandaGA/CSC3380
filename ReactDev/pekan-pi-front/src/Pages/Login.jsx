@@ -4,8 +4,10 @@ import './split.css';
 import {Link} from "react-router-dom"
 import axios from 'axios'
 
-import showPass from "../Images/navbar/eye-open.svg";
-import hidePass from "../Images/navbar/eye-close.svg";
+import { InputAdornment, IconButton } from '@mui/material';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import TextField from '@mui/material/TextField';
 
 async function Logincall(email, password){
   const data = { email: email, password: password }
@@ -75,12 +77,13 @@ async function signupCall(username, email, password){
 }
 
 function Login() {
-  // hide password function
-  const [showPassword,setShowPassword]=useState(false)
   const [password, setPassword] = useState("")
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
 
+  const [showPassword, setShowPassword] = useState(false);
+  const handleClickShowPassword = () => setShowPassword(!showPassword);
+  const handleMouseDownPassword = () => setShowPassword(!showPassword);
   
   return (
     <div className="login-page">
@@ -97,10 +100,23 @@ function Login() {
                   <h4 className="header2left" >limit food waste!</h4>
                     <form className="login-from">
                       <div><input type="text" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)}/></div>
-                       <div className="passwordField"><input type={showPassword?"text":"password"} placeholder="Password" value={password} onChange={p => setPassword(p.target.value)}/>
-                       <span onClick={()=>{setShowPassword(!showPassword)}}>< img src={showPassword?hidePass:showPass}/></span>
+                       <div className="passwordField"><TextField variant="standard" type={showPassword?"text":"password"} placeholder="Password" value={password} onChange={p => setPassword(p.target.value)}
+                       InputProps={{ // <-- This is where the toggle button is added.
+                       disableUnderline: true,
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <IconButton
+                              aria-label="toggle password visibility"
+                              onClick={handleClickShowPassword}
+                              onMouseDown={handleMouseDownPassword}
+                            >
+                              {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                            </IconButton>
+                          </InputAdornment>
+                        )
+                      }}
+                       />
                        </div> 
-                       {/* img src = {} */}
                        <div><input className= "buttonL"type="button" value="Login" onClick={() => {Logincall(email, password)}}/> </div>
                      </form>
                    <Link to="/forgot">
@@ -124,7 +140,22 @@ function Login() {
                     <form className="signup-from">
                       <input type="text" placeholder="Username" value={username} onChange={u => setUsername(u.target.value)}/>
                       <input type="text" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)}/>
-                      <input type="password" placeholder="Password" value={password} onChange={p => setPassword(p.target.value)}/>
+                      <TextField variant="standard" type={showPassword?"text":"password"} placeholder="Password" value={password} onChange={p => setPassword(p.target.value)}
+                      InputProps={{ // <-- This is where the toggle button is added.
+                        disableUnderline: true,
+                         endAdornment: (
+                           <InputAdornment position="end">
+                             <IconButton
+                               aria-label="toggle password visibility"
+                               onClick={handleClickShowPassword}
+                               onMouseDown={handleMouseDownPassword}
+                             >
+                               {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                             </IconButton>
+                           </InputAdornment>
+                         )
+                       }}
+                      />
                       
                       <input className= "buttonL" type="button" value="Submit" onClick={() => {signupCall(username, email, password)}}/>    
                      </form>
