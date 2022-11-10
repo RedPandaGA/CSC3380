@@ -1,5 +1,6 @@
 /* only make background color yellow to the home page */
 @import url(https://fonts.cdnfonts.com/css/scope-one); /* scope one font for navbar*/
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&family=Playfair+Display:ital,wght@0,400;1,500&family=Source+Sans+Pro:ital,wght@0,300;1,300&display=swap");
 
 .Home {
   background-color: #e3eca4;
@@ -11,6 +12,7 @@
 body {
   font-family: "Playfair Display", serif;
 }
+
 .navbar {
   display: flex;
   align-items: center;
@@ -33,10 +35,10 @@ nav .ul-menu li {
 }
 nav .ul-menu li a {
   text-decoration: none;
-  color:inherit;
+  color: inherit;
   font-size: 25px;
-  font-family: 'Scope One';
-  font-weight: 'bold';
+  font-family: "Scope One";
+  font-weight: "bold";
 }
 
 nav .ul-menu li a:hover {
@@ -51,7 +53,7 @@ nav .ul-menu li div a:hover {
 
 /* hovering over images turn different color */
 /* .whisk img:hover, .logo img:hover, .pot :hover  */
-.logo img:hover{
+.logo img:hover {
   filter: invert(100%);
 }
 
@@ -106,7 +108,30 @@ p {
 .btn:hover {
   background: #563434;
 }
-
+.btn2 {
+  display: inline-block;
+  background: rgb(56, 187, 146);
+  color: #fff;
+  padding: 9px 30px;
+  margin: 30px 0;
+  border-radius: 30px;
+  transition: background 0.5s;
+}
+.btn2:hover {
+  background: #2c1f83;
+}
+.btn3 {
+  display: inline-block;
+  background: rgb(218, 164, 62);
+  color: #fff;
+  padding: 9px 30px;
+  margin: 30px 0;
+  border-radius: 30px;
+  transition: background 0.5s;
+}
+.btn3:hover {
+  background: #69322b;
+}
 .header .row {
   margin-top: 70px;
 }
@@ -202,31 +227,30 @@ small {
   margin-left: 20px;
   display: none;
 }
-.profile-page{
-  height:100v;
+.profile-page {
+  height: 100v;
 }
 
 /*------------ media query for menu*/
 @media only screen and (max-width: 1000px) {
   .menu-icon {
-    z-index:1001;
+    z-index: 1001;
     display: block;
   }
 
   nav {
-    z-index:1000;
+    z-index: 1000;
     position: fixed;
     width: 100%;
     background: #fff;
     height: 100vh;
     top: 0;
-    right:0;
+    right: 0;
     text-align: center;
     transition: all 0.5s;
-    display:flex;
+    display: flex;
     justify-content: center;
-    align-items:center;
-    
+    align-items: center;
   }
   nav .ul-menu {
     display: flex;
@@ -236,14 +260,14 @@ small {
   }
   nav .ul-menu li {
     display: block;
-    width:90%;
-    padding:20px;
-    border-bottom:1px solid black;
+    width: 90%;
+    padding: 20px;
+    border-bottom: 1px solid black;
   }
   nav .ul-menu li:hover {
     background-color: #eec4da;
-    padding:25px;
-    border-bottom:1px solid rgb(80, 80, 80);
+    padding: 25px;
+    border-bottom: 1px solid rgb(80, 80, 80);
   }
   nav .ul-menu li a {
     font-size: 20px;
@@ -252,7 +276,7 @@ small {
     position: absolute;
     right: 20px;
     top: 80px;
-  } 
+  }
   .navbar.active .menu-icon:hover {
     transform: rotate(180deg);
   }
@@ -262,7 +286,6 @@ small {
   .navbar.active nav {
     right: 0;
   }
-
 
   .col-2 {
     flex-basis: 100%;
@@ -304,15 +327,14 @@ table {
 }
 
 /**darkmode styles**/
-.darkmode-navbar{
+.darkmode-navbar {
   background-color: rgb(113, 111, 111);
 }
 .darkmode-nav .ul-menu li {
-  color:rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
 }
-
-.darkmode-page{
-  background-color:  rgb(113, 111, 111);
+.darkmode-page {
+  background-color: rgb(113, 111, 111);
 }
 .darkmode-nav .ul-menu li a {
   color: white;
@@ -342,7 +364,7 @@ table {
   color: white;
 }
 /* makes pictures on navbar turn blue */
-.darkmode-navbar .logo img {  
+.darkmode-navbar .logo img {
   filter: invert(100%);
 }
 .darkmode-navbar .logo img:hover {
@@ -361,4 +383,136 @@ table {
 .darkmode-navbar .logoutbutton:hover {
   background: #563434;
   color: white;
+}
+.section {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  align-items: center;
+  text-align: center;
+}
+.main-heading {
+  /* color: #555; */
+  font-size: 40px;
+  margin-bottom: 9px;
+  margin-top: 0px;
+  margin-left: 20px;
+  margin-right: 20px;
+  color: #ff523b;
+  font: "Playfair Display";
+}
+.main-heading2 {
+  /* color: #555; */
+  font-size: 16px;
+  color: rgb(44, 5, 92);
+}
+.col-5 {
+  flex-basis: 50%;
+  min-width: 300px;
+}
+.col-5 img {
+  max-width: 100%;
+  padding: 50px 0 0 0;
+}
+.col-5 h1 {
+  font-size: 50px;
+  line-height: 60px;
+  margin: 30px 0;
+}
+.col-5 p {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.col-5 h2 {
+  font-size: 50px;
+  line-height: 60px;
+}
+
+/**darkmode styles**/
+.darkmode-navbar {
+  background-color: rgb(113, 111, 111);
+}
+.darkmode-nav .ul-menu li {
+  color: rgb(255, 255, 255);
+}
+
+.darkmode-page {
+  background-color: rgb(113, 111, 111);
+}
+.darkmode-nav .ul-menu li a {
+  color: white;
+}
+
+.darkmode-nav .ul-menu li a:hover {
+  color: #3dc6d3;
+  background: none;
+}
+
+.darkmode-nav .ul-menu li div a:hover {
+  color: white;
+  background: none;
+}
+
+/* make headers white when dark-mode*/
+.darkmode-page p {
+  color: white;
+}
+.darkmode-page h1 {
+  color: white;
+}
+.darkmode-page h2 {
+  color: white;
+}
+.darkmode-page h4 {
+  color: white;
+}
+/* makes pictures on navbar turn blue */
+.darkmode-navbar .logo img {
+  filter: invert(100%);
+}
+.darkmode-navbar .logo img:hover {
+  filter: invert(0%);
+}
+
+h1 {
+  color: #563434;
+  padding-right: 80px;
+  /* padding-left: 80px; */
+  font-size: 50px;
+  color: #ff523b;
+  font-family: "Playfair Display", serif;
+}
+
+.mission-statement {
+  color: teal;
+}
+.tabs-quote {
+  color: #2c1f83;
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+}
+.tabs-quote2 {
+  color: #2c1f83;
+  font-family: "Playfair Display", serif;
+}
+
+.darkmode-navbar .logoutbutton {
+  display: inline-block;
+  background: #3dc6d3;
+  color: #fff;
+  padding: 9px 30px;
+  margin: 30px 0;
+  border-radius: 30px;
+  transition: background 50s;
+}
+.darkmode-navbar .logoutbutton:hover {
+  background: #563434;
+  color: white;
+}
+.darkmode .mission-statement {
+  color: #563434;
+  padding-right: 80px;
+  /* padding-left: 80px; */
+  font-size: 1.2rem;
+  color: white;
+  font-family: "Source Sans Pro", sans-serif;
 }
