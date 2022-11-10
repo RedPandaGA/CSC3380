@@ -2,7 +2,7 @@ import { useState } from "react";
 import navOpenImg from "../Images/navbar/bars-solid.svg";
 import navCloseImg from "../Images/navbar/x-solid.svg";
 import Logo from "../Images/Home-images/logo2.png";
-import AbouteImage from "../Images/Home-images/whiskpot.png";
+import AboutImage from "../Images/Home-images/whiskpot.png";
 
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 
@@ -83,10 +83,11 @@ function Layout(props) {
                 </a>
               </div>
             </li>
-            <a href="/About">
-              {" "}
-              <img src={AbouteImage} width="100px" />
-            </a>
+            <div className="about-img">
+              <a href="/About">
+                <img src={AboutImage} alt="AboutImg" width="100px" />
+              </a>
+            </div>
           </ul>
         </nav>
 
