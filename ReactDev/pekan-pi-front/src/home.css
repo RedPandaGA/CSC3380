@@ -15,7 +15,7 @@ body {
 .navbar {
   display: flex;
   align-items: center;
-  padding: 20px;
+  /* padding: 20px; */
 }
 nav {
   flex: 1;
@@ -30,7 +30,7 @@ nav .ul-menu {
 }
 nav .ul-menu li {
   display: inline-block;
-  margin-right: 50px;
+  margin-right: 25px;
 }
 nav .ul-menu li a {
   text-decoration: none;
@@ -39,6 +39,12 @@ nav .ul-menu li a {
   font-family: "Scope One";
   font-weight: "bold";
 }
+
+nav .ul-menu li a:hover {
+  color: #3dc6d3;
+  background: none;
+}
+
 /* hovering over images turn different color */
 /* .whisk img:hover, .logo img:hover, .pot :hover  */
 .logo img:hover {
@@ -287,6 +293,11 @@ table {
 }
 .darkmode-nav .ul-menu li a {
   color: #3dc6d3;
+}
+
+.darkmode-nav .ul-menu li a:hover {
+  color: red;
+  background: none;
 }
 /* make headers white when dark-mode*/
 .darkmode-page p {

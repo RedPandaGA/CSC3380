@@ -2,6 +2,7 @@
 
 # dependencies
 /ReactDev/pekan-pi-front/node_modules
+/ReactDev/pekan-pi-front/node_modules/.cache
 /ExpressDev/backendServer/node_modules
 /.pnp
 .pnp.js
@@ -14,7 +15,7 @@
 
 # misc
 .DS_Store
-.env
+/ExpressDev/backendServer/.env
 .env.local
 .env.development.local
 .env.test.local
@@ -23,3 +24,4 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+ExpressDev/backendServer/.env
