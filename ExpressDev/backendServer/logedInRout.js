@@ -23,7 +23,7 @@ logedInRout.use((req, res, next) => {
     if(!decodedToken){
         return res.status(404).json({success: false, message: "Error Invalid token"})
     } else {
-        console.log("sucess")
+        console.log("success")
         next()
     }
 })
