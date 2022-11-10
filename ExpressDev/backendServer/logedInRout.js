@@ -51,8 +51,9 @@ logedInRout.get('/getAPIresponse', async (req, res) => {
 })
 
 logedInRout.get('/getIngredientsearch', async (req, res) => {
-    const search = req.params.search
+    const search = req.query.search
     const test = await Api_helper.callAPI(`https://api.spoonacular.com/food/ingredients/autocomplete?apiKey=${APIkey}&query=${search}&number=5&metaInformation=true`)
+    console.log(test)
     res.send(test)
 })
 
@@ -159,8 +160,9 @@ logedInRout.get('/getPantries' , async (req, res) => {
 })
 
 logedInRout.get('/getPantry' , async (req, res) => {
-    const id = req.params.UID
+    const id = req.query.UID
     const pantry = await db.getPantry(id)
+    console.log(pantry)
     res.send(pantry)
 })
 

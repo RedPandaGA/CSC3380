@@ -1,30 +1,100 @@
 import React, {useState} from "react";
 import "./pantrySearch.css";
-import searchIcon from '@mui/icons-material/Search';
-import closeIcon from '@mui/icons-material/Close';
+import axios from 'axios'
 
-function PantrySearch({placeholder, data}) {
+async function getData(search){
+
+}
+
+function PantrySearch({placeholder}) {
     const [filteredData, setFilteredData] = useState([]);
     const [searchInput, setSearchInput] = useState("");
+    const [data, setData] = useState([])
 
-    const handleFilter = (e) => {
-        const searchedItem = e.target.value;
-        setSearchInput(searchedItem);
-        const newFilter = data.filter((item) => {
-            return item.ingredient.toLowerCase().includes(searchedItem.toLowerCase());
-        });
+    const handleSearch = (e) => {
+        setSearchInput(e.target.value)
+    }
 
-        if (searchedItem === ""){
-            setFilteredData([]);
-        }else{
-            setFilteredData(newFilter);
+    const getData = (d) => {
+        const token = JSON.parse(localStorage.getItem('udata')).token
+        axios({
+            method: 'GET',
+            url: 'http://localhost:3002/getIngredientsearch',
+            headers: { Authorization : `token ${token}` },
+            params: { search: d }
+        })
+        .then(res => {
+            console.log("got res: ")
+            console.log(res.data)
+            setData(res.data)
+        })
+        .catch(err => {
+            console.log(err)
+            alert("Failed to get Ingredients. Try again later.")
+        })
+    }
+
+    const addToPantry = async (i) => {
+        const token = JSON.parse(localStorage.getItem('udata')).token
+        const UID = JSON.parse(localStorage.getItem('udata')).userId
+        let duplicate = false
+        let aisles;
+        await axios({
+            method: 'GET',
+            url: 'http://localhost:3002/getPantry',
+            headers: { Authorization : `token ${token}` },
+            params: { UID: UID }
+        })
+        .then(res => {
+            aisles = res.data[0].pantryInfo.aisles
+        })
+        .catch(err => {
+            console.log(err)
+            alert("Failed to get Pantry. Try again later.")
+        })
+        const nameOfAisles = aisles.map((aisle) => {
+            return aisle.aisleName
+        })
+        const indexOfAisle = nameOfAisles.indexOf(i.aisle)
+        if(indexOfAisle == -1){
+            const newIndex = aisles.push({ aisleName: i.aisle, ingredients: []})
+            i.quantity = 0
+            i.selectedUnit = i.possibleUnits[0]
+            aisles[newIndex-1].ingredients.push(i)
+        } else {
+            const nameOfIngredients = aisles[indexOfAisle].ingredients.map((ingredient) => {
+                return ingredient.name
+            })
+            if(!nameOfIngredients.includes(i.name)){
+                i.quantity = 0
+                i.selectedUnit = i.possibleUnits[0]
+                aisles[indexOfAisle].ingredients.push(i)
+            } else {
+                duplicate = true
+                alert("Ingredient already in pantry. Duplicates are not allowed.")
+            }
         }
-    };
-
-    const clearInput = () => {
-        setFilteredData([]);
-        setSearchInput("");
-    };
+        if(!duplicate){
+            const newPantry = { aisles: aisles }
+            console.log(newPantry)
+            await axios({
+                method: 'POST',
+                url: 'http://localhost:3002/updatePantry',
+                headers: { Authorization : `token ${token}` },
+                data: { UID: UID, pantryInfo: newPantry }
+            })
+            .then(res => {
+                if(!res.data.success){
+                    alert("Failed to add to pantry please try again!")
+                } else {
+                    alert("Successfully added: " + i.name)
+                }
+            })
+            .catch(err => {
+                alert("Failed to add to pantry please try again!")
+            })
+        }
+    }
 
     return (
         <div className="search">
@@ -33,23 +103,17 @@ function PantrySearch({placeholder, data}) {
                     type="text"
                     placeholder={placeholder}
                     value={searchInput}
-                    onChange={handleFilter}
+                    onChange={handleSearch}
                 />
-                <div className="searchIcon">
-                    {filteredData.length === 0 ? (
-                        <searchIcon />
-                    ) : (
-                        <closeIcon id="clearBtn" onClick={clearInput} />
-                    )}
-                </div>
+                <div className="searchIcon" onClick={() => getData(searchInput)}></div>
             </div>
-            {filteredData.length !== 0 && (
+            {data.length !== 0 && (
                 <div className="dataResult">
-                    {filteredData.slice(0, 15).map((item, index) => {
+                    {data.map((item) => {
                         return (
-                            <a className="dataItem" href={item.ingredientID} target="_blank">
-                                <p>{item.ingredient} </p>
-                            </a>
+                            <div className="dataItem" target="_blank" onClick={() => addToPantry(item)}>
+                                <p>{item.name} </p>
+                            </div>
                         );
                     })}
                 </div>

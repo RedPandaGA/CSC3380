@@ -25,6 +25,10 @@
     background: url("../Images/searchIcon.png") center center no-repeat;
     background-color: rgba(249, 76, 23, 0.94);
   }
+
+  .searchIcon:hover {
+    background-color: rgba(89, 142, 255, 0.94);
+  }
   
   input:focus {
     outline: none;
@@ -54,6 +58,10 @@
     display: flex;
     align-items: center;
     color: black;
+  }
+
+  .dataResult .dataItem:hover{
+    background-color: rgb(151, 248, 255);
   }
   
   .dataItem p {

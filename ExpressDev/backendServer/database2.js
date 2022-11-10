@@ -194,8 +194,7 @@ export async function getUserByEmail(email){
 }
 
 export async function getPantry(id) {
-  const { rows } = await pool.query(
-    `
+  const { rows } = await pool.query(`
         SELECT *
         FROM pantry
         WHERE "PID" = $1
