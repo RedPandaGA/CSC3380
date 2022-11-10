@@ -39,16 +39,31 @@ function About(props) {
               <h1>Mission Statement.</h1>
               <h3 className="mission-statement">
                 Like most college students, we often find ourselves low on time,
-                money, and ingredients. As home cooks, we wanted to quickly find
-                recipes with ingredients that we already had in our pantry. As
-                busy college students, we wanted a database that kept track of
-                all of the ingredients that were already in our home. And as
-                frugal spenders, we wanted to know exactly what ingredients and
-                how much of those ingredients we already had and would need to
-                buy in order to avoid inefficient grocery shopping.
+                money, and ingredients. As busy home cooks and frugal spenders,
+                our mission was to create an accessible website that not only
+                recorded the items that we already owned, but also gave us
+                recipes based on those ingredients.{" "}
               </h3>
-              <a href="" className="btn">
+              <h4 className="tabs-quote">
+                WHY OPEN 12 TABS WHEN YOU CAN HAVE 1?
+              </h4>
+              <h3 className="mission-statement">
+                On Pekan Pi, users are able to find recipes with ingredients
+                that they already have in their pantries, keep track of those
+                ingredients and their quantity/ amount, saving them time and
+                money.{" "}
+              </h3>{" "}
+              <h3 className="tabs-quote2">
+                & Cheers to efficient grocery shopping!
+              </h3>
+              <a href="/HomeElement" className="btn">
                 Back to Home
+              </a>
+              <a href="/Pantry" className="btn2">
+                Update Your Pantry
+              </a>
+              <a href="/RecipiesPage" className="btn3">
+                View Recipes
               </a>
             </div>
             <div className="col-5">

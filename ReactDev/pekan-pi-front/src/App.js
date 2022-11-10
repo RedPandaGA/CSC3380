@@ -62,7 +62,7 @@ function App() {
   }
 
   function PantryPage() {
-<<<<<<<<< Temporary merge branch 1
+    // <<<<<<<<< Temporary merge branch 1
     return (
       <>
         {" "}
@@ -70,10 +70,21 @@ function App() {
         <Pantry darkmode={darkmode} />
       </>
     );
-=========
-    return <> <Layout darkmode={darkmode}  setDarkMode={setDarkMode} /> <Pantry darkmode={darkmode}  /></>
-    return <> <footer></footer></>
->>>>>>>>> Temporary merge branch 2
+    // =========
+    return (
+      <>
+        {" "}
+        <Layout darkmode={darkmode} setDarkMode={setDarkMode} />{" "}
+        <Pantry darkmode={darkmode} />
+      </>
+    );
+    return (
+      <>
+        {" "}
+        <footer></footer>
+      </>
+    );
+    // >>>>>>>>> Temporary merge branch 2
   }
 
   return (
@@ -89,18 +100,21 @@ function App() {
       </Routes>
 
       {/*add footer */}
-<<<<<<<<< Temporary merge branch 1
-=========
-      <footer className="footer"> 
-      <p className="pFooter">Learn more about our website and creators!</p>
-      <div className="footerLinks">
-      <Link to="/Profile/Profile" className="footerLink">About Us</Link>
-      <Link to="/forgot" className="footerLink">Forgot Password?</Link>
-      </div> 
-    
-      </footer> 
+      {/* <<<<<<<<< Temporary merge branch 1 */}
+      {/* ========= */}
+      <footer className="footer">
+        <p className="pFooter">Learn more about our website and creators!</p>
+        <div className="footerLinks">
+          <Link to="/Profile/Profile" className="footerLink">
+            About Us
+          </Link>
+          <Link to="/forgot" className="footerLink">
+            Forgot Password?
+          </Link>
+        </div>
+      </footer>
 
->>>>>>>>> Temporary merge branch 2
+      {/* >>>>>>>>> Temporary merge branch 2 */}
     </div>
   );
 }
