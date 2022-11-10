@@ -49,7 +49,7 @@ function Home(props) {
                
               </div>
               <div className="col-2">
-                <img src={TableImage} />
+                <img alt="" src={TableImage} />
               </div>
             </div>
             {/* <!------ featured categories ------ > */}
@@ -60,84 +60,84 @@ function Home(props) {
                   <div className="col-3">
                     <a href="/Recipes" >
                       {" "}
-                      <img src={AfricaImage} width="150px" />
+                      <img alt="" src={AfricaImage} width="150px" />
                     </a>
                     <h4 className="culture">African</h4>
                   </div>
                   <div className="col-3">
                     <a href="/Recipes" >
                       {" "}
-                      <img src={AmericanImage} width="150px" />
+                      <img alt="" src={AmericanImage} width="150px" />
                     </a>
                     <h4 className="culture">American</h4>
                   </div>
                   <div className="col-3">
                     <a href="/Recipes" >
                       {" "}
-                      <img src={ChineseImage} width="150px" />
+                      <img alt="" src={ChineseImage} width="150px" />
                     </a>
                     <h4 className="culture">Chinese</h4>
                   </div>
                   <div className="col-3">
                     <a href="/Recipes" >
                       {" "}
-                      <img src={FrenchImage} width="150px" />
+                      <img alt="" src={FrenchImage} width="150px" />
                     </a>
                     <h4 className="culture">French</h4>
                   </div>
                   <div className="col-3">
                     <a href="/Recipes" >
                       {" "}
-                      <img src={GreekImage} width="150px" />
+                      <img alt="" src={GreekImage} width="150px" />
                     </a>
                     <h4 className="culture">Mediterranean</h4>
                   </div>
                   <div className="col-3">
                     <a href="/Recipes" >
                       {" "}
-                      <img src={IndianImage} width="150px" />
+                      <img alt="" src={IndianImage} width="150px" />
                     </a>
                     <h4 className="culture">Indian</h4>
                   </div>
                   <div className="col-3">
                     <a href="/Recipes" >
                       {" "}
-                      <img src={ItalianImage} width="150px" />
+                      <img alt="" src={ItalianImage} width="150px" />
                     </a>
                     <h4 className="culture">Italian</h4>
                   </div>
                   <div className="col-3">
                     <a href="/Recipes" >
                       {" "}
-                      <img src={JapaneseImage} width="150px" />
+                      <img alt="" src={JapaneseImage} width="150px" />
                     </a>
                     <h4 className="culture">Japanese</h4>
                   </div>
                   <div className="col-3">
                     <a href="/Recipes" >
                       {" "}
-                      <img src={KoreanImage} width="150px" />
+                      <img alt="" src={KoreanImage} width="150px" />
                     </a>
                     <h4 className="culture">Korean</h4>
                   </div>
                   <div className="col-3">
                     <a href="/Recipes" >
                       {" "}
-                      <img src={BrazilianImage} width="150px" />
+                      <img alt="" src={BrazilianImage} width="150px" />
                     </a>
                     <h4 className="culture">Brazilian</h4>
                   </div>
                   <div className="col-3">
                     <a href="/Recipes" >
                       {" "}
-                      <img src={MexicanImage} width="150px" />
+                      <img alt="" src={MexicanImage} width="150px" />
                     </a>
                     <h4 className="culture">Spanish</h4>
                   </div>
                   <div className="col-3">
                     <a href="/Recipes" >
                       {" "}
-                      <img src={VietnameseImage} width="150px" />
+                      <img alt="" src={VietnameseImage} width="150px" />
                     </a>
                     <h4 className="culture">Vietnamese</h4>
                   </div>
@@ -148,7 +148,7 @@ function Home(props) {
                 <div className="small-container">
                   <div className="row">
                     <div className="col-2">
-                      <img src="" />
+                      <img alt="" src="" />
                     </div>
                   </div>
                 </div>
@@ -157,7 +157,7 @@ function Home(props) {
                 <div className="small-container">
                   <div className="row">
                     <div className="col-2">
-                      <img src={Table5Image} className="popular-img" />
+                      <img alt="" src={Table5Image} className="popular-img" />
                     </div>
                     <div className="col-2">
                       <h2>

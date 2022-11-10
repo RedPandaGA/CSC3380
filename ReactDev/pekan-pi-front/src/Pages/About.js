@@ -39,7 +39,7 @@ function About() {
 
       {/* our team */}
       <div className="col-2">
-        <img src="../Images/Home-images/table 2.jpeg" />
+        <img alt="" src="../Images/Home-images/table 2.jpeg" />
       </div>
     </div>
   );
