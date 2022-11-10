@@ -1,4 +1,4 @@
-import { Routes, Route, Outlet, Link, Form } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import Layout from "./Components/Layout";
 import Home from "./Pages/Home";
 import Pantry from "./Pages/Pantry";
@@ -54,7 +54,7 @@ function App() {
 
   function PantryPage() {
     return <> <Layout darkmode={darkmode}  setDarkMode={setDarkMode} /> <Pantry darkmode={darkmode}  /></>
-    return <> <footer></footer></>
+    // return <> <footer></footer></>
   }
 
   return (
@@ -62,7 +62,7 @@ function App() {
       <Routes className="NavBar">
         <Route index element={<HomeElement />} />
         <Route path="/Login" element={<Login darkmode={darkmode} />} />
-        <Route path="/Recipes" element={<RecipePage />} />
+        <Route path="/RecipiesPage" element={<RecipePage />} />
         <Route path="/Profile/Profile" element={<ProfileElement />} />
         <Route path="/Pantry" element={<PantryPage />} />
         <Route path="/About" element={<About />} />

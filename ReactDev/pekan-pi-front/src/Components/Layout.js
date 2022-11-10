@@ -32,14 +32,14 @@ function Layout(props) {
       <CssBaseline />
       <div className={`navbar ${props.darkmode ? "darkmode-navbar" : ""}`}>
         <nav
-          style={{ right: navOpen ? "0%" : "-100%" }}
+          style={{ right: navOpen ? "0%" : "-100%",}}
           className={`${props.darkmode ? "darkmode-nav" : ""}`}
         >
-          <ul className="ul-menu" id="MenuItems">
+          <ul className="ul-menu" id="MenuItems" style={{padding: "0"}}>
             <li>
               <div className="logo">
                 <a href="/">
-                  <img src={Logo} width="150px" />
+                  <img src={Logo} alt="PekanLogo" width="150px" />
                 </a>
               </div>
             </li>
@@ -50,7 +50,7 @@ function Layout(props) {
               <a href="/Login">Login</a>
             </li>
             <li>
-              <a href="/Recipes">Recipes</a>
+              <a href="/RecipiesPage">Recipes</a>
             </li>
             <li>
               <a href="/Pantry">Pantry</a>
@@ -83,12 +83,12 @@ function Layout(props) {
         </nav>
 
         <img
+          alt="MenuImg"
           src={navOpen ? navCloseImg : navOpenImg}
           className="menu-icon"
           onClick={() => {
             setNavOpen(!navOpen);
           }}
-          alt="Menu Image"
         />
       </div>
     </ThemeProvider>
