@@ -39,7 +39,8 @@ nav .ul-menu li a {
   font-weight: 'bold';
 }
 /* hovering over images turn different color */
-.whisk img:hover, .logo img:hover, .pot :hover  {
+/* .whisk img:hover, .logo img:hover, .pot :hover  */
+.logo img:hover{
   filter: invert(100%);
 }
 
@@ -190,7 +191,7 @@ small {
   display: none;
 }
 .profile-page{
-  height:100%;
+  height:100v;
 }
 /*------------ media query for menu*/
 @media only screen and (max-width: 1000px) {
@@ -227,7 +228,7 @@ small {
     border-bottom:1px solid black;
   }
   nav .ul-menu li:hover {
-    background-color: #daa2bf;
+    background-color: #eec4da;
     padding:25px;
     border-bottom:1px solid rgb(80, 80, 80);
   }
@@ -280,13 +281,13 @@ table {
   background-color: rgb(113, 111, 111);
 }
 .darkmode-nav .ul-menu li {
-  color:white;
+  color:rgb(255, 255, 255);
 }
 .darkmode-page{
   background-color:  rgb(113, 111, 111);
 }
 .darkmode-nav .ul-menu li a {
-  color: rgb(255, 255, 255);
+  color: #3dc6d3;
 }
 /* make headers white when dark-mode*/
 .darkmode-page p {
@@ -301,12 +302,11 @@ table {
 .darkmode-page h4 {
   color: white;
 }
-/* makes pictures on navbar turn white and blue */
-.darkmode-navbar img {  
+/* makes pictures on navbar turn blue */
+.darkmode-navbar .logo img {  
   filter: invert(100%);
 }
-.darkmode-navbar img:hover {
+.darkmode-navbar .logo img:hover {
   filter: invert(0%);
 }
-
 

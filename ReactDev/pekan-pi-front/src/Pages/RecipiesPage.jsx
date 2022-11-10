@@ -60,7 +60,7 @@ function RecipiesPage(props) {
       }
     }).then((res) => {
       setRecipeData(res);
-      console.log("Received JSON");
+      console.log(res.data);
     }).catch(() => {
       console.log("Error fetching recipe by NAME");
     });
