@@ -2,6 +2,7 @@ import { useState } from "react";
 import navOpenImg from "../Images/navbar/bars-solid.svg";
 import navCloseImg from "../Images/navbar/x-solid.svg";
 import Logo from "../Images/Home-images/logo2.png";
+import AbouteImage from "../Images/Home-images/whiskpot.png";
 
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 
@@ -58,9 +59,9 @@ function Layout(props) {
             <li>
               <a href="/Profile/Profile">Profile</a>
             </li>
-            <li>
+            {/* <li>
               <a href="/About">About</a>
-            </li>
+            </li> */}
             <li>
               <label className="switch">
                 <input
@@ -82,6 +83,10 @@ function Layout(props) {
                 </a>
               </div>
             </li>
+            <a href="/About">
+              {" "}
+              <img src={AbouteImage} width="100px" />
+            </a>
           </ul>
         </nav>
 
