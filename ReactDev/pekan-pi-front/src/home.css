@@ -42,7 +42,12 @@ nav .ul-menu li a {
 }
 
 nav .ul-menu li a:hover {
-  color: #3dc6d3;
+  color: #ff523b;
+  background: none;
+}
+
+nav .ul-menu li div a:hover {
+  color: black;
   background: none;
 }
 
@@ -225,6 +230,7 @@ small {
 .profile-page {
   height: 100v;
 }
+
 /*------------ media query for menu*/
 @media only screen and (max-width: 1000px) {
   .menu-icon {
@@ -288,6 +294,20 @@ small {
   }
 }
 
+.logoutbutton {
+  display: inline-block;
+  background: #ff523b;
+  color: #fff;
+  padding: 9px 30px;
+  margin: 30px 0;
+  border-radius: 30px;
+  transition: background 50s;
+}
+.logoutbutton:hover {
+  background: #563434;
+  color: white;
+}
+
 /* fave recipes */
 .whisk-page {
   margin: 80px auto;
@@ -313,17 +333,24 @@ table {
 .darkmode-nav .ul-menu li {
   color: rgb(255, 255, 255);
 }
+
 .darkmode-page {
   background-color: rgb(113, 111, 111);
 }
 .darkmode-nav .ul-menu li a {
-  color: #3dc6d3;
+  color: white;
 }
 
 .darkmode-nav .ul-menu li a:hover {
-  color: red;
+  color: #3dc6d3;
   background: none;
 }
+
+.darkmode-nav .ul-menu li div a:hover {
+  color: white;
+  background: none;
+}
+
 /* make headers white when dark-mode*/
 .darkmode-page p {
   color: white;
@@ -345,63 +372,16 @@ table {
   filter: invert(0%);
 }
 
-.section {
-  padding-top: 40px;
-  padding-bottom: 40px;
-  align-items: center;
-  text-align: center;
-}
-.main-heading {
-  /* color: #555; */
-  font-size: 40px;
-  margin-bottom: 9px;
-  margin-top: 0px;
-  margin-left: 20px;
-  margin-right: 20px;
-  color: #ff523b;
-  font: "Playfair Display";
-}
-.main-heading2 {
-  /* color: #555; */
-  font-size: 16px;
-  color: rgb(44, 5, 92);
-}
-.col-5 {
-  flex-basis: 50%;
-  min-width: 300px;
-}
-.col-5 img {
-  max-width: 100%;
-  padding: 50px 0 0 0;
-}
-.col-5 h1 {
-  font-size: 50px;
-  line-height: 60px;
+.darkmode-navbar .logoutbutton {
+  display: inline-block;
+  background: #3dc6d3;
+  color: #fff;
+  padding: 9px 30px;
   margin: 30px 0;
+  border-radius: 30px;
+  transition: background 50s;
 }
-.col-5 p {
-  font-size: 1.5rem;
-  font-weight: 500;
-}
-.col-5 h2 {
-  font-size: 50px;
-  line-height: 60px;
-  margin: 30px 0;
-}
-.mission-statement {
-  color: #563434;
-  padding-right: 80px;
-  /* padding-left: 80px; */
-  font-size: 1.2rem;
-  color: teal;
-  font-family: "Source Sans Pro", sans-serif;
-}
-.tabs-quote {
-  color: #2c1f83;
-  font-family: "Playfair Display", serif;
-  font-size: 20px;
-}
-.tabs-quote2 {
-  color: #2c1f83;
-  font-family: "Playfair Display", serif;
+.darkmode-navbar .logoutbutton:hover {
+  background: #563434;
+  color: white;
 }
