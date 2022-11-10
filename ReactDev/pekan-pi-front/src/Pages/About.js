@@ -75,7 +75,7 @@ function About(props) {
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* mission statement */}
       <section className="section bg-c-light border-top">
