@@ -48,9 +48,9 @@ function PantrySearch({placeholder}) {
             alert("Failed to get Pantry. Try again later.")
         })
         const nameOfAisles = aisles.map((aisle) => {
-            if (aisle.aisleName != null){
+            if(aisle.aisleName != null){
                 return aisle.aisleName
-            }else{
+            } else {
                 return "Misc"
             }
         })
