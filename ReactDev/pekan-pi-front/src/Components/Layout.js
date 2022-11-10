@@ -1,10 +1,6 @@
-import { Link, Outlet } from "react-router-dom";
 import { useState } from "react";
-import MenuImage from "../Images/Home-images/menu.png";
 import navOpenImg from "../Images/navbar/bars-solid.svg";
 import navCloseImg from "../Images/navbar/x-solid.svg";
-import RecipeImage from "../Images/Home-images/recipes.png";
-import WhiskImage from "../Images/Home-images/whisk2.png";
 import Logo from "../Images/Home-images/logo2.png";
 
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
@@ -23,11 +19,9 @@ const theme = createTheme({
   },
 });
 
-
-
 /**Layout component */
 function Layout(props) {
-  const [navOpen,setNavOpen]=useState(false);
+  const [navOpen, setNavOpen] = useState(false);
 
   function handleChange(e) {
     props.setDarkMode(e.target.checked);
@@ -37,10 +31,13 @@ function Layout(props) {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <div className={`navbar ${props.darkmode ? "darkmode-navbar" : ""}`}>
-        <nav style={{right:navOpen?"0%":"-100%"}} className={`${props.darkmode ? "darkmode-nav" : ""}`}>
+        <nav
+          style={{ right: navOpen ? "0%" : "-100%" }}
+          className={`${props.darkmode ? "darkmode-nav" : ""}`}
+        >
           <ul className="ul-menu" id="MenuItems">
             <li>
-                  <div className="logo">
+              <div className="logo">
                 <a href="/">
                   <img src={Logo} width="150px" />
                 </a>
@@ -62,7 +59,7 @@ function Layout(props) {
               <a href="/Profile/Profile">Profile</a>
             </li>
             <li>
-              <a href="">About</a>
+              <a href="/About">About</a>
             </li>
             <li>
               <label className="switch">
@@ -80,31 +77,15 @@ function Layout(props) {
                 Logout{" "}
               </a>
             </li>
-            {/* <li>
-                    <a href="search.html" className="pot">
-                  {" "}
-                  {props.darkmode ? (
-                    <img src={RecipeImage} width="50px" height="50px" />
-                  ) : (
-                    <img src={RecipeImage} width="50px" height="50px" />
-                  )}{" "}
-                </a>
-            </li>
-            <li>
-                    <span className="whisk">
-                  {" "}
-                  <Link to="/forgot">
-                    <img src={WhiskImage} width="50px" height="50px" />{" "}
-                  </Link>
-                </span>
-            </li> */}
           </ul>
         </nav>
-  
+
         <img
-          src={navOpen?navCloseImg:navOpenImg}
+          src={navOpen ? navCloseImg : navOpenImg}
           className="menu-icon"
-          onClick={()=>{setNavOpen(!navOpen)}}
+          onClick={() => {
+            setNavOpen(!navOpen);
+          }}
           alt="Menu Image"
         />
       </div>
