@@ -326,6 +326,49 @@ table {
   text-align: center;
 }
 
+.section {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  align-items: center;
+  text-align: center;
+}
+.main-heading {
+  /* color: #555; */
+  font-size: 40px;
+  margin-bottom: 9px;
+  margin-top: 0px;
+  margin-left: 20px;
+  margin-right: 20px;
+  color: #ff523b;
+  font: "Playfair Display";
+}
+.main-heading2 {
+  /* color: #555; */
+  font-size: 16px;
+  color: rgb(44, 5, 92);
+}
+.col-5 {
+  flex-basis: 50%;
+  min-width: 300px;
+}
+.col-5 img {
+  max-width: 100%;
+  padding: 50px 0 0 0;
+}
+.col-5 h1 {
+  font-size: 50px;
+  line-height: 60px;
+  margin: 30px 0;
+}
+.col-5 p {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.col-5 h2 {
+  font-size: 50px;
+  line-height: 60px;
+}
+
 /**darkmode styles**/
 .darkmode-navbar {
   background-color: rgb(113, 111, 111);
@@ -372,6 +415,28 @@ table {
   filter: invert(0%);
 }
 
+h1 {
+  color: #563434;
+  padding-right: 80px;
+  /* padding-left: 80px; */
+  font-size: 50px;
+  color: #ff523b;
+  font-family: "Playfair Display", serif;
+}
+
+.mission-statement {
+  color: teal;
+}
+.tabs-quote {
+  color: #2c1f83;
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+}
+.tabs-quote2 {
+  color: #2c1f83;
+  font-family: "Playfair Display", serif;
+}
+
 .darkmode-navbar .logoutbutton {
   display: inline-block;
   background: #3dc6d3;
@@ -384,4 +449,12 @@ table {
 .darkmode-navbar .logoutbutton:hover {
   background: #563434;
   color: white;
+}
+.darkmode .mission-statement {
+  color: #563434;
+  padding-right: 80px;
+  /* padding-left: 80px; */
+  font-size: 1.2rem;
+  color: white;
+  font-family: "Source Sans Pro", sans-serif;
 }

@@ -23,10 +23,10 @@ function About(props) {
           <div className="container">
             <div className="row">
               <div className="col-md-12 text-center">
-                <h4 className="main-heading">
+                <h1>
                   What Do 6 Stinky Computer
                   <br /> Science Kids Know About Cooking?
-                </h4>
+                </h1>
               </div>
             </div>
           </div>
@@ -36,12 +36,12 @@ function About(props) {
         <div className="container">
           <div className="row">
             <div className="col-5">
-              <h1>Mission Statement.</h1>
+              <h2>Mission Statement.</h2>
               <h3 className="mission-statement">
                 Like most college students, we often find ourselves low on time,
                 money, and ingredients. As busy home cooks and frugal spenders,
-                our mission was to create an accessible website that not only
-                recorded the items that we already owned, but also gave us
+                our mission <br /> was to create an accessible website that not
+                only recorded the items that we already owned, but also gave us
                 recipes based on those ingredients.{" "}
               </h3>
               <h4 className="tabs-quote">
