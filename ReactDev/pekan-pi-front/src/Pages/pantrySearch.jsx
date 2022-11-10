@@ -2,12 +2,7 @@ import React, {useState} from "react";
 import "./pantrySearch.css";
 import axios from 'axios'
 
-async function getData(search){
-
-}
-
 function PantrySearch({placeholder}) {
-    const [filteredData, setFilteredData] = useState([]);
     const [searchInput, setSearchInput] = useState("");
     const [data, setData] = useState([])
 
