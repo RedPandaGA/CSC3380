@@ -98,6 +98,7 @@ export async function insertUser(username, password, email){
       console.log("error: " + err.stack);
       ret = false;
     });
+    pool.query(`UPDATE pantry SET "pantryInfo" = '{ "aisles": [] }'`)
   return ret;
 }
 
