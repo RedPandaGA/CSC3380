@@ -11,6 +11,7 @@
 body {
   font-family: "Playfair Display", serif;
 }
+
 .navbar {
   display: flex;
   align-items: center;
@@ -33,14 +34,14 @@ nav .ul-menu li {
 }
 nav .ul-menu li a {
   text-decoration: none;
-  color:inherit;
+  color: inherit;
   font-size: 25px;
-  font-family: 'Scope One';
-  font-weight: 'bold';
+  font-family: "Scope One";
+  font-weight: "bold";
 }
 /* hovering over images turn different color */
 /* .whisk img:hover, .logo img:hover, .pot :hover  */
-.logo img:hover{
+.logo img:hover {
   filter: invert(100%);
 }
 
@@ -190,30 +191,29 @@ small {
   margin-left: 20px;
   display: none;
 }
-.profile-page{
-  height:100v;
+.profile-page {
+  height: 100v;
 }
 /*------------ media query for menu*/
 @media only screen and (max-width: 1000px) {
   .menu-icon {
-    z-index:1001;
+    z-index: 1001;
     display: block;
   }
 
   nav {
-    z-index:1000;
+    z-index: 1000;
     position: fixed;
     width: 100%;
     background: #fff;
     height: 100vh;
     top: 0;
-    right:0;
+    right: 0;
     text-align: center;
     transition: all 0.5s;
-    display:flex;
+    display: flex;
     justify-content: center;
-    align-items:center;
-    
+    align-items: center;
   }
   nav .ul-menu {
     display: flex;
@@ -223,14 +223,14 @@ small {
   }
   nav .ul-menu li {
     display: block;
-    width:90%;
-    padding:20px;
-    border-bottom:1px solid black;
+    width: 90%;
+    padding: 20px;
+    border-bottom: 1px solid black;
   }
   nav .ul-menu li:hover {
     background-color: #eec4da;
-    padding:25px;
-    border-bottom:1px solid rgb(80, 80, 80);
+    padding: 25px;
+    border-bottom: 1px solid rgb(80, 80, 80);
   }
   nav .ul-menu li a {
     font-size: 20px;
@@ -239,7 +239,7 @@ small {
     position: absolute;
     right: 20px;
     top: 80px;
-  } 
+  }
   .navbar.active .menu-icon:hover {
     transform: rotate(180deg);
   }
@@ -249,7 +249,6 @@ small {
   .navbar.active nav {
     right: 0;
   }
-
 
   .col-2 {
     flex-basis: 100%;
@@ -277,14 +276,14 @@ table {
 }
 
 /**darkmode styles**/
-.darkmode-navbar{
+.darkmode-navbar {
   background-color: rgb(113, 111, 111);
 }
 .darkmode-nav .ul-menu li {
-  color:rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
 }
-.darkmode-page{
-  background-color:  rgb(113, 111, 111);
+.darkmode-page {
+  background-color: rgb(113, 111, 111);
 }
 .darkmode-nav .ul-menu li a {
   color: #3dc6d3;
@@ -303,10 +302,73 @@ table {
   color: white;
 }
 /* makes pictures on navbar turn blue */
-.darkmode-navbar .logo img {  
+.darkmode-navbar .logo img {
   filter: invert(100%);
 }
 .darkmode-navbar .logo img:hover {
   filter: invert(0%);
 }
 
+.section {
+  background-color: #e3eca4;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  align-items: center;
+  text-align: center;
+}
+.main-heading {
+  color: #555;
+  font-size: 50px;
+  margin-bottom: 9px;
+}
+.underline {
+  height: 5px;
+  width: 17rem;
+  background-color: #ff523b;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  margin-left: 1px;
+  margin-right: 1px;
+}
+.underline2 {
+  height: 5px;
+  width: 13rem;
+  background-color: #ff523b;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  margin-left: 20px;
+  margin-right: 1px;
+  justify-content: center;
+}
+.cold-md-4 {
+  font-size: 20px;
+  color: #555;
+  margin-top: 30px;
+}
+.bg-c-light {
+  background-color: #e3eca4;
+}
+.col-5 {
+  flex-basis: 50%;
+  min-width: 300px;
+}
+.col-5 img {
+  max-width: 100%;
+  border-radius: 30%;
+  padding: 50px 0;
+}
+.col-5 h1 {
+  font-size: 50px;
+  line-height: 60px;
+  margin: 30px 0;
+}
+.col-5 p {
+  color: #555;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.col-5 h2 {
+  font-size: 50px;
+  line-height: 60px;
+  margin: 30px 0;
+}
