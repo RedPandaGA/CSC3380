@@ -19,11 +19,9 @@ const theme = createTheme({
   },
 });
 
-
-
 /**Layout component */
 function Layout(props) {
-  const [navOpen,setNavOpen]=useState(false);
+  const [navOpen, setNavOpen] = useState(false);
 
   function handleChange(e) {
     props.setDarkMode(e.target.checked);
@@ -33,10 +31,13 @@ function Layout(props) {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <div className={`navbar ${props.darkmode ? "darkmode-navbar" : ""}`}>
-        <nav style={{right:navOpen?"0%":"-100%"}} className={`${props.darkmode ? "darkmode-nav" : ""}`}>
+        <nav
+          style={{ right: navOpen ? "0%" : "-100%" }}
+          className={`${props.darkmode ? "darkmode-nav" : ""}`}
+        >
           <ul className="ul-menu" id="MenuItems">
             <li>
-                  <div className="logo">
+              <div className="logo">
                 <a href="/">
                   <img src={Logo} width="150px" />
                 </a>
@@ -58,7 +59,7 @@ function Layout(props) {
               <a href="/Profile/Profile">Profile</a>
             </li>
             <li>
-              <a href="">About</a>
+              <a href="/About">About</a>
             </li>
             <li>
               <label className="switch">
@@ -78,11 +79,13 @@ function Layout(props) {
             </li>
           </ul>
         </nav>
-  
+
         <img
-          src={navOpen?navCloseImg:navOpenImg}
+          src={navOpen ? navCloseImg : navOpenImg}
           className="menu-icon"
-          onClick={()=>{setNavOpen(!navOpen)}}
+          onClick={() => {
+            setNavOpen(!navOpen);
+          }}
           alt="Menu Image"
         />
       </div>
