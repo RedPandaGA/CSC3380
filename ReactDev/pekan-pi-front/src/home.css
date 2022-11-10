@@ -319,6 +319,11 @@ table {
 }
 
 .darkmode-nav .ul-menu li a:hover {
+  color: #3dc6d3;
+  background: none;
+}
+
+.darkmode-nav .ul-menu li div a:hover {
   color: white;
   background: none;
 }
@@ -342,11 +347,6 @@ table {
 }
 .darkmode-navbar .logo img:hover {
   filter: invert(0%);
-}
-
-.darkmode-nav nav .ul-menu li div a:hover {
-  color: white;
-  background: none;
 }
 
 .darkmode-navbar .logoutbutton {
