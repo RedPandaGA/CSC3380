@@ -3,7 +3,7 @@ import Layout from "./Components/Layout";
 import Home from "./Pages/Home";
 import Pantry from "./Pages/Pantry";
 import Profile from "./Profile/Profile";
-import RecipesPage from "./Pages/RecipesPage";
+import RecipiesPage from "./Pages/RecipiesPage";
 import About from "./Pages/About";
 import Login from "./Pages/Login";
 import Forgot from "./Pages/Forgot/Forgot";
@@ -47,7 +47,7 @@ function App() {
       <>
         {" "}
         <Layout darkmode={darkmode} setDarkMode={setDarkMode} />{" "}
-        <RecipesPage darkmode={darkmode} />
+        <RecipiesPage darkmode={darkmode} />
       </>
     );
   }
@@ -62,7 +62,7 @@ function App() {
       <Routes className="NavBar">
         <Route index element={<HomeElement />} />
         <Route path="/Login" element={<Login darkmode={darkmode} />} />
-        <Route path="/Recipes" element={<RecipePage />} />
+        <Route path="/RecipiesPage" element={<RecipePage />} />
         <Route path="/Profile/Profile" element={<ProfileElement />} />
         <Route path="/Pantry" element={<PantryPage />} />
         <Route path="/About" element={<About />} />
