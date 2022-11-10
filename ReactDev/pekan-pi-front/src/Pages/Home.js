@@ -1,8 +1,4 @@
 import "../home.css";
-// import MenuImage from "../Images/Home-images/menu.png";
-// import RecipeImage from "../Images/Home-images/recipes.png";
-// import WhiskImage from "../Images/Home-images/whisk2.png";
-// import Logo from "../Images/Home-images/logo2.png";
 import TableImage from "../Images/Home-images/table 2.jpeg";
 import AfricaImage from "../Images/Home-images/africa.jpeg";
 import AmericanImage from "../Images/Home-images/american.jpeg";
@@ -36,41 +32,6 @@ function Home(props) {
       <div className={`Home ${props.darkmode?"darkmode-page":""}`} >
         <div className="header">
           <div className="container">
-            {/* <div className="navbar">
-              <div className="logo">
-                <img src={Logo} width="150px" />
-              </div>
-              <nav>
-                <ul id="MenuItems">
-                  <li>
-                    <a href="profilePage.html">Home</a>
-                  </li>
-                  <li>
-                    <a href="search.html">Pantry</a>
-                  </li>
-                  <li>
-                    <a href="./Profile/Profile">Account</a>
-                  </li>
-                  <li>
-                    <a href="">About</a>
-                  </li>
-                </ul>
-              </nav>
-              <a href="search.html">
-                {" "}
-                <img src={RecipeImage} width="50px" height="50px" />{" "}
-              </a>
-              <a href="whisk.html">
-                {" "}
-                <img src={WhiskImage} width="50px" height="50px" />{" "}
-              </a>
-              <img
-                src={MenuImage}
-                className="menu-icon"
-                //onClick={menuToggle()}
-                alt="Menu Image"
-              />
-            </div> */}
             <div className="row">
               <div className="col-2">
                 <h1>

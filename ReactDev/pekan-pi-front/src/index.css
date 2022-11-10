@@ -26,7 +26,7 @@ code {
   height: 34px;
 }
 
-.switch input { 
+.switch input {
   opacity: 0;
   width: 0;
   height: 0;
@@ -40,8 +40,8 @@ code {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .slider:before {
@@ -52,8 +52,8 @@ code {
   left: 4px;
   bottom: 4px;
   background-color: rgb(255, 255, 255);
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 input:checked + .slider {
@@ -75,3 +75,31 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+/* footer styles */
+.footer {
+  position: relative;
+  width:100%;
+  bottom: 0;
+  /* subject to change for background color */
+  background-color: #d4e4ea;
+  padding: 40px;
+}
+
+.footer .pFooter{
+  color: #000;
+  font-size: 1.5rem;
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.footer .footerLinks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  /* spacing out each link */
+  gap: 50px;
+  color:rgb(255, 255, 255);
+}
