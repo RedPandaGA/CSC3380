@@ -59,12 +59,12 @@ logedInRout.get('/getIngredientsearch', async (req, res) => {
 
 logedInRout.get('/getRecipesByName', async (req, res) => {
     const search = req.query.search
-    const test = await Api_helper.callAPI(`https://api.spoonacular.com/food/ingredients/autocomplete?apiKey=${APIkey}&query=${search}&number=1&metaInformation=true`)
+    const test = await Api_helper.callAPI(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIkey}&query=${search}&addRecipeInformation=true&number=3`)
     res.send(test)
 })
 
 logedInRout.get('/getRecipesByPantry', async (req, res) => {
-    const ingredients = req.params.search
+    const ingredients = req.query.search
     const test = await Api_helper.callAPI(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${APIkey}&ingredients=${ingredients}&number=1}`)
     res.send(test)
 })
