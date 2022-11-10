@@ -42,12 +42,12 @@ function App() {
     );
   }
 
-  function RecipePage() {
+  function RecipesPage() {
     return (
       <>
         {" "}
         <Layout darkmode={darkmode} setDarkMode={setDarkMode} />{" "}
-        <RecipiesPage darkmode={darkmode} />
+        <RecipePage darkmode={darkmode} />
       </>
     );
   }
@@ -67,7 +67,7 @@ function App() {
       <Routes className="NavBar">
         <Route index element={<HomeElement />} />
         <Route path="/Login" element={<Login darkmode={darkmode} />} />
-        <Route path="/Recipes" element={<RecipePage />} />
+        <Route path="/Recipes" element={<RecipesPage />} />
         <Route path="/Profile/Profile" element={<ProfileElement />} />
         <Route path="/Pantry" element={<PantryPage />} />
         <Route path="/About" element={<About />} />
