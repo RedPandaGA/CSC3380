@@ -72,9 +72,12 @@ function Layout(props) {
               </label>
             </li>
             <li>
-              <a href="/Login" styles={{ justifyContent: "center" }} className="btn">
-                {" "}Logout{" "}
+              <div>
+              <a styles={{ justifyContent: "center" }} className="logoutbutton">
+                {" "}
+                Logout{" "}
               </a>
+              </div>
             </li>
           </ul>
         </nav>
