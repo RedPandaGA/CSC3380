@@ -39,7 +39,7 @@ function Layout(props) {
             <li>
               <div className="logo">
                 <a href="/">
-                  <img src={Logo} width="150px" />
+                  <img src={Logo} alt="PekanLogo" width="150px" />
                 </a>
               </div>
             </li>
@@ -72,21 +72,20 @@ function Layout(props) {
               </label>
             </li>
             <li>
-              <a styles={{ justifyContent: "center" }} className="btn">
-                {" "}
-                Logout{" "}
+              <a href="/Login" styles={{ justifyContent: "center" }} className="btn">
+                {" "}Logout{" "}
               </a>
             </li>
           </ul>
         </nav>
 
         <img
+          alt="MenuImg"
           src={navOpen ? navCloseImg : navOpenImg}
           className="menu-icon"
           onClick={() => {
             setNavOpen(!navOpen);
           }}
-          alt="Menu Image"
         />
       </div>
     </ThemeProvider>

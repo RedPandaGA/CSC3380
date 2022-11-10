@@ -1,16 +1,8 @@
-import React, { useState, useEffect } from "react";
-import RecipesList from "./recipesList";
-import { createTheme, SliderValueLabel, ThemeProvider } from "@mui/material";
+import React, { useState } from "react";
+import { createTheme, ThemeProvider } from "@mui/material";
 import RecipeCard from "../Components/RecipeCard";
 import { Grid, Typography, TextField, Button } from "@mui/material";
-import { useSlotProps } from "@mui/base";
-import { getValue } from "@mui/system";
 import axios from 'axios';
-//import './Recipe.css';
-
-//const APIkey = "ec6b18b84aea41b8b12f6a6b6b4cfb67";
-//const ingredients = "beef,+cheese,+garlic,+rice,+salt,+pepper,+lemons,+eggs";
-//const APIkey = "d123acc25cd74b6a859c246e37ec77f6"; // Faris API key
 
 function RecipiesPage(props) {
   const theme = createTheme({
@@ -70,19 +62,19 @@ function RecipiesPage(props) {
   }
   
   // allows users to grab recipes based on current items in their pantry
-  function getRecipeByPantry(ingredients){
-    const token = JSON.parse(localStorage.getItem('udata')).token;
-    axios({
-      method: 'GET',
-      url: 'http://localhost:3002/getRecipesByPantry',
-      params: {
-        ingredients: ingredients, // 
-      },
-      headers: {
-        Authorization: `token ${token}`,
-      }
-    });
-  }
+  // function getRecipeByPantry(ingredients){
+  //   const token = JSON.parse(localStorage.getItem('udata')).token;
+  //   axios({
+  //     method: 'GET',
+  //     url: 'http://localhost:3002/getRecipesByPantry',
+  //     params: {
+  //       ingredients: ingredients, // 
+  //     },
+  //     headers: {
+  //       Authorization: `token ${token}`,
+  //     }
+  //   });
+  // }
 
   function showRecipeCards(){
     return (

@@ -55,7 +55,7 @@ function PantrySearch({placeholder}) {
             }
         })
         const indexOfAisle = nameOfAisles.indexOf(i.aisle)
-        if(indexOfAisle == -1){
+        if(indexOfAisle === -1){
             const newIndex = aisles.push({ aisleName: i.aisle, ingredients: []})
             i.quantity = 0
             i.selectedUnit = i.possibleUnits[0]
