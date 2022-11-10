@@ -75,3 +75,31 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+/* footer styles */
+.footer {
+  position: relative;
+  width:100%;
+  bottom: 0;
+  /* subject to change for background color */
+  background-color: #d4e4ea;
+  padding: 40px;
+}
+
+.footer .pFooter{
+  color: #000;
+  font-size: 1.5rem;
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.footer .footerLinks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  /* spacing out each link */
+  gap: 50px;
+  color:rgb(255, 255, 255);
+}

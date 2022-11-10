@@ -33,6 +33,7 @@ function App() {
   
   function PantryPage() {
     return <> <Layout darkmode={darkmode}  setDarkMode={setDarkMode} /> <Pantry darkmode={darkmode}  /></>
+    return <> <footer></footer></>
   }
 
   return (
@@ -49,7 +50,14 @@ function App() {
       </Routes>
 
       {/*add footer */}
-     
+      <footer className="footer"> 
+      <p className="pFooter">Learn more about our website and creators!</p>
+      <div className="footerLinks">
+      <Link to="/Profile/Profile" className="footerLink">About Us</Link>
+      <Link to="/forgot" className="footerLink">Forgot Password?</Link>
+      </div> 
+    
+      </footer> 
 
     </div>
   );

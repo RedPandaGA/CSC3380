@@ -187,7 +187,7 @@ const Profile = (props) => { //the profile page
     </div>
 
     
-                            <Stack justifyContent="center" spacing={2} direction="row" sx={{mt: 5, mb:10}}>
+                            <Stack justifyContent="center" spacing={2} direction="row" sx={{mt: 5, mb:27}}>
                             <TextField size = "small" id="old-password-input " label="Old Password"  type={showPassword1 ? "text" : "password"} value={oldPassword} onChange={op => setOldPassword(op.target.value)}
                             InputProps={{ // <-- This is where the toggle button is added.
                               endAdornment: (
