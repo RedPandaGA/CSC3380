@@ -62,7 +62,7 @@ function App() {
   }
 
   function PantryPage() {
-    // <<<<<<<<< Temporary merge branch 1
+
     return (
       <>
         {" "}
@@ -70,7 +70,7 @@ function App() {
         <Pantry darkmode={darkmode} />
       </>
     );
-    // =========
+
     return (
       <>
         {" "}
@@ -84,7 +84,7 @@ function App() {
         <footer></footer>
       </>
     );
-    // >>>>>>>>> Temporary merge branch 2
+    
   }
 
   return (
