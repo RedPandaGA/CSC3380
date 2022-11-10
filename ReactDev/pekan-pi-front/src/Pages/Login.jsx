@@ -17,7 +17,7 @@ async function Logincall(email, password){
     data: data
   })
   .then(res => {
-    if(res.status == 200) {
+    if(res.status === 200) {
       // console.log("recieved")
       // console.log(res)
       // console.log(res.data.data)

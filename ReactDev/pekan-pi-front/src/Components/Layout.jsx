@@ -27,6 +27,11 @@ function Layout(props) {
   function handleChange(e) {
     props.setDarkMode(e.target.checked);
   }
+  
+  const handleLogout = (d) => {
+    localStorage.clear()
+    window.location.replace('/Login')  
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -51,7 +56,7 @@ function Layout(props) {
               <a href="/Login">Login</a>
             </li>
             <li>
-              <a href="/RecipiesPage">Recipes</a>
+              <a href="/Recipes">Recipes</a>
             </li>
             <li>
               <a href="/Pantry">Pantry</a>
@@ -74,13 +79,10 @@ function Layout(props) {
             </li>
             <li>
               <div>
-                <a
-                  styles={{ justifyContent: "center" }}
-                  className="logoutbutton"
-                >
-                  {" "}
-                  Logout{" "}
-                </a>
+              <a styles={{ justifyContent: "center" }} className="logoutbutton" onClick={() => handleLogout()}>
+                {" "}
+                Logout{" "}
+              </a>
               </div>
             </li>
             <div className="about-img">

@@ -158,7 +158,7 @@ const Profile = (props) => { //the profile page
           <Typography sx={{color: 'text.secondary', width: '55%', flexShrink: 0 }}>
             Change Username
           </Typography>
-          <Typography align="right" sx={{color: 'text.secondary' }}>mimi2035</Typography>
+          <Typography align="right" sx={{color: 'text.secondary' }}>{JSON.parse(localStorage.getItem('udata')).username}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Box //CHANGE USERNAME FIELDS
@@ -182,7 +182,7 @@ const Profile = (props) => { //the profile page
         >
           <Typography sx={{ color: 'text.secondary', width: '55%', flexShrink: 0 }}>Change Email</Typography>
           <Typography sx={{ color: 'text.secondary' }}>
-            mngu174@lsu.edu
+            {JSON.parse(localStorage.getItem('udata')).email}
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -242,7 +242,7 @@ const Profile = (props) => { //the profile page
     </div>
 
     
-                            <Stack justifyContent="center" spacing={2} direction="row" sx={{mt: 5, mb:27}}>
+                            <Stack justifyContent="center" spacing={2} direction="row" sx={{mt: 5, mb:10}}>
                             <TextField size = "small" id="old-password-input " label="Old Password"  type={showPassword1 ? "text" : "password"} value={oldPassword} onChange={op => setOldPassword(op.target.value)}
                             InputProps={{ // <-- This is where the toggle button is added.
                               endAdornment: (
