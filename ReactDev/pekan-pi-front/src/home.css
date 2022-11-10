@@ -310,43 +310,24 @@ table {
 }
 
 .section {
-  background-color: #e3eca4;
   padding-top: 40px;
   padding-bottom: 40px;
   align-items: center;
   text-align: center;
 }
 .main-heading {
-  color: #555;
-  font-size: 50px;
+  /* color: #555; */
+  font-size: 40px;
   margin-bottom: 9px;
-}
-.underline {
-  height: 5px;
-  width: 17rem;
-  background-color: #ff523b;
-  margin-top: 1px;
-  margin-bottom: 1px;
-  margin-left: 1px;
-  margin-right: 1px;
-}
-.underline2 {
-  height: 5px;
-  width: 13rem;
-  background-color: #ff523b;
-  margin-top: 1px;
-  margin-bottom: 1px;
+  margin-top: 0px;
   margin-left: 20px;
-  margin-right: 1px;
-  justify-content: center;
+  margin-right: 20px;
+  color: #ff523b;
 }
-.cold-md-4 {
-  font-size: 20px;
-  color: #555;
-  margin-top: 30px;
-}
-.bg-c-light {
-  background-color: #e3eca4;
+.main-heading2 {
+  /* color: #555; */
+  font-size: 17px;
+  color: rgb(44, 5, 92);
 }
 .col-5 {
   flex-basis: 50%;
@@ -354,8 +335,7 @@ table {
 }
 .col-5 img {
   max-width: 100%;
-  border-radius: 30%;
-  padding: 50px 0;
+  padding: 50px 0 0 0;
 }
 .col-5 h1 {
   font-size: 50px;
@@ -363,7 +343,6 @@ table {
   margin: 30px 0;
 }
 .col-5 p {
-  color: #555;
   font-size: 1.5rem;
   font-weight: 500;
 }
@@ -371,4 +350,11 @@ table {
   font-size: 50px;
   line-height: 60px;
   margin: 30px 0;
+}
+.mission-statement {
+  color: #563434;
+  padding-right: 80px;
+  /* padding-left: 80px; */
+  font-size: 1.2rem;
+  color: teal;
 }

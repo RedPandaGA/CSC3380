@@ -23,6 +23,15 @@ function App() {
       </>
     );
   }
+  function AboutElement() {
+    return (
+      <>
+        {" "}
+        <Layout darkmode={darkmode} setDarkMode={setDarkMode} />{" "}
+        <About darkmode={darkmode} />
+      </>
+    );
+  }
   function ProfileElement() {
     return (
       <>
@@ -70,7 +79,7 @@ function App() {
         <Route path="/Recipes" element={<RecipePage />} />
         <Route path="/Profile/Profile" element={<ProfileElement />} />
         <Route path="/Pantry" element={<PantryPage />} />
-        <Route path="/About" element={<About />} />
+        <Route path="/About" element={<AboutElement />} />
         <Route path="/forgot" element={<ForgotElement />} />
       </Routes>
 

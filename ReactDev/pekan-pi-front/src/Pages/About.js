@@ -17,52 +17,47 @@ function About(props) {
     },
   });
   return (
-    <div>
-      <section className="section">
+    <div className={`Home ${props.darkmode ? "darkmode-page" : ""}`}>
+      <div>
+        <section className="section">
+          <div className="container">
+            <div className="row">
+              <div className="col-md-12 text-center">
+                <h4 className="main-heading">
+                  What Do 6 Stinky Computer
+                  <br /> Science Kids Know About Cooking?
+                </h4>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* our team */}
         <div className="container">
           <div className="row">
-            <div className="col-md-12 text-center">
-              <h3 className="main-heading">About Us</h3>
-              <div className="underline2 mx-auto"></div>
-              <h4>BLAH BLAH BLAH BLAH BLAH </h4>
-              {/* <Link to="/about" className="btn btn-warning shadow">
-              {" "}
-              Read More
-            </Link> */}
+            <div className="col-5">
+              <h1>Mission Statement.</h1>
+              <h3 className="mission-statement">
+                Like most college students, we often find ourselves low on time,
+                money, and ingredients. As home cooks, we wanted to quickly find
+                recipes with ingredients that we already had in our pantry. As
+                busy college students, we wanted a database that kept track of
+                all of the ingredients that were already in our home. And as
+                frugal spenders, we wanted to know exactly what ingredients and
+                how much of those ingredients we already had and would need to
+                buy in order to avoid inefficient grocery shopping.
+              </h3>
+              <a href="" className="btn">
+                Back to Home
+              </a>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* mission statement */}
-      <section className="section bg-c-light border-top">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12 mb-5 text-center">
-              <h1 className="main-heading">Our Mission</h1>
-              <div className="underline mx-auto"></div>
+            <div className="col-5">
+              <img src={GroupImage} />
+              <h5 className="main-heading2">
+                Gavin Avery, Adam Elkhanoufi, Faris Khattak, Milan Nguyen, Sejal
+                Patel, Michelle Vo
+              </h5>
             </div>
-            <div className="cold-md-4 text-center">
-              <h2>Our Vision</h2>
-              <h4>BLAH BLAH BLAH</h4>
-            </div>
-            <div className="cold-md-4 text-center">
-              <h2>Our Mission</h2>
-              <h4>BLAH BLAH BLAH</h4>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* our team */}
-      <div className="container">
-        <div className="row">
-          <div className="col-5">
-            <h1>blah blah blah</h1>
-            <p>blah blah blah</p>
-          </div>
-          <div className="col-5">
-            <img src={GroupImage} />
           </div>
         </div>
       </div>
