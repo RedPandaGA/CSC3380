@@ -1,9 +1,11 @@
 //import node-postgre to allow node to connect to postgre db
 import * as pg from "pg";
 const { Pool } = pg.default;
+
 //import and initialize dotenv to read environment variables
 import dotenv from "dotenv";
 dotenv.config();
+
 //get environment variables
 const DBHOST = process.env.DBHOST;
 const USER = process.env.DBUSER;

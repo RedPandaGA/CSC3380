@@ -38,7 +38,7 @@ const maintheme = createTheme({  // makes the theme for the whole profile
 async function updateCall(oldPassword, newPassword1, newPassword2, newEmail, newUsername){
     const LUID = JSON.parse(localStorage.getItem('udata')).userId
     const token = JSON.parse(localStorage.getItem('udata')).token
-    if(newUsername != ""){
+    if(newUsername !== ""){
         await axios({
             method: 'POST',
             url: 'http://localhost:3002/updateUsername',
@@ -62,7 +62,7 @@ async function updateCall(oldPassword, newPassword1, newPassword2, newEmail, new
         localData.username = newUsername
         localStorage.setItem('udata', JSON.stringify(localData))
     }
-    if(newEmail != ""){
+    if(newEmail !== ""){
         await axios({
             method: 'POST',
             url: 'http://localhost:3002/updateEmail',
@@ -86,8 +86,8 @@ async function updateCall(oldPassword, newPassword1, newPassword2, newEmail, new
         localData.email = newEmail
         localStorage.setItem('udata', JSON.stringify(localData))
     }
-    if(newPassword1 != ""){
-        if(newPassword2 == newPassword1){
+    if(newPassword1 !== ""){
+        if(newPassword2 === newPassword1){
             await axios({
                 method: 'POST',
                 url: 'http://localhost:3002/updatePassword',
@@ -257,7 +257,7 @@ const Profile = (props) => { //the profile page
                                 </InputAdornment>
                               )
                             }}/>
-                                <a  justifyContent="center" className="btn" onClick={() => updateCall(oldPassword, newPassword1, newPassword2, newEmail, newUsername)}>
+                                <a  href="/Login" justifyContent="center" className="btn" onClick={() => updateCall(oldPassword, newPassword1, newPassword2, newEmail, newUsername)}>
                                 Submit{" "}
                                 </a>
             
