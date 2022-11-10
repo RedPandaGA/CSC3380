@@ -3,6 +3,9 @@ dotenv.config()
 import * as db from './database2.js'
 import express from 'express'
 import jwt from 'jsonwebtoken'
+import * as Api_helper from './API_helper.js'
+
+const APIkey = process.env.APIkey
 const ssecret = process.env.SSECRET
 
 var logedInRout = express.Router()
@@ -47,9 +50,22 @@ logedInRout.get('/getAPIresponse', async (req, res) => {
     res.send(test)
 })
 
-logedInRout.get('/getIngredientsearch/:search', async (req, res) => {
-    const search = req.params.search
+logedInRout.get('/getIngredientsearch', async (req, res) => {
+    const search = req.query.search
     const test = await Api_helper.callAPI(`https://api.spoonacular.com/food/ingredients/autocomplete?apiKey=${APIkey}&query=${search}&number=5&metaInformation=true`)
+    console.log(test)
+    res.send(test)
+})
+
+logedInRout.get('/getRecipesByName', async (req, res) => {
+    const search = req.query.search
+    const test = await Api_helper.callAPI(`https://api.spoonacular.com/food/ingredients/autocomplete?apiKey=${APIkey}&query=${search}&number=1&metaInformation=true`)
+    res.send(test)
+})
+
+logedInRout.get('/getRecipesByPantry', async (req, res) => {
+    const ingredients = req.params.search
+    const test = await Api_helper.callAPI(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${APIkey}&ingredients=${ingredients}&number=1}`)
     res.send(test)
 })
 
@@ -98,7 +114,7 @@ logedInRout.post('/updatePassword', async (req, res) => {
         res.status(500).send({ success: false, message: "Incorrect old password"})
         return
     } else {
-        const update = await db.updateEmail(req.body.UID, req.body.newPassword)
+        const update = await db.updatePassword(req.body.UID, req.body.newPassword)
         if(!update){
             res.status(500).send({ success: false, message: "Update failed try again"})
             return
@@ -108,6 +124,18 @@ logedInRout.post('/updatePassword', async (req, res) => {
         }
     }
 })
+
+logedInRout.post('/updatePantry', async (req, res) => {
+    const update = await db.updatePantry(req.body.UID, req.body.pantryInfo)
+    if(!update){
+        res.status(500).send({ success: false, message: "Update failed try again"})
+        return
+    } else {
+        res.status(200).send({ success: true, message: "Successfully Updated Password"})
+        return
+    }  
+})
+
 
 logedInRout.get('/createuserTest', async (req, res) => {
     Api_helper.test();
@@ -132,8 +160,9 @@ logedInRout.get('/getPantries' , async (req, res) => {
 })
 
 logedInRout.get('/getPantry' , async (req, res) => {
-    const id = req.params.id
+    const id = req.query.UID
     const pantry = await db.getPantry(id)
+    console.log(pantry)
     res.send(pantry)
 })
 
