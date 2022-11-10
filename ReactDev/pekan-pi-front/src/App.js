@@ -3,7 +3,7 @@ import Layout from "./Components/Layout";
 import Home from "./Pages/Home";
 import Pantry from "./Pages/Pantry";
 import Profile from "./Profile/Profile";
-import RecipesPage from "./Pages/RecipiesPage";
+import RecipesPage from "./Pages/RecipesPage";
 import About from "./Pages/About";
 import Login from "./Pages/Login";
 import Forgot from "./Pages/Forgot/Forgot";
