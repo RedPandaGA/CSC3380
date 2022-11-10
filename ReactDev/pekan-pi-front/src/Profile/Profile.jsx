@@ -38,7 +38,7 @@ const maintheme = createTheme({  // makes the theme for the whole profile
 async function updateCall(oldPassword, newPassword1, newPassword2, newEmail, newUsername){
     const LUID = JSON.parse(localStorage.getItem('udata')).userId
     const token = JSON.parse(localStorage.getItem('udata')).token
-    if(newUsername !== ""){
+    if(newUsername != ""){
         await axios({
             method: 'POST',
             url: 'http://localhost:3002/updateUsername',
@@ -62,7 +62,7 @@ async function updateCall(oldPassword, newPassword1, newPassword2, newEmail, new
         localData.username = newUsername
         localStorage.setItem('udata', JSON.stringify(localData))
     }
-    if(newEmail !== ""){
+    if(newEmail != ""){
         await axios({
             method: 'POST',
             url: 'http://localhost:3002/updateEmail',
@@ -86,8 +86,8 @@ async function updateCall(oldPassword, newPassword1, newPassword2, newEmail, new
         localData.email = newEmail
         localStorage.setItem('udata', JSON.stringify(localData))
     }
-    if(newPassword1 !== ""){
-        if(newPassword2 === newPassword1){
+    if(newPassword1 != ""){
+        if(newPassword2 == newPassword1){
             await axios({
                 method: 'POST',
                 url: 'http://localhost:3002/updatePassword',
@@ -158,7 +158,7 @@ const Profile = (props) => { //the profile page
           <Typography sx={{color: 'text.secondary', width: '55%', flexShrink: 0 }}>
             Change Username
           </Typography>
-          <Typography align="right" sx={{color: 'text.secondary' }}>mimi2035</Typography>
+          <Typography align="right" sx={{color: 'text.secondary' }}>{JSON.parse(localStorage.getItem('udata')).username}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Box //CHANGE USERNAME FIELDS
@@ -182,7 +182,7 @@ const Profile = (props) => { //the profile page
         >
           <Typography sx={{ color: 'text.secondary', width: '55%', flexShrink: 0 }}>Change Email</Typography>
           <Typography sx={{ color: 'text.secondary' }}>
-            mngu174@lsu.edu
+            {JSON.parse(localStorage.getItem('udata')).email}
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -242,7 +242,7 @@ const Profile = (props) => { //the profile page
     </div>
 
     
-                            <Stack justifyContent="center" spacing={2} direction="row" sx={{mt: 5, mb:27}}>
+                            <Stack justifyContent="center" spacing={2} direction="row" sx={{mt: 5, mb:10}}>
                             <TextField size = "small" id="old-password-input " label="Old Password"  type={showPassword1 ? "text" : "password"} value={oldPassword} onChange={op => setOldPassword(op.target.value)}
                             InputProps={{ // <-- This is where the toggle button is added.
                               endAdornment: (
@@ -257,7 +257,7 @@ const Profile = (props) => { //the profile page
                                 </InputAdornment>
                               )
                             }}/>
-                                <a  href="/Login" justifyContent="center" className="btn" onClick={() => updateCall(oldPassword, newPassword1, newPassword2, newEmail, newUsername)}>
+                                <a  justifyContent="center" className="btn" onClick={() => updateCall(oldPassword, newPassword1, newPassword2, newEmail, newUsername)}>
                                 Submit{" "}
                                 </a>
             

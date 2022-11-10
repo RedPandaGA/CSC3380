@@ -93,14 +93,12 @@ export async function insertUser(username, password, email){
       [username, password, email]
     )
     .then((dbres) => {
-      console.log("good res: " + JSON.stringify(dbres));
       ret = true;
     })
     .catch((err) => {
       console.log("error: " + err.stack);
       ret = false;
     });
-    pool.query(`UPDATE pantry SET "pantryInfo" = '{ "aisles": [] }'`)
   return ret;
 }
 

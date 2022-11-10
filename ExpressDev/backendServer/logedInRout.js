@@ -9,11 +9,7 @@ const APIkey = process.env.APIkey
 const ssecret = process.env.SSECRET
 
 var logedInRout = express.Router()
-/*
-{
-	aisles: [{aisleName: "aisle1", ingredients: [{..},{..}] }, {aisleName: "aisle2", ingredients: [{..},{..}]}]
-}
-*/
+
 logedInRout.use((req, res, next) => {
     const token = req.headers.authorization.split(' ')[1]
     if(!token){
@@ -27,7 +23,7 @@ logedInRout.use((req, res, next) => {
         next()
     }
 })
-// res.status(500).send({ success: false, message: "Invalid User. Try loging out and back in again."})
+
 async function passwordCheck(UID, confirmPass){
     console.log("oldPass " + confirmPass)
     const dataPass = await db.getPassword(UID)
@@ -63,11 +59,11 @@ logedInRout.get('/getRecipesByName', async (req, res) => {
     res.send(test)
 })
 
-logedInRout.get('/getRecipesByPantry', async (req, res) => {
-    const ingredients = req.query.search
-    const test = await Api_helper.callAPI(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${APIkey}&ingredients=${ingredients}&number=1}`)
-    res.send(test)
-})
+// logedInRout.get('/getRecipesByPantry', async (req, res) => {
+//     const ingredients = req.query.search
+//     const test = await Api_helper.callAPI(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${APIkey}&ingredients=${ingredients}&number=1}`)
+//     res.send(test)
+// })
 
 //Spoonacular API call functions END
 
