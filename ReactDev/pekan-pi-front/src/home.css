@@ -39,7 +39,8 @@ nav .ul-menu li a {
   font-weight: 'bold';
 }
 /* hovering over images turn different color */
-.whisk img:hover, .logo img:hover, .pot :hover  {
+/* .whisk img:hover, .logo img:hover, .pot :hover  */
+.logo img:hover{
   filter: invert(100%);
 }
 
@@ -302,11 +303,10 @@ table {
   color: white;
 }
 /* makes pictures on navbar turn blue */
-.darkmode-navbar img {  
+.darkmode-navbar .logo img {  
   filter: invert(100%);
 }
-.darkmode-navbar img:hover {
+.darkmode-navbar .logo img:hover {
   filter: invert(0%);
 }
-
 
