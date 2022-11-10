@@ -48,10 +48,14 @@ function PantrySearch({placeholder}) {
             alert("Failed to get Pantry. Try again later.")
         })
         const nameOfAisles = aisles.map((aisle) => {
-            return aisle.aisleName
+            if (aisle.aisleName != null){
+                return aisle.aisleName
+            }else{
+                return "Misc"
+            }
         })
         const indexOfAisle = nameOfAisles.indexOf(i.aisle)
-        if(indexOfAisle == -1){
+        if(indexOfAisle === -1){
             const newIndex = aisles.push({ aisleName: i.aisle, ingredients: []})
             i.quantity = 0
             i.selectedUnit = i.possibleUnits[0]

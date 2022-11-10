@@ -1,4 +1,4 @@
-import { Routes, Route, Outlet, Link, Form } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import Layout from "./Components/Layout";
 import Home from "./Pages/Home";
 import Pantry from "./Pages/Pantry";
@@ -20,6 +20,15 @@ function App() {
         {" "}
         <Layout darkmode={darkmode} setDarkMode={setDarkMode} />{" "}
         <Home darkmode={darkmode} />
+      </>
+    );
+  }
+  function AboutElement() {
+    return (
+      <>
+        {" "}
+        <Layout darkmode={darkmode} setDarkMode={setDarkMode} />{" "}
+        <About darkmode={darkmode} />
       </>
     );
   }
@@ -53,8 +62,29 @@ function App() {
   }
 
   function PantryPage() {
-    return <> <Layout darkmode={darkmode}  setDarkMode={setDarkMode} /> <Pantry darkmode={darkmode}  /></>
-    return <> <footer></footer></>
+    // <<<<<<<<< Temporary merge branch 1
+    return (
+      <>
+        {" "}
+        <Layout darkmode={darkmode} setDarkMode={setDarkMode} />{" "}
+        <Pantry darkmode={darkmode} />
+      </>
+    );
+    // =========
+    return (
+      <>
+        {" "}
+        <Layout darkmode={darkmode} setDarkMode={setDarkMode} />{" "}
+        <Pantry darkmode={darkmode} />
+      </>
+    );
+    return (
+      <>
+        {" "}
+        <footer></footer>
+      </>
+    );
+    // >>>>>>>>> Temporary merge branch 2
   }
 
   return (
@@ -62,23 +92,29 @@ function App() {
       <Routes className="NavBar">
         <Route index element={<HomeElement />} />
         <Route path="/Login" element={<Login darkmode={darkmode} />} />
-        <Route path="/Recipes" element={<RecipePage />} />
+        <Route path="/RecipiesPage" element={<RecipePage />} />
         <Route path="/Profile/Profile" element={<ProfileElement />} />
         <Route path="/Pantry" element={<PantryPage />} />
-        <Route path="/About" element={<About />} />
+        <Route path="/About" element={<AboutElement />} />
         <Route path="/forgot" element={<ForgotElement />} />
       </Routes>
 
       {/*add footer */}
-      <footer className="footer"> 
-      <p className="pFooter">Learn more about our website and creators!</p>
-      <div className="footerLinks">
-      <Link to="/Profile/Profile" className="footerLink">About Us</Link>
-      <Link to="/forgot" className="footerLink">Forgot Password?</Link>
-      </div> 
-    
-      </footer> 
+      {/* <<<<<<<<< Temporary merge branch 1 */}
+      {/* ========= */}
+      <footer className="footer">
+        <p className="pFooter">Learn more about our website and creators!</p>
+        <div className="footerLinks">
+          <Link to="/Profile/Profile" className="footerLink">
+            About Us
+          </Link>
+          <Link to="/forgot" className="footerLink">
+            Forgot Password?
+          </Link>
+        </div>
+      </footer>
 
+      {/* >>>>>>>>> Temporary merge branch 2 */}
     </div>
   );
 }
