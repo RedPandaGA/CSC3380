@@ -40,7 +40,12 @@ nav .ul-menu li a {
 }
 
 nav .ul-menu li a:hover {
-  color: #3dc6d3;
+  color: #ff523b;
+  background: none;
+}
+
+nav .ul-menu li div a:hover {
+  color: black;
   background: none;
 }
 
@@ -101,6 +106,7 @@ p {
 .btn:hover {
   background: #563434;
 }
+
 .header .row {
   margin-top: 70px;
 }
@@ -199,6 +205,7 @@ small {
 .profile-page{
   height:100v;
 }
+
 /*------------ media query for menu*/
 @media only screen and (max-width: 1000px) {
   .menu-icon {
@@ -264,6 +271,20 @@ small {
   }
 }
 
+.logoutbutton {
+  display: inline-block;
+  background: #ff523b;
+  color: #fff;
+  padding: 9px 30px;
+  margin: 30px 0;
+  border-radius: 30px;
+  transition: background 50s;
+}
+.logoutbutton:hover {
+  background: #563434;
+  color: white;
+}
+
 /* fave recipes */
 .whisk-page {
   margin: 80px auto;
@@ -289,17 +310,19 @@ table {
 .darkmode-nav .ul-menu li {
   color:rgb(255, 255, 255);
 }
+
 .darkmode-page{
   background-color:  rgb(113, 111, 111);
 }
 .darkmode-nav .ul-menu li a {
-  color: #3dc6d3;
+  color: white;
 }
 
 .darkmode-nav .ul-menu li a:hover {
-  color: red;
+  color: white;
   background: none;
 }
+
 /* make headers white when dark-mode*/
 .darkmode-page p {
   color: white;
@@ -321,3 +344,21 @@ table {
   filter: invert(0%);
 }
 
+.darkmode-nav nav .ul-menu li div a:hover {
+  color: white;
+  background: none;
+}
+
+.darkmode-navbar .logoutbutton {
+  display: inline-block;
+  background: #3dc6d3;
+  color: #fff;
+  padding: 9px 30px;
+  margin: 30px 0;
+  border-radius: 30px;
+  transition: background 50s;
+}
+.darkmode-navbar .logoutbutton:hover {
+  background: #563434;
+  color: white;
+}
