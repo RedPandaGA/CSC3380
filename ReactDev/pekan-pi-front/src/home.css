@@ -408,6 +408,7 @@ table {
 .col-5 {
   flex-basis: 50%;
   min-width: 300px;
+  border-radius: 30px;
 }
 .col-5 img {
   max-width: 100%;
