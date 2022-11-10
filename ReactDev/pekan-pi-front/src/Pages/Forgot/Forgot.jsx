@@ -1,18 +1,17 @@
 import {Link} from "react-router-dom"
 import "./forgot.css"
-function ForgotPassword() {
+function ForgotPassword(props) {
   return(
-    <div className="forget-page">
+    <div className = {`forget-page ${props.darkmode?"darkmode-page":""}`}>
     <section>
-      {/* <div className="logo"> </div> */}
-      <h1>Forgot your Password?</h1> 
-      <p>Enter your email address below and we'll send you a link to reset your password.</p>
+      <h1 className="h1Forgot">Forgot your Password?</h1> 
+      <p className="pForgot">Enter your email address below and we'll send you a link to reset your password.</p>
       <form action="/reset-password" method="POST">
         <label className="box1" htmlFor="email" >  Email:{" "}
-          <input type="email"  placeholder="example@gmail.com" name="email" id="email" required />
+          <input type="emailF"  placeholder="example@gmail.com" name="email" id="email" required />
       
       </label>
-        <button type="submit">Reset Password</button>
+        <button type="submit" className="submitF">Reset Password</button>
         <div className="forget">
         Back to Login Page? <Link to="/Login">Click Here</Link></div>
     

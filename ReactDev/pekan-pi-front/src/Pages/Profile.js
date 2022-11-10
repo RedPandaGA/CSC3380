@@ -1,5 +1,3 @@
-
-
 function Profile() {
     return ( 
         <div>

@@ -1,9 +1,13 @@
-* {
+/* only make background color yellow to the home page */
+@import url(https://fonts.cdnfonts.com/css/scope-one); /* scope one font for navbar*/
+
+.Home {
+  background-color: #e3eca4;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background: #e3eca4;
 }
+
 body {
   font-family: "Playfair Display", serif;
 }
@@ -16,18 +20,30 @@ nav {
   flex: 1;
   text-align: right;
 }
-nav ul {
-  display: inline-block;
+nav .ul-menu {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
   list-style-type: none;
 }
-nav ul li {
+nav .ul-menu li {
   display: inline-block;
-  margin-right: 20px;
+  margin-right: 50px;
 }
-a {
+nav .ul-menu li a {
   text-decoration: none;
-  color: #555;
+  color:inherit;
+  font-size: 25px;
+  font-family: 'Scope One';
+  font-weight: 'bold';
 }
+/* hovering over images turn different color */
+/* .whisk img:hover, .logo img:hover, .pot :hover  */
+.logo img:hover{
+  filter: invert(100%);
+}
+
 p {
   color: #555;
 }
@@ -49,9 +65,20 @@ p {
 }
 .col-2 img {
   max-width: 100%;
+  border-radius: 10%;
   padding: 50px 0;
 }
 .col-2 h1 {
+  font-size: 50px;
+  line-height: 60px;
+  margin: 30px 0;
+}
+.col-2 p {
+  color: #555;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.col-2 h2 {
   font-size: 50px;
   line-height: 60px;
   margin: 30px 0;
@@ -72,7 +99,7 @@ p {
   margin-top: 70px;
 }
 .categories {
-  margin: 70px 0;
+  margin-top: 70px;
 }
 .col-3 {
   flex-basis: 30%;
@@ -81,6 +108,9 @@ p {
 }
 .col-3 img {
   width: 100%;
+}
+.col-3 h4 {
+  font-size: 20px;
 }
 .small-container {
   max-width: 1080px;
@@ -110,6 +140,7 @@ p {
   color: #555;
 }
 .title {
+  font-size: 3rem;
   text-align: center;
   margin: 0 auto 80px;
   position: relative;
@@ -159,43 +190,71 @@ small {
   margin-left: 20px;
   display: none;
 }
+.profile-page{
+  height:100v;
+}
 /*------------ media query for menu*/
-@media only screen and (max-width: 800px) {
-  nav ul {
-    position: absolute;
-    top: 165px;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    transition: max-height 0.5s;
-  }
-  nav ul li {
+@media only screen and (max-width: 1000px) {
+  .menu-icon {
+    z-index:1001;
     display: block;
-    margin-right: 50px;
-    margin-top: 10px;
-    margin-bottom: 10px;
   }
-  nav ul li a {
+
+  nav {
+    z-index:1000;
+    position: fixed;
+    width: 100%;
+    background: #fff;
+    height: 100vh;
+    top: 0;
+    right:0;
+    text-align: center;
+    transition: all 0.5s;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    
+  }
+  nav .ul-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  nav .ul-menu li {
+    display: block;
+    width:90%;
+    padding:20px;
+    border-bottom:1px solid black;
+  }
+  nav .ul-menu li:hover {
+    background-color: #eec4da;
+    padding:25px;
+    border-bottom:1px solid rgb(80, 80, 80);
+  }
+  nav .ul-menu li a {
+    font-size: 20px;
+  }
+  .menu-icon {
+    position: absolute;
+    right: 20px;
+    top: 80px;
+  } 
+  .navbar.active .menu-icon:hover {
+    transform: rotate(180deg);
+  }
+  .navbar.active .menu-icon::before {
     color: #ff523b;
   }
-  .menu-icon {
-    display: blocl;
-    cursor: pointer;
+  .navbar.active nav {
+    right: 0;
   }
-  .menu-icon {
-    display: block;
-    cursor: pointer;
-  }
-}
-/* media query for less than 600 screen size */
-@media only screen and (max-width: 600px) {
-  .row {
-    text-align: center;
-  }
-  .col-2,
-  .col-3,
-  .col-4 {
+
+
+  .col-2 {
     flex-basis: 100%;
+    text-align: center;
+    margin-bottom: 50px;
   }
 }
 
@@ -207,7 +266,6 @@ table {
   width: 100%;
   border-collapse: collapse;
 }
-
 .pantry {
   text-align: center;
 }
@@ -217,3 +275,38 @@ table {
 .recipes {
   text-align: center;
 }
+
+/**darkmode styles**/
+.darkmode-navbar{
+  background-color: rgb(113, 111, 111);
+}
+.darkmode-nav .ul-menu li {
+  color:rgb(255, 255, 255);
+}
+.darkmode-page{
+  background-color:  rgb(113, 111, 111);
+}
+.darkmode-nav .ul-menu li a {
+  color: #3dc6d3;
+}
+/* make headers white when dark-mode*/
+.darkmode-page p {
+  color: white;
+}
+.darkmode-page h1 {
+  color: white;
+}
+.darkmode-page h2 {
+  color: white;
+}
+.darkmode-page h4 {
+  color: white;
+}
+/* makes pictures on navbar turn blue */
+.darkmode-navbar .logo img {  
+  filter: invert(100%);
+}
+.darkmode-navbar .logo img:hover {
+  filter: invert(0%);
+}
+

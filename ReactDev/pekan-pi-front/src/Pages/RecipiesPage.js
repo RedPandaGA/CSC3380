@@ -1,8 +1,8 @@
 
 
-function RecipiesPage() {
+function RecipiesPage(props) {
     return ( 
-        <div>
+        <div className={`Recipie-page${props.darkmode?"darkmode-page":""}`}> 
             <h2>RecipiesPage</h2>
         </div>
     );
