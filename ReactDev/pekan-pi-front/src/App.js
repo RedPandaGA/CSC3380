@@ -105,7 +105,7 @@ function App() {
       <footer className="footer">
         <p className="pFooter">Learn more about our website and creators!</p>
         <div className="footerLinks">
-          <Link to="/Profile/Profile" className="footerLink">
+          <Link to="/About" className="footerLink">
             About Us
           </Link>
           <Link to="/forgot" className="footerLink">

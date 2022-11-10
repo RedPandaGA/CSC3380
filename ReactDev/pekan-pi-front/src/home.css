@@ -326,6 +326,64 @@ table {
   text-align: center;
 }
 
+/**darkmode styles**/
+.darkmode-navbar {
+  background-color: rgb(113, 111, 111);
+}
+.darkmode-nav .ul-menu li {
+  color: rgb(255, 255, 255);
+}
+.darkmode-page {
+  background-color: rgb(113, 111, 111);
+}
+.darkmode-nav .ul-menu li a {
+  color: white;
+}
+
+.darkmode-nav .ul-menu li a:hover {
+  color: #3dc6d3;
+  background: none;
+}
+
+.darkmode-nav .ul-menu li div a:hover {
+  color: white;
+  background: none;
+}
+
+/* make headers white when dark-mode*/
+.darkmode-page p {
+  color: white;
+}
+.darkmode-page h1 {
+  color: white;
+}
+.darkmode-page h2 {
+  color: white;
+}
+.darkmode-page h4 {
+  color: white;
+}
+/* makes pictures on navbar turn blue */
+.darkmode-navbar .logo img {
+  filter: invert(100%);
+}
+.darkmode-navbar .logo img:hover {
+  filter: invert(0%);
+}
+
+.darkmode-navbar .logoutbutton {
+  display: inline-block;
+  background: #3dc6d3;
+  color: #fff;
+  padding: 9px 30px;
+  margin: 30px 0;
+  border-radius: 30px;
+  transition: background 50s;
+}
+.darkmode-navbar .logoutbutton:hover {
+  background: #563434;
+  color: white;
+}
 .section {
   padding-top: 40px;
   padding-bottom: 40px;
