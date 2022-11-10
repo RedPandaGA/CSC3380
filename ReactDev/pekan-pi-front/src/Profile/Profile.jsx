@@ -114,8 +114,7 @@ async function updateCall(oldPassword, newPassword1, newPassword2, newEmail, new
             alert("Please make sure new password matches!")
         }
     }
-
-
+    window.location.reload()
 }
 
 const Profile = (props) => { //the profile page
@@ -156,9 +155,9 @@ const Profile = (props) => { //the profile page
           id="panel1bh-header"
         >
           <Typography sx={{color: 'text.secondary', width: '55%', flexShrink: 0 }}>
-            Change Username
+          Username
           </Typography>
-          <Typography align="right" sx={{color: 'text.secondary' }}>mimi2035</Typography>
+          <Typography align="right" sx={{color: 'text.secondary' }}>{JSON.parse(localStorage.getItem('udata')).username}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Box //CHANGE USERNAME FIELDS
@@ -182,7 +181,7 @@ const Profile = (props) => { //the profile page
         >
           <Typography sx={{ color: 'text.secondary', width: '55%', flexShrink: 0 }}>Change Email</Typography>
           <Typography sx={{ color: 'text.secondary' }}>
-            mngu174@lsu.edu
+            {JSON.parse(localStorage.getItem('udata')).email}
           </Typography>
         </AccordionSummary>
         <AccordionDetails>

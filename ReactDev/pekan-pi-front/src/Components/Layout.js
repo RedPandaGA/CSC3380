@@ -29,6 +29,11 @@ function Layout(props) {
     props.setDarkMode(e.target.checked);
   }
 
+  const handleLogout = () => {
+    localStorage.clear()
+    window.location.replace('/Login')
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -71,7 +76,7 @@ function Layout(props) {
               </label>
             </li>
             <li>
-              <a styles={{ justifyContent: "center" }} className="btn">
+              <a styles={{ justifyContent: "center" }} className="btn" onClick={handleLogout}>
                 {" "}
                 Logout{" "}
               </a>
