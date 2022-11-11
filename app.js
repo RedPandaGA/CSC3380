@@ -4,7 +4,7 @@ dotenv.config()
 //import our own js libraries
 //environment variables
 const PORT = process.env.PORT || '3002'
-const path = require("path");
+import path from 'path';
 //import and start express
 import express from 'express'
 import userAuth from './auth.js'
