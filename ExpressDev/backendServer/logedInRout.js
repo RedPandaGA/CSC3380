@@ -122,7 +122,6 @@ logedInRout.post('/updatePassword', async (req, res) => {
 })
 
 logedInRout.post('/updatePantry', async (req, res) => {
-    const prevPantry = await db.getPantry(req.body.UID)
     const update = await db.updatePantry(req.body.UID, req.body.pantryInfo, prevPantry)
     if(!update){
         res.status(500).send({ success: false, message: "Update failed try again"})
