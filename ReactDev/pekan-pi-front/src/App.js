@@ -20,6 +20,17 @@ function App() {
         {" "}
         <Layout darkmode={darkmode} setDarkMode={setDarkMode} />{" "}
         <Home darkmode={darkmode} />
+        <footer className="footer">
+        <p className="pFooter">Learn more about our website and creators!</p>
+        <div className="footerLinks">
+          <Link to="/About" className="footerLink">
+            About Us
+          </Link>
+          <Link to="/forgot" className="footerLink">
+            Forgot Password?
+          </Link>
+        </div>
+      </footer>
       </>
     );
   }
@@ -99,20 +110,9 @@ function App() {
         <Route path="/forgot" element={<ForgotElement />} />
       </Routes>
 
-      {/*add footer */}
       {/* <<<<<<<<< Temporary merge branch 1 */}
       {/* ========= */}
-      <footer className="footer">
-        <p className="pFooter">Learn more about our website and creators!</p>
-        <div className="footerLinks">
-          <Link to="/About" className="footerLink">
-            About Us
-          </Link>
-          <Link to="/forgot" className="footerLink">
-            Forgot Password?
-          </Link>
-        </div>
-      </footer>
+     
 
       {/* >>>>>>>>> Temporary merge branch 2 */}
     </div>

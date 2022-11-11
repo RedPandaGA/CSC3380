@@ -48,6 +48,18 @@
     overflow-y: auto;
   }
   
+.darkmode-page {
+  background-color: rgb(113, 111, 111);
+}
+
+.darkmode-page .dataResult {
+  background-color:  #3dc6d3;
+}
+
+.darkmode-page .dataResult .dataItem:hover {
+  background-color: #c50d2f;
+}
+
   .dataResult::-webkit-scrollbar {
     display: none;
   }
