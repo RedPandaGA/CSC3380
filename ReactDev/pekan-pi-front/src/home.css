@@ -52,13 +52,13 @@ nav .ul-menu li div a:hover {
 }
 
 /* hovering over images turn different color */
-.whisk img:hover,
+/* .whisk img:hover,
 .logo img:hover,
 .about-img:hover,
 .pot :hover {
   filter: invert(100%);
   background: none;
-}
+} */
 
 p {
   color: #555;
