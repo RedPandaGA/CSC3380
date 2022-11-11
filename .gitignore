@@ -1,8 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
+/ReactDev/pekan-pi-front/node_modules
 node_modules
-/node_modules
 /.pnp
 .pnp.js
 
@@ -10,7 +10,7 @@ node_modules
 /coverage
 
 # production
-/build
+/ReactDev/pekan-pi-front/build
 
 # misc
 .DS_Store
