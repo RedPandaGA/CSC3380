@@ -31,8 +31,8 @@ app.listen(PORT, () => {
     console.log(`Express listening on Port ${PORT}.`)
 });
 
-app.get('/', (req, res) => {
-    res.send("Go to /getAPIresponse to see the API response.")
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, "ReactDev/pekan-pi-front/build/index.html"));
 });
 
 /********************************************************* Express utility functions END ************************************************************************************/

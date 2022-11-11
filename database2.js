@@ -13,17 +13,22 @@ const PASS = process.env.DBPASS;
 const DBNAME = process.env.DBNAME;
 const DBPORT = process.env.DBPORT;
 
-const pool = new Pool({
-  host: DBHOST,
-  user: USER,
-  password: PASS,
-  database: DBNAME,
-  port: DBPORT,
-});
+// const devConfig ={
+//   host: DBHOST,
+//   user: USER,
+//   password: PASS,
+//   database: DBNAME,
+//   port: DBPORT,
+// }
 
-const proConfig = {
-  connectionString: process.env.DATABASE_URL  //Heroku Addon to use Postgres Cloud Service
-}
+//Development Database Configuration
+const devConfig = `postgresql://${USER}:${PASS}:@${DBHOST}:${DBPORT}/${DBNAME}`;
+
+//Database Configuration based on Heroku's PostgreSQL configuration
+const proConfig = process.env.DATABASE_URL;
+
+//Pool that is either set to devConfig or proConfig depeneding if app is in development or production mode
+const pool = new Pool({connectionString: process.env.NODE_ENV === "production" ? proConfig : devConfig});
 
 //Debug functions
 export async function getTableNames() {
