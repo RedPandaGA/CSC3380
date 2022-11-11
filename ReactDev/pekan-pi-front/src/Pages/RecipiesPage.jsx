@@ -125,7 +125,7 @@ function RecipiesPage(props) {
               value={search}
               onChange={s => setSearch(s.target.value)}
               margin="normal"
-              placeholder="Enter your desired recipe"
+              placeholder="What do you want to cook today?"
               fullWidth
               sx={{mb: 2}}
             />
@@ -135,6 +135,7 @@ function RecipiesPage(props) {
             <Typography variant="h5" align="center" sx={{ mb: 2}}>
               Based on the items from your pantry!
             </Typography>
+            {/* Missing getRecipeByPantry function to connect to button. I had it but now its deleted rip... */}
             <Button variant="contained" sx={{mb: 2}}>Pantry</Button>
           </Grid>
           <div style={{display: "flex", justifyContent: "center"}}>
