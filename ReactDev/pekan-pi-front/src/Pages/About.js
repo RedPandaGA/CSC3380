@@ -1,6 +1,6 @@
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import "../home.css";
-import GroupImage from "../Images/About-images/group1.jpeg";
+import GroupImage from "../Images/About-images/group1.jpg";
 
 function About(props) {
   const theme = createTheme({
@@ -69,8 +69,8 @@ function About(props) {
             <div className="col-5">
               <img src={GroupImage} />
               <h5 className="main-heading2">
-                Gavin Avery, Adam Elkhanoufi, Faris Khattak, Milan Nguyen, Sejal
-                Patel, Michelle Vo
+                Gavin Avery, Adam Elkhanoufi, Faris Khattak, Michelle Vo, Sejal
+                Patel, Milan Nguyen (from Left to Right)
               </h5>
             </div>
           </div>

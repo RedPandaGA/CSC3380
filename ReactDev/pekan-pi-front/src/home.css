@@ -52,9 +52,12 @@ nav .ul-menu li div a:hover {
 }
 
 /* hovering over images turn different color */
-/* .whisk img:hover, .logo img:hover, .pot :hover  */
-.logo img:hover {
+.whisk img:hover,
+.logo img:hover,
+.about-img: hover,
+.pot :hover {
   filter: invert(100%);
+  background: none;
 }
 
 p {
@@ -411,7 +414,8 @@ table {
 }
 .col-5 img {
   max-width: 100%;
-  padding: 50px 0 0 0;
+  border-radius: 20%;
+  padding: 30px 0;
 }
 .col-5 h1 {
   font-size: 50px;
