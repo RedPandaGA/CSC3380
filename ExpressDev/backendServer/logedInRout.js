@@ -9,11 +9,7 @@ const APIkey = process.env.APIkey
 const ssecret = process.env.SSECRET
 
 var logedInRout = express.Router()
-/*
-{
-	aisles: [{aisleName: "aisle1", ingredients: [{..},{..}] }, {aisleName: "aisle2", ingredients: [{..},{..}]}]
-}
-*/
+
 logedInRout.use((req, res, next) => {
     const token = req.headers.authorization.split(' ')[1]
     if(!token){
@@ -23,11 +19,11 @@ logedInRout.use((req, res, next) => {
     if(!decodedToken){
         return res.status(404).json({success: false, message: "Error Invalid token"})
     } else {
-        console.log("sucess")
+        console.log("success")
         next()
     }
 })
-// res.status(500).send({ success: false, message: "Invalid User. Try loging out and back in again."})
+
 async function passwordCheck(UID, confirmPass){
     console.log("oldPass " + confirmPass)
     const dataPass = await db.getPassword(UID)
@@ -59,15 +55,15 @@ logedInRout.get('/getIngredientsearch', async (req, res) => {
 
 logedInRout.get('/getRecipesByName', async (req, res) => {
     const search = req.query.search
-    const test = await Api_helper.callAPI(`https://api.spoonacular.com/food/ingredients/autocomplete?apiKey=${APIkey}&query=${search}&number=1&metaInformation=true`)
+    const test = await Api_helper.callAPI(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIkey}&query=${search}&addRecipeInformation=true&number=3`)
     res.send(test)
 })
 
-logedInRout.get('/getRecipesByPantry', async (req, res) => {
-    const ingredients = req.params.search
-    const test = await Api_helper.callAPI(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${APIkey}&ingredients=${ingredients}&number=1}`)
-    res.send(test)
-})
+// logedInRout.get('/getRecipesByPantry', async (req, res) => {
+//     const ingredients = req.query.search
+//     const test = await Api_helper.callAPI(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${APIkey}&ingredients=${ingredients}&number=1}`)
+//     res.send(test)
+// })
 
 //Spoonacular API call functions END
 
@@ -126,7 +122,8 @@ logedInRout.post('/updatePassword', async (req, res) => {
 })
 
 logedInRout.post('/updatePantry', async (req, res) => {
-    const update = await db.updatePantry(req.body.UID, req.body.pantryInfo)
+    const prevPantry = await db.getPantry(req.body.UID)
+    const update = await db.updatePantry(req.body.UID, req.body.pantryInfo, prevPantry)
     if(!update){
         res.status(500).send({ success: false, message: "Update failed try again"})
         return

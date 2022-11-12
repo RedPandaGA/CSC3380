@@ -6,8 +6,13 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
 export default function RecipeCard(recipeData) {
-  const name = recipeData.name;
-  const imgURL = recipeData.image;
+  const name = recipeData.recipeData.title;
+  const imgURL = recipeData.recipeData.image;
+  const summary = recipeData.recipeData.summary;
+  
+  console.log(recipeData);
+  console.log(name);
+  console.log(imgURL);
 
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -19,11 +24,10 @@ export default function RecipeCard(recipeData) {
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Lizard
+          {name}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+          {summary}
         </Typography>
       </CardContent>
       <CardActions>
