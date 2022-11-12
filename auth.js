@@ -29,9 +29,9 @@ userAuth.post('/login', async (req, res) => {
     try{
         const temp = await db.getUserByEmail(email)
         existingUser = temp[0]
-    } catch {
-        const err = new Error("Error! Something went wrong.")
-        console.log(err)
+    } catch(err){
+        const error = new Error("Error! Something went wrong.")
+        console.log(error)
         res.status(500).send({ success: false, message: "Server encountered an issue try again later" })
         return
     }
@@ -49,7 +49,7 @@ userAuth.post('/login', async (req, res) => {
             )
     } catch (err){
         const error = new Error("Error! Something went wrong.")
-        console.log(err)
+        console.log(error)
         res.status(500).send({ success: false, message: "Server encountered an issue try again later" })
         return
     }
