@@ -48,12 +48,14 @@
 }
 
 .right-section {
-  background: url("../Images/pekan-dark.jpg") center center no-repeat;
+  /* background: url("../Images/pekan-dark.jpg") center center no-repeat; */
+  background: url("../Images/foodNew.jpg") center center no-repeat;
   background-size: cover;
 }
 
 .left-section {
-  background: url("../Images/food-dark.jpg") center center no-repeat;
+  /* background: url("../Images/food-dark.jpg") center center no-repeat; */
+  background: url("../Images/pekanNew.jpg") center center no-repeat;
   background-size: cover;
 }
 

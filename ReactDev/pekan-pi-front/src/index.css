@@ -1,4 +1,5 @@
 body {
+  height:100vh;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -6,65 +7,26 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+#root{
+  height:100%;
+}
+.react-app{
+  height:100%;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
-/* .react-app{
-  height:100%;
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  background-color: rgba(163, 161, 161, 0.453);
-} */
-
-/* space out the top nav bar with links */
-/* .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 2rem;
-  background-color: rgb(166, 48, 48);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-} */
-
-/* style the links in the nav bar */
-.navbar a {
-  color: #555;
-  text-decoration: none;
-  font-size: 1.2rem;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
+/******toggle styles*****/
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
 }
 
-/* style the active link */
-.navbar a.active {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-/* style the links on hover */
-.navbar a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-/* style the logo */
-.navbar .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-/* 
-{
-font-family: "Montserrat", sans-serif;
-font weight: 500;
-font size: 16px;
-color: #edf0f1;
-text-decoration: none 
-}
-
-.switch input { 
+.switch input {
   opacity: 0;
   width: 0;
   height: 0;
@@ -78,8 +40,8 @@ text-decoration: none
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .slider:before {
@@ -90,8 +52,8 @@ text-decoration: none
   left: 4px;
   bottom: 4px;
   background-color: rgb(255, 255, 255);
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 input:checked + .slider {
@@ -113,3 +75,31 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+/* footer styles */
+.footer {
+  position: relative;
+  width:100%;
+  bottom: 0;
+  /* subject to change for background color */
+  background-color: #d4e4ea;
+  padding: 40px;
+}
+
+.footer .pFooter{
+  color: #000;
+  font-size: 1.5rem;
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.footer .footerLinks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  /* spacing out each link */
+  gap: 50px;
+  color:rgb(255, 255, 255);
+}

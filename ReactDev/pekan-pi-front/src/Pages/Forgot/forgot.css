@@ -41,7 +41,7 @@ button[type="submit"] {
 }
 
 a {
-  color: rgb(14, 49, 106);
+  color: rgb(1, 50, 129);
   font-size: 1.13rem;
 }
 
@@ -57,6 +57,19 @@ form{
     font-size: 1.13rem;
 }
 
-/* .forget-page .logo {
-  image: url("../Images/logo2.jpg");
-} */
+/* add darkmode styles */
+.darkmode-page {
+  background-color: rgb(113, 111, 111);
+  color: #ffffff;
+}
+/* make text white when it darkmode */
+.darkmode-page .h1Forgot {
+  color: #3dc6d3;
+}
+.darkmode-page .pForgot {
+  color: #ffffff;
+}
+.darkmode-page .submitF {
+  color: #000000;
+  background-color: #3dc6d3;
+}
