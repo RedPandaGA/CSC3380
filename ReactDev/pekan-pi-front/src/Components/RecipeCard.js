@@ -16,6 +16,7 @@ export default function RecipeCard(recipeData) {
   console.log(recipeData);
   console.log(name);
   console.log(imgURL);
+  console.log(link);
 
   return (
     <Card sx={{ maxWidth: '100%', backgroundColor: "grey.300", mb: 3}}>
@@ -36,8 +37,8 @@ export default function RecipeCard(recipeData) {
       </CardContent>
       <CardActions>
         {/* share button sends to the home for now */}
-        <Button size="small" variant="outlined"><Link to="/">Share</Link></Button>
-        <Button size="small" variant="outlined"><Link to={link}>Learn More</Link></Button>
+        <Button size="small" variant="outlined"><a href="#">Share</a></Button>
+        <Button size="small" variant="outlined"><a href={link}>Learn More</a></Button>
       </CardActions>
     </Card>
   );
