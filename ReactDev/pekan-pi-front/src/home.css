@@ -269,6 +269,7 @@ small {
     padding: 25px;
     border-bottom: 1px solid rgb(80, 80, 80);
   }
+
   nav .ul-menu li a {
     font-size: 20px;
   }
@@ -350,6 +351,12 @@ table {
   background: none;
 }
 
+.darkmode-nav .ul-menu li {
+  background-color: rgb(113, 111, 111);
+  padding: 25px;
+  color: white;
+}
+
 /* make headers white when dark-mode*/
 .darkmode-page p {
   color: white;
@@ -369,6 +376,10 @@ table {
 }
 .darkmode-navbar .logo img:hover {
   filter: invert(0%);
+}
+
+.darkmode-page .btn{
+  background: #3dc6d3;
 }
 
 .darkmode-navbar .logoutbutton {
@@ -437,9 +448,6 @@ table {
 
 .darkmode-page {
   background-color: rgb(113, 111, 111);
-}
-.darkmode-nav .ul-menu li a {
-  color: white;
 }
 
 .darkmode-nav .ul-menu li a:hover {
