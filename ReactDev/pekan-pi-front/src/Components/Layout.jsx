@@ -82,24 +82,26 @@ function Layout(props) {
                 {" "}
                 Logout{" "}
               </a>
+            </li>
+            <li>
+              <div className="about-img">
+                <a href="/About">
+                  <img src={AboutImage} alt="AboutImg" width="100px" />
+                </a>
               </div>
             </li>
-            <div className="about-img">
-              <a href="/About">
-                <img src={AboutImage} alt="AboutImg" width="100px" />
-              </a>
-            </div>
           </ul>
         </nav>
-
-        <img
-          alt="MenuImg"
-          src={navOpen ? navCloseImg : navOpenImg}
-          className="menu-icon"
-          onClick={() => {
-            setNavOpen(!navOpen);
-          }}
-        />
+        <div>
+          <img
+            alt="MenuImg"
+            src={navOpen ? navCloseImg : navOpenImg}
+            className="menu-icon"
+            onClick={() => {
+              setNavOpen(!navOpen);
+            }}
+          />
+        </div>
       </div>
     </ThemeProvider>
   );

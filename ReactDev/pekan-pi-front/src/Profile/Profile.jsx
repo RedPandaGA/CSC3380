@@ -114,7 +114,9 @@ async function updateCall(oldPassword, newPassword1, newPassword2, newEmail, new
             alert("Please make sure new password matches!")
         }
     }
-    window.location.reload()
+    if(newPassword1 == "" || newPassword2 == "" || newPassword2 != newPassword1){
+        window.location.reload()
+    }
 }
 
 const Profile = (props) => { //the profile page
@@ -138,134 +140,143 @@ const Profile = (props) => { //the profile page
     const [newEmail, setNewEmail] = React.useState("")
     const [newUsername, setNewUsername] = React.useState("")
 
-    return(
-        <ThemeProvider theme={maintheme} className="profile-page">        
-            <CssBaseline />
-             <div>
-                    <Grid container justifyContent="center">
-                        <Grid item md={7} direction = "column" >
-                      <h6><br/></h6>
-                            <div>
+    if(localStorage.getItem('udata') != null){
+        return(
+            <ThemeProvider theme={maintheme} className="profile-page">        
+                <CssBaseline />
+                <div>
+                        <Grid container justifyContent="center">
+                            <Grid item md={7} direction = "column" >
+                        <h6><br/></h6>
+                                <div>
 
-                             {/**Profile table dark mode */}
-      <Accordion sx={{mt: 3,backgroundColor:props.darkmode?"rgb(113, 111, 111)":"#e3eca4"}} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1bh-content"
-          id="panel1bh-header"
-        >
-          <Typography sx={{color: 'text.secondary', width: '55%', flexShrink: 0 }}>
-          Username
-          </Typography>
-          <Typography align="right" sx={{color: 'text.secondary' }}>{JSON.parse(localStorage.getItem('udata')).username}</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Box //CHANGE USERNAME FIELDS
-            component="form"
-            sx={{
-              '& > :not(style)': { m: 1, width: '25ch' },
-            }}
-            noValidate
-            autoComplete="off"
-          >
-            <TextField size = "small" id="username-input" label="New Username" variant="outlined" value={newUsername} onChange={nu => setNewUsername(nu.target.value)}/>
-              </Box>
-        </AccordionDetails>
-      </Accordion>
-        {/**Profile table dark mode */}
-      <Accordion sx={{backgroundColor:props.darkmode?"rgb(113, 111, 111)":"#e3eca4"}} expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2bh-content"
-          id="panel2bh-header"
-        >
-          <Typography sx={{ color: 'text.secondary', width: '55%', flexShrink: 0 }}>Change Email</Typography>
-          <Typography sx={{ color: 'text.secondary' }}>
-            {JSON.parse(localStorage.getItem('udata')).email}
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Box // CHANGE EMAIL TEXT FIELDS
-            component="form"
-            sx={{
-              '& > :not(style)': { m: 1, width: '25ch' },
-            }}
-            noValidate
-            autoComplete="off"
-          >
-            <TextField size = "small" id="new-email-input" label="New Email" variant="outlined" value={newEmail} onChange={ne => setNewEmail(ne.target.value)} />
-      </Box>
-        </AccordionDetails>
-      </Accordion>
-         {/**Profile table dark mode */}
-      <Accordion sx={{backgroundColor:props.darkmode?"rgb(113, 111, 111)":"#e3eca4"}} expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
-        <AccordionSummary 
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel3bh-content"
-          id="panel4bh-header"
-        >
-          <Typography sx={{ color: 'text.secondary', width: '55%', flexShrink: 0 }}>Change Password</Typography>
-          <Typography sx={{ color: 'text.secondary' }}>
-            *********
-          </Typography>
-        </AccordionSummary >
-        <AccordionDetails >
-          <Typography>
-            <Box // CHANGE PASSWORD FIELDS
-              component="form"
-              sx={{
-                '& > :not(style)': { m: 1, width: '25ch' },
-              }}
-              noValidate
-              autoComplete="off"
+                                {/**Profile table dark mode */}
+        <Accordion sx={{mt: 3,backgroundColor:props.darkmode?"rgb(113, 111, 111)":"#e3eca4"}} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+            <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1bh-content"
+            id="panel1bh-header"
             >
-              <TextField variant="outlined" size = "small" id="new-password-input " label="New Password" type={showPassword ? "text" : "password"} value={newPassword1} onChange={np1 => setNewPassword1(np1.target.value)}
-               InputProps={{ // <-- This is where the toggle button is added.
-    endAdornment: (
-      <InputAdornment position="end">
-        <IconButton
-          aria-label="toggle password visibility"
-          onClick={handleClickShowPassword}
-          onMouseDown={handleMouseDownPassword}
-        >
-          {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
-        </IconButton>
-      </InputAdornment>
-    )
-  }}/>
-              <TextField variant="outlined" size = "small" id="confirm-password-input " label="Confirm New Password" type={showPassword ? "text" : "password"} value={newPassword2} onChange={np2 => setNewPassword2(np2.target.value)} />
-                  </Box>
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-    </div>
+            <Typography sx={{color: 'text.secondary', width: '55%', flexShrink: 0 }}>
+            Username
+            </Typography>
+            <Typography align="right" sx={{color: 'text.secondary' }}>{JSON.parse(localStorage.getItem('udata')).username}</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+            <Box //CHANGE USERNAME FIELDS
+                component="form"
+                sx={{
+                '& > :not(style)': { m: 1, width: '25ch' },
+                }}
+                noValidate
+                autoComplete="off"
+            >
+                <TextField size = "small" id="username-input" label="New Username" variant="outlined" value={newUsername} onChange={nu => setNewUsername(nu.target.value)}/>
+                </Box>
+            </AccordionDetails>
+        </Accordion>
+            {/**Profile table dark mode */}
+        <Accordion sx={{backgroundColor:props.darkmode?"rgb(113, 111, 111)":"#e3eca4"}} expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+            <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel2bh-content"
+            id="panel2bh-header"
+            >
+            <Typography sx={{ color: 'text.secondary', width: '55%', flexShrink: 0 }}>Change Email</Typography>
+            <Typography sx={{ color: 'text.secondary' }}>
+                {JSON.parse(localStorage.getItem('udata')).email}
+            </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+            <Box // CHANGE EMAIL TEXT FIELDS
+                component="form"
+                sx={{
+                '& > :not(style)': { m: 1, width: '25ch' },
+                }}
+                noValidate
+                autoComplete="off"
+            >
+                <TextField size = "small" id="new-email-input" label="New Email" variant="outlined" value={newEmail} onChange={ne => setNewEmail(ne.target.value)} />
+        </Box>
+            </AccordionDetails>
+        </Accordion>
+            {/**Profile table dark mode */}
+        <Accordion sx={{backgroundColor:props.darkmode?"rgb(113, 111, 111)":"#e3eca4"}} expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+            <AccordionSummary 
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel3bh-content"
+            id="panel4bh-header"
+            >
+            <Typography sx={{ color: 'text.secondary', width: '55%', flexShrink: 0 }}>Change Password</Typography>
+            <Typography sx={{ color: 'text.secondary' }}>
+                *********
+            </Typography>
+            </AccordionSummary >
+            <AccordionDetails >
+            <Typography>
+                <Box // CHANGE PASSWORD FIELDS
+                component="form"
+                sx={{
+                    '& > :not(style)': { m: 1, width: '25ch' },
+                }}
+                noValidate
+                autoComplete="off"
+                >
+                <TextField variant="outlined" size = "small" id="new-password-input " label="New Password" type={showPassword ? "text" : "password"} value={newPassword1} onChange={np1 => setNewPassword1(np1.target.value)}
+                InputProps={{ // <-- This is where the toggle button is added.
+        endAdornment: (
+        <InputAdornment position="end">
+            <IconButton
+            aria-label="toggle password visibility"
+            onClick={handleClickShowPassword}
+            onMouseDown={handleMouseDownPassword}
+            >
+            {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+            </IconButton>
+        </InputAdornment>
+        )
+    }}/>
+                <TextField variant="outlined" size = "small" id="confirm-password-input " label="Confirm New Password" type={showPassword ? "text" : "password"} value={newPassword2} onChange={np2 => setNewPassword2(np2.target.value)} />
+                    </Box>
+            </Typography>
+            </AccordionDetails>
+        </Accordion>
+        </div>
 
-    
-                            <Stack justifyContent="center" spacing={2} direction="row" sx={{mt: 5, mb:10}}>
-                            <TextField size = "small" id="old-password-input " label="Old Password"  type={showPassword1 ? "text" : "password"} value={oldPassword} onChange={op => setOldPassword(op.target.value)}
-                            InputProps={{ // <-- This is where the toggle button is added.
-                              endAdornment: (
-                                <InputAdornment position="end">
-                                  <IconButton
-                                    aria-label="toggle pass visibility"
-                                    onClick={handleClickShowPassword1}
-                                    onMouseDown={handleMouseDownPassword1}
-                                  >
-                                    {showPassword1 ? <VisibilityIcon /> : <VisibilityOffIcon />}
-                                  </IconButton>
-                                </InputAdornment>
-                              )
-                            }}/>
-                                <a  justifyContent="center" className="btn" onClick={() => updateCall(oldPassword, newPassword1, newPassword2, newEmail, newUsername)}>
-                                Submit{" "}
-                                </a>
-            
-                            </Stack>
+        
+                                <Stack justifyContent="center" spacing={2} direction="row" sx={{mt: 5, mb:10}}>
+                                <TextField size = "small" id="old-password-input " label="Old Password"  type={showPassword1 ? "text" : "password"} value={oldPassword} onChange={op => setOldPassword(op.target.value)}
+                                InputProps={{ // <-- This is where the toggle button is added.
+                                endAdornment: (
+                                    <InputAdornment position="end">
+                                    <IconButton
+                                        aria-label="toggle pass visibility"
+                                        onClick={handleClickShowPassword1}
+                                        onMouseDown={handleMouseDownPassword1}
+                                    >
+                                        {showPassword1 ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                                    </IconButton>
+                                    </InputAdornment>
+                                )
+                                }}/>
+                                    <a  justifyContent="center" className="btn" onClick={() => updateCall(oldPassword, newPassword1, newPassword2, newEmail, newUsername)}>
+                                    Submit{" "}
+                                    </a>
+                
+                                </Stack>
+                            </Grid>
                         </Grid>
-                    </Grid>
-            </div>
-        </ThemeProvider>
-    );
+                </div>
+            </ThemeProvider>
+        );
+    } else {
+        return(
+            <ThemeProvider theme={maintheme} className="profile-page">
+                <div>Nothing to see here because you're not logged in!</div>
+                <a href='/Login'>Login in here!</a>
+            </ThemeProvider>
+        )
+    }
 }
 
 export default Profile;
