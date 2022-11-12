@@ -78,7 +78,7 @@ function RecipiesPage(props) {
 
   function showRecipeCards(){
     return (
-      <Grid container spacing={10}>
+      <Grid container spacing={10} justifyContent="center">
           {recipeData.map((recipeData) => {
             return (
               <Grid item sm={6} md={4}>
@@ -105,7 +105,7 @@ function RecipiesPage(props) {
 
     <ThemeProvider theme={theme}>
       <div className={props.darkmode ? "darkmode-ppage" : ""}>
-        <Grid container justifyContent="center" sx={{ textAlign: "space-between" }}>
+        <Grid container justifyContent="center" sx={{ textAlign: "center" }}>
           <Grid item sm={8}>
             <Typography variant="h2" align="center" gutterBottom>
               Recipes
@@ -125,7 +125,7 @@ function RecipiesPage(props) {
               value={search}
               onChange={s => setSearch(s.target.value)}
               margin="normal"
-              placeholder="Enter your desired recipe"
+              placeholder="What do you want to cook today?"
               fullWidth
               sx={{mb: 2}}
             />
@@ -135,11 +135,12 @@ function RecipiesPage(props) {
             <Typography variant="h5" align="center" sx={{ mb: 2}}>
               Based on the items from your pantry!
             </Typography>
+            {/* Missing getRecipeByPantry function to connect to button. I had it but now its deleted rip... */}
             <Button variant="contained" sx={{mb: 2}}>Pantry</Button>
           </Grid>
-          <div style={{display: "flex", justifyContent: "center"}}>
-          {showRecipeCards()}
-        </div>
+          <div >
+            {showRecipeCards()}
+          </div>
         </Grid>
       </div>
     </ThemeProvider>

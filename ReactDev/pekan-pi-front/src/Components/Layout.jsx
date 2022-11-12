@@ -2,6 +2,7 @@ import { useState } from "react";
 import navOpenImg from "../Images/navbar/bars-solid.svg";
 import navCloseImg from "../Images/navbar/x-solid.svg";
 import Logo from "../Images/Home-images/logo2.png";
+import AboutImage from "../Images/Home-images/whiskpot.png";
 
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 
@@ -37,10 +38,10 @@ function Layout(props) {
       <CssBaseline />
       <div className={`navbar ${props.darkmode ? "darkmode-navbar" : ""}`}>
         <nav
-          style={{ right: navOpen ? "0%" : "-100%",}}
+          style={{ right: navOpen ? "0%" : "-100%" }}
           className={`${props.darkmode ? "darkmode-nav" : ""}`}
         >
-          <ul className="ul-menu" id="MenuItems" style={{padding: "0"}}>
+          <ul className="ul-menu" id="MenuItems" style={{ padding: "0" }}>
             <li>
               <div className="logo">
                 <a href="/">
@@ -63,9 +64,9 @@ function Layout(props) {
             <li>
               <a href="/Profile/Profile">Profile</a>
             </li>
-            <li>
+            {/* <li>
               <a href="/About">About</a>
-            </li>
+            </li> */}
             <li>
               <label className="switch">
                 <input
@@ -83,6 +84,11 @@ function Layout(props) {
               </a>
               </div>
             </li>
+            <div className="about-img">
+              <a href="/About">
+                <img src={AboutImage} alt="AboutImg" width="100px" />
+              </a>
+            </div>
           </ul>
         </nav>
 
