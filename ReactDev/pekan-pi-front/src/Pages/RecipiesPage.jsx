@@ -3,6 +3,7 @@ import { createTheme, ThemeProvider } from "@mui/material";
 import RecipeCard from "../Components/RecipeCard";
 import { Grid, Typography, TextField, Button } from "@mui/material";
 import axios from 'axios';
+import './recipePage.css';
 
 function RecipiesPage(props) {
   const theme = createTheme({
@@ -78,7 +79,7 @@ function RecipiesPage(props) {
 
   function showRecipeCards(){
     return (
-      <Grid container spacing={10} justifyContent="center">
+      <Grid container spacing={10} justifyContent="center" className="recipe-card" sx={{textAlign: "center"}}>
           {recipeData.map((recipeData) => {
             return (
               <Grid item sm={6} md={4}>
@@ -104,10 +105,10 @@ function RecipiesPage(props) {
     // </div>
 
     <ThemeProvider theme={theme}>
-      <div className={props.darkmode ? "darkmode-ppage" : ""}>
+      <div className={props.darkmode ? "darkmode-page" : ""}>
         <Grid container justifyContent="center" sx={{ textAlign: "center" }}>
           <Grid item sm={8}>
-            <Typography variant="h2" align="center" gutterBottom>
+            <Typography variant="h2" align="center" sx={{mb: 5}}>
               Recipes
             </Typography>
           </Grid>
@@ -129,19 +130,19 @@ function RecipiesPage(props) {
               fullWidth
               sx={{mb: 2}}
             />
-            <Button variant="contained" onClick={() => getRecipeByName(search)} sx={{mb: 2}}>Search</Button>
+            <Button variant="contained" size="large" onClick={() => getRecipeByName(search)} sx={{mb: 5}}>Search</Button>
           </Grid>
           <Grid item sm={4}>
             <Typography variant="h5" align="center" sx={{ mb: 2}}>
               Based on the items from your pantry!
             </Typography>
             {/* Missing getRecipeByPantry function to connect to button. I had it but now its deleted rip... */}
-            <Button variant="contained" sx={{mb: 2}}>Pantry</Button>
+            <Button variant="contained" size="large" sx={{mb: 2}}>Pantry</Button>
           </Grid>
-          <div >
-            {showRecipeCards()}
-          </div>
         </Grid>
+        <div>
+          {showRecipeCards()}
+        </div>
       </div>
     </ThemeProvider>
   );

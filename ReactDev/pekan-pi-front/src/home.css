@@ -366,6 +366,10 @@ table {
 .darkmode-page h4 {
   color: white;
 }
+
+.darkmode-page .recipe-card p {
+  color:rgb(80, 80, 80);
+}
 /* makes pictures on navbar turn blue */
 .darkmode-navbar .logo img {
   filter: invert(100%);

@@ -55,7 +55,7 @@ logedInRout.get('/getIngredientsearch', async (req, res) => {
 
 logedInRout.get('/getRecipesByName', async (req, res) => {
     const search = req.query.search
-    const test = await Api_helper.callAPI(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIkey}&query=${search}&addRecipeInformation=true&number=3`)
+    const test = await Api_helper.callAPI(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIkey}&query=${search}&addRecipeInformation=true&number=9`)
     res.send(test)
 })
 

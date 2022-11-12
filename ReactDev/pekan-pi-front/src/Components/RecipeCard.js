@@ -5,18 +5,20 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Markup } from "interweave";
+import { Link } from 'react-router-dom';
 
 export default function RecipeCard(recipeData) {
   const name = recipeData.recipeData.title;
   const imgURL = recipeData.recipeData.image;
   const summary = "<p>" + recipeData.recipeData.summary + "</p>";
+  const link = recipeData.recipeData.sourceUrl;
   
   console.log(recipeData);
   console.log(name);
   console.log(imgURL);
 
   return (
-    <Card sx={{ maxWidth: 400 }}>
+    <Card sx={{ maxWidth: '100%', backgroundColor: "grey.300", mb: 3}}>
       <CardMedia
         component="img"
         height="140"
@@ -33,8 +35,9 @@ export default function RecipeCard(recipeData) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+        {/* share button sends to the home for now */}
+        <Button size="small" variant="outlined"><Link to="/">Share</Link></Button>
+        <Button size="small" variant="outlined"><Link to={link}>Learn More</Link></Button>
       </CardActions>
     </Card>
   );

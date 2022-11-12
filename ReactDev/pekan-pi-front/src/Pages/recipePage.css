@@ -1,0 +1,10 @@
+.recipe-card a {
+    color: #ff523b;
+    font-size: inherit;
+    font-weight: 500;
+}
+
+.recipe-card a:hover {
+    background: none;
+    font-weight: 700;
+}
