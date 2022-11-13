@@ -4,6 +4,7 @@ import RecipeCard from "../Components/RecipeCard";
 import { Grid, Typography, TextField, Button } from "@mui/material";
 import axios from 'axios';
 import './recipePage.css';
+import { useRef } from "react";
 
 function RecipiesPage(props) {
   const theme = createTheme({
@@ -18,21 +19,23 @@ function RecipiesPage(props) {
     },
   });
 
-  let initialRecipeData = [];
-  try {
-    initialRecipeData = JSON.parse(localStorage.getItem('recipes'));
-    console.log("Initial Recipe Data: " + initialRecipeData);
-  } catch {
-    console.log("Could not get item from local storage");
-  }
+
   // if(window.localStorage.getItem('recipes') == null) {
   //   initialRecipeData = [];
   // } else {
   //   initialRecipeData = JSON.stringify(window.localStorage.getItem('recipes'));
   // }
 
-  const [recipeData, setRecipeData] = useState(initialRecipeData);
+  const [recipeData, setRecipeData] = useState([]);
   const [search, setSearch] = useState("");
+  const [cards, setCards] = useState(null)
+
+  useEffect(() => {
+    if(localStorage.getItem('recipes') != null){
+      setRecipeData(JSON.parse(localStorage.getItem('recipes')));
+      console.log("Recipe Data: " + JSON.stringify(recipeData));
+    }
+  }, [localStorage.getItem('recipes')])
   
 
   // useEffect(() => {
@@ -71,11 +74,12 @@ function RecipiesPage(props) {
           setRecipeData(res.data.recipes);
           localStorage.setItem('recipes', JSON.stringify(res.data.recipes));
           console.log("Received JSON: \n" + JSON.stringify(res.data.recipes));
+          window.location.reload()
         } else {
           setRecipeData(res.data.results);
           localStorage.setItem('recipes', JSON.stringify(res.data.results));
-          
           console.log("Received JSON: \n" + JSON.stringify(res.data.results));
+          window.location.reload()
         }
       }).catch((err) => {
         console.log("Error fetching recipe by NAME");
@@ -89,6 +93,58 @@ function RecipiesPage(props) {
     }
     
   }
+
+  async function getRecipeByPantry(search){
+    let pData = {aisles: []}
+
+    try{
+      const token = JSON.parse(localStorage.getItem('udata')).token
+      const UID = JSON.parse(localStorage.getItem('udata')).userId
+      await axios({
+          method: 'GET',
+          url: 'http://localhost:3002/getPantry',
+          headers: { Authorization : `token ${token}` },
+          params: { UID: UID }
+      })
+      .then(res => {
+        pData = res.data[0].pantryInfo
+      })
+      .catch(err => {
+          console.log(err)
+          alert("Failed to get Pantry. Try again later.")
+      })
+      let ingredients = ""
+      pData.aisles.forEach((aisle) => {
+        aisle.ingredients.forEach((ingredient) => {
+          ingredients = ingredients.concat(ingredient.name+' ')
+        })
+      })
+
+      console.log(ingredients)
+      // await axios({
+      //   method: 'GET',
+      //   url: 'http://localhost:3002/getRecipesByName',
+      //   params: {
+      //     search: search, 
+      //   },
+      //   headers: {
+      //     Authorization: `token ${token}`,
+      //   }
+      // }).then((res) => {
+      //   console.log("Hello")
+      // }).catch((err) => {
+      //   console.log("Error fetching recipe by NAME");
+      //   console.log(err);
+      // });
+
+      // //console.log(recipeData);
+    } catch {
+      alert('Not logged in! Login now.');
+      window.location.replace('/Login');
+    }
+    
+  }
+  
 
 
   
@@ -127,6 +183,14 @@ function RecipiesPage(props) {
 
   // list of # of cards to map on page
   // const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  
+  useEffect(() => {
+    setCards(showRecipeCards())
+  },[recipeData])
+
+  const handleSearch = (s) => {
+    setSearch(s.target.value)
+  }
 
   return (
     // Adam's code
@@ -167,11 +231,11 @@ function RecipiesPage(props) {
               Based on the items from your pantry!
             </Typography>
             {/* Missing getRecipeByPantry function to connect to button. I had it but now its deleted rip... */}
-            <Button variant="contained" size="large" sx={{mb: 2}}>Pantry</Button>
+            <Button variant="contained" size="large" sx={{mb: 2}} onClick={() => getRecipeByPantry(search)}>Pantry</Button>
           </Grid>
         </Grid>
         <div>
-          {showRecipeCards()}
+          {cards}
         </div>
       </div>
     </ThemeProvider>

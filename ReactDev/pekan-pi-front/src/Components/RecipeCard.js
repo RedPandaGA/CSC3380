@@ -19,10 +19,10 @@ export default function RecipeCard(recipeData) {
   const [summary, setSummary] = useState("<p>" + recipeData.recipeData.summary + "</p>");
   const [link, setLink] = useState(recipeData.recipeData.sourceUrl);
   
-  console.log(recipeData);
-  console.log(name);
-  console.log(imgURL);
-  console.log(link);
+  // console.log(recipeData);
+  // console.log(name);
+  // console.log(imgURL);
+  // console.log(link);
 
   return (
     <Card sx={{ maxWidth: '100%', backgroundColor: "grey.200", mb: 3}}>

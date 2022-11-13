@@ -93,6 +93,7 @@ function PantrySearch({placeholder}) {
                         alert("Failed to add to pantry please try again!")
                     } else {
                         alert("Successfully added: " + i.name)
+                        window.location.reload()
                     }
                 })
                 .catch(err => {
