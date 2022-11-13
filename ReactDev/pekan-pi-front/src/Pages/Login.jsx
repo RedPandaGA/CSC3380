@@ -9,11 +9,15 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import TextField from '@mui/material/TextField';
 
+// API endpoint URLs
+const loginURL = process.env.NODE_ENV === 'production' ? '/auth/login' : 'http://localhost:3002/auth/login'
+const createURL = process.env.NODE_ENV === 'production' ? '/auth/createuser' : 'http://localhost:3002/auth/createuser'
+
 async function Logincall(email, password){
   const data = { email: email, password: password }
   await axios({
     method: 'POST',
-    url: 'http://localhost:3002/auth/login',
+    url: loginURL,
     data: data
   })
   .then(res => {
@@ -58,7 +62,7 @@ async function signupCall(username, email, password){
   const data = { username: username, email: email, password: password }
   axios({
     method: 'POST',
-    url: 'http://localhost:3002/auth/createuser',
+    url: createURL,
     data: data
   })
   .then(res => {

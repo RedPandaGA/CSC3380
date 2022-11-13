@@ -3,6 +3,9 @@ import { useState } from "react";
 import { createTheme, ThemeProvider } from "@mui/material";
 import axios from "axios";
 
+// API endpoint URLs
+const recipesURL = process.env.NODE_ENV === 'production' ? '/' : 'http://localhost:3002/'
+
 function RecipesPage(props) {
   const theme = createTheme({
     // makes the theme for the whole profile
@@ -29,7 +32,7 @@ function RecipesPage(props) {
   function getRecipes() {
     axios({
       method: "GET",
-      url: "http://localhost:3002/",
+      url: recipesURL,
       headers: {
         "Content-Type": "application/json",
       },

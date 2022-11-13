@@ -5,6 +5,9 @@ import { Grid, Typography, TextField, Button } from "@mui/material";
 import axios from 'axios';
 import './recipePage.css';
 
+// API endpoint URLs
+const nameURL = process.env.NODE_ENV === 'production' ? '/getRecipesByName' : 'http://localhost:3002/getRecipesByName'
+
 function RecipiesPage(props) {
   const theme = createTheme({
     // makes the theme for the whole profile
@@ -44,7 +47,7 @@ function RecipiesPage(props) {
     const token = JSON.parse(localStorage.getItem('udata')).token
     await axios({
       method: 'GET',
-      url: 'http://localhost:3002/getRecipesByName',
+      url: nameURL,
       params: {
         search: search,
       },
