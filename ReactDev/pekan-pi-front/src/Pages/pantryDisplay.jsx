@@ -19,7 +19,7 @@ function PantryDisplay(){
         })
         .then(res => {
             setPData(res.data[0].pantryInfo)
-            console.log(pData)
+            //console.log(pData)
         })
         .catch(err => {
             console.log(err)
@@ -28,7 +28,7 @@ function PantryDisplay(){
     }
 
     const updatePantry = async () => {
-        console.log(pData)
+        //console.log(pData)
         const token = JSON.parse(localStorage.getItem('udata')).token
         const UID = JSON.parse(localStorage.getItem('udata')).userId
         await axios({
