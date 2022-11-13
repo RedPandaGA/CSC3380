@@ -238,6 +238,16 @@ small {
   height: 100v;
 }
 
+.logoutbutton {
+  display: inline-block;
+  background: #ff523b;
+  color: #fff;
+  padding: 9px 30px;
+  margin: 30px 0;
+  border-radius: 30px;
+  transition: background 50s;
+}
+
 /*------------ media query for menu--------------------------------------------------------------*/
 @media only screen and (max-width: 1000px) {
   .menu-icon {
@@ -249,7 +259,7 @@ small {
     z-index: 1000;
     position: fixed;
     width: 100%;
-    background: gray;
+    background: #e3eca4;
     height: 100vh;
     top: 0;
     right: 0;
@@ -259,6 +269,22 @@ small {
     justify-content: center;
     align-items: center;
   }
+
+  .darkmode-navbar nav {
+    z-index: 1000;
+    position: fixed;
+    width: 100%;
+    background: rgb(113, 111, 111);;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    text-align: center;
+    transition: all 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   nav .ul-menu {
     display: flex;
     justify-content: center;
@@ -272,7 +298,12 @@ small {
     border-bottom: 1px solid black;
   }
   nav .ul-menu li:hover {
-    background-color: #414141;
+    background-color: lightgoldenrodyellow;
+    padding: 25px;
+    border-bottom: 1px solid rgb(80, 80, 80);
+  }
+  .darkmode-navbar nav .ul-menu li:hover {
+    background-color: #555;
     padding: 25px;
     border-bottom: 1px solid rgb(80, 80, 80);
   }
@@ -300,16 +331,6 @@ small {
     text-align: center;
     margin-bottom: 50px;
   }
-}
-
-.logoutbutton {
-  display: inline-block;
-  background: #ff523b;
-  color: #fff;
-  padding: 9px 30px;
-  margin: 30px 0;
-  border-radius: 30px;
-  transition: background 50s;
 }
 
 /* fave recipes ------------------------------------------------------------------------------- */
