@@ -338,7 +338,7 @@ table {
   background-color: rgb(113, 111, 111);
 }
 .darkmode-nav .ul-menu li a {
-  color: white;
+  color: rgb(239, 154, 154);
 }
 
 .darkmode-nav .ul-menu li a:hover {
@@ -349,12 +349,6 @@ table {
 .darkmode-nav .ul-menu li div a:hover {
   color: white;
   background: none;
-}
-
-.darkmode-nav .ul-menu li {
-  background-color: rgb(113, 111, 111);
-  padding: 25px;
-  color: white;
 }
 
 /* make headers white when dark-mode*/
