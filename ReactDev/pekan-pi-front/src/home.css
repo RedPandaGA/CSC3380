@@ -271,18 +271,7 @@ small {
   }
 
   .darkmode-navbar nav {
-    z-index: 1000;
-    position: fixed;
-    width: 100%;
     background: rgb(113, 111, 111);;
-    height: 100vh;
-    top: 0;
-    right: 0;
-    text-align: center;
-    transition: all 0.5s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 
   nav .ul-menu {
@@ -304,8 +293,6 @@ small {
   }
   .darkmode-navbar nav .ul-menu li:hover {
     background-color: #555;
-    padding: 25px;
-    border-bottom: 1px solid rgb(80, 80, 80);
   }
 
   nav .ul-menu li a {
@@ -333,7 +320,7 @@ small {
   }
 }
 
-/* fave recipes ------------------------------------------------------------------------------- */
+/* fave recipes--------------------------------------------------------------------------------------  */
 .whisk-page {
   margin: 80px auto;
 }
@@ -351,7 +338,7 @@ table {
   text-align: center;
 }
 
-/**darkmode styles**/
+/**darkmode styles ------------------------------------------------------------------------------**/
 .darkmode-navbar {
   background-color: rgb(113, 111, 111);
 }
@@ -509,13 +496,8 @@ h1 {
 
 
 .darkmode-navbar .logoutbutton {
-  display: inline-block;
   background: #3dc6d3;
   color: #fff;
-  padding: 9px 30px;
-  margin: 30px 0;
-  border-radius: 30px;
-  transition: background 50s;
 }
 
 .darkmode-nav .ul-menu li div a:hover {
@@ -534,12 +516,10 @@ h1 {
 
 .darkmode-nav .about-img {
   filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(45deg) brightness(106%) contrast(101%);
-  background: none;
 }
 
 
 /* hovering over images turn different color */
 .darkmode-nav .about-img:hover {
   filter: invert(78%) sepia(73%) saturate(1091%) hue-rotate(146deg) brightness(91%) contrast(81%);
-  background: none;
 }
