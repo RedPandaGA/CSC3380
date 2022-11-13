@@ -234,7 +234,7 @@ small {
   height: 100v;
 }
 
-/*------------ media query for menu*/
+/*------------ media query for menu--------------------------------------------------------------*/
 @media only screen and (max-width: 1000px) {
   .menu-icon {
     z-index: 1001;
@@ -307,12 +307,8 @@ small {
   border-radius: 30px;
   transition: background 50s;
 }
-.logoutbutton:hover {
-  background: #563434;
-  color: white;
-}
 
-/* fave recipes */
+/* fave recipes ------------------------------------------------------------------------------- */
 .whisk-page {
   margin: 80px auto;
 }
@@ -349,10 +345,6 @@ table {
   background: none;
 }
 
-.darkmode-nav .ul-menu li div a:hover {
-  color: white;
-  background: none;
-}
 
 /* make headers white when dark-mode*/
 .darkmode-page p {
@@ -383,19 +375,6 @@ table {
   background: #3dc6d3;
 }
 
-.darkmode-navbar .logoutbutton {
-  display: inline-block;
-  background: #3dc6d3;
-  color: #fff;
-  padding: 9px 30px;
-  margin: 30px 0;
-  border-radius: 30px;
-  transition: background 50s;
-}
-.darkmode-navbar .logoutbutton:hover {
-  background: #563434;
-  color: white;
-}
 .section {
   padding-top: 40px;
   padding-bottom: 40px;
@@ -444,7 +423,7 @@ table {
 .darkmode-navbar {
   background-color: rgb(113, 111, 111);
 }
-.darkmode-nav .ul-menu li {
+.darkmode-navbar .ul-menu li {
   color: rgb(255, 255, 255);
 }
 
@@ -452,15 +431,11 @@ table {
   background-color: rgb(113, 111, 111);
 }
 
-.darkmode-nav .ul-menu li a:hover {
+.darkmode-navbar .ul-menu li a:hover {
   color: #3dc6d3;
   background: none;
 }
 
-.darkmode-nav .ul-menu li div a:hover {
-  color: white;
-  background: none;
-}
 
 /* make headers white when dark-mode*/
 .darkmode-page p {
@@ -505,6 +480,8 @@ h1 {
   font-family: "Playfair Display", serif;
 }
 
+
+
 .darkmode-navbar .logoutbutton {
   display: inline-block;
   background: #3dc6d3;
@@ -514,10 +491,12 @@ h1 {
   border-radius: 30px;
   transition: background 50s;
 }
-.darkmode-navbar .logoutbutton:hover {
-  background: #563434;
+
+.darkmode-nav .ul-menu li div a:hover {
   color: white;
+  background: none;
 }
+
 .darkmode .mission-statement {
   color: #563434;
   padding-right: 80px;
