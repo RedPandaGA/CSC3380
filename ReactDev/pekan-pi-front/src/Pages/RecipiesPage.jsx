@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { createTheme, ThemeProvider } from "@mui/material";
 import RecipeCard from "../Components/RecipeCard";
 import { Grid, Typography, TextField, Button } from "@mui/material";
 import axios from 'axios';
+import './recipePage.css';
 
 function RecipiesPage(props) {
   const theme = createTheme({
@@ -17,8 +18,22 @@ function RecipiesPage(props) {
     },
   });
 
-  const [recipeData, setRecipeData] = useState([]);
+  let initialRecipeData = [];
+  try {
+    initialRecipeData = JSON.parse(localStorage.getItem('recipes'));
+    console.log("Initial Recipe Data: " + initialRecipeData);
+  } catch {
+    console.log("Could not get item from local storage");
+  }
+  // if(window.localStorage.getItem('recipes') == null) {
+  //   initialRecipeData = [];
+  // } else {
+  //   initialRecipeData = JSON.stringify(window.localStorage.getItem('recipes'));
+  // }
+
+  const [recipeData, setRecipeData] = useState(initialRecipeData);
   const [search, setSearch] = useState("");
+  
 
   // useEffect(() => {
   //   getRecipe();
@@ -40,26 +55,42 @@ function RecipiesPage(props) {
 
   // allows users to grab recipes based on the name
   async function getRecipeByName(search){
-    const token = JSON.parse(localStorage.getItem('udata')).token
-    await axios({
-      method: 'GET',
-      url: 'http://localhost:3002/getRecipesByName',
-      params: {
-        search: search,
-      },
-      headers: {
-        Authorization: `token ${token}`,
-      }
-    }).then((res) => {
-      setRecipeData(res.data.results);
-      console.log("Received JSON: \n" + JSON.stringify(res.data.results));
-    }).catch((err) => {
-      console.log("Error fetching recipe by NAME");
-      console.log(err);
-    });
+    try{
+      const token = JSON.parse(localStorage.getItem('udata')).token
+      await axios({
+        method: 'GET',
+        url: 'http://localhost:3002/getRecipesByName',
+        params: {
+          search: search,
+        },
+        headers: {
+          Authorization: `token ${token}`,
+        }
+      }).then((res) => {
+        if (search.length == 0) {
+          setRecipeData(res.data.recipes);
+          localStorage.setItem('recipes', JSON.stringify(res.data.recipes));
+          console.log("Received JSON: \n" + JSON.stringify(res.data.recipes));
+        } else {
+          setRecipeData(res.data.results);
+          localStorage.setItem('recipes', JSON.stringify(res.data.results));
+          
+          console.log("Received JSON: \n" + JSON.stringify(res.data.results));
+        }
+      }).catch((err) => {
+        console.log("Error fetching recipe by NAME");
+        console.log(err);
+      });
 
-    console.log(recipeData);
+      console.log(recipeData);
+    } catch {
+      alert('Not logged in! Login now.');
+      window.location.replace('/Login');
+    }
+    
   }
+
+
   
   // allows users to grab recipes based on current items in their pantry
   // function getRecipeByPantry(ingredients){
@@ -78,7 +109,7 @@ function RecipiesPage(props) {
 
   function showRecipeCards(){
     return (
-      <Grid container spacing={10} justifyContent="center">
+      <Grid container spacing={10} justifyContent="center" className="recipe-card" sx={{textAlign: "center"}}>
           {recipeData.map((recipeData) => {
             return (
               <Grid item sm={6} md={4}>
@@ -104,10 +135,10 @@ function RecipiesPage(props) {
     // </div>
 
     <ThemeProvider theme={theme}>
-      <div className={props.darkmode ? "darkmode-ppage" : ""}>
+      <div className={props.darkmode ? "darkmode-page" : ""}>
         <Grid container justifyContent="center" sx={{ textAlign: "center" }}>
           <Grid item sm={8}>
-            <Typography variant="h2" align="center" gutterBottom>
+            <Typography variant="h2" align="center" sx={{mb: 5}}>
               Recipes
             </Typography>
           </Grid>
@@ -129,19 +160,19 @@ function RecipiesPage(props) {
               fullWidth
               sx={{mb: 2}}
             />
-            <Button variant="contained" onClick={() => getRecipeByName(search)} sx={{mb: 2}}>Search</Button>
+            <Button variant="contained" size="large" onClick={() => getRecipeByName(search)} sx={{mb: 5}}>Search</Button>
           </Grid>
           <Grid item sm={4}>
             <Typography variant="h5" align="center" sx={{ mb: 2}}>
               Based on the items from your pantry!
             </Typography>
             {/* Missing getRecipeByPantry function to connect to button. I had it but now its deleted rip... */}
-            <Button variant="contained" sx={{mb: 2}}>Pantry</Button>
+            <Button variant="contained" size="large" sx={{mb: 2}}>Pantry</Button>
           </Grid>
-          <div >
-            {showRecipeCards()}
-          </div>
         </Grid>
+        <div>
+          {showRecipeCards()}
+        </div>
       </div>
     </ThemeProvider>
   );
