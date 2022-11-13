@@ -249,7 +249,7 @@ small {
     z-index: 1000;
     position: fixed;
     width: 100%;
-    background: #fff;
+    background: gray;
     height: 100vh;
     top: 0;
     right: 0;
@@ -272,7 +272,7 @@ small {
     border-bottom: 1px solid black;
   }
   nav .ul-menu li:hover {
-    background-color: #eec4da;
+    background-color: #414141;
     padding: 25px;
     border-bottom: 1px solid rgb(80, 80, 80);
   }
