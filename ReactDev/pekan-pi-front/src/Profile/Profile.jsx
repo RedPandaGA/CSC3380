@@ -244,11 +244,11 @@ const Profile = (props) => { //the profile page
         </div>
 
         
-                                <Stack justifyContent="center" spacing={2} direction="row" sx={{mt: 5, mb:10}}>
-                                <TextField size = "small" id="old-password-input " label="Old Password"  type={showPassword1 ? "text" : "password"} value={oldPassword} onChange={op => setOldPassword(op.target.value)}
+                        <Stack justifyContent="center" spacing={2} direction="row" sx={{mt: 5, mb:10}}>
+                            <TextField size = "small" id="old-password-input " label="Old Password"  type={showPassword1 ? "text" : "password"} value={oldPassword} onChange={op => setOldPassword(op.target.value)}
                                 InputProps={{ // <-- This is where the toggle button is added.
                                 endAdornment: (
-                                    <InputAdornment position="end">
+                                <InputAdornment position="end">
                                     <IconButton
                                         aria-label="toggle pass visibility"
                                         onClick={handleClickShowPassword1}
@@ -256,13 +256,12 @@ const Profile = (props) => { //the profile page
                                     >
                                         {showPassword1 ? <VisibilityIcon /> : <VisibilityOffIcon />}
                                     </IconButton>
-                                    </InputAdornment>
+                                </InputAdornment>
                                 )
-                                }}/>
-                                    <a  justifyContent="center" className="btn" onClick={() => updateCall(oldPassword, newPassword1, newPassword2, newEmail, newUsername)}>
+                                    }}/>
+                                    <a  justify="center" className="btn" onClick={() => updateCall(oldPassword, newPassword1, newPassword2, newEmail, newUsername)}>
                                     Submit{" "}
                                     </a>
-                
                                 </Stack>
                             </Grid>
                         </Grid>
