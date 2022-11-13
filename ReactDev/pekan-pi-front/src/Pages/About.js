@@ -1,6 +1,6 @@
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import "../home.css";
-import GroupImage from "../Images/About-images/group1.jpeg";
+import GroupImage from "../Images/About-images/group1.jpg";
 
 function About(props) {
   const theme = createTheme({
@@ -69,12 +69,37 @@ function About(props) {
             <div className="col-5">
               <img src={GroupImage} />
               <h5 className="main-heading2">
-                Gavin Avery, Adam Elkhanoufi, Faris Khattak, Milan Nguyen, Sejal
-                Patel, Michelle Vo
+                Gavin Avery, Adam Elkhanoufi, Faris Khattak, Michelle Vo, Sejal
+                Patel, Milan Nguyen (from Left to Right)
               </h5>
             </div>
           </div>
         </div>
+      </div>
+
+      {/* mission statement */}
+      <section className="section bg-c-light border-top">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12 mb-5 text-center">
+              <h3 className="main-heading">Our Mission</h3>
+              <div className="underline mx-auto"></div>
+            </div>
+            <div className="cold-md-4 text-center">
+              <h6>Our Vision</h6>
+              <p>BLAH BLAH BLAH</p>
+            </div>
+            <div className="cold-md-4 text-center">
+              <h6>Our Mission</h6>
+              <p>BLAH BLAH BLAH</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* our team */}
+      <div className="col-2">
+        <img alt="" src="../Images/Home-images/table 2.jpeg" />
       </div>
     </div>
   );

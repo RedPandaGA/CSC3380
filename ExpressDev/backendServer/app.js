@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 dotenv.config()
 //import our own js libraries
 //environment variables
-const PORT = process.env.PORT || '3002'
+const PORT = process.env.PORT || '3001'
 //import and start express
 import express from 'express'
 import userAuth from './auth.js'

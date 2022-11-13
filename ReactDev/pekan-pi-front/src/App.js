@@ -103,7 +103,7 @@ function App() {
       <Routes className="NavBar">
         <Route index element={<HomeElement />} />
         <Route path="/Login" element={<Login darkmode={darkmode} />} />
-        <Route path="/RecipiesPage" element={<RecipePage />} />
+        <Route path="/Recipes" element={<RecipePage />} />
         <Route path="/Profile/Profile" element={<ProfileElement />} />
         <Route path="/Pantry" element={<PantryPage />} />
         <Route path="/About" element={<AboutElement />} />

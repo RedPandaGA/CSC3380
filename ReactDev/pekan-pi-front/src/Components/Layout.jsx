@@ -2,6 +2,7 @@ import { useState } from "react";
 import navOpenImg from "../Images/navbar/bars-solid.svg";
 import navCloseImg from "../Images/navbar/x-solid.svg";
 import Logo from "../Images/Home-images/logo2.png";
+import AboutImage from "../Images/Home-images/whiskpot.png";
 
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 
@@ -27,6 +28,11 @@ function Layout(props) {
     props.setDarkMode(e.target.checked);
   }
 
+  const handleLogout = () => {
+    localStorage.clear()
+    window.location.replace('/Login')
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -50,7 +56,7 @@ function Layout(props) {
               <a href="/Login">Login</a>
             </li>
             <li>
-              <a href="/RecipiesPage">Recipes</a>
+              <a href="/Recipes">Recipes</a>
             </li>
             <li>
               <a href="/Pantry">Pantry</a>
@@ -58,9 +64,9 @@ function Layout(props) {
             <li>
               <a href="/Profile/Profile">Profile</a>
             </li>
-            <li>
+            {/* <li>
               <a href="/About">About</a>
-            </li>
+            </li> */}
             <li>
               <label className="switch">
                 <input
@@ -72,27 +78,30 @@ function Layout(props) {
               </label>
             </li>
             <li>
-              <div>
-                <a
-                  styles={{ justifyContent: "center" }}
-                  className="logoutbutton"
-                >
-                  {" "}
-                  Logout{" "}
+              <a styles={{ justifyContent: "center" }} className="btn" onClick={handleLogout}>
+                {" "}
+                Logout{" "}
+              </a>
+            </li>
+            <li>
+              <div className="about-img">
+                <a href="/About">
+                  <img src={AboutImage} alt="AboutImg" width="100px" />
                 </a>
               </div>
             </li>
           </ul>
         </nav>
-
-        <img
-          alt="MenuImg"
-          src={navOpen ? navCloseImg : navOpenImg}
-          className="menu-icon"
-          onClick={() => {
-            setNavOpen(!navOpen);
-          }}
-        />
+        <div>
+          <img
+            alt="MenuImg"
+            src={navOpen ? navCloseImg : navOpenImg}
+            className="menu-icon"
+            onClick={() => {
+              setNavOpen(!navOpen);
+            }}
+          />
+        </div>
       </div>
     </ThemeProvider>
   );
