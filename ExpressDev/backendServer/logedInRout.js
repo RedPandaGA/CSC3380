@@ -55,7 +55,15 @@ logedInRout.get('/getIngredientsearch', async (req, res) => {
 
 logedInRout.get('/getRecipesByName', async (req, res) => {
     const search = req.query.search
-    const test = await Api_helper.callAPI(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIkey}&query=${search}&addRecipeInformation=true&number=9`)
+    console.log("Search: " + search)
+    console.log("Length: " + search.length)
+    let test = "Should be random JSON but it is not"
+    if(search.length == 0) {
+        test = await Api_helper.callAPI(`https://api.spoonacular.com/recipes/random?apiKey=${APIkey}&number=9`)
+    } else {
+        test = await Api_helper.callAPI(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIkey}&query=${search}&addRecipeInformation=true&number=9`)
+    }
+    //test = await Api_helper.callAPI(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIkey}&query=${search}&addRecipeInformation=true&number=9`)
     res.send(test)
 })
 

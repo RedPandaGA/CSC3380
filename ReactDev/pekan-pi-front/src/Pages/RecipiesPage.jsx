@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { createTheme, ThemeProvider } from "@mui/material";
 import RecipeCard from "../Components/RecipeCard";
 import { Grid, Typography, TextField, Button } from "@mui/material";
@@ -18,8 +18,22 @@ function RecipiesPage(props) {
     },
   });
 
-  const [recipeData, setRecipeData] = useState([]);
+  let initialRecipeData = [];
+  try {
+    initialRecipeData = JSON.parse(localStorage.getItem('recipes'));
+    console.log("Initial Recipe Data: " + initialRecipeData);
+  } catch {
+    console.log("Could not get item from local storage");
+  }
+  // if(window.localStorage.getItem('recipes') == null) {
+  //   initialRecipeData = [];
+  // } else {
+  //   initialRecipeData = JSON.stringify(window.localStorage.getItem('recipes'));
+  // }
+
+  const [recipeData, setRecipeData] = useState(initialRecipeData);
   const [search, setSearch] = useState("");
+  
 
   // useEffect(() => {
   //   getRecipe();
@@ -41,26 +55,42 @@ function RecipiesPage(props) {
 
   // allows users to grab recipes based on the name
   async function getRecipeByName(search){
-    const token = JSON.parse(localStorage.getItem('udata')).token
-    await axios({
-      method: 'GET',
-      url: 'http://localhost:3002/getRecipesByName',
-      params: {
-        search: search,
-      },
-      headers: {
-        Authorization: `token ${token}`,
-      }
-    }).then((res) => {
-      setRecipeData(res.data.results);
-      console.log("Received JSON: \n" + JSON.stringify(res.data.results));
-    }).catch((err) => {
-      console.log("Error fetching recipe by NAME");
-      console.log(err);
-    });
+    try{
+      const token = JSON.parse(localStorage.getItem('udata')).token
+      await axios({
+        method: 'GET',
+        url: 'http://localhost:3002/getRecipesByName',
+        params: {
+          search: search,
+        },
+        headers: {
+          Authorization: `token ${token}`,
+        }
+      }).then((res) => {
+        if (search.length == 0) {
+          setRecipeData(res.data.recipes);
+          localStorage.setItem('recipes', JSON.stringify(res.data.recipes));
+          console.log("Received JSON: \n" + JSON.stringify(res.data.recipes));
+        } else {
+          setRecipeData(res.data.results);
+          localStorage.setItem('recipes', JSON.stringify(res.data.results));
+          
+          console.log("Received JSON: \n" + JSON.stringify(res.data.results));
+        }
+      }).catch((err) => {
+        console.log("Error fetching recipe by NAME");
+        console.log(err);
+      });
 
-    console.log(recipeData);
+      console.log(recipeData);
+    } catch {
+      alert('Not logged in! Login now.');
+      window.location.replace('/Login');
+    }
+    
   }
+
+
   
   // allows users to grab recipes based on current items in their pantry
   // function getRecipeByPantry(ingredients){
