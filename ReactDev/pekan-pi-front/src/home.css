@@ -53,10 +53,14 @@ nav .ul-menu li div a:hover {
 
 /* hovering over images turn different color */
 .whisk img:hover,
-.logo img:hover,
 .about-img:hover,
 .pot :hover {
-  filter: invert(100%);
+  filter: invert(55%) sepia(100%) saturate(4090%) hue-rotate(337deg) brightness(100%) contrast(101%);
+  background: none;
+}
+
+.logo img:hover{
+  filter:invert(100%);
   background: none;
 }
 
@@ -234,7 +238,17 @@ small {
   height: 100v;
 }
 
-/*------------ media query for menu*/
+.logoutbutton {
+  display: inline-block;
+  background: #ff523b;
+  color: #fff;
+  padding: 9px 30px;
+  margin: 30px 0;
+  border-radius: 30px;
+  transition: background 50s;
+}
+
+/*------------ media query for menu--------------------------------------------------------------*/
 @media only screen and (max-width: 1000px) {
   .menu-icon {
     z-index: 1001;
@@ -245,7 +259,7 @@ small {
     z-index: 1000;
     position: fixed;
     width: 100%;
-    background: #fff;
+    background: #e3eca4;
     height: 100vh;
     top: 0;
     right: 0;
@@ -255,6 +269,11 @@ small {
     justify-content: center;
     align-items: center;
   }
+
+  .darkmode-navbar nav {
+    background: rgb(113, 111, 111);;
+  }
+
   nav .ul-menu {
     display: flex;
     justify-content: center;
@@ -268,9 +287,12 @@ small {
     border-bottom: 1px solid black;
   }
   nav .ul-menu li:hover {
-    background-color: #eec4da;
+    background-color: lightgoldenrodyellow;
     padding: 25px;
     border-bottom: 1px solid rgb(80, 80, 80);
+  }
+  .darkmode-navbar nav .ul-menu li:hover {
+    background-color: #555;
   }
 
   nav .ul-menu li a {
@@ -298,21 +320,7 @@ small {
   }
 }
 
-.logoutbutton {
-  display: inline-block;
-  background: #ff523b;
-  color: #fff;
-  padding: 9px 30px;
-  margin: 30px 0;
-  border-radius: 30px;
-  transition: background 50s;
-}
-.logoutbutton:hover {
-  background: #563434;
-  color: white;
-}
-
-/* fave recipes */
+/* fave recipes--------------------------------------------------------------------------------------  */
 .whisk-page {
   margin: 80px auto;
 }
@@ -330,7 +338,7 @@ table {
   text-align: center;
 }
 
-/**darkmode styles**/
+/**darkmode styles ------------------------------------------------------------------------------**/
 .darkmode-navbar {
   background-color: rgb(113, 111, 111);
 }
@@ -341,24 +349,15 @@ table {
   background-color: rgb(113, 111, 111);
 }
 .darkmode-nav .ul-menu li a {
-  color: white;
+  color:white;
 }
+/* here rgb(239, 154, 154) pinkish color */
 
 .darkmode-nav .ul-menu li a:hover {
   color: #3dc6d3;
   background: none;
 }
 
-.darkmode-nav .ul-menu li div a:hover {
-  color: white;
-  background: none;
-}
-
-.darkmode-nav .ul-menu li {
-  background-color: rgb(113, 111, 111);
-  padding: 25px;
-  color: white;
-}
 
 /* make headers white when dark-mode*/
 .darkmode-page p {
@@ -389,19 +388,6 @@ table {
   background: #3dc6d3;
 }
 
-.darkmode-navbar .logoutbutton {
-  display: inline-block;
-  background: #3dc6d3;
-  color: #fff;
-  padding: 9px 30px;
-  margin: 30px 0;
-  border-radius: 30px;
-  transition: background 50s;
-}
-.darkmode-navbar .logoutbutton:hover {
-  background: #563434;
-  color: white;
-}
 .section {
   padding-top: 40px;
   padding-bottom: 40px;
@@ -450,7 +436,7 @@ table {
 .darkmode-navbar {
   background-color: rgb(113, 111, 111);
 }
-.darkmode-nav .ul-menu li {
+.darkmode-navbar .ul-menu li {
   color: rgb(255, 255, 255);
 }
 
@@ -458,15 +444,11 @@ table {
   background-color: rgb(113, 111, 111);
 }
 
-.darkmode-nav .ul-menu li a:hover {
+.darkmode-navbar .ul-menu li a:hover {
   color: #3dc6d3;
   background: none;
 }
 
-.darkmode-nav .ul-menu li div a:hover {
-  color: white;
-  background: none;
-}
 
 /* make headers white when dark-mode*/
 .darkmode-page p {
@@ -511,19 +493,18 @@ h1 {
   font-family: "Playfair Display", serif;
 }
 
+
+
 .darkmode-navbar .logoutbutton {
-  display: inline-block;
   background: #3dc6d3;
   color: #fff;
-  padding: 9px 30px;
-  margin: 30px 0;
-  border-radius: 30px;
-  transition: background 50s;
 }
-.darkmode-navbar .logoutbutton:hover {
-  background: #563434;
+
+.darkmode-nav .ul-menu li div a:hover {
   color: white;
+  background: none;
 }
+
 .darkmode .mission-statement {
   color: #563434;
   padding-right: 80px;
@@ -531,4 +512,14 @@ h1 {
   font-size: 1.2rem;
   color: white;
   font-family: "Source Sans Pro", sans-serif;
+}
+
+.darkmode-nav .about-img {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(45deg) brightness(106%) contrast(101%);
+}
+
+
+/* hovering over images turn different color */
+.darkmode-nav .about-img:hover {
+  filter: invert(78%) sepia(73%) saturate(1091%) hue-rotate(146deg) brightness(91%) contrast(81%);
 }

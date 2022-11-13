@@ -23,7 +23,7 @@ function About(props) {
           <div className="container">
             <div className="row">
               <div className="col-md-12 text-center">
-                <h1>
+                <h1 className="abouth1">
                   What Do 6 Stinky Computer
                   <br /> Science Kids Know About Cooking?
                 </h1>

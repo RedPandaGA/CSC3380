@@ -78,10 +78,12 @@ function Layout(props) {
               </label>
             </li>
             <li>
-              <a styles={{ justifyContent: "center" }} className="btn" onClick={handleLogout}>
+              <div>
+              <a styles={{ justifyContent: "center" }} className="logoutbutton" onClick={handleLogout}>
                 {" "}
                 Logout{" "}
               </a>
+              </div>
             </li>
             <li>
               <div className="about-img">
