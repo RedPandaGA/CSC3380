@@ -53,10 +53,14 @@ nav .ul-menu li div a:hover {
 
 /* hovering over images turn different color */
 .whisk img:hover,
-.logo img:hover,
 .about-img:hover,
 .pot :hover {
-  filter: invert(100%);
+  filter: invert(55%) sepia(100%) saturate(4090%) hue-rotate(337deg) brightness(100%) contrast(101%);
+  background: none;
+}
+
+.logo img:hover{
+  filter:invert(100%);
   background: none;
 }
 
@@ -337,8 +341,9 @@ table {
   background-color: rgb(113, 111, 111);
 }
 .darkmode-nav .ul-menu li a {
-  color: rgb(239, 154, 154);
+  color:white;
 }
+/* here rgb(239, 154, 154) pinkish color */
 
 .darkmode-nav .ul-menu li a:hover {
   color: #3dc6d3;
@@ -504,4 +509,16 @@ h1 {
   font-size: 1.2rem;
   color: white;
   font-family: "Source Sans Pro", sans-serif;
+}
+
+.darkmode-nav .about-img {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(45deg) brightness(106%) contrast(101%);
+  background: none;
+}
+
+
+/* hovering over images turn different color */
+.darkmode-nav .about-img:hover {
+  filter: invert(78%) sepia(73%) saturate(1091%) hue-rotate(146deg) brightness(91%) contrast(81%);
+  background: none;
 }
