@@ -15,18 +15,7 @@ import VietnameseImage from "../Images/Home-images/vietname.jpeg";
 import Table5Image from "../Images/Home-images/table5.jpeg";
 
 function Home(props) {
-  // var MenuItems = document.getElementById("MenuItems");
-  // MenuItems.style.maxHeight = "0px";
-  // function menuToggle() {
-  // //   var MenuItems = document.getElementById("MenuItems");
-  // //   if (MenuItems.style.maxHeight == "0px") {
-  // //     MenuItems.style.maxHeight = "200px";
-  // //   } else {
-  // //     MenuItems.style.maxHeight = "0px";
-  // //   }
-  // // }
-
-  // const [maxHeight, setMaxHeight] = useState("200px")
+  
 
   return (
     <div className={`Home ${props.darkmode ? "darkmode-page" : ""}`}>
