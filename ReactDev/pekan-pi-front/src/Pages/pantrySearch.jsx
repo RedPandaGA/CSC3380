@@ -22,8 +22,6 @@ function PantrySearch({placeholder}) {
                 params: { search: d }
             })
             .then(res => {
-                console.log("got res: ")
-                console.log(res.data)
                 setData(res.data)
             })
             .catch(err => {
@@ -38,6 +36,7 @@ function PantrySearch({placeholder}) {
         }
     }
 
+    // adds user search to pantry database
     const addToPantry = async (i) => {
         try{
             const token = JSON.parse(localStorage.getItem('udata')).token
@@ -85,7 +84,6 @@ function PantrySearch({placeholder}) {
             }
             if(!duplicate){
                 const newPantry = { aisles: aisles }
-                console.log(newPantry)
                 await axios({
                     method: 'POST',
                     url: 'http://localhost:3002/updatePantry',
@@ -112,6 +110,7 @@ function PantrySearch({placeholder}) {
 
     return (
         <div className="search">
+            {/* search bar */}
             <div className="searchInputs">
                 <input
                     type="text"
@@ -119,8 +118,10 @@ function PantrySearch({placeholder}) {
                     value={searchInput}
                     onChange={handleSearch}
                 />
+                {/* search button */}
                 <div className="searchIcon" onClick={() => getData(searchInput)}></div>
             </div>
+            {/* maps through all items in the pantry to display on webpage */}
             {data.length !== 0 && (
                 <div className="dataResult">
                     {data.map((item) => {
