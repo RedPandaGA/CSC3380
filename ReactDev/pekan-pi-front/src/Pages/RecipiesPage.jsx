@@ -99,7 +99,9 @@ function RecipiesPage(props) {
       let ingredients = ""
       pData.aisles.forEach((aisle) => {
         aisle.ingredients.forEach((ingredient) => {
-          ingredients = ingredients.concat(ingredient.name+',')
+          if(ingredient.filter){
+            ingredients = ingredients.concat(ingredient.name+',')
+          }
         })
       })
       ingredients = ingredients.substring(0, ingredients.length-1)
