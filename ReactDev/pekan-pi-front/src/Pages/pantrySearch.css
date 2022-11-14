@@ -1,53 +1,55 @@
+/* search input and button visuals */
 .searchInputs {
-    margin-top: 105px;
-    display: flex;
-  }
+  margin-top: 105px;
+  display: flex;
+}
   
-  .search input {
-    background-color: white;
-    border: 0;
-    border-radius: 2px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-    font-size: 18px;
-    padding: 15px;
-    height: 30px;
-    width: 300px;
-  }
+.search input {
+  background-color: white;
+  border: 0;
+  border-radius: 2px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  font-size: 18px;
+  padding: 15px;
+  height: 30px;
+  width: 300px;
+}
   
-  .searchIcon {
-    height: 30px;
-    width: 50px;
-    display: grid;
-    place-items: center;
-    background-size: auto; 
-    background-position: relative;
-    background: url("../Images/searchIcon.png") center center no-repeat;
-    background-color: rgba(249, 76, 23, 0.94);
-  }
+.searchIcon {
+  height: 30px;
+  width: 50px;
+  display: grid;
+  place-items: center;
+  background-size: auto; 
+  background-position: relative;
+  background: url("../Images/searchIcon.png") center center no-repeat;
+  background-color: rgba(249, 76, 23, 0.94);
+}
 
-  .searchIcon:hover {
-    background-color: #3dc6d3;
-  }
+.searchIcon:hover {
+  background-color: #3dc6d3;
+}
   
-  input:focus {
-    outline: none;
-  }
+input:focus {
+  outline: none;
+}
   
-  .searchIcon svg {
-    font-size: 35px;
-  }
+.searchIcon svg {
+  font-size: 35px;
+}
   
-  .dataResult {
-    margin-top: 5px;
-    width: 300px;
-    height: 200px;
-    background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    overflow: hidden;
-    overflow-y: auto;
-  }
-  
+.dataResult {
+  margin-top: 5px;
+  width: 300px;
+  height: 200px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+/* darkmode visuals */
 .darkmode-page {
   background-color: rgb(113, 111, 111);
 }
@@ -60,33 +62,34 @@
   background-color: #c50d2f;
 }
 
-  .dataResult::-webkit-scrollbar {
-    display: none;
-  }
+/* data results/cards visuals */
+.dataResult::-webkit-scrollbar {
+  display: none;
+}
   
-  .dataResult .dataItem {
-    width: 100%;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    color: black;
-  }
+.dataResult .dataItem {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  color: black;
+}
 
-  .dataResult .dataItem:hover{
-    background-color: rgb(151, 248, 255);
-  }
+.dataResult .dataItem:hover{
+  background-color: rgb(151, 248, 255);
+}
   
-  .dataItem p {
-    margin-left: 10px;
-  }
-  a {
-    text-decoration: none;
-  }
+.dataItem p {
+  margin-left: 10px;
+}
+a {
+  text-decoration: none;
+}
   
-  a:hover {
-    background-color: lightgrey;
-  }
+a:hover {
+  background-color: lightgrey;
+}
   
-  #clearBtn {
-    cursor: pointer;
-  }
+#clearBtn {
+  cursor: pointer;
+}
