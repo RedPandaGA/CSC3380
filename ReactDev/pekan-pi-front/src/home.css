@@ -13,6 +13,7 @@ body {
   font-family: "Playfair Display", serif;
 }
 
+/* navigational bar at the top of all pages  */
 .navbar {
   display: flex;
   align-items: center;
