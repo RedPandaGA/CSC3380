@@ -18,9 +18,6 @@ async function Logincall(email, password){
   })
   .then(res => {
     if(res.status == 200) {
-      // console.log("recieved")
-      // console.log(res)
-      // console.log(res.data.data)
       localStorage.setItem('udata', JSON.stringify(res.data.data))
       window.location.replace('/')
     } else {
@@ -33,26 +30,6 @@ async function Logincall(email, password){
     alert(err.response.data.message)
   })
 }
-
-//leaving temporarily: seems to be a weird behavior where I can only call each end point once before it is cached and will no longer actaully get the response
-// async function tempTest(){
-//   const token = JSON.parse(localStorage.getItem('udata')).token
-//   console.log("begin?")
-//   axios({
-//     method: 'GET',
-//     url: 'http://localhost:3002/getFavorites',
-//     headers: { Authorization : `token ${token}` }
-//   })
-//   .then(res => {
-//     console.log("PLEASE")
-//     console.log(res)
-//   })
-//   .catch(err => {
-//     console.error(err);
-//     alert('Error in GET')
-//   })
-//   console.log("fin?")
-// }
 
 async function signupCall(username, email, password){
   const data = { username: username, email: email, password: password }
@@ -88,7 +65,7 @@ function Login() {
   return (
     <div className="login-page">
       
-      {/*Left Seciton: Login Part */}
+      {/*Left Seciton: Login Part of the Page */}
       
       <div className="left-section">      
            <div className="boxL">
@@ -118,14 +95,14 @@ function Login() {
                        <div><input className= "buttonL"type="button" value="Login" onClick={() => {Logincall(email, password)}}/> </div>
                      </form>
                    <Link to="/forgot">
-                     <p className="forget">Forgot Password? Click Here </p>
+                     <p className="forget">Forgot Password? Click Here </p> 
                   </Link>
              </div>
              </div>
 
        </div>
 
-        {/*Right Seciton: Sign Up Part */}
+        {/*Right Seciton: Sign Up Part of the Page */}
 
         <div className="right-section">
           <div className="boxL">
@@ -137,6 +114,7 @@ function Login() {
                     <form className="signup-from">
                       <input type="text" placeholder="Username" value={username} onChange={u => setUsername(u.target.value)}/>
                       <input type="text" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)}/>
+                      {/* show password feature --> visibility*/}
                       <TextField sx={{ width:390}} variant="standard" type={showPassword?"text":"password"} placeholder="Password" value={password} onChange={p => setPassword(p.target.value)}
                       InputProps={{ // <-- This is where the toggle button is added.
                         disableUnderline: true,
