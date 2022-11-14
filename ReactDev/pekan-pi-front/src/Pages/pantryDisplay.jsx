@@ -125,29 +125,29 @@ function PantryDisplay(props){
 
     return(
         <ThemeProvider theme={theme}>
-            <div className={props.darkmode ? "darkmode-page" : ""}>
-            <Box sx={{textAlign: "center", mt: 2}}>
-                <Button className="button" variant="contained" endIcon={<Save/>} onClick={updatePantry}>
-                    Save Pantry
-                </Button>
-            </Box>
-            <Grid container spacing={5} justifyContent="center" sx={{mb: 5}}>
-                {pData.aisles.map((aisle, aIndex) => {
-                    let name;
-                    if(aisle.aisleName != null){name=aisle.aisleName}
-                    else{name="Misc"}
-                    return (
-                        <Grid item sm={6} md={4}>
-                            <h2>{name}</h2>
-                            {aisle.ingredients.map((ingredient, iIndex) => {
-                                //console.log(aIndex) JSON.stringify(ingredient)
-                                return <IngredientCard ingredient={ingredient} aindex={aIndex} index={iIndex}/>
-                            })}
-                        </Grid>
-                    )
-                })}
-            </Grid>
-        </div>
+            <div className={props.darkmode ? "darkmode-page" : ""} style={{width: "80%"}}>
+                <Box sx={{textAlign: "center", mt: 2}}>
+                    <Button className="button" variant="contained" endIcon={<Save/>} onClick={updatePantry}>
+                        Save Pantry
+                    </Button>
+                </Box>
+                <Grid container spacing={5} justifyContent="center" sx={{mb: 5}}>
+                    {pData.aisles.map((aisle, aIndex) => {
+                        let name;
+                        if(aisle.aisleName != null){name=aisle.aisleName}
+                        else{name="Misc"}
+                        return (
+                            <Grid item sm={6} lg={4}>
+                                <h2>{name}</h2>
+                                {aisle.ingredients.map((ingredient, iIndex) => {
+                                    //console.log(aIndex) JSON.stringify(ingredient)
+                                    return <IngredientCard ingredient={ingredient} aindex={aIndex} index={iIndex}/>
+                                })}
+                            </Grid>
+                        )
+                    })}
+                </Grid>
+            </div>
         </ThemeProvider>
         
         
