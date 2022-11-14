@@ -31,12 +31,11 @@ function RecipiesPage(props) {
   const [cards, setCards] = useState(null)
 
   useEffect(() => {
-    if(localStorage.getItem('recipes') != null){
+    if(localStorage.getItem('recipes') != null && localStorage.getItem('recipes') != "undefined"){
       setRecipeData(JSON.parse(localStorage.getItem('recipes')));
-      console.log("Recipe Data: " + JSON.stringify(recipeData));
+      // console.log("Recipe Data: " + JSON.stringify(recipeData));
     }
   }, [localStorage.getItem('recipes')])
-  
 
   // useEffect(() => {
   //   getRecipe();
@@ -116,26 +115,36 @@ function RecipiesPage(props) {
       let ingredients = ""
       pData.aisles.forEach((aisle) => {
         aisle.ingredients.forEach((ingredient) => {
-          ingredients = ingredients.concat(ingredient.name+' ')
+          ingredients = ingredients.concat(ingredient.name+',')
         })
       })
+      ingredients = ingredients.substring(0, ingredients.length-1)
+      ingredients = ingredients.replace(' ', '_')
 
       console.log(ingredients)
-      // await axios({
-      //   method: 'GET',
-      //   url: 'http://localhost:3002/getRecipesByName',
-      //   params: {
-      //     search: search, 
-      //   },
-      //   headers: {
-      //     Authorization: `token ${token}`,
-      //   }
-      // }).then((res) => {
-      //   console.log("Hello")
-      // }).catch((err) => {
-      //   console.log("Error fetching recipe by NAME");
-      //   console.log(err);
-      // });
+      await axios({
+        method: 'GET',
+        url: 'http://localhost:3002/getRecipesWithPantry',
+        params: {
+          search: search, 
+          pantry: ingredients
+        },
+        headers: {
+          Authorization: `token ${token}`,
+        }
+      }).then((res) => {
+        if(res.data.results != null){
+          setRecipeData(res.data.results);
+          localStorage.setItem('recipes', JSON.stringify(res.data.results));
+          window.location.reload()
+        } else {
+          alert("No recipes found!")
+          setRecipeData([])
+        }
+      }).catch((err) => {
+        console.log("Error fetching recipe by NAME");
+        console.log(err);
+      });
 
       // //console.log(recipeData);
     } catch {
