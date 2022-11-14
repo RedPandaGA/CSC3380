@@ -8,7 +8,7 @@ import { Markup } from "interweave";
 import '../Pages/recipePage.css';
 import { useState } from "react";
 
-export default function RecipeCard(recipeData) {
+export default function RecipeCard(recipeData, props) {
   // const name = recipeData.recipeData.title;
   // const imgURL = recipeData.recipeData.image;
   // const summary = "<p>" + recipeData.recipeData.summary + "</p>";
@@ -43,7 +43,7 @@ export default function RecipeCard(recipeData) {
       </CardContent>
       <CardActions>
         {/* share button sends to the home for now */}
-        <Button size="small" variant="outlined" >
+        <Button size="small" variant="outlined">
           <a href="#" target="_blank">Share</a>
         </Button>
         <Button size="small" variant="outlined">
