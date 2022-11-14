@@ -62,7 +62,7 @@ function About(props) {
               <a href="/Pantry" className="btn2">
                 Update Your Pantry
               </a>
-              <a href="/RecipiesPage" className="btn3">
+              <a href="/Recipes" className="btn3">
                 View Recipes
               </a>
             </div>
