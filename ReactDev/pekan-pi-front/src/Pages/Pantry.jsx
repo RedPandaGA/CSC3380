@@ -10,7 +10,7 @@ function Pantry(props) {
         <div className={`Pantry ${props.darkmode ? "darkmode-page" : ""}`}>
           <font size="20" style={{marginBottom: "-50px", textAlign: "center"}}>Add To Your Pantry!</font>
           <PantrySearch placeholder="Enter Item Name..." />
-          <PantryDisplay/>
+          <PantryDisplay props={props}/>
         </div>
     </>
   );
