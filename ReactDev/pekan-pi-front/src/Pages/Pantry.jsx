@@ -1,7 +1,7 @@
 import React from "react";
 import "./Pantry.css";
 import PantrySearch from "./pantrySearch";
-import PantryDisplay from "./pantryDisplay"
+import PantryDisplay from "./pantryDisplay";
 //import Data from "./ingredientsData.json";
 
 function Pantry(props) {

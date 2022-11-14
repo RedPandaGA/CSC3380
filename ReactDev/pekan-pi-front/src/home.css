@@ -55,12 +55,13 @@ nav .ul-menu li div a:hover {
 .whisk img:hover,
 .about-img:hover,
 .pot :hover {
-  filter: invert(55%) sepia(100%) saturate(4090%) hue-rotate(337deg) brightness(100%) contrast(101%);
+  filter: invert(55%) sepia(100%) saturate(4090%) hue-rotate(337deg)
+    brightness(100%) contrast(101%);
   background: none;
 }
 
-.logo img:hover{
-  filter:invert(100%);
+.logo img:hover {
+  filter: invert(100%);
   background: none;
 }
 
@@ -120,7 +121,7 @@ p {
   background: rgb(56, 187, 146);
   color: #fff;
   padding: 9px 30px;
-  margin: 30px 0;
+  margin: 30px 30px;
   border-radius: 30px;
   transition: background 0.5s;
 }
@@ -271,7 +272,7 @@ small {
   }
 
   .darkmode-navbar nav {
-    background: rgb(113, 111, 111);;
+    background: rgb(113, 111, 111);
   }
 
   nav .ul-menu {
@@ -349,7 +350,7 @@ table {
   background-color: rgb(113, 111, 111);
 }
 .darkmode-nav .ul-menu li a {
-  color:white;
+  color: white;
 }
 /* here rgb(239, 154, 154) pinkish color */
 
@@ -357,7 +358,6 @@ table {
   color: #3dc6d3;
   background: none;
 }
-
 
 /* make headers white when dark-mode*/
 .darkmode-page p {
@@ -374,7 +374,7 @@ table {
 }
 
 .darkmode-page .recipe-card p {
-  color:rgb(80, 80, 80);
+  color: rgb(80, 80, 80);
 }
 /* makes pictures on navbar turn blue */
 .darkmode-navbar .logo img {
@@ -384,7 +384,7 @@ table {
   filter: invert(0%);
 }
 
-.darkmode-page .btn{
+.darkmode-page .btn {
   background: #3dc6d3;
 }
 
@@ -453,7 +453,7 @@ h1 {
   color: #2c1f83;
   font-family: "Playfair Display", serif;
 }
-.main-heading2{
+.main-heading2 {
   text-align: center;
   margin: 0 auto;
 }
@@ -474,7 +474,6 @@ h1 {
   color: #3dc6d3;
   background: none;
 }
-
 
 /* make headers white when dark-mode*/
 .darkmode-page p {
@@ -517,23 +516,25 @@ h1 {
 }
 
 .darkmode-nav .about-img {
-  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(45deg) brightness(106%) contrast(101%);
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(45deg)
+    brightness(106%) contrast(101%);
 }
-
 
 /* hovering over images turn different color */
 .darkmode-nav .about-img:hover {
-  filter: invert(78%) sepia(73%) saturate(1091%) hue-rotate(146deg) brightness(91%) contrast(81%);
+  filter: invert(78%) sepia(73%) saturate(1091%) hue-rotate(146deg)
+    brightness(91%) contrast(81%);
 }
 
-.darkmode-page .mission-statement{
+.darkmode-page .mission-statement {
   color: #f6d8f7;
 }
 
-.darkmode-page .tabs-quote, .darkmode-page .tabs-quote2 {
+.darkmode-page .tabs-quote,
+.darkmode-page .tabs-quote2 {
   color: #3dc6d3;
 }
 
-.darkmode-page .main-heading2{
+.darkmode-page .main-heading2 {
   color: #a6ffb8;
 }
