@@ -15,8 +15,6 @@ import VietnameseImage from "../Images/Home-images/vietname.jpeg";
 import Table5Image from "../Images/Home-images/table5.jpeg";
 
 function Home(props) {
-  
-
   return (
     <div className={`Home ${props.darkmode ? "darkmode-page" : ""}`}>
       <div className="header">
@@ -161,7 +159,7 @@ function Home(props) {
             </div>
           </div>
         </div>
-      </div>   
+      </div>
     </div>
   );
 }
