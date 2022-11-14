@@ -31,7 +31,6 @@ function RecipiesPage(props) {
   useEffect(() => {
     if(localStorage.getItem('recipes') != null){
       setRecipeData(JSON.parse(localStorage.getItem('recipes')));
-      console.log("Recipe Data: " + JSON.stringify(recipeData));
     }
   }, [localStorage.getItem('recipes')])
 
@@ -55,7 +54,6 @@ function RecipiesPage(props) {
         if (search.length == 0) {
           setRecipeData(res.data.recipes);
           localStorage.setItem('recipes', JSON.stringify(res.data.recipes));
-          console.log("Received JSON: \n" + JSON.stringify(res.data.recipes));
           window.location.reload()
         } 
         // grab recipes based on user inputted search
@@ -63,15 +61,12 @@ function RecipiesPage(props) {
         else { 
           setRecipeData(res.data.results);
           localStorage.setItem('recipes', JSON.stringify(res.data.results));
-          console.log("Received JSON: \n" + JSON.stringify(res.data.results));
           window.location.reload()
         }
       }).catch((err) => {
         console.log("Error fetching recipe by NAME");
         console.log(err);
       });
-
-      console.log(recipeData);
     } 
     // if the user isn't logged in, send to Login.jsx
     catch {
@@ -107,8 +102,6 @@ function RecipiesPage(props) {
           ingredients = ingredients.concat(ingredient.name+' ')
         })
       })
-
-      console.log(ingredients)
     } catch {
       alert('Not logged in! Login now.');
       window.location.replace('/Login');

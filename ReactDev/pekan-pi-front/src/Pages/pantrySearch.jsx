@@ -1,18 +1,20 @@
 import React, {useState} from "react";
 import "./pantrySearch.css";
-import axios from 'axios'
+import axios from 'axios';
 
 function PantrySearch({placeholder}) {
+    // sets and retains user search input and pantry item data
     const [searchInput, setSearchInput] = useState("");
-    const [data, setData] = useState([])
+    const [data, setData] = useState([]);
 
+    // handles search input change
     const handleSearch = (e) => {
-        setSearchInput(e.target.value)
-    }
+        setSearchInput(e.target.value);
+    };
 
     const getData = (d) => {
         try{
-            const token = JSON.parse(localStorage.getItem('udata')).token
+            const token = JSON.parse(localStorage.getItem('udata')).token // user authentification
             axios({
                 method: 'GET',
                 url: 'http://localhost:3002/getIngredientsearch',
@@ -28,7 +30,9 @@ function PantrySearch({placeholder}) {
                 console.log(err)
                 alert("Failed to get Ingredients. Try again later.")
             })
-        } catch {
+        } 
+        // brings client to Login.jsx if not logged in
+        catch {
             alert('Not logged in! Login now.')
             window.location.replace('/Login')
         }
