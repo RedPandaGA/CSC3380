@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import "./pantrySearch.css";
 import axios from 'axios';
 
-function PantrySearch({placeholder}) {
+function PantrySearch({}) {
     // sets and retains user search input and pantry item data
     const [searchInput, setSearchInput] = useState("");
     const [data, setData] = useState([]);
@@ -28,7 +28,7 @@ function PantrySearch({placeholder}) {
                 console.log(err)
                 alert("Failed to get Ingredients. Try again later.")
             })
-        } 
+        }
         // brings client to Login.jsx if not logged in
         catch {
             alert('Not logged in! Login now.')
@@ -68,6 +68,7 @@ function PantrySearch({placeholder}) {
                 const newIndex = aisles.push({ aisleName: i.aisle, ingredients: []})
                 i.quantity = 0
                 i.selectedUnit = i.possibleUnits[0]
+                i.filter = false
                 aisles[newIndex-1].ingredients.push(i)
             } else {
                 const nameOfIngredients = aisles[indexOfAisle].ingredients.map((ingredient) => {
@@ -76,6 +77,7 @@ function PantrySearch({placeholder}) {
                 if(!nameOfIngredients.includes(i.name)){
                     i.quantity = 0
                     i.selectedUnit = i.possibleUnits[0]
+                    i.filter = false
                     aisles[indexOfAisle].ingredients.push(i)
                 } else {
                     duplicate = true
@@ -114,7 +116,6 @@ function PantrySearch({placeholder}) {
             <div className="searchInputs">
                 <input
                     type="text"
-                    placeholder={placeholder}
                     value={searchInput}
                     onChange={handleSearch}
                 />
