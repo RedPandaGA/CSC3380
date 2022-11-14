@@ -58,7 +58,7 @@ logedInRout.get('/getRecipesByName', async (req, res) => {
     console.log("Search: " + search)
     let test
     if(search.length == 0) {
-        test = await Api_helper.callAPI(`https://api.spoonacular.com/recipes/random?apiKey=${APIkey}&number=9`)
+        test = await Api_helper.callAPI(`https://api.spoonacular.com/recipes/random?apiKey=${APIkey}&addRecipeInformation=true&number=9`)
     } else {
         test = await Api_helper.callAPI(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIkey}&query=${search}&addRecipeInformation=true&number=9`)
     }

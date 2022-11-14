@@ -1,18 +1,20 @@
 import React, {useState} from "react";
 import "./pantrySearch.css";
-import axios from 'axios'
+import axios from 'axios';
 
 function PantrySearch({placeholder}) {
+    // sets and retains user search input and pantry item data
     const [searchInput, setSearchInput] = useState("");
-    const [data, setData] = useState([])
+    const [data, setData] = useState([]);
 
+    // handles search input change
     const handleSearch = (e) => {
-        setSearchInput(e.target.value)
-    }
+        setSearchInput(e.target.value);
+    };
 
     const getData = (d) => {
         try{
-            const token = JSON.parse(localStorage.getItem('udata')).token
+            const token = JSON.parse(localStorage.getItem('udata')).token // user authentification
             axios({
                 method: 'GET',
                 url: 'http://localhost:3002/getIngredientsearch',
@@ -20,20 +22,21 @@ function PantrySearch({placeholder}) {
                 params: { search: d }
             })
             .then(res => {
-                console.log("got res: ")
-                console.log(res.data)
                 setData(res.data)
             })
             .catch(err => {
                 console.log(err)
                 alert("Failed to get Ingredients. Try again later.")
             })
-        } catch {
+        } 
+        // brings client to Login.jsx if not logged in
+        catch {
             alert('Not logged in! Login now.')
             window.location.replace('/Login')
         }
     }
 
+    // adds user search to pantry database
     const addToPantry = async (i) => {
         try{
             const token = JSON.parse(localStorage.getItem('udata')).token
@@ -81,7 +84,6 @@ function PantrySearch({placeholder}) {
             }
             if(!duplicate){
                 const newPantry = { aisles: aisles }
-                console.log(newPantry)
                 await axios({
                     method: 'POST',
                     url: 'http://localhost:3002/updatePantry',
@@ -108,6 +110,7 @@ function PantrySearch({placeholder}) {
 
     return (
         <div className="search">
+            {/* search bar */}
             <div className="searchInputs">
                 <input
                     type="text"
@@ -115,8 +118,10 @@ function PantrySearch({placeholder}) {
                     value={searchInput}
                     onChange={handleSearch}
                 />
+                {/* search button */}
                 <div className="searchIcon" onClick={() => getData(searchInput)}></div>
             </div>
+            {/* maps through all items in the pantry to display on webpage */}
             {data.length !== 0 && (
                 <div className="dataResult">
                     {data.map((item) => {

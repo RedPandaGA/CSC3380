@@ -24,7 +24,7 @@ function About(props) {
             <div className="row">
               <div className="col-md-12 text-center">
                 <h1 className="abouth1">
-                  What Do 6 Stinky Computer
+                  What Do 6 Computer
                   <br /> Science Kids Know About Cooking?
                 </h1>
               </div>
@@ -56,13 +56,10 @@ function About(props) {
               <h3 className="tabs-quote2">
                 & Cheers to efficient grocery shopping!
               </h3>
-              <a href="/HomeElement" className="btn">
-                Back to Home
-              </a>
               <a href="/Pantry" className="btn2">
                 Update Your Pantry
               </a>
-              <a href="/RecipiesPage" className="btn3">
+              <a href="/Recipes" className="btn3">
                 View Recipes
               </a>
             </div>
@@ -76,26 +73,6 @@ function About(props) {
           </div>
         </div>
       </div>
-
-      {/* mission statement */}
-      <section className="section bg-c-light border-top">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12 mb-5 text-center">
-              <h3 className="main-heading">Our Mission</h3>
-              <div className="underline mx-auto"></div>
-            </div>
-            <div className="cold-md-4 text-center">
-              <h6>Our Vision</h6>
-              <p>BLAH BLAH BLAH</p>
-            </div>
-            <div className="cold-md-4 text-center">
-              <h6>Our Mission</h6>
-              <p>BLAH BLAH BLAH</p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* our team */}
       <div className="col-2">

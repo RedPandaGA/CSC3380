@@ -7,7 +7,7 @@
   ); /* variable for login and sign up box background */
 }
 
-/**styles*/
+/**styles for the login/signup page*/
 .login-page {
   height: 100vh;
   width: 100%;
@@ -15,6 +15,15 @@
   font-family: "Poppins", sans-serif;
   justify-content: space-around;
   align-items: center;
+}
+
+.titleL {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  margin-bottom: 1rem;
 }
 
 .boxL {
@@ -101,16 +110,7 @@
   color: rgb(255, 255, 255);
 }
 
-.titleL {
-  font-size: 2.5rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.2rem;
-  margin-bottom: 1rem;
-  color: rgb(255, 255, 255);
-}
-
-/* making changes to forgot password */
+/* makes changes to forgot password */
 p.forget {
   font-size: 1rem;
   font-weight: 400;
@@ -170,7 +170,7 @@ h2.header2L {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* making page responsive to moblie phone and tablet*/
+/* makes page responsive to moblie phone and tablet*/
 @media screen and (max-width: 1000px) {
   .login-page {
     flex-direction: column;
