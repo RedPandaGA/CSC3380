@@ -431,6 +431,32 @@ table {
   font-size: 50px;
   line-height: 60px;
 }
+/* About Page Styles ---------------------------------------------------------------------------------- */
+h1 {
+  color: #563434;
+  padding-right: 80px;
+  /* padding-left: 80px; */
+  font-size: 50px;
+  color: #ff523b;
+  font-family: "Playfair Display", serif;
+}
+
+.mission-statement {
+  color: teal;
+}
+.tabs-quote {
+  color: #2c1f83;
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+}
+.tabs-quote2 {
+  color: #2c1f83;
+  font-family: "Playfair Display", serif;
+}
+.main-heading2{
+  text-align: center;
+  margin: 0 auto;
+}
 
 /**darkmode styles**/
 .darkmode-navbar {
@@ -471,30 +497,6 @@ table {
   filter: invert(0%);
 }
 
-h1 {
-  color: #563434;
-  padding-right: 80px;
-  /* padding-left: 80px; */
-  font-size: 50px;
-  color: #ff523b;
-  font-family: "Playfair Display", serif;
-}
-
-.mission-statement {
-  color: teal;
-}
-.tabs-quote {
-  color: #2c1f83;
-  font-family: "Playfair Display", serif;
-  font-size: 20px;
-}
-.tabs-quote2 {
-  color: #2c1f83;
-  font-family: "Playfair Display", serif;
-}
-
-
-
 .darkmode-navbar .logoutbutton {
   background: #3dc6d3;
   color: #fff;
@@ -522,4 +524,16 @@ h1 {
 /* hovering over images turn different color */
 .darkmode-nav .about-img:hover {
   filter: invert(78%) sepia(73%) saturate(1091%) hue-rotate(146deg) brightness(91%) contrast(81%);
+}
+
+.darkmode-page .mission-statement{
+  color: #f6d8f7;
+}
+
+.darkmode-page .tabs-quote, .darkmode-page .tabs-quote2 {
+  color: #3dc6d3;
+}
+
+.darkmode-page .main-heading2{
+  color: #a6ffb8;
 }
