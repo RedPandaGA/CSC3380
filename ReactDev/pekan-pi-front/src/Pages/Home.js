@@ -24,7 +24,7 @@ function Home(props) {
             <div className="col-2">
               <h1>
                 Limit Your Food Waste & Efficiently Cook Meals <br />
-                with Recipes You Already Have!
+                with Ingredients You Already Have!
               </h1>
               <p>
                 Enter the ingredients that are in your pantry, <br />

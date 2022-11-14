@@ -145,7 +145,7 @@ const Profile = (props) => { //the profile page
             <ThemeProvider theme={maintheme} className="profile-page">        
                 <CssBaseline />
                 <div>
-                        <Grid container justifyContent="center">
+                        <Grid container justifyContent="center" sx={{mt: 4}}>
                             <Grid item md={7} direction = "column" >
                         <h6><br/></h6>
                                 <div>
