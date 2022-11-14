@@ -3,9 +3,23 @@ import axios from 'axios'
 import { useEffect } from "react";
 import { Save } from '@mui/icons-material/'
 import { Box, Grid, Card, CardActions, CardContent, CardMedia, Button, Typography, CardHeader, Select, MenuItem, FormControl, InputLabel, TextField}from '@mui/material/';
+import { createTheme, ThemeProvider } from "@mui/material";
+import './recipePage.css';
 
 
-function PantryDisplay(){
+function PantryDisplay(props){
+    const theme = createTheme({
+        // makes the theme for the whole profile
+        palette: {
+          primary: {
+            main: "#ff523b", // main orange color
+          },
+        },
+        typography: {
+          fontFamily: "Playfair Display",
+        },
+      });
+
     const [pData, setPData] = useState({aisles: []})
 
     const getPData = async () => {
@@ -83,7 +97,7 @@ function PantryDisplay(){
         return(
             <Card>
                 <CardContent>
-                    <Typography variant="h5">{ingredient.name}</Typography>
+                    <Typography variant="h5">{ingredient.name.slice(0,1).toUpperCase() + ingredient.name.slice(1).toLowerCase()}</Typography>
                 </CardContent>
                 <CardActions>
                     <FormControl fullWidth>
@@ -110,22 +124,34 @@ function PantryDisplay(){
 
 
     return(
-        <div>
-            {pData.aisles.map((aisle, aIndex) => {
-                let name;
-                if(aisle.aisleName != null){name=aisle.aisleName}else{name="Misc"}
-                return (
-                    <div>
-                        <h2>{name}</h2>
-                        {aisle.ingredients.map((ingredient, iIndex) => {
-                            //console.log(aIndex) JSON.stringify(ingredient)
-                            return <IngredientCard ingredient={ingredient} aindex={aIndex} index={iIndex}/>
-                        })}
-                    </div>
-                )
-            })}
-            <Box><Button variant="contained" endIcon={<Save/>} onClick={updatePantry}>Save Pantry</Button></Box>
+        <ThemeProvider theme={theme}>
+            <div className={props.darkmode ? "darkmode-page" : ""}>
+            <Box sx={{textAlign: "center", mt: 2}}>
+                <Button className="button" variant="contained" endIcon={<Save/>} onClick={updatePantry}>
+                    Save Pantry
+                </Button>
+            </Box>
+            <Grid container spacing={5} justifyContent="center" sx={{mb: 5}}>
+                {pData.aisles.map((aisle, aIndex) => {
+                    let name;
+                    if(aisle.aisleName != null){name=aisle.aisleName}
+                    else{name="Misc"}
+                    return (
+                        <Grid item sm={6} md={4}>
+                            <h2>{name}</h2>
+                            {aisle.ingredients.map((ingredient, iIndex) => {
+                                //console.log(aIndex) JSON.stringify(ingredient)
+                                return <IngredientCard ingredient={ingredient} aindex={aIndex} index={iIndex}/>
+                            })}
+                        </Grid>
+                    )
+                })}
+            </Grid>
         </div>
+        </ThemeProvider>
+        
+        
+        
     )
 }
 

@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import { createTheme, ThemeProvider } from "@mui/material";
 import RecipeCard from "../Components/RecipeCard";
 import { Grid, Typography, TextField, Button } from "@mui/material";
+import styled from "@mui/styled-engine";
 import axios from 'axios';
 import './recipePage.css';
-import { useRef } from "react";
 
 function RecipiesPage(props) {
+
   const theme = createTheme({
     // makes the theme for the whole profile
     palette: {
@@ -19,6 +20,7 @@ function RecipiesPage(props) {
     },
   });
 
+  
 
   // if(window.localStorage.getItem('recipes') == null) {
   //   initialRecipeData = [];
@@ -165,11 +167,11 @@ function RecipiesPage(props) {
 
   function showRecipeCards(){
     return (
-      <Grid container spacing={10} justifyContent="center" className="recipe-card" sx={{textAlign: "center"}}>
+      <Grid container spacing={10} justifyContent="center" className={`recipe-card ${props.darkmode ? "darkmode-links" : ""}`} sx={{textAlign: "center"}}>
           {recipeData.map((recipeData) => {
             return (
               <Grid item sm={6} md={4}>
-                <RecipeCard recipeData={recipeData} />
+                <RecipeCard recipeData={recipeData} props={props} />
               </Grid>
             );
           })}
@@ -210,9 +212,10 @@ function RecipiesPage(props) {
         <Grid container spacing={4} justifyContent="center" sx={{ textAlign: "center" }}>
           <Grid item sm={4}>
             <Typography variant="h5" align="center" sx={{ mb: 2 }}>
-              Based on your entered search results!
+              Based on your entered searches!
             </Typography>
             <TextField 
+              className="input-field"
               id="search-input"
               label="Search for recipes"
               name="search"
@@ -222,16 +225,25 @@ function RecipiesPage(props) {
               margin="normal"
               placeholder="What do you want to cook today?"
               fullWidth
-              sx={{mb: 2}}
-            />
-            <Button variant="contained" size="large" onClick={() => getRecipeByName(search)} sx={{mb: 5}}>Search</Button>
+              sx={{
+                "& .MuiOutlinedInput-root.Mui-focused": {
+                  "& > fieldset": {
+                    borderColor: `${props.darkmode ? "#3dc6d3" : "primary"}`,
+                  }
+                }, 
+                "& .MuiFormLabel-root.Mui-focused": {
+                  color: `${props.darkmode ? "#3dc6d3" : "primary"}`
+                }
+              }}
+              />
+            <Button className="button" variant="contained" size="large" onClick={() => getRecipeByName(search)} sx={{mb: 5}}>Search</Button>
           </Grid>
           <Grid item sm={4}>
             <Typography variant="h5" align="center" sx={{ mb: 2}}>
               Based on the items from your pantry!
             </Typography>
             {/* Missing getRecipeByPantry function to connect to button. I had it but now its deleted rip... */}
-            <Button variant="contained" size="large" sx={{mb: 2}} onClick={() => getRecipeByPantry(search)}>Pantry</Button>
+            <Button className="button" variant="contained" size="large" sx={{mb: 2}} onClick={() => getRecipeByPantry(search)}>Pantry</Button>
           </Grid>
         </Grid>
         <div>

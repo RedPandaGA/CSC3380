@@ -9,6 +9,23 @@
     font-weight: 700;
 }
 
-.darkmode-page-button {
+/* darkmode visuals */
+
+.recipe-card.darkmode-links a {
+    color: #3dc6d3;
+    font-size: inherit;
+    font-weight: 500;
+}
+
+.recipe-card.darkmode-links a:hover {
+    background: none;
+    font-weight: 700;
+}
+
+.darkmode-page .button {
+    background-color: #3dc6d3;
+}
+
+.darkmode-page .button:hover {
     background-color: #3dc6d3;
 }
