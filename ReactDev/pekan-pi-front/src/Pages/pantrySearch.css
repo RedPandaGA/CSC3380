@@ -27,7 +27,7 @@
   }
 
   .searchIcon:hover {
-    background-color: rgba(89, 142, 255, 0.94);
+    background-color: #3dc6d3;
   }
   
   input:focus {

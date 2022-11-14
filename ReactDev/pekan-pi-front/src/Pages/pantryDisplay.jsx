@@ -4,9 +4,10 @@ import { useEffect } from "react";
 import { Save } from '@mui/icons-material/'
 import { Box, Grid, Card, CardActions, CardContent, CardMedia, Button, Typography, CardHeader, Select, MenuItem, FormControl, InputLabel, TextField}from '@mui/material/';
 import { createTheme, ThemeProvider } from "@mui/material";
+import './recipePage.css';
 
 
-function PantryDisplay(){
+function PantryDisplay(props){
     const theme = createTheme({
         // makes the theme for the whole profile
         palette: {
@@ -124,9 +125,11 @@ function PantryDisplay(){
 
     return(
         <ThemeProvider theme={theme}>
-            <div>
+            <div className={props.darkmode ? "darkmode-page" : ""}>
             <Box sx={{textAlign: "center", mt: 2}}>
-                <Button variant="contained" endIcon={<Save/>} onClick={updatePantry}>Save Pantry</Button>
+                <Button className="button" variant="contained" endIcon={<Save/>} onClick={updatePantry}>
+                    Save Pantry
+                </Button>
             </Box>
             <Grid container spacing={5} justifyContent="center" sx={{mb: 5}}>
                 {pData.aisles.map((aisle, aIndex) => {
