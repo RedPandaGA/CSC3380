@@ -17,6 +17,11 @@ import {useState} from 'react';
 
 import Box from '@mui/material/Box';
 
+// API endpoint URLs
+const usernameURL = process.env.NODE_ENV === 'production' ? '/updateUsername' : 'http://localhost:3002/updateUsername'
+const emailURL = process.env.NODE_ENV === 'production' ? '/updateEmail' : 'http://localhost:3002/updateEmail'
+const passURL = process.env.NODE_ENV === 'production' ? '/updatePassword' : 'http://localhost:3002/updatePassword'
+
 const maintheme = createTheme({  // makes the theme for the whole profile
     palette: {
         primary: {
@@ -40,7 +45,7 @@ async function updateCall(oldPassword, newPassword1, newPassword2, newEmail, new
     if(newUsername != ""){
         await axios({
             method: 'POST',
-            url: 'http://localhost:3002/updateUsername',
+            url: usernameURL,
             headers: { Authorization : `token ${token}` },
             data: { UID: LUID, newUsername: newUsername, oldPassword: oldPassword }
         })
@@ -64,7 +69,7 @@ async function updateCall(oldPassword, newPassword1, newPassword2, newEmail, new
     if(newEmail != ""){
         await axios({
             method: 'POST',
-            url: 'http://localhost:3002/updateEmail',
+            url: emailURL,
             headers: { Authorization : `token ${token}` },
             data: { UID: LUID, newEmail: newEmail, oldPassword: oldPassword }
         })
@@ -89,7 +94,7 @@ async function updateCall(oldPassword, newPassword1, newPassword2, newEmail, new
         if(newPassword2 == newPassword1){
             await axios({
                 method: 'POST',
-                url: 'http://localhost:3002/updatePassword',
+                url: passURL,
                 headers: { Authorization : `token ${token}` },
                 data: { UID: LUID, newPassword: newPassword1, oldPassword: oldPassword }
             })

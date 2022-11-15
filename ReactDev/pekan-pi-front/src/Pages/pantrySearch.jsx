@@ -2,8 +2,12 @@ import React, {useState} from "react";
 import "./pantrySearch.css";
 import axios from 'axios';
 
-function PantrySearch({}) {
-    // sets and retains user search input and pantry item data
+// API endpoint URLs
+const ingredientURL = process.env.NODE_ENV === 'production' ? '/getIngredientsearch' : 'http://localhost:3002/getIngredientsearch'
+const pantryURL = process.env.NODE_ENV === 'production' ? '/getPantry' : 'http://localhost:3002/getPantry'
+const updateURL = process.env.NODE_ENV === 'production' ? '/updatePantry' : 'http://localhost:3002/updatePantry'
+
+function PantrySearch({placeholder}) {
     const [searchInput, setSearchInput] = useState("");
     const [data, setData] = useState([]);
 
@@ -17,7 +21,7 @@ function PantrySearch({}) {
             const token = JSON.parse(localStorage.getItem('udata')).token // user authentification
             axios({
                 method: 'GET',
-                url: 'http://localhost:3002/getIngredientsearch',
+                url: ingredientURL,
                 headers: { Authorization : `token ${token}` },
                 params: { search: d }
             })
@@ -45,7 +49,7 @@ function PantrySearch({}) {
             let aisles;
             await axios({
                 method: 'GET',
-                url: 'http://localhost:3002/getPantry',
+                url: pantryURL,
                 headers: { Authorization : `token ${token}` },
                 params: { UID: UID }
             })
@@ -88,7 +92,7 @@ function PantrySearch({}) {
                 const newPantry = { aisles: aisles }
                 await axios({
                     method: 'POST',
-                    url: 'http://localhost:3002/updatePantry',
+                    url: updateURL,
                     headers: { Authorization : `token ${token}` },
                     data: { UID: UID, pantryInfo: newPantry }
                 })
