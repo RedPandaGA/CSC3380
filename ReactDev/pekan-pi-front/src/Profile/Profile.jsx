@@ -28,7 +28,7 @@ const maintheme = createTheme({  // makes the theme for the whole profile
         }
     },
     typography: {
-        fontFamily: 'Playfair Display',
+        fontFamily: 'Playfair Display', //default font
         fontSize: 17, 
         fontWeightRegular: 700, //bold
     }

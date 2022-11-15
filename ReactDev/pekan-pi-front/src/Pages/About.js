@@ -16,21 +16,25 @@ function About(props) {
       fontWeightRegular: 700,
     },
   });
+
   return (
+    // adds darkmode styling depending if props.darkmode is true
     <div className={`Home ${props.darkmode ? "darkmode-page" : ""}`}>
+      {/*************************************       START HEADING       *************************************/}
       <div>
         <section className="section">
           <div className="container">
             <div className="row">
               <div className="col-md-12 text-center">
                 <h1 className="abouth1">
-                  What Do 6 Stinky Computer
+                  What Do 6 Computer
                   <br /> Science Kids Know About Cooking?
                 </h1>
               </div>
             </div>
           </div>
         </section>
+        {/*************************************       END HEADING       *************************************/}
 
         {/* our team */}
         <div className="container">
@@ -73,8 +77,9 @@ function About(props) {
           </div>
         </div>
       </div>
-
       {/* our team */}
+
+      {/* picture of team */}
       <div className="col-2">
         <img alt="" src="../Images/Home-images/table 2.jpeg" />
       </div>

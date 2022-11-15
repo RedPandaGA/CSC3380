@@ -3,12 +3,14 @@ import { useState } from "react";
 import './split.css';
 import {Link} from "react-router-dom"
 import axios from 'axios'
-
 import { InputAdornment, IconButton } from '@mui/material';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import TextField from '@mui/material/TextField';
 
+// function checks if user is in database
+// if in database, set localStorage udata to user data
+// else, send login fail to user
 async function Logincall(email, password){
   const data = { email: email, password: password }
   await axios({
@@ -31,6 +33,7 @@ async function Logincall(email, password){
   })
 }
 
+// enters user in database if user is not already in database
 async function signupCall(username, email, password){
   const data = { username: username, email: email, password: password }
   axios({
@@ -54,10 +57,12 @@ async function signupCall(username, email, password){
 }
 
 function Login() {
+  // variables to keep track of user entered password, username, and emails
   const [password, setPassword] = useState("")
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
-// show password on login page 
+
+  // show password on login page 
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword(!showPassword);
   const handleMouseDownPassword = () => setShowPassword(!showPassword);
@@ -65,7 +70,7 @@ function Login() {
   return (
     <div className="login-page">
       
-      {/*Left Seciton: Login Part of the Page */}
+      {/*Left Section: Login Part of the Page */}
       
       <div className="left-section">      
            <div className="boxL">
@@ -99,10 +104,9 @@ function Login() {
                   </Link>
              </div>
              </div>
-
        </div>
 
-        {/*Right Seciton: Sign Up Part of the Page */}
+        {/*Right Section: Sign Up Part of the Page */}
 
         <div className="right-section">
           <div className="boxL">
@@ -131,10 +135,8 @@ function Login() {
                          )
                        }}
                       />
-                      
                       <input className= "buttonL" type="button" value="Submit" onClick={() => {signupCall(username, email, password)}}/>    
                      </form>
-                     
                </div>
           </div>
        </div>
