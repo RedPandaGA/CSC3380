@@ -7,6 +7,8 @@ import './recipePage.css';
 
 // API endpoint URLs
 const nameURL = process.env.NODE_ENV === 'production' ? '/getRecipesByName' : 'http://localhost:3002/getRecipesByName'
+const pantryURL = process.env.NODE_ENV === 'production' ? '/getPantry' : 'http://localhost:3002/getPantry'
+const recipeURL = process.env.NODE_ENV === 'production' ? '/getRecipesWithPantry' : 'http://localhost:3002/getRecipesWithPantry'
 
 function RecipiesPage(props) {
 
@@ -88,7 +90,7 @@ function RecipiesPage(props) {
       const UID = JSON.parse(localStorage.getItem('udata')).userId
       await axios({
           method: 'GET',
-          url: 'http://localhost:3002/getPantry',
+          url: pantryURL,
           headers: { Authorization : `token ${token}` },
           params: { UID: UID }
       })
@@ -113,7 +115,7 @@ function RecipiesPage(props) {
       console.log(ingredients)
       await axios({
         method: 'GET',
-        url: 'http://localhost:3002/getRecipesWithPantry',
+        url: recipeURL,
         params: {
           search: search, 
           pantry: ingredients
