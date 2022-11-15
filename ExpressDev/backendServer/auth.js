@@ -7,11 +7,9 @@ const ssecret = process.env.SSECRET
 
 var userAuth = express.Router()
 
+//Calls on the DB function "insertUser" to insert a new user into the data base. 
 userAuth.post('/createuser',  async (req, res) => {
     let { username, email, password } = req.body
-    console.log(username)
-    console.log(email)
-    console.log(password)
     const dbres = await db.insertUser(username, password, email)
     if(!dbres){
         let data = { successful: false, message: "Credentials already in use" }
@@ -22,6 +20,7 @@ userAuth.post('/createuser',  async (req, res) => {
     }
 })
 
+//Checks to see if user credientials are correct and then generates a JWT token for verifying user authentication for future API calls from the client
 userAuth.post('/login', async (req, res) => {
     let { email, password } = req.body
 

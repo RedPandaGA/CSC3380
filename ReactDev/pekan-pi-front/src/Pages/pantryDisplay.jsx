@@ -22,10 +22,13 @@ function PantryDisplay(props){
           fontFamily: "Playfair Display", // main text front
         },
       });
-
+    
+    //stores the pantry data fetched from the backend
     const [pData, setPData] = useState({aisles: []})
+    //allows for forcing the DOM to update, used when deleting items from the pantry
     const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
-
+    
+    //Gets pantry data from the backend and stores it in pData
     const getPData = async () => {
         const token = JSON.parse(localStorage.getItem('udata')).token
         const UID = JSON.parse(localStorage.getItem('udata')).userId
@@ -44,6 +47,7 @@ function PantryDisplay(props){
         })
     }
 
+    //Sends the updated pantry to the backend to be stored in the database
     const updatePantry = async () => {
         const token = JSON.parse(localStorage.getItem('udata')).token
         const UID = JSON.parse(localStorage.getItem('udata')).userId
@@ -65,38 +69,46 @@ function PantryDisplay(props){
         })
     }
 
+    //clears the pantry data in pData
     const clearPantry = () => {
         setPData({aisles: []})
     }
     
+    //When the page loads run getPData to get pantry data
     useEffect(() => {
         getPData()
     }, [])
 
+    //Used for generating the individual ingredient cards
     const IngredientCard = ({ingredient, aindex, index}) => {
-        //const iData = JSON.parse(ingredient)
+        //These are the values for the unit select, quantity textbox, and filter checkbox in each card
         const [unit, setUnit] = useState(ingredient.selectedUnit)
         const [quantity, setQuantity] = useState(ingredient.quantity)
         const [filter, setFilter] = useState(ingredient.filter)
 
+        //This updates the pantry data whenever any cards' information is changed
         const updateIngredient = () => {
             pData.aisles[aindex].ingredients[index].quantity = quantity
             pData.aisles[aindex].ingredients[index].selectedUnit = unit
             pData.aisles[aindex].ingredients[index].filter = filter
         }
         
+        //handles when the unit is changed
         const handleUnit = (e) => {
             setUnit(e.target.value)
         }
 
+        //handles when the quantity is changed
         const handleQuantity = (e) => {
             setQuantity(e.target.value)
         }
-
+        
+        //handles when the filter is changed
         const handleFilter = (e) => {
             setFilter(e.target.checked)
         }
 
+        //deletes the ingredient from the pantry data
         const deleteIngredient = (e) => {
             pData.aisles[aindex].ingredients.splice(index, 1)
             if(pData.aisles[aindex].ingredients <= 0){
@@ -105,6 +117,7 @@ function PantryDisplay(props){
             forceUpdate()
         }
 
+        //runs updateIngredient any time any unit, quantity, or filter are changed
         useEffect(()=>{
             updateIngredient()
         }, [unit, quantity, filter])

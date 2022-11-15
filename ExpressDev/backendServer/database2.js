@@ -13,6 +13,7 @@ const PASS = process.env.DBPASS;
 const DBNAME = process.env.DBNAME;
 const DBPORT = process.env.DBPORT;
 
+//Establishes a pool of connections to the database
 const pool = new Pool({
   host: DBHOST,
   user: USER,
@@ -22,6 +23,7 @@ const pool = new Pool({
 });
 
 //Debug functions
+//Gets all the tables in the current database
 export async function getTableNames() {
   const { rows } = await pool.query(`
         SELECT *
@@ -32,6 +34,7 @@ export async function getTableNames() {
   return rows;
 }
 
+//Gets all users in the current database
 export async function getUsers() {
   const { rows } = await pool.query(`
         SELECT *
@@ -40,6 +43,7 @@ export async function getUsers() {
   return rows;
 }
 
+//Gets all pantries in the current database
 export async function getPantries() {
   const { rows } = await pool.query(`
         SELECT *
@@ -48,6 +52,7 @@ export async function getPantries() {
   return rows;
 }
 
+//Gets all favorites in the current database
 export async function getFavorites() {
   const { rows } = await pool.query(`
         SELECT *
@@ -56,25 +61,9 @@ export async function getFavorites() {
   return rows;
 }
 
-
-// const tables = await getTableNames()
-// console.log(tables)
-
-// await insertUser("test1", "test", "test1@test.com")
-// await insertUser("test2", "test", "test2@test.com")
-// await insertUser("test3", "test", "test3@test.com")
-// const results = await insertUser("test4", "test", "test4@test.com")
-// const results2 = await getUsers()
-// const results3 = await getPantries()
-// const results4 = await getFavorites()
-// console.log(results)
-// console.log(results2)
-// console.log(results3)
-// console.log(results4)
-
 //Actual Functions
-//Insert users
 
+//Gets user data via searching for the username
 export async function getUserByName(username){
     const { rows } = await pool.query(`
         SELECT *
@@ -84,6 +73,7 @@ export async function getUserByName(username){
     return rows
 }
 
+//Creates a new entry in the users table, therefore creating a new user
 export async function insertUser(username, password, email){
     let ret = null
     await pool.query(`
@@ -103,6 +93,7 @@ export async function insertUser(username, password, email){
   return ret;
 }
 
+//Changes the password value in the users row found by UID
 export async function updatePassword(UID, newPassword){
     let ret = null
     await pool.query(`
@@ -117,6 +108,7 @@ export async function updatePassword(UID, newPassword){
     return ret
 }
 
+//Changes the username value in the users row found by UID
 export async function updateUsername(UID, newUsername){
     let ret = null
     await pool.query(`
@@ -131,6 +123,7 @@ export async function updateUsername(UID, newUsername){
     return ret
 }
 
+//Changes the email value in the users row found by UID
 export async function updateEmail(UID, newEmail){
     let ret = null
     await pool.query(`
@@ -145,6 +138,7 @@ export async function updateEmail(UID, newEmail){
     return ret
 }
 
+//Gets the value of password at the user row found by UID
 export async function getPassword(UID){
     let ret = null
     await pool.query(`
@@ -159,6 +153,7 @@ export async function getPassword(UID){
     return ret
 }
 
+//Updates the pantryInfo found at the pantry row found by UID 
 export async function updatePantry(UID, pantryInfo){
     let ret = null
     await pool.query(`
@@ -173,6 +168,7 @@ export async function updatePantry(UID, pantryInfo){
     return ret
 }
 
+//Gets user data via searching for the id
 export async function getUser(id){
     const { rows } = await pool.query(`
         SELECT *
@@ -184,6 +180,7 @@ export async function getUser(id){
   return rows;
 }
 
+//Gets user data via searching for the email
 export async function getUserByEmail(email){
     const { rows } = await pool.query(`
         SELECT *
@@ -195,6 +192,7 @@ export async function getUserByEmail(email){
   return rows;
 }
 
+//Gets the pantry row found by id
 export async function getPantry(id) {
   const { rows } = await pool.query(`
         SELECT *
@@ -206,6 +204,7 @@ export async function getPantry(id) {
   return rows;
 }
 
+//Gets the favorite row found by id
 export async function getFavorite(id) {
   const { rows } = await pool.query(
     `
