@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import "./pantrySearch.css";
 import axios from 'axios';
 
-function PantrySearch({}) {
+function PantrySearch() {
     // sets and retains user search input and pantry item data
     const [searchInput, setSearchInput] = useState("");
     const [data, setData] = useState([]);
