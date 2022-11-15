@@ -7,8 +7,8 @@ import { createTheme, ThemeProvider } from "@mui/material";
 import './recipePage.css';
 
 //API URLs
-const pantryURL = process.env.NODE_ENV === 'production' ? '/getPantry' : 'http://localhost:3002/getPantry'
-const updateURL = process.env.NODE_ENV === 'production' ? '/updatePantry' : 'http://localhost:3002/updatePantry'
+const pantryURL = process.env.NODE_ENV === 'production' ? '/getPantry' : 'http://localhost:3002/api/getPantry'
+const updateURL = process.env.NODE_ENV === 'production' ? '/updatePantry' : 'http://localhost:3002/api/updatePantry'
 
 function PantryDisplay(props){
     const theme = createTheme({

@@ -70,12 +70,7 @@ logedInRout.get('/getRecipesByName', async (req, res) => {
 //Queries the spoonacular API to get recipes based on the users pantry
 logedInRout.get('/getRecipesWithPantry', async (req, res) => {
     const pantry = req.query.pantry
-    let pantryInfo
-    if(search.length == 0) {
-        pantryInfo = await Api_helper.callAPI(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${APIkey}&ingredients=${pantry}&number=9`)
-    } else {
-        pantryInfo = await Api_helper.callAPI(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${APIkey}&ingredients=${pantry}&number=9`)
-    }
+    let pantryInfo = await Api_helper.callAPI(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${APIkey}&ingredients=${pantry}&number=9`)
     const rIds = pantryInfo.map((recipe) => {
         return recipe.id
     })
