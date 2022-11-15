@@ -46,14 +46,16 @@ function Layout(props) {
           style={{ right: navOpen ? "0%" : "-100%" }}
           className={`${props.darkmode ? "darkmode-nav" : ""}`}
         >
-          <ul className="ul-menu" id="MenuItems" style={{ padding: "0" }}>
+          <ul className="ul-menu" id="MenuItems" style={{ padding: "0" }}> 
             <li>
+              {/* pekan pi logo */}
               <div className="logo">
                 <a href="/">
                   <img src={Logo} alt="PekanLogo" width="150px" />
                 </a>
               </div>
             </li>
+            {/* navigation bar at the top of main pages */}
             <li>
               <a href="/">Home</a>
             </li>
@@ -70,6 +72,7 @@ function Layout(props) {
               <a href="/Profile/Profile">Profile</a>
             </li>
             <li>
+              {/* dark mode switch/slider  */}
               <label className="switch">
                 <input
                   type="checkbox"
@@ -79,6 +82,7 @@ function Layout(props) {
                 <span className="slider round"></span>
               </label>
             </li>
+            {/* logout button on navigation bar  */}
             <li>
               <div>
               <a styles={{ justifyContent: "center" }} className="logoutbutton" onClick={handleLogout}>
@@ -87,6 +91,7 @@ function Layout(props) {
               </a>
               </div>
             </li>
+            {/* about image (the whisk and pot), links to about page  */}
             <li>
               <div className="about-img">
                 <a href="/About">
@@ -98,7 +103,7 @@ function Layout(props) {
         </nav>
         {/*************************************       END NAVBAR       *************************************/}
 
-        {/* menu icon for when screen size is small enough */}
+        {/* turns navigation bar into smaller navbar popup menu  */}
         <div>
           <img
             alt="MenuImg"

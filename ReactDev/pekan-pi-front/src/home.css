@@ -13,6 +13,7 @@ body {
   font-family: "Playfair Display", serif;
 }
 
+/* navigational bar at the top of all pages  */
 .navbar {
   display: flex;
   align-items: center;
@@ -33,6 +34,8 @@ nav .ul-menu li {
   display: inline-block;
   margin-right: 25px;
 }
+
+/* navbar links at the top */
 nav .ul-menu li a {
   text-decoration: none;
   color: inherit;
@@ -45,7 +48,7 @@ nav .ul-menu li a:hover {
   color: #ff523b;
   background: none;
 }
-
+ /* navbar logout button */
 nav .ul-menu li div a:hover {
   color: black;
   background: none;
@@ -239,6 +242,7 @@ small {
   height: 100v;
 }
 
+/* logout button on the navbar */
 .logoutbutton {
   display: inline-block;
   background: #ff523b;
