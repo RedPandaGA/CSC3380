@@ -103,7 +103,7 @@ function Layout(props) {
         </nav>
         {/*************************************       END NAVBAR       *************************************/}
 
-        {/* menu icon for when screen size is small enough */}
+        {/* turns navigation bar into smaller navbar popup menu  */}
         <div>
           <img
             alt="MenuImg"

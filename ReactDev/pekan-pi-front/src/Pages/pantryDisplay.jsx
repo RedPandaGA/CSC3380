@@ -6,7 +6,6 @@ import { Box, Grid, Card, CardActions, CardContent, Button, Typography, Select, 
 import { createTheme, ThemeProvider } from "@mui/material";
 import './recipePage.css';
 
-
 function PantryDisplay(props){
     const theme = createTheme({
         // makes the theme for the whole profile
