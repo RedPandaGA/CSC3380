@@ -1,8 +1,8 @@
-import React, {useState} from "react";
+import React from "react";
 import axios from 'axios'
-import { useEffect } from "react";
-import { Save } from '@mui/icons-material/'
-import { Box, Grid, Card, CardActions, CardContent, CardMedia, Button, Typography, CardHeader, Select, MenuItem, FormControl, InputLabel, TextField}from '@mui/material/';
+import { useEffect, useState, useReducer } from "react";
+import { CheckBox, Clear, Delete, Save } from '@mui/icons-material/'
+import { Box, Grid, Card, CardActions, CardContent, Button, Typography, Select, MenuItem, FormControl, InputLabel, TextField, FormControlLabel}from '@mui/material/';
 import { createTheme, ThemeProvider } from "@mui/material";
 import './recipePage.css';
 
@@ -20,6 +20,7 @@ function PantryDisplay(props){
       });
 
     const [pData, setPData] = useState({aisles: []})
+    const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
 
     const getPData = async () => {
         const token = JSON.parse(localStorage.getItem('udata')).token
@@ -60,6 +61,10 @@ function PantryDisplay(props){
         })
     }
 
+    const clearPantry = () => {
+        setPData({aisles: []})
+    }
+    
     useEffect(() => {
         getPData()
     }, [])
@@ -68,10 +73,12 @@ function PantryDisplay(props){
         //const iData = JSON.parse(ingredient)
         const [unit, setUnit] = useState(ingredient.selectedUnit)
         const [quantity, setQuantity] = useState(ingredient.quantity)
-        
+        const [filter, setFilter] = useState(ingredient.filter)
+
         const updateIngredient = () => {
             pData.aisles[aindex].ingredients[index].quantity = quantity
             pData.aisles[aindex].ingredients[index].selectedUnit = unit
+            pData.aisles[aindex].ingredients[index].filter = filter
         }
         
         const handleUnit = (e) => {
@@ -82,9 +89,21 @@ function PantryDisplay(props){
             setQuantity(e.target.value)
         }
 
+        const handleFilter = (e) => {
+            setFilter(e.target.checked)
+        }
+
+        const deleteIngredient = (e) => {
+            pData.aisles[aindex].ingredients.splice(index, 1)
+            if(pData.aisles[aindex].ingredients <= 0){
+                pData.aisles.splice(aindex, 1)
+            }
+            forceUpdate()
+        }
+
         useEffect(()=>{
             updateIngredient()
-        }, [unit, quantity])
+        }, [unit, quantity, filter])
 
         return(
             <Card>
@@ -109,6 +128,12 @@ function PantryDisplay(props){
                             })}
                         </Select>
                     </FormControl>
+                    <FormControl fullWidth>
+                        <FormControlLabel label="Filter recipies with" control={<input type="checkbox" checked={filter} onChange={handleFilter}/>}/>
+                    </FormControl>
+                    <FormControl fullWidth>
+                        <Button className="button" varient="contained" endIcon={<Delete/>} onClick={deleteIngredient}>Delete</Button>
+                    </FormControl>
                 </CardActions>
             </Card>
         )
@@ -121,6 +146,9 @@ function PantryDisplay(props){
                 <Box sx={{textAlign: "center", mt: 2}}>
                     <Button className="button" variant="contained" endIcon={<Save/>} onClick={updatePantry}>
                         Save Pantry
+                    </Button>
+                    <Button className="button" variant="contained" endIcon={<Clear/>} onClick={clearPantry}>
+                        Clear Pantry
                     </Button>
                 </Box>
                 <Grid container spacing={5} justifyContent="center" sx={{mb: 5}}>
