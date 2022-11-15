@@ -3,9 +3,9 @@ import "./pantrySearch.css";
 import axios from 'axios';
 
 // API endpoint URLs
-const ingredientURL = process.env.NODE_ENV === 'production' ? '/getIngredientsearch' : 'http://localhost:3002/getIngredientsearch'
-const pantryURL = process.env.NODE_ENV === 'production' ? '/getPantry' : 'http://localhost:3002/getPantry'
-const updateURL = process.env.NODE_ENV === 'production' ? '/updatePantry' : 'http://localhost:3002/updatePantry'
+const ingredientURL = process.env.NODE_ENV === 'production' ? '/getIngredientsearch' : 'http://localhost:3002/api/getIngredientsearch'
+const pantryURL = process.env.NODE_ENV === 'production' ? '/getPantry' : 'http://localhost:3002/api/getPantry'
+const updateURL = process.env.NODE_ENV === 'production' ? '/updatePantry' : 'http://localhost:3002/api/updatePantry'
 
 function PantrySearch({placeholder}) {
     const [searchInput, setSearchInput] = useState("");

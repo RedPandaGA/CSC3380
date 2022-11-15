@@ -6,9 +6,9 @@ import axios from 'axios';
 import './recipePage.css';
 
 // API endpoint URLs
-const nameURL = process.env.NODE_ENV === 'production' ? '/getRecipesByName' : 'http://localhost:3002/getRecipesByName'
-const pantryURL = process.env.NODE_ENV === 'production' ? '/getPantry' : 'http://localhost:3002/getPantry'
-const recipeURL = process.env.NODE_ENV === 'production' ? '/getRecipesWithPantry' : 'http://localhost:3002/getRecipesWithPantry'
+const nameURL = process.env.NODE_ENV === 'production' ? '/getRecipesByName' : 'http://localhost:3002/api/getRecipesByName'
+const pantryURL = process.env.NODE_ENV === 'production' ? '/getPantry' : 'http://localhost:3002/api/getPantry'
+const recipeURL = process.env.NODE_ENV === 'production' ? '/getRecipesWithPantry' : 'http://localhost:3002/api/getRecipesWithPantry'
 
 function RecipiesPage(props) {
 

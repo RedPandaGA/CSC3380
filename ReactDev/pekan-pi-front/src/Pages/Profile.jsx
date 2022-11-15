@@ -18,9 +18,9 @@ import {useState} from 'react';
 import Box from '@mui/material/Box';
 
 // API endpoint URLs
-const usernameURL = process.env.NODE_ENV === 'production' ? '/updateUsername' : 'http://localhost:3002/updateUsername'
-const emailURL = process.env.NODE_ENV === 'production' ? '/updateEmail' : 'http://localhost:3002/updateEmail'
-const passURL = process.env.NODE_ENV === 'production' ? '/updatePassword' : 'http://localhost:3002/updatePassword'
+const usernameURL = process.env.NODE_ENV === 'production' ? '/updateUsername' : 'http://localhost:3002/api/updateUsername'
+const emailURL = process.env.NODE_ENV === 'production' ? '/updateEmail' : 'http://localhost:3002/api/updateEmail'
+const passURL = process.env.NODE_ENV === 'production' ? '/updatePassword' : 'http://localhost:3002/api/updatePassword'
 
 const maintheme = createTheme({  // makes the theme for the whole profile
     palette: {
@@ -105,15 +105,15 @@ async function updateCall(oldPassword, newPassword1, newPassword2, newEmail, new
                 } else {
                     console.log(res)
                     alert("Password updated successfully!")
+                    localStorage.removeItem('udata')
+                    alert("Please Login with your new password!")
+                    window.location.replace('/Login')
                 }
             })
             .catch(err => {
                 console.error(err);
                 alert('Error updating password!')
             })
-            localStorage.removeItem('udata')
-            alert("Please Login with your new password!")
-            window.location.replace('/Login')
         } else {
             alert("Please make sure new password matches!")
         }

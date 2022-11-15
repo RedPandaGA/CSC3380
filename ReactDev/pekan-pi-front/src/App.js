@@ -2,7 +2,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import Layout from "./Components/Layout";
 import Home from "./Pages/Home";
 import Pantry from "./Pages/Pantry";
-import Profile from "./Profile/Profile";
+import Profile from "./Pages/Profile";
 import RecipiesPage from "./Pages/RecipiesPage";
 import About from "./Pages/About";
 import Login from "./Pages/Login";
