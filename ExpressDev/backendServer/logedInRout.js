@@ -55,8 +55,40 @@ logedInRout.get('/getIngredientsearch', async (req, res) => {
 
 logedInRout.get('/getRecipesByName', async (req, res) => {
     const search = req.query.search
-    const test = await Api_helper.callAPI(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIkey}&query=${search}&addRecipeInformation=true&number=9`)
+    console.log("Search: " + search)
+    let test
+    if(search.length == 0) {
+        test = await Api_helper.callAPI(`https://api.spoonacular.com/recipes/random?apiKey=${APIkey}&addRecipeInformation=true&number=9`)
+    } else {
+        test = await Api_helper.callAPI(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIkey}&query=${search}&addRecipeInformation=true&number=9`)
+    }
     res.send(test)
+})
+
+logedInRout.get('/getRecipesWithPantry', async (req, res) => {
+    const search = req.query.search
+    const pantry = req.query.pantry
+    console.log("Search: " + search)
+    console.log("pantry: " + pantry)
+    let pantryInfo
+    if(search.length == 0) {
+        pantryInfo = await Api_helper.callAPI(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${APIkey}&ingredients=${pantry}&number=9`)
+    } else {
+        pantryInfo = await Api_helper.callAPI(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${APIkey}&ingredients=${pantry}&number=9`)
+    }
+    //console.log(pantryInfo)
+    const rIds = pantryInfo.map((recipe) => {
+        return recipe.id
+    })
+    let idString = ""
+    rIds.forEach((id) => {
+        idString = idString.concat(id+',')
+    })
+    idString = idString.substring(0, idString.length-1)
+    console.log(idString)
+    let recipes = await Api_helper.callAPI(`https://api.spoonacular.com/recipes/informationBulk?apiKey=${APIkey}&ids=${idString}`)
+    console.log(recipes)
+    res.send({results: recipes})
 })
 
 // logedInRout.get('/getRecipesByPantry', async (req, res) => {

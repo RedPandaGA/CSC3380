@@ -15,40 +15,47 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "Playfair Display",
+    fontFamily: "Playfair Display", // default font 
     fontWeightRegular: 700,
   },
 });
 
 /**Layout component */
 function Layout(props) {
+  // variable to check screen size
   const [navOpen, setNavOpen] = useState(false);
 
+  // function that handles when darkmode toggle is on or off
   function handleChange(e) {
     props.setDarkMode(e.target.checked);
   }
 
+  // function that logs user out of webpage and sends user back to Login.jsx
   const handleLogout = () => {
     localStorage.clear()
     window.location.replace('/Login')
   }
 
   return (
-    <ThemeProvider theme={theme}>
+    // provides standard theme for component
+    <ThemeProvider theme={theme}> 
       <CssBaseline />
       <div className={`navbar ${props.darkmode ? "darkmode-navbar" : ""}`}>
+        {/*************************************       START NAVBAR       *************************************/}
         <nav
           style={{ right: navOpen ? "0%" : "-100%" }}
           className={`${props.darkmode ? "darkmode-nav" : ""}`}
         >
-          <ul className="ul-menu" id="MenuItems" style={{ padding: "0" }}>
+          <ul className="ul-menu" id="MenuItems" style={{ padding: "0" }}> 
             <li>
+              {/* pekan pi logo */}
               <div className="logo">
                 <a href="/">
                   <img src={Logo} alt="PekanLogo" width="150px" />
                 </a>
               </div>
             </li>
+            {/* navigation bar at the top of main pages */}
             <li>
               <a href="/">Home</a>
             </li>
@@ -64,10 +71,8 @@ function Layout(props) {
             <li>
               <a href="/Profile/Profile">Profile</a>
             </li>
-            {/* <li>
-              <a href="/About">About</a>
-            </li> */}
             <li>
+              {/* dark mode switch/slider  */}
               <label className="switch">
                 <input
                   type="checkbox"
@@ -77,12 +82,16 @@ function Layout(props) {
                 <span className="slider round"></span>
               </label>
             </li>
+            {/* logout button on navigation bar  */}
             <li>
-              <a styles={{ justifyContent: "center" }} className="btn" onClick={handleLogout}>
+              <div>
+              <a styles={{ justifyContent: "center" }} className="logoutbutton" onClick={handleLogout}>
                 {" "}
                 Logout{" "}
               </a>
+              </div>
             </li>
+            {/* about image (the whisk and pot), links to about page  */}
             <li>
               <div className="about-img">
                 <a href="/About">
@@ -92,6 +101,9 @@ function Layout(props) {
             </li>
           </ul>
         </nav>
+        {/*************************************       END NAVBAR       *************************************/}
+
+        {/* turns navigation bar into smaller navbar popup menu  */}
         <div>
           <img
             alt="MenuImg"

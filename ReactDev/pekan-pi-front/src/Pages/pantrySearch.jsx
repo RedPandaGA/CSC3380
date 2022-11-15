@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import "./pantrySearch.css";
-import axios from 'axios'
+import axios from 'axios';
 
 // API endpoint URLs
 const ingredientURL = process.env.NODE_ENV === 'production' ? '/getIngredientsearch' : 'http://localhost:3002/getIngredientsearch'
@@ -9,15 +9,16 @@ const updateURL = process.env.NODE_ENV === 'production' ? '/updatePantry' : 'htt
 
 function PantrySearch({placeholder}) {
     const [searchInput, setSearchInput] = useState("");
-    const [data, setData] = useState([])
+    const [data, setData] = useState([]);
 
+    // handles search input change
     const handleSearch = (e) => {
-        setSearchInput(e.target.value)
-    }
+        setSearchInput(e.target.value);
+    };
 
     const getData = (d) => {
         try{
-            const token = JSON.parse(localStorage.getItem('udata')).token
+            const token = JSON.parse(localStorage.getItem('udata')).token // user authentification
             axios({
                 method: 'GET',
                 url: ingredientURL,
@@ -25,20 +26,21 @@ function PantrySearch({placeholder}) {
                 params: { search: d }
             })
             .then(res => {
-                console.log("got res: ")
-                console.log(res.data)
                 setData(res.data)
             })
             .catch(err => {
                 console.log(err)
                 alert("Failed to get Ingredients. Try again later.")
             })
-        } catch {
+        }
+        // brings client to Login.jsx if not logged in
+        catch {
             alert('Not logged in! Login now.')
             window.location.replace('/Login')
         }
     }
 
+    // adds user search to pantry database
     const addToPantry = async (i) => {
         try{
             const token = JSON.parse(localStorage.getItem('udata')).token
@@ -70,6 +72,7 @@ function PantrySearch({placeholder}) {
                 const newIndex = aisles.push({ aisleName: i.aisle, ingredients: []})
                 i.quantity = 0
                 i.selectedUnit = i.possibleUnits[0]
+                i.filter = false
                 aisles[newIndex-1].ingredients.push(i)
             } else {
                 const nameOfIngredients = aisles[indexOfAisle].ingredients.map((ingredient) => {
@@ -78,6 +81,7 @@ function PantrySearch({placeholder}) {
                 if(!nameOfIngredients.includes(i.name)){
                     i.quantity = 0
                     i.selectedUnit = i.possibleUnits[0]
+                    i.filter = false
                     aisles[indexOfAisle].ingredients.push(i)
                 } else {
                     duplicate = true
@@ -86,7 +90,6 @@ function PantrySearch({placeholder}) {
             }
             if(!duplicate){
                 const newPantry = { aisles: aisles }
-                console.log(newPantry)
                 await axios({
                     method: 'POST',
                     url: updateURL,
@@ -98,6 +101,7 @@ function PantrySearch({placeholder}) {
                         alert("Failed to add to pantry please try again!")
                     } else {
                         alert("Successfully added: " + i.name)
+                        window.location.reload()
                     }
                 })
                 .catch(err => {
@@ -112,15 +116,17 @@ function PantrySearch({placeholder}) {
 
     return (
         <div className="search">
+            {/* search bar */}
             <div className="searchInputs">
                 <input
                     type="text"
-                    placeholder={placeholder}
                     value={searchInput}
                     onChange={handleSearch}
                 />
+                {/* search button */}
                 <div className="searchIcon" onClick={() => getData(searchInput)}></div>
             </div>
+            {/* maps through all items in the pantry to display on webpage */}
             {data.length !== 0 && (
                 <div className="dataResult">
                     {data.map((item) => {

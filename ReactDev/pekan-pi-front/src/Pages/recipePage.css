@@ -1,4 +1,5 @@
-.recipe-card a {
+/* default colors for links on recipe page */
+.recipe-card a { 
     color: #ff523b;
     font-size: inherit;
     font-weight: 500;
@@ -7,4 +8,25 @@
 .recipe-card a:hover {
     background: none;
     font-weight: 700;
+}
+
+/* darkmode visuals for links and buttons */
+
+.recipe-card.darkmode-links a {
+    color: #3dc6d3;
+    font-size: inherit;
+    font-weight: 500;
+}
+
+.recipe-card.darkmode-links a:hover {
+    background: none;
+    font-weight: 700;
+}
+
+.darkmode-page .button {
+    background-color: #3dc6d3;
+}
+
+.darkmode-page .button:hover {
+    background-color: #3dc6d3;
 }
