@@ -15,28 +15,33 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "Playfair Display",
+    fontFamily: "Playfair Display", // default font 
     fontWeightRegular: 700,
   },
 });
 
 /**Layout component */
 function Layout(props) {
+  // variable to check screen size
   const [navOpen, setNavOpen] = useState(false);
 
+  // function that handles when darkmode toggle is on or off
   function handleChange(e) {
     props.setDarkMode(e.target.checked);
   }
 
+  // function that logs user out of webpage and sends user back to Login.jsx
   const handleLogout = () => {
     localStorage.clear()
     window.location.replace('/Login')
   }
 
   return (
-    <ThemeProvider theme={theme}>
+    // provides standard theme for component
+    <ThemeProvider theme={theme}> 
       <CssBaseline />
       <div className={`navbar ${props.darkmode ? "darkmode-navbar" : ""}`}>
+        {/*************************************       START NAVBAR       *************************************/}
         <nav
           style={{ right: navOpen ? "0%" : "-100%" }}
           className={`${props.darkmode ? "darkmode-nav" : ""}`}
@@ -64,9 +69,6 @@ function Layout(props) {
             <li>
               <a href="/Profile/Profile">Profile</a>
             </li>
-            {/* <li>
-              <a href="/About">About</a>
-            </li> */}
             <li>
               <label className="switch">
                 <input
@@ -94,6 +96,9 @@ function Layout(props) {
             </li>
           </ul>
         </nav>
+        {/*************************************       END NAVBAR       *************************************/}
+
+        {/* menu icon for when screen size is small enough */}
         <div>
           <img
             alt="MenuImg"

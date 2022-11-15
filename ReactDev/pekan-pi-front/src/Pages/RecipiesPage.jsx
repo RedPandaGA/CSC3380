@@ -118,7 +118,7 @@ function RecipiesPage(props) {
           {recipeData.map((recipeData) => {
             return (
               <Grid item sm={6} md={4}>
-                <RecipeCard recipeData={recipeData} props={props} />
+                <RecipeCard recipeData={recipeData} />
               </Grid>
             );
           })}

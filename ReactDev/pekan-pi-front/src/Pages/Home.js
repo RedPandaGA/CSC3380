@@ -16,10 +16,11 @@ import Table5Image from "../Images/Home-images/table5.jpeg";
 
 function Home(props) {
   return (
-    // add dark mode var
+    // add dark mode check
     <div className={`Home ${props.darkmode ? "darkmode-page" : ""}`}>
       <div className="header">
         <div className="container">
+          {/*************************************       START HEADER       *************************************/}
           <div className="row">
             <div className="col-2">
               <h1>
@@ -39,6 +40,8 @@ function Home(props) {
               <img src={TableImage} />
             </div>
           </div>
+          {/*************************************       END HEADER       *************************************/}
+          
           {/* <!------ featured categories ------ > */}
           {/* adding different types of food with pictures */}
           <div className="categories">
@@ -131,6 +134,7 @@ function Home(props) {
                 </div>
               </div>
             </div>
+
             {/* <!------ most famous recipe ------> */}
             <div className="popular">
               <div className="small-container">

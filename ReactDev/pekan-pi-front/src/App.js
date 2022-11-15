@@ -8,12 +8,12 @@ import About from "./Pages/About";
 import Login from "./Pages/Login";
 import Forgot from "./Pages/Forgot/Forgot";
 import "./index.css";
-
 import { useState } from "react";
 
 function App() {
   const [darkmode, setDarkMode] = useState(false);
 
+  // returns Home.js with footer including check for darkmode
   function HomeElement() {
     return (
       <>
@@ -21,19 +21,21 @@ function App() {
         <Layout darkmode={darkmode} setDarkMode={setDarkMode} />{" "}
         <Home darkmode={darkmode} />
         <footer className="footer">
-        <p className="pFooter">Learn more about our website and creators!</p>
-        <div className="footerLinks">
-          <Link to="/About" className="footerLink">
-            About Us
-          </Link>
-          <Link to="/forgot" className="footerLink">
-            Forgot Password?
-          </Link>
-        </div>
-      </footer>
+          <p className="pFooter">Learn more about our website and creators!</p>
+          <div className="footerLinks">
+            <Link to="/About" className="footerLink">
+              About Us
+            </Link>
+            <Link to="/forgot" className="footerLink">
+              Forgot Password?
+            </Link>
+          </div>
+        </footer>
       </>
     );
   }
+
+  // returns About.js including check for darkmode
   function AboutElement() {
     return (
       <>
@@ -43,6 +45,8 @@ function App() {
       </>
     );
   }
+
+  // returns Profile.jsx including check for darkmode
   function ProfileElement() {
     return (
       <>
@@ -52,6 +56,8 @@ function App() {
       </>
     );
   }
+
+  // returns Forgot.jsx including check for darkmode
   function ForgotElement() {
     return (
       <>
@@ -62,6 +68,7 @@ function App() {
     );
   }
 
+  // returns RecipiesPage.jsx including check for darkmode
   function RecipePage() {
     return (
       <>
@@ -72,8 +79,8 @@ function App() {
     );
   }
 
+  // returns Pantry.jsx including check for darkmode
   function PantryPage() {
-
     return (
       <>
         {" "}
@@ -81,23 +88,9 @@ function App() {
         <Pantry darkmode={darkmode} />
       </>
     );
-
-    return (
-      <>
-        {" "}
-        <Layout darkmode={darkmode} setDarkMode={setDarkMode} />{" "}
-        <Pantry darkmode={darkmode} />
-      </>
-    );
-    return (
-      <>
-        {" "}
-        <footer></footer>
-      </>
-    );
-    
   }
 
+  // returns the navbar that displays on all webpages
   return (
     <div className={`react-app ${darkmode ? "darkmode-page" : ""}`}>
       <Routes className="NavBar">
@@ -109,12 +102,6 @@ function App() {
         <Route path="/About" element={<AboutElement />} />
         <Route path="/forgot" element={<ForgotElement />} />
       </Routes>
-
-      {/* <<<<<<<<< Temporary merge branch 1 */}
-      {/* ========= */}
-     
-
-      {/* >>>>>>>>> Temporary merge branch 2 */}
     </div>
   );
 }
