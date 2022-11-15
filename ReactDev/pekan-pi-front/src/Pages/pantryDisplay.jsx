@@ -6,6 +6,10 @@ import { Box, Grid, Card, CardActions, CardContent, Button, Typography, Select, 
 import { createTheme, ThemeProvider } from "@mui/material";
 import './recipePage.css';
 
+//API URLs
+const pantryURL = process.env.NODE_ENV === 'production' ? '/getPantry' : 'http://localhost:3002/getPantry'
+const updateURL = process.env.NODE_ENV === 'production' ? '/updatePantry' : 'http://localhost:3002/updatePantry'
+
 function PantryDisplay(props){
     const theme = createTheme({
         // makes the theme for the whole profile
@@ -27,7 +31,7 @@ function PantryDisplay(props){
         const UID = JSON.parse(localStorage.getItem('udata')).userId
         await axios({
             method: 'GET',
-            url: 'http://localhost:3002/getPantry',
+            url: pantryURL,
             headers: { Authorization : `token ${token}` },
             params: { UID: UID }
         })
@@ -45,7 +49,7 @@ function PantryDisplay(props){
         const UID = JSON.parse(localStorage.getItem('udata')).userId
         await axios({
             method: 'POST',
-            url: 'http://localhost:3002/updatePantry',
+            url: updateURL,
             headers: { Authorization : `token ${token}` },
             data: { UID: UID, pantryInfo: pData }
         })
