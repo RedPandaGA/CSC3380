@@ -12,3 +12,16 @@ body {
   padding: 0;
   margin: 0;
 }
+
+/* styles for pantry header */
+.h3Pantry {
+  font-size: 20px;
+  text-align: center;
+  font-weight: 700;
+  color: #ff523b;
+  margin: 0;
+}
+
+.h3Pantry.darkmode {
+  color: #3dc6d3;
+}

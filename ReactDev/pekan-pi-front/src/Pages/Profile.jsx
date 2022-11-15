@@ -10,7 +10,6 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
 import { InputAdornment, IconButton } from '@mui/material';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
@@ -18,18 +17,23 @@ import {useState} from 'react';
 
 import Box from '@mui/material/Box';
 
+// API endpoint URLs
+const usernameURL = process.env.NODE_ENV === 'production' ? '/updateUsername' : 'http://localhost:3002/updateUsername'
+const emailURL = process.env.NODE_ENV === 'production' ? '/updateEmail' : 'http://localhost:3002/updateEmail'
+const passURL = process.env.NODE_ENV === 'production' ? '/updatePassword' : 'http://localhost:3002/updatePassword'
+
 const maintheme = createTheme({  // makes the theme for the whole profile
     palette: {
         primary: {
             main: '#ff523b' //red textfield outline
         },
         background:{
-            paper: '#e3eca4  ', //component background green lime color
+            paper: '#e3eca4', //component background green lime color
             default: '#e3eca4' //page's background color green lime color
         }
     },
     typography: {
-        fontFamily: 'Playfair Display',
+        fontFamily: 'Playfair Display', //default font
         fontSize: 17, 
         fontWeightRegular: 700, //bold
     }
@@ -41,7 +45,7 @@ async function updateCall(oldPassword, newPassword1, newPassword2, newEmail, new
     if(newUsername != ""){
         await axios({
             method: 'POST',
-            url: 'http://localhost:3002/updateUsername',
+            url: usernameURL,
             headers: { Authorization : `token ${token}` },
             data: { UID: LUID, newUsername: newUsername, oldPassword: oldPassword }
         })
@@ -65,7 +69,7 @@ async function updateCall(oldPassword, newPassword1, newPassword2, newEmail, new
     if(newEmail != ""){
         await axios({
             method: 'POST',
-            url: 'http://localhost:3002/updateEmail',
+            url: emailURL,
             headers: { Authorization : `token ${token}` },
             data: { UID: LUID, newEmail: newEmail, oldPassword: oldPassword }
         })
@@ -90,7 +94,7 @@ async function updateCall(oldPassword, newPassword1, newPassword2, newEmail, new
         if(newPassword2 == newPassword1){
             await axios({
                 method: 'POST',
-                url: 'http://localhost:3002/updatePassword',
+                url: passURL,
                 headers: { Authorization : `token ${token}` },
                 data: { UID: LUID, newPassword: newPassword1, oldPassword: oldPassword }
             })
@@ -120,9 +124,9 @@ async function updateCall(oldPassword, newPassword1, newPassword2, newEmail, new
 }
 
 const Profile = (props) => { //the profile page
-    const [expanded, setExpanded] = React.useState(false);
+    const [expanded, setExpanded] = React.useState(false); //determines if popup navbar should be opened
 
-    const handleChange = (panel) => (event, isExpanded) => {
+    const handleChange = (panel) => (event, isExpanded) => { 
       setExpanded(isExpanded ? panel : false);
     };
 
@@ -143,20 +147,21 @@ const Profile = (props) => { //the profile page
     if(localStorage.getItem('udata') != null){
         return(
             <ThemeProvider theme={maintheme} className="profile-page">        
-                <CssBaseline />
+            <CssBaseline /> 
                 <div>
-                        <Grid container justifyContent="center">
-                            <Grid item md={7} direction = "column" >
-                        <h6><br/></h6>
-                                <div>
-
-                                {/**Profile table dark mode */}
-        <Accordion sx={{mt: 3,backgroundColor:props.darkmode?"rgb(113, 111, 111)":"#e3eca4"}} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-            <AccordionSummary
+                    <Grid container justifyContent="center">
+                        <Grid item md={7} direction = "column" >
+                            <h6><br/></h6> {/**adds a space between navbar and profile accordian*/}
+                            <div>
+                        {/* the accordian */}
+                        <Accordion sx={{mt: 3,backgroundColor:props.darkmode?"rgb(113, 111, 111)":"#e3eca4"}} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+                           {/* username box */}
+                <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1bh-content"
             id="panel1bh-header"
             >
+
             <Typography sx={{color: 'text.secondary', width: '55%', flexShrink: 0 }}>
             Username
             </Typography>
@@ -175,7 +180,7 @@ const Profile = (props) => { //the profile page
                 </Box>
             </AccordionDetails>
         </Accordion>
-            {/**Profile table dark mode */}
+        {/* email box */}
         <Accordion sx={{backgroundColor:props.darkmode?"rgb(113, 111, 111)":"#e3eca4"}} expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
             <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
@@ -200,7 +205,7 @@ const Profile = (props) => { //the profile page
         </Box>
             </AccordionDetails>
         </Accordion>
-            {/**Profile table dark mode */}
+            {/**password box*/}
         <Accordion sx={{backgroundColor:props.darkmode?"rgb(113, 111, 111)":"#e3eca4"}} expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
             <AccordionSummary 
             expandIcon={<ExpandMoreIcon />}
@@ -213,7 +218,7 @@ const Profile = (props) => { //the profile page
             </Typography>
             </AccordionSummary >
             <AccordionDetails >
-            <Typography>
+            <Typography> 
                 <Box // CHANGE PASSWORD FIELDS
                 component="form"
                 sx={{
@@ -226,6 +231,7 @@ const Profile = (props) => { //the profile page
                 InputProps={{ // <-- This is where the toggle button is added.
         endAdornment: (
         <InputAdornment position="end">
+            {/* icon for show or hide password */}
             <IconButton
             aria-label="toggle password visibility"
             onClick={handleClickShowPassword}
@@ -243,12 +249,12 @@ const Profile = (props) => { //the profile page
         </Accordion>
         </div>
 
-        
-                                <Stack justifyContent="center" spacing={2} direction="row" sx={{mt: 5, mb:10}}>
-                                <TextField size = "small" id="old-password-input " label="Old Password"  type={showPassword1 ? "text" : "password"} value={oldPassword} onChange={op => setOldPassword(op.target.value)}
+           {/* outside field text for password verification */}
+                        <Stack justifyContent="center" spacing={2} direction="row" sx={{mt: 5, mb:10}}>
+                            <TextField size = "small" id="old-password-input " label="Old Password"  type={showPassword1 ? "text" : "password"} value={oldPassword} onChange={op => setOldPassword(op.target.value)}
                                 InputProps={{ // <-- This is where the toggle button is added.
                                 endAdornment: (
-                                    <InputAdornment position="end">
+                                <InputAdornment position="end">
                                     <IconButton
                                         aria-label="toggle pass visibility"
                                         onClick={handleClickShowPassword1}
@@ -256,13 +262,12 @@ const Profile = (props) => { //the profile page
                                     >
                                         {showPassword1 ? <VisibilityIcon /> : <VisibilityOffIcon />}
                                     </IconButton>
-                                    </InputAdornment>
+                                </InputAdornment>
                                 )
-                                }}/>
-                                    <a  justifyContent="center" className="btn" onClick={() => updateCall(oldPassword, newPassword1, newPassword2, newEmail, newUsername)}>
+                                    }}/>
+                                    <a  justify="center" className="btn" onClick={() => updateCall(oldPassword, newPassword1, newPassword2, newEmail, newUsername)}>
                                     Submit{" "}
                                     </a>
-                
                                 </Stack>
                             </Grid>
                         </Grid>

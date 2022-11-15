@@ -15,17 +15,17 @@ import VietnameseImage from "../Images/Home-images/vietname.jpeg";
 import Table5Image from "../Images/Home-images/table5.jpeg";
 
 function Home(props) {
-  
-
   return (
+    // add dark mode check
     <div className={`Home ${props.darkmode ? "darkmode-page" : ""}`}>
       <div className="header">
         <div className="container">
+          {/*************************************       START HEADER       *************************************/}
           <div className="row">
             <div className="col-2">
               <h1>
                 Limit Your Food Waste & Efficiently Cook Meals <br />
-                with Recipes You Already Have!
+                with Ingredients You Already Have!
               </h1>
               <p>
                 Enter the ingredients that are in your pantry, <br />
@@ -40,7 +40,10 @@ function Home(props) {
               <img src={TableImage} />
             </div>
           </div>
+          {/*************************************       END HEADER       *************************************/}
+          
           {/* <!------ featured categories ------ > */}
+          {/* adding different types of food with pictures */}
           <div className="categories">
             <div className="small-container">
               <h2 className="title">Cuisines</h2>
@@ -131,6 +134,7 @@ function Home(props) {
                 </div>
               </div>
             </div>
+
             {/* <!------ most famous recipe ------> */}
             <div className="popular">
               <div className="small-container">
@@ -161,7 +165,7 @@ function Home(props) {
             </div>
           </div>
         </div>
-      </div>   
+      </div>
     </div>
   );
 }
